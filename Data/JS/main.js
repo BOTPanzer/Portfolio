@@ -1306,11 +1306,11 @@ function switchTheme() {
 function setTheme() {
   if (theme.dark) {
     localStorage.setItem('theme', 'dark')
-    document.getElementById('topTheImg').src = 'Data/Images/Icons/dark.png'
+    document.getElementById('topTheImg').src = 'Data/Images/Icons/dark.webp'
     html.removeAttribute('light')
   } else {
     localStorage.setItem('theme', 'light')
-    document.getElementById('topTheImg').src = 'Data/Images/Icons/light.png'
+    document.getElementById('topTheImg').src = 'Data/Images/Icons/light.webp'
     html.setAttribute('light', '')
   }
 }
@@ -1537,14 +1537,14 @@ aboutUpdate()
 
 function aboutUpdate() {
   const imgs = [
-    'Data/Images/About/artyom.jpg',
-    'Data/Images/About/canary.jpg',
-    'Data/Images/About/cat.jpg',
-    'Data/Images/About/finisterre.jpg',
-    'Data/Images/About/mallorca.jpg',
-    'Data/Images/About/otivar.jpg',
-    'Data/Images/About/flower.jpg',
-    'Data/Images/About/lennon.jpg'
+    'Data/Images/About/artyom.webp',
+    'Data/Images/About/canary.webp',
+    'Data/Images/About/cat.webp',
+    'Data/Images/About/finisterre.webp',
+    'Data/Images/About/mallorca.webp',
+    'Data/Images/About/otivar.webp',
+    'Data/Images/About/flower.webp',
+    'Data/Images/About/lennon.webp'
   ]
   aboutImg.src = imgs[about.order[about.index]]
 }
@@ -1738,7 +1738,7 @@ function addProject(animate) {
       <!-- Video button -->
       <div class="projectVideoButton" ${typeof vid === 'string' ? '' : 'hidden'}>
         <span onclick="toggleVideo(${projs.created}, 'https://www.youtube.com/embed/${vid}')">
-          <img src="Data/Images/Icons/play.png">
+          <img src="Data/Images/Icons/play.webp">
           <span>${locales.vid}</span>
         </span>
       </div>
@@ -1747,7 +1747,7 @@ function addProject(animate) {
       <!-- Image & video -->
       <div class="projectMediaContent">
         <!-- Image -->
-        <img src="Data/Images/Projects/${project.key}.jpg">
+        <img src="Data/Images/Projects/${project.key}.webp">
         <!-- Video -->
         <iframe id="${id}-video" allow="fullscreen"></iframe>
       </div>
