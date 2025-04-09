@@ -1,420 +1,423 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Main -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pancoverse</title>
+    <title>Portfolio</title>
     <link rel="icon" href="Data/Images/favicon.png">
     <!-- CSS & JS -->
-    <link rel="stylesheet" href="Data/CSS/main.css"></link>
+    <link rel="stylesheet" href="Data/CSS/main.css">
+    </link>
     <script src="Data/JS/confetti.browser.min.js"></script>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1D9J918FEK"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-1D9J918FEK');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-1D9J918FEK');
     </script>
-  </head>
-  
+</head>
 
 
 
 
-  <body>
+
+<body>
     <!-- Overlay -->
-    <div class="overlay">  
-      <!-- Navbar -->
-      <div class="nav">
-        <div class="navButton" onclick="goto('home')">
-          <span>00.&nbsp;</span>
-          <span id="navHome">Home</span>
+    <div class="overlay">
+        <!-- Navbar -->
+        <div class="nav">
+            <div class="navButton" onclick="goto('home')">
+                <span>00.&nbsp;</span>
+                <span id="navHome">Home</span>
+            </div>
+            <div class="navButton" onclick="goto('about')">
+                <span>01.&nbsp;</span>
+                <span id="navAbout">About</span>
+            </div>
+            <div class="navButton" onclick="goto('skills')">
+                <span>02.&nbsp;</span>
+                <span id="navSkills">Skills</span>
+            </div>
+            <div class="navButton" onclick="goto('projects')">
+                <span>03.&nbsp;</span>
+                <span id="navProjects">Projects</span>
+            </div>
+            <div id="navSpace"></div>
         </div>
-        <div class="navButton" onclick="goto('about')">
-          <span>01.&nbsp;</span>
-          <span id="navAbout">About</span>
-        </div>
-        <div class="navButton" onclick="goto('skills')">
-          <span>02.&nbsp;</span>
-          <span id="navSkills">Skills</span>
-        </div>
-        <div class="navButton" onclick="goto('projects')">
-          <span>03.&nbsp;</span>
-          <span id="navProjects">Projects</span>
-        </div>
-        <div id="navSpace"></div>
-      </div>
 
-      <!-- Top menu -->
-      <div id="navMenuExit" onclick="toggleNavMenu(false)"> 
-        <div id="navMenu" onclick="event.stopPropagation(); if (!menuOpen) toggleNavMenu(true);">
-          <div class="navMenuOpen">
-            <img src="Data/Images/Icons/more.webp">
-            <span id="navMenuOpen">Menu</span>
-            <dot id="actionDot1" class="actionDot" style="margin: 3px 4px 0 0;"></dot>
-          </div>
-          <div onclick="event.stopPropagation()">
-            <div class="navMenuButton" always onclick="toggleNavMenu(false)">
-              <img src="Data/Images/Icons/close.webp">
-              <span id="navMenuClose">Close</span>
+        <!-- Top menu -->
+        <div id="navMenuExit" onclick="toggleNavMenu(false)">
+            <div id="navMenu" onclick="event.stopPropagation(); if (!menuOpen) toggleNavMenu(true);">
+                <div class="navMenuOpen">
+                    <img src="Data/Images/Icons/more.webp">
+                    <span id="navMenuOpen">Menu</span>
+                    <dot id="actionDot1" class="actionDot" style="margin: 3px 4px 0 0;"></dot>
+                </div>
+                <div onclick="event.stopPropagation()">
+                    <div class="navMenuButton" always onclick="toggleNavMenu(false)">
+                        <img src="Data/Images/Icons/close.webp">
+                        <span id="navMenuClose">Close</span>
+                    </div>
+                    <div class="navMenuButton" onclick="goto('home')">
+                        <img src="Data/Images/Icons/home.webp">
+                        <span id="navMenuHome">Home</span>
+                    </div>
+                    <div class="navMenuButton" onclick="goto('about')">
+                        <img src="Data/Images/Icons/about.webp">
+                        <span id="navMenuAbout">About</span>
+                    </div>
+                    <div class="navMenuButton" onclick="goto('skills')">
+                        <img src="Data/Images/Icons/skills.webp">
+                        <span id="navMenuSkills">Skills</span>
+                    </div>
+                    <div class="navMenuButton" onclick="goto('projects')">
+                        <img src="Data/Images/Icons/projects.webp">
+                        <span id="navMenuProjects">Projects</span>
+                    </div>
+                    <div class="navMenuButton" onclick="goto('bot')">
+                        <img src="Data/Images/Icons/email.webp">
+                        <span id="navMenuContact">Contact</span>
+                    </div>
+                    <div class="navMenuButton" always onclick="switchTheme()">
+                        <img id="topTheImg" src="Data/Images/Icons/dark.webp">
+                        <span id="navMenuTheme">Theme</span>
+                    </div>
+                    <div class="navMenuButton" always onclick="switchLan()">
+                        <img src="Data/Images/Icons/language.webp">
+                        <span id="navMenuLanguage">English</span>
+                    </div>
+                    <div class="navMenuButton" always onclick="toggleAchievements()">
+                        <img src="Data/Images/Icons/cup.webp">
+                        <span id="navMenuAchievements">Achievements</span>
+                        <dot id="actionDot2" class="actionDot" style="left: 35px;"></dot>
+                    </div>
+                </div>
             </div>
-            <div class="navMenuButton" onclick="goto('home')">
-              <img src="Data/Images/Icons/home.webp">
-              <span id="navMenuHome">Home</span>
-            </div>
-            <div class="navMenuButton" onclick="goto('about')">
-              <img src="Data/Images/Icons/about.webp">
-              <span id="navMenuAbout">About</span>
-            </div>
-            <div class="navMenuButton" onclick="goto('skills')">
-              <img src="Data/Images/Icons/skills.webp">
-              <span id="navMenuSkills">Skills</span>
-            </div>
-            <div class="navMenuButton" onclick="goto('projects')">
-              <img src="Data/Images/Icons/projects.webp">
-              <span id="navMenuProjects">Projects</span>
-            </div>
-            <div class="navMenuButton" onclick="goto('bot')">
-              <img src="Data/Images/Icons/email.webp">
-              <span id="navMenuContact">Contact</span>
-            </div>
-            <div class="navMenuButton" always onclick="switchTheme()">
-              <img id="topTheImg" src="Data/Images/Icons/dark.webp">
-              <span id="navMenuTheme">Theme</span>
-            </div>
-            <div class="navMenuButton" always onclick="switchLan()">
-              <img src="Data/Images/Icons/language.webp">
-              <span id="navMenuLanguage">English</span>
-            </div>
-            <div class="navMenuButton" always onclick="toggleAchievements()">
-              <img src="Data/Images/Icons/cup.webp">
-              <span id="navMenuAchievements">Achievements</span>
-              <dot id="actionDot2" class="actionDot" style="left: 35px;"></dot>
-            </div>
-          </div>
         </div>
-      </div>
 
-      <!-- Achievements -->
-      <dialog id="achMenu">
-        <!-- Title & close button -->
-        <span id="achMenuTitle" class="menuTitle">ACHIEVEMENTS</span>
-        <div class="menuClose" onclick="toggleAchievements()">
-          <img src="Data/Images/Icons/close.webp">
+        <!-- Achievements -->
+        <dialog id="achMenu">
+            <!-- Title & close button -->
+            <span id="achMenuTitle" class="menuTitle">ACHIEVEMENTS</span>
+            <div class="menuClose" onclick="toggleAchievements()">
+                <img src="Data/Images/Icons/close.webp">
+            </div>
+            <!-- Achievements list -->
+            <div class="achMenuList">
+                <div id="ach1" class="achievement" locked>
+                    <img src="Data/Images/Achievements/socials.webp">
+                    <div>
+                        <div id="ach1Title">Interested fellow</div>
+                        <div id="ach1Description">Given after opening all my social links</div>
+                    </div>
+                    <span id="ach1Lock">LOCKED</span>
+                </div>
+                <div id="ach2" class="achievement" locked>
+                    <img src="Data/Images/Achievements/artyom.webp">
+                    <div>
+                        <div id="ach2Title">Best friends</div>
+                        <div id="ach2Description">Given after clicking 7 times on Artyom (my gecko)</div>
+                    </div>
+                    <span id="ach2Lock">LOCKED</span>
+                </div>
+                <div id="ach3" class="achievement" locked>
+                    <img src="Data/Images/Achievements/drill.webp">
+                    <div>
+                        <div id="ach3Title">Go with the flow</div>
+                        <div id="ach3Description">Given after finding the secret Drill glasses</div>
+                    </div>
+                    <span id="ach3Lock">LOCKED</span>
+                </div>
+            </div>
+        </dialog>
+
+        <!-- Socials -->
+        <div class="socials">
+            <div class="socialsLine"></div>
+            <a class="socialsButton" onclick="copyMail()">
+                <img src="Data/Images/Icons/email.webp">
+            </a>
+            <a class="socialsButton" target="_blank" href="https://www.linkedin.com/in/alejandro-paniagua-moreno" onclick="socialsOpen=true">
+                <img src="Data/Images/Icons/linkedin.webp">
+            </a>
+            <a class="socialsButton" target="_blank" href="https://github.com/BOTPanzer/" onclick="socialsOpen=true">
+                <img src="Data/Images/Icons/git.webp">
+            </a>
+            <a class="socialsButton" target="_blank" href="https://botpa.itch.io/" onclick="socialsOpen=true">
+                <img src="Data/Images/Icons/itchio.webp">
+            </a>
+            <a class="socialsButton" target="_blank" href="https://www.reddit.com/user/Botpa69" onclick="socialsOpen=true">
+                <img src="Data/Images/Icons/reddit.webp">
+            </a>
+            <a class="socialsButton" target="_blank" href="https://www.youtube.com/@botpa" onclick="socialsOpen=true">
+                <img src="Data/Images/Icons/yt.webp">
+            </a>
+            <a class="socialsButton" target="_blank" href="https://www.tiktok.com/@botpanzer" onclick="socialsOpen=true">
+                <img src="Data/Images/Icons/tiktok.webp">
+            </a>
         </div>
-        <!-- Achievements list -->
-        <div class="achMenuList">
-          <div id="ach1" class="achievement" locked>
-            <img src="Data/Images/Achievements/socials.webp">
-            <div>
-              <div id="ach1Title">Interested fellow</div>
-              <div id="ach1Description">Given after opening all my social links</div>
-            </div>
-            <span id="ach1Lock">LOCKED</span>
-          </div>
-          <div id="ach2" class="achievement" locked>
-            <img src="Data/Images/Achievements/artyom.webp">
-            <div>
-              <div id="ach2Title">Best friends</div>
-              <div id="ach2Description">Given after clicking 7 times on Artyom (my gecko)</div>
-            </div>
-            <span id="ach2Lock">LOCKED</span>
-          </div>
-          <div id="ach3" class="achievement" locked>
-            <img src="Data/Images/Achievements/drill.webp">
-            <div>
-              <div id="ach3Title">Go with the flow</div>
-              <div id="ach3Description">Given after finding the secret Drill glasses</div>
-            </div>
-            <span id="ach3Lock">LOCKED</span>
-          </div>
+
+        <!-- Balls -->
+        <div class="balls">
+            <div id="ballHome" class="ball" onclick="goto('home')" checked></div>
+            <div id="ballAbout" class="ball" onclick="goto('about')"></div>
+            <div id="ballSkills" class="ball" onclick="goto('skills')"></div>
+            <div id="ballProjects" class="ball" onclick="goto('projects')"></div>
         </div>
-      </dialog>
 
-      <!-- Socials -->
-      <div class="socials">
-        <div class="socialsLine"></div>
-        <a class="socialsButton" onclick="copyMail()">
-          <img src="Data/Images/Icons/email.webp">
-        </a>
-        <a class="socialsButton" target="_blank" href="https://www.linkedin.com/in/alejandro-paniagua-moreno" onclick="socialsOpen=true">
-          <img src="Data/Images/Icons/linkedin.webp">
-        </a>
-        <a class="socialsButton" target="_blank" href="https://github.com/BOTPanzer/" onclick="socialsOpen=true">
-          <img src="Data/Images/Icons/git.webp">
-        </a>
-        <a class="socialsButton" target="_blank" href="https://botpa.itch.io/" onclick="socialsOpen=true">
-          <img src="Data/Images/Icons/itchio.webp">
-        </a>
-        <a class="socialsButton" target="_blank" href="https://www.reddit.com/user/Botpa69" onclick="socialsOpen=true">
-          <img src="Data/Images/Icons/reddit.webp">
-        </a>
-        <a class="socialsButton" target="_blank" href="https://www.youtube.com/@botpa" onclick="socialsOpen=true">
-          <img src="Data/Images/Icons/yt.webp">
-        </a>
-        <a class="socialsButton" target="_blank" href="https://www.tiktok.com/@botpanzer" onclick="socialsOpen=true">
-          <img src="Data/Images/Icons/tiktok.webp">
-        </a>
-      </div>
-
-      <!-- Balls -->
-      <div class="balls">
-        <div id="ballHome" class="ball" onclick="goto('home')" checked></div>
-        <div id="ballAbout" class="ball" onclick="goto('about')"></div>
-        <div id="ballSkills" class="ball" onclick="goto('skills')"></div>
-        <div id="ballProjects" class="ball" onclick="goto('projects')"></div>
-      </div>
-
-      <!-- Snackbar -->
-      <div id="snackbar"></div>
+        <!-- Snackbar -->
+        <div id="snackbar"></div>
     </div>
 
     <!-- Waves -->
     <div id="waves">
-      <div>
-        <svg class="wave" viewBox="0 0 1440 320">
-          <path d="M0,160L48,160C96,160,192,160,288,176C384,192,480,224,576,240C672,256,768,256,864,250.7C960,245,1056,235,1152,224C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
-        <svg class="wave" viewBox="0 0 1440 320">
-          <path d="M0,256L48,245.3C96,235,192,213,288,202.7C384,192,480,192,576,176C672,160,768,128,864,144C960,160,1056,224,1152,245.3C1248,267,1344,245,1392,234.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
-        <svg class="wave" viewBox="0 0 1440 320">
-          <path d="M0,224L48,234.7C96,245,192,267,288,261.3C384,256,480,224,576,213.3C672,203,768,213,864,224C960,235,1056,245,1152,229.3C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
-        <div></div>
-      </div>
+        <div>
+            <svg class="wave" viewBox="0 0 1440 320">
+                <path d="M0,160L48,160C96,160,192,160,288,176C384,192,480,224,576,240C672,256,768,256,864,250.7C960,245,1056,235,1152,224C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+            <svg class="wave" viewBox="0 0 1440 320">
+                <path d="M0,256L48,245.3C96,235,192,213,288,202.7C384,192,480,192,576,176C672,160,768,128,864,144C960,160,1056,224,1152,245.3C1248,267,1344,245,1392,234.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+            <svg class="wave" viewBox="0 0 1440 320">
+                <path d="M0,224L48,234.7C96,245,192,267,288,261.3C384,256,480,224,576,213.3C672,203,768,213,864,224C960,235,1056,245,1152,229.3C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+            <div></div>
+        </div>
     </div>
 
     <!-- Home -->
     <div id="home" class="page">
-      <!-- Image -->
-      <div class="homeMe">
-        <img src="Data/Images/me.webp">
-        <div></div>
-      </div>
-
-      <!-- Text -->
-      <span id="homeHi">Howdy! I'm</span>
-      <span id="homeTitle1">ALEJANDRO PANIAGUA</span>
-      <span id="homeTitle2" class="shadow">And I love programming and designing</span>
-      <span class="homeDT shadow">
-        <span id="homeDescription">I'm a spanish studient, currently studying a videogame development degree, who has developed all sort of skills since little.</span>
-        <span id="homeType1">I consider myself</span>
-        <span id="homeType2">a 3D printing hobbyist</span><span class="homeLine">|</span>
-      </span>
-
-      <!-- Go to about -->
-      <div id="homeAbout" class="button" onclick="goto('about')">See more about me!</div>
-    </div>
-    
-    <!-- About -->
-    <div id="about" class="page">
-      <!-- Text -->
-      <div class="aboutTextBox appear">
-        <!-- Top -->
-        <div class="pageTop">
-          <div class="pageTitle">
-            <span>01.&nbsp;</span>
-            <span id="aboutTitle">About Me</span>
-          </div>
-          <div class="pageTitleLine"></div>
+        <!-- Image -->
+        <div class="homeMe">
+            <img src="Data/Images/me.webp">
+            <div></div>
         </div>
 
-        <!-- Description -->
-        <span>
-          <span id="aboutDescription1">Howdy! My name is Alejandro, but you call me Alex. I'm a spanish developer who likes spending time creating games and apps.</span>
-          <br><br>
-          <span id="aboutDescription2">I started making games in 2015 at the age of 11, took a break to learn web and app development in 2019 and returned to doing all of them in 2022.</span>
-          <br><br>
-          <span id="aboutDescription3">I'm a well-organized, independent person who loves giving things his own touch. Some of my interests are playing, programming and designing, but I also enjoy 3D printing and DIY projects.</span>
+        <!-- Text -->
+        <span id="homeHi">Howdy! I'm</span>
+        <span id="homeTitle1">ALEJANDRO PANIAGUA</span>
+        <span id="homeTitle2" class="shadow">And I love programming and designing</span>
+        <span class="homeDT shadow">
+            <span id="homeDescription">I'm a spanish studient, currently studying a videogame development degree, who has developed all sort of skills since little.</span>
+            <span id="homeType1">I consider myself</span>
+            <span id="homeType2">a 3D printing hobbyist</span><span class="homeLine">|</span>
         </span>
 
-        <!-- Go to skills -->
-        <div id="aboutSkills" class="button" onclick="goto('skills')">Check out my skills!</div>
-      </div>
+        <!-- Go to about -->
+        <div id="homeAbout" class="button" onclick="goto('about')">See more about me!</div>
+    </div>
 
-      <!-- Image -->
-      <div class="aboutImgBox appear" onclick="aboutClick()">
-        <img id="aboutImg">
-        <div id="aboutImgName">Image Name</div>
-        <div id="aboutImgNext">Click for next image</div>
-      </div>
+    <!-- About -->
+    <div id="about" class="page">
+        <!-- Text -->
+        <div class="aboutTextBox appear">
+            <!-- Top -->
+            <div class="pageTop">
+                <div class="pageTitle">
+                    <span>01.&nbsp;</span>
+                    <span id="aboutTitle">About Me</span>
+                </div>
+                <div class="pageTitleLine"></div>
+            </div>
+
+            <!-- Description -->
+            <span>
+                <span id="aboutDescription1">Howdy! My name is Alejandro, but you call me Alex. I'm a spanish developer who likes spending time creating games and apps.</span>
+                <br><br>
+                <span id="aboutDescription2">I started making games in 2015 at the age of 11, took a break to learn web and app development in 2019 and returned to doing all of them in 2022.</span>
+                <br><br>
+                <span id="aboutDescription3">I'm a well-organized, independent person who loves giving things his own touch. Some of my interests are playing, programming and designing, but I also enjoy 3D printing and DIY projects.</span>
+            </span>
+
+            <!-- Go to skills -->
+            <div id="aboutSkills" class="button" onclick="goto('skills')">Check out my skills!</div>
+        </div>
+
+        <!-- Image -->
+        <div class="aboutImgBox appear" onclick="aboutClick()">
+            <img id="aboutImg">
+            <div id="aboutImgName">Image Name</div>
+            <div id="aboutImgNext">Click for next image</div>
+        </div>
     </div>
 
     <!-- Skills -->
     <div id="skills" class="page">
-      <!-- Text -->
-      <div class="skillsTextBox">
-        <!-- Top -->
-        <div class="pageTop">
-          <div class="pageTitle">
-            <span>02.&nbsp;</span>
-            <span id="skillsTitle">My Skills</span>
-          </div>
-          <div class="pageTitleLine"></div>
+        <!-- Text -->
+        <div class="skillsTextBox">
+            <!-- Top -->
+            <div class="pageTop">
+                <div class="pageTitle">
+                    <span>02.&nbsp;</span>
+                    <span id="skillsTitle">My Skills</span>
+                </div>
+                <div class="pageTitleLine"></div>
+            </div>
+
+            <!-- Description -->
+            <span id="skillsDescription">I've been interested in the world of computers ever since I was little and, thanks to that, I have expanded my skills around a large variety of topics such as:</span>
         </div>
 
-        <!-- Description -->
-        <span id="skillsDescription">I've been interested in the world of computers ever since I was little and, thanks to that, I have expanded my skills around a large variety of topics such as:</span>
-      </div>
+        <!-- Skill bars -->
+        <div class="skillsBars">
+            <div class="skillsBar">
+                <div>
+                    <span id="skillsVidTitle">Videogames Development</span>
+                    <span id="skillsVidPro">Advanced</span>
+                </div>
+                <div>
+                    <div style="width: var(--skills1);"></div>
+                </div>
+                <span>Unity · C# · C++ · VS Code</span>
+            </div>
 
-      <!-- Skill bars -->
-      <div class="skillsBars">
-        <div class="skillsBar">
-          <div>
-            <span id="skillsVidTitle">Videogames Development</span>
-            <span id="skillsVidPro">Advanced</span>
-          </div>
-          <div>
-            <div style="width: var(--skills1);"></div>
-          </div>
-          <span>Unity · C# · C++ · VS Code</span>
-        </div>
-        
-        <div class="skillsBar">
-          <div>
-            <span id="skillsUiTitle">UI/UX Design</span>
-            <span id="skillsUiPro">Medium</span>
-          </div>
-          <div>
-            <div style="width: var(--skills5);"></div>
-          </div>
-          <span>Figma · Illustrator</span>
+            <div class="skillsBar">
+                <div>
+                    <span id="skillsUiTitle">UI/UX Design</span>
+                    <span id="skillsUiPro">Medium</span>
+                </div>
+                <div>
+                    <div style="width: var(--skills5);"></div>
+                </div>
+                <span>Figma · Illustrator</span>
+            </div>
+
+            <div class="skillsBar">
+                <div>
+                    <span id="skillsWebTitle">Web Development</span>
+                    <span id="skillsWebPro">High</span>
+                </div>
+                <div>
+                    <div style="width: var(--skills3);"></div>
+                </div>
+                <span>HTML · CSS · JS</span>
+            </div>
+
+            <div class="skillsBar">
+                <div>
+                    <span id="skillsAppTitle">Apps Development</span>
+                    <span id="skillsAppPro">High</span>
+                </div>
+                <div>
+                    <div style="width: var(--skills2);"></div>
+                </div>
+                <span>Android Studio · Java · NodeJS · ElectronJS</span>
+            </div>
+
+            <div class="skillsBar">
+                <div>
+                    <span id="skills3dTitle">3D Modeling/Printing & CAD</span>
+                    <span id="skills3dPro">Medium</span>
+                </div>
+                <div>
+                    <div style="width: var(--skills4);"></div>
+                </div>
+                <span>Blender · 3DS MAX · Fusion 360 · Cura</span>
+            </div>
+
+            <div class="skillsBar">
+                <div>
+                    <span id="skillsArtTitle">Art & Media</span>
+                    <span id="skillsArtPro">Medium</span>
+                </div>
+                <div>
+                    <div style="width: var(--skills6);"></div>
+                </div>
+                <span>Photoshop · Illustrator · Audition · DaVinci Resolve</span>
+            </div>
         </div>
 
-        <div class="skillsBar">
-          <div>
-            <span id="skillsWebTitle">Web Development</span>
-            <span id="skillsWebPro">High</span>
-          </div>
-          <div>
-            <div style="width: var(--skills3);"></div>
-          </div>
-          <span>HTML · CSS · JS</span>
-        </div>
-        
-        <div class="skillsBar">
-          <div>
-            <span id="skillsAppTitle">Apps Development</span>
-            <span id="skillsAppPro">High</span>
-          </div>
-          <div>
-            <div style="width: var(--skills2);"></div>
-          </div>
-          <span>Android Studio · Java · NodeJS · ElectronJS</span>
-        </div>
-        
-        <div class="skillsBar">
-          <div>
-            <span id="skills3dTitle">3D Modeling/Printing & CAD</span>
-            <span id="skills3dPro">Medium</span>
-          </div>
-          <div>
-            <div style="width: var(--skills4);"></div>
-          </div>
-          <span>Blender · 3DS MAX · Fusion 360 · Cura</span>
-        </div>
-        
-        <div class="skillsBar">
-          <div>
-            <span id="skillsArtTitle">Art & Media</span>
-            <span id="skillsArtPro">Medium</span>
-          </div>
-          <div>
-            <div style="width: var(--skills6);"></div>
-          </div>
-          <span>Photoshop · Illustrator · Audition · DaVinci Resolve</span>
-        </div>
-      </div>
-      
-      <!-- Go to projects -->
-      <div id="skillsProjects" class="button" onclick="goto('projects')">Check out my projects!</div>
+        <!-- Go to projects -->
+        <div id="skillsProjects" class="button" onclick="goto('projects')">Check out my projects!</div>
     </div>
 
     <!-- Projects -->
     <div id="projects" class="page">
-      <!-- Top -->
-      <div class="projectsTop">
-        <div class="pageTitle">
-          <span>03.&nbsp;</span>
-          <span id="projectsTitle">My Projects</span>
+        <!-- Top -->
+        <div class="projectsTop">
+            <div class="pageTitle">
+                <span>03.&nbsp;</span>
+                <span id="projectsTitle">My Projects</span>
+            </div>
+            <div class="pageTitleLine"></div>
         </div>
-        <div class="pageTitleLine"></div>
-      </div>
-      
-      <!-- Category, sort & filter -->
-      <span id="projectsFilterBox">
-        <span>
-          <span id="projectsCategory">Category:</span>
-          <span id="projectsCategoryBy" class="projectTag" onclick="toggleFiltersMenu('category')">All</span>
-        </span>
-        <span>
-          <span id="projectsFilter">Filter by:</span>
-          <span id="projectsFilterBy" class="projectTag" onclick="toggleFiltersMenu()">Bomba Bomba Bomba</span>
-        </span>
-        <span>
-          <span id="projectsSort">Sort by:</span>
-          <span id="projectsSortBy" class="projectTag" onclick="if (projs.sort == 'date') { projs.sort = ''; } else { projs.sort = 'date'; } refreshProjects();">Bomba Bomba</span>
-        </span>
-      </span>
 
-      <!-- Filters menu -->
-      <dialog id="filterMenu">
-        <!-- Title & close button -->
-        <span id="filterMenuTitle" class="menuTitle">FILTER BY</span>
-        <div class="menuClose" onclick="toggleFiltersMenu()">
-          <img src="Data/Images/Icons/close.webp">
+        <!-- Category, sort & filter -->
+        <span id="projectsFilterBox">
+            <span>
+                <span id="projectsCategory">Category:</span>
+                <span id="projectsCategoryBy" class="projectTag" onclick="toggleFiltersMenu('category')">All</span>
+            </span>
+            <span>
+                <span id="projectsFilter">Filter by:</span>
+                <span id="projectsFilterBy" class="projectTag" onclick="toggleFiltersMenu()">Bomba Bomba Bomba</span>
+            </span>
+            <span>
+                <span id="projectsSort">Sort by:</span>
+                <span id="projectsSortBy" class="projectTag" onclick="if (projs.sort == 'date') { projs.sort = ''; } else { projs.sort = 'date'; } refreshProjects();">Bomba Bomba</span>
+            </span>
+        </span>
+
+        <!-- Filters menu -->
+        <dialog id="filterMenu">
+            <!-- Title & close button -->
+            <span id="filterMenuTitle" class="menuTitle">FILTER BY</span>
+            <div class="menuClose" onclick="toggleFiltersMenu()">
+                <img src="Data/Images/Icons/close.webp">
+            </div>
+            <!-- Tags list -->
+            <div id="filterMenuTags"></div>
+        </dialog>
+
+        <!-- List -->
+        <div id="projectsList"></div>
+
+        <!-- Show more -->
+        <div id="projectsMoreBox" class="projectsMoreBox">
+            <div id="projectsMore" class="button" onclick="addProject(); addProject();">Show more</div>
         </div>
-        <!-- Tags list -->
-        <div id="filterMenuTags"></div>
-      </dialog>
-
-      <!-- List -->
-      <div id="projectsList"></div>
-
-      <!-- Show more -->
-      <div id="projectsMoreBox" class="projectsMoreBox">
-        <div id="projectsMore" class="button" onclick="addProject(); addProject();">Show more</div>
-      </div>
     </div>
 
     <!-- Bottom -->
     <div id="bot" class="bot">
-      <div id="botFrom" style="font-size: 1.2em; font-family: lemon;">Arcane</div>
-      <div id="botQuote" style="font-size: 2em; font-family: lemon; text-align: center;">There's a monster inside all of us</div>
-      <div class="botSocials">
-        <a class="socialsButton" onclick="copyMail()">
-          <img src="Data/Images/Icons/email.webp">
-        </a>
-        <a class="socialsButton" target="_blank" href="https://www.linkedin.com/in/alejandro-paniagua-moreno" onclick="socialsOpen=true">
-          <img src="Data/Images/Icons/linkedin.webp">
-        </a>
-        <a class="socialsButton" target="_blank" href="https://github.com/BOTPanzer/" onclick="socialsOpen=true">
-          <img src="Data/Images/Icons/git.webp">
-        </a>
-        <a class="socialsButton" target="_blank" href="https://botpa.itch.io/" onclick="socialsOpen=true">
-          <img src="Data/Images/Icons/itchio.webp">
-        </a>
-        <a class="socialsButton" target="_blank" href="https://www.reddit.com/user/Botpa69" onclick="socialsOpen=true">
-          <img src="Data/Images/Icons/reddit.webp">
-        </a>
-        <a class="socialsButton" target="_blank" href="https://www.youtube.com/@botpa" onclick="socialsOpen=true">
-          <img src="Data/Images/Icons/yt.webp">
-        </a>
-        <a class="socialsButton" target="_blank" href="https://www.tiktok.com/@botpanzer" onclick="socialsOpen=true">
-          <img src="Data/Images/Icons/tiktok.webp">
-        </a>
-      </div>
-      <div id="botCredits" style="font-size: 0.75em; text-align: center; margin-top: 12px; margin-bottom: 10x;">Copyright © Alejandro Paniagua</div>
+        <div id="botFrom" style="font-size: 1.2em; font-family: lemon;">Arcane</div>
+        <div id="botQuote" style="font-size: 2em; font-family: lemon; text-align: center;">There's a monster inside all of us</div>
+        <div class="botSocials">
+            <a class="socialsButton" onclick="copyMail()">
+                <img src="Data/Images/Icons/email.webp">
+            </a>
+            <a class="socialsButton" target="_blank" href="https://www.linkedin.com/in/alejandro-paniagua-moreno" onclick="socialsOpen=true">
+                <img src="Data/Images/Icons/linkedin.webp">
+            </a>
+            <a class="socialsButton" target="_blank" href="https://github.com/BOTPanzer/" onclick="socialsOpen=true">
+                <img src="Data/Images/Icons/git.webp">
+            </a>
+            <a class="socialsButton" target="_blank" href="https://botpa.itch.io/" onclick="socialsOpen=true">
+                <img src="Data/Images/Icons/itchio.webp">
+            </a>
+            <a class="socialsButton" target="_blank" href="https://www.reddit.com/user/Botpa69" onclick="socialsOpen=true">
+                <img src="Data/Images/Icons/reddit.webp">
+            </a>
+            <a class="socialsButton" target="_blank" href="https://www.youtube.com/@botpa" onclick="socialsOpen=true">
+                <img src="Data/Images/Icons/yt.webp">
+            </a>
+            <a class="socialsButton" target="_blank" href="https://www.tiktok.com/@botpanzer" onclick="socialsOpen=true">
+                <img src="Data/Images/Icons/tiktok.webp">
+            </a>
+        </div>
+        <div id="botCredits" style="font-size: 0.75em; text-align: center; margin-top: 12px; margin-bottom: 10x;">Copyright © Alejandro Paniagua</div>
     </div>
-  </body>
-
-  
+</body>
 
 
 
-  <!-- JS -->
-  <script src="Data/JS/main.js"></script>
+
+
+<!-- JS -->
+<script src="Data/JS/main.js"></script>
+
 </html>
