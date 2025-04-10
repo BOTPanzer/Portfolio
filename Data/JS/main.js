@@ -150,6 +150,7 @@ const lans = {
                         <br><br>
                         Your goal is to find pickup points, collect food, and deliver it to the drop-off points, performing tricks and flips on your skateboard along the way.`,
                     b1: "Download&nbsp<i>Hardcore Kitty</i>",
+                    vid: 'Gameplay Video'
                 },
                 stealer: {
                     tit: "Turbo Stealer",
@@ -468,6 +469,7 @@ const lans = {
                         <br><br>
                         Tu objetivo es encontrar puntos de recogida, coger la comida y llevarla hasta los puntos de entrega haciendo trucos y piruetas con el skate por el camino.`,
                     b1: "Descargar&nbsp<i>Hardcore Kitty</i>",
+                    vid: 'Ver Gameplay'
                 },
                 stealer: {
                     tit: "Turbo Stealer",
@@ -725,6 +727,7 @@ const Projects = Object.freeze({
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
         button: ['https://botpa.itch.io/hardcore-kitty'],
+        vid: 'S0YSZCOFGlg',
     },
     stealer: {
         key: 'stealer',
