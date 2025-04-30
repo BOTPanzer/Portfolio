@@ -146,7 +146,9 @@ const lans = {
             projects: {
                 hardcoreKitty: {
                     tit: "Hardcore Kitty",
-                    con: `In Hardcore Kitty, you play as a cat working for a delivery company.
+                    con: `Third place in the 6º edition of the <a href="https://itch.io/jam/6-edicin-game-jam-game-scholars" target="_blank">GameScholars gamejam</a>.
+                        <br><br>
+                        In Hardcore Kitty, you play as a cat working for a delivery company.
                         <br><br>
                         Your goal is to find pickup points, collect food, and deliver it to the drop-off points, performing tricks and flips on your skateboard along the way.`,
                     b1: "Download&nbsp<i>Hardcore Kitty</i>",
@@ -465,7 +467,9 @@ const lans = {
             projects: {
                 hardcoreKitty: {
                     tit: "Hardcore Kitty",
-                    con: `En Hardcore Kitty tomarás el rol de un gato que trabaja en una empresa de reparto.
+                    con: `Tercer puesto en la 6º edicion de la <a href="https://itch.io/jam/6-edicin-game-jam-game-scholars" target="_blank">gamejam de GameScholars</a>.
+                        <br><br>
+                        En Hardcore Kitty tomarás el rol de un gato que trabaja en una empresa de reparto.
                         <br><br>
                         Tu objetivo es encontrar puntos de recogida, coger la comida y llevarla hasta los puntos de entrega haciendo trucos y piruetas con el skate por el camino.`,
                     b1: "Descargar&nbsp<i>Hardcore Kitty</i>",
