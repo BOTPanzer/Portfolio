@@ -1,97 +1,94 @@
- /*$      /$$           /$$          
-| $$$    /$$$          |__/          
-| $$$$  /$$$$  /$$$$$$  /$$ /$$$$$$$ 
-| $$ $$/$$ $$ |____  $$| $$| $$__  $$
-| $$  $$$| $$  /$$$$$$$| $$| $$  \ $$
-| $$\  $ | $$ /$$__  $$| $$| $$  | $$
-| $$ \/  | $$|  $$$$$$$| $$| $$  | $$
-|__/     |__/ \_______/|__/|__/  |_*/
+  /*$$$$$  /$$           /$$                 /$$
+ /$$__  $$| $$          | $$                | $$
+| $$  \__/| $$  /$$$$$$ | $$$$$$$   /$$$$$$ | $$
+| $$ /$$$$| $$ /$$__  $$| $$__  $$ |____  $$| $$
+| $$|_  $$| $$| $$  \ $$| $$  \ $$  /$$$$$$$| $$
+| $$  \ $$| $$| $$  | $$| $$  | $$ /$$__  $$| $$
+|  $$$$$$/| $$|  $$$$$$/| $$$$$$$/|  $$$$$$$| $$
+ \______/ |__/ \______/ |_______/  \_______/|_*/
 
-//Get html element
-const html = document.querySelector('html')
-
-
-
-//Socials achievement & title change
-window.onfocus = () => {
-    if (socialsOpen) {
-        giveAchievement('socials')
-        socialsOpen = false;
-    }
-    changeTitle()
-}
-
-
-
-//Language (spanish as default)
-const lans = {
+//Locales
+const locales = {
     en: {
-        tag: 'en',
-        name: "Alex's Portfolio",
-        ach: {
-            title: 'ACHIEVEMENTS',
-            lock: 'LOCKED',
-            ach1: {
-                title: 'Interested Fellow',
-                desc: 'Given after opening one of my social links'
-            },
-            ach2: {
-                title: 'Best Friends',
-                desc: 'Given after finding Artyom (my first gecko)'
-            },
-            ach3: {
-                title: 'Go with the Flow',
-                desc: 'Given after changing the theme twice'
-            }
+        //Locale
+        key: 'en',
+        //Page
+        title: "Alex's Portfolio",
+        //Loading
+        loading: {
+            title: 'LOADING_PORTFOLIO'
         },
-        top: {
+        //Sidebar
+        sidebar: {
             home: 'Home',
-            about: 'About',
+            about: 'About Me',
             skills: 'Skills',
             projects: 'Projects',
-            menu: 'Menu',
-            close: 'Close',
-            theme: 'Theme',
-            language: 'English',
+            contact: 'Contact',
+            localization: 'English',
             achievements: 'Achievements',
-            contact: 'Contact'
         },
-        h: {
-            hi: "Howdy! I'm",
-            tit1: 'ALEJANDRO PANIAGUA',
-            tit2: 'And I love programming and designing',
-            desc: `I'm a spanish studient, currently studying videogame development, who has been interested in games since little.`,
-            type1: 'I consider myself',
-            type2: [
-                'an indie game developer',
+        //Achievements
+        achievements: {
+            title: 'Achievements',
+            description: 'Find new achievements by interacting with things around the page',
+            locked: 'Hidden',
+            theme: {
+                title: 'Alergic to Light',
+                description: 'Try light theme and go back to dark'
+            },
+            artyom: {
+                title: 'Best Friends',
+                description: `Find Artyom's photo (my first gecko)`
+            },
+            project: {
+                title: 'Good Boy',
+                description: 'Open one of my projects links'
+            },
+            contact: {
+                title: 'Interested Fellow',
+                description: 'Open one of my contact links'
+            },
+        },
+        //Home
+        home: {
+            text1: `Howdy, i'm`,
+            text2: 'Alejandro Paniagua',
+            text3: 'A spanish ###',
+            roles: [
+                'indie game developer',
+                'web designer',
                 'an app developer',
-                'a web developer',
-                'a 3D printing hobbyist',
-                'a videogame enthusiast'
-            ],
-            a: 'See more about me!'
+            ]
         },
-        a: {
+        //About
+        about: {
             title: 'About Me',
             desc1: "Howdy! My name is Alejandro, but you call me Alex. I'm a spanish developer who likes spending time creating games and apps.",
             desc2: "I started making games in 2015, at the age of 11. Then, in 2019, I took a break to learn web and app development and, since 2022, I've been doing all of them.",
             desc3: "I'm a well-organized, independent person who loves giving things his own touch. Some of my interests are playing, programming and designing, but I also enjoy 3D printing and DIY projects.",
-            s: 'Check out my skills!',
+            contact: 'Get in touch!',
             next: 'Click me!',
             names: [
-                'Artyom',
+                'Me',
+                'Me',
+                'Me',
+                'Me',
+                'Me',
                 'Canary Islands',
                 'Sleeping Cat',
                 'Finisterre',
                 'Mallorca',
                 'Otivar',
                 'River Flower',
-                'Lennon Wall'
+                'Lennon Wall',
+                'Artyom',
             ]
         },
-        s: {
+        //Skills
+        skills: {
             title: 'My Skills',
-            desc: "I've been interested in the world of technology since I was little. Thanks to that, I've learnt and manage a large number of skills related to different topics.",
+            desc: "I've been interested in the world of technology since I was little. Thanks to that, I've learnt a large number of skills related to different topics:",
             videogames: 'Videogame Development',
             apps: 'App Development',
             web: 'Web Development',
@@ -103,35 +100,21 @@ const lans = {
             high: 'High',
             advanced: 'Advanced',
             expert: 'Expert',
-            p: 'Check out my projects!'
         },
-        p: {
+        //Projects
+        projects: {
             title: 'My Projects',
-            none: 'No projects where found...<br>Try changing the selected filters.',
-            more: 'Show more projects!',
-            filter: {
-                category: 'Category',
-                categories: {
-                    all: 'All',
-                    games: 'Games',
-                    apps: 'Apps',
-                    other: 'Other'
-                },
-                filter: 'Filter',
-                sort: 'Sort by',
-                sortby: {
-                    none: 'None',
-                    date: 'Date',
-                },
-            },
-            scope: {
-                solo: '🦝 Solo Project',
-                team: '🤝 Team Project',
-                personal: '💖 Personal Project',
-                jam: '💫 Jam Game',
+            filtersTitle: 'Filters',
+            category: {
+                title: 'Category',
+                all: '---',
+                games: 'Games',
+                apps: 'Apps',
+                other: 'Other'
             },
             tags: {
-                all: 'All',
+                title: 'Tags',
+                all: '---',
                 uiux: 'UI/UX Design',
                 discordapi: 'Discord API',
                 '3dmodel': '3D Modeling',
@@ -140,8 +123,20 @@ const lans = {
                 diy: 'DIY',
                 electronics: 'Electronics',
             },
+            sort: {
+                title: 'Sort by',
+                none: '---',
+                date: 'Date',
+            },
             date: {
-                present: 'Present'
+                present: 'Present',
+                paused: 'Paused',
+            },
+            scope: {
+                solo: 'Solo Project',
+                team: 'Team Project',
+                personal: 'Personal Project',
+                jam: 'Jam Game',
             },
             projects: {
                 hardcoreKitty: {
@@ -340,79 +335,96 @@ const lans = {
                         I started by sketching some designs in my notebook which were then digitalized using Adobe Illustrator.
                         Then I made a preview in Photoshop of how the hoodie would look like if it was real.`
                 },
-            }
+            },
+            none: 'No projects where found...<br>Try changing the selected filters.',
+            more: 'Show more projects!',
         },
-        bot: {
-            mail: 'Email copied to clipboard'
-        }
-    },
+        //Footer
+        footer: {
+            contactTitle: 'Contact',
+            mail: 'Email copied to clipboard',
+        },
+    }, 
     es: {
-        tag: 'es',
-        name: 'Portfolio de Alex',
-        ach: {
-            title: 'LOGROS',
-            lock: 'BLOQUEADO',
-            ach1: {
-                title: 'Chavalin Interesado',
-                desc: 'Dado por abrir uno de los links de mis redes'
-            },
-            ach2: {
-                title: 'Mejores Amigos',
-                desc: 'Dado por encontrar a Artyom (mi primer gecko)'
-            },
-            ach3: {
-                title: 'Ves con el Flow',
-                desc: 'Dado por cambiar el tema 2 veces'
-            }
+        //Locale
+        key: 'es',
+        //Page
+        title: 'Portfolio de Alex',
+        //Loading
+        loading: {
+            title: 'CARGANDO_PORTFOLIO'
         },
-        top: {
+        //Sidebar
+        sidebar: {
             home: 'Inicio',
             about: 'Sobre Mi',
             skills: 'Habilidades',
             projects: 'Proyectos',
-            menu: 'Menú',
-            close: 'Cerrar',
-            theme: 'Tema',
-            language: 'Español',
+            contact: 'Contacto',
+            localization: 'Español',
             achievements: 'Logros',
-            contact: 'Contacto'
         },
-        h: {
-            hi: '¡Hey! Soy',
-            tit1: 'ALEJANDRO PANIAGUA',
-            tit2: 'Y me encanta programar y diseñar',
-            desc: 'Soy un estudiante español, actualmente estudiando desarrollo de videojuegos, al cual le han interesado los juegos desde pequeño.',
-            type1: 'Me considero',
-            type2: [
-                'un desarrollador de juegos indie',
-                'un desarrollador de aplicaciones',
-                'un desarrollador web',
-                'un fan de la impresión 3D',
-                'un entusiasta de los videojuegos'
-            ],
-            a: '¡Ver más sobre mi!'
+        //Achievements
+        achievements: {
+            title: 'Logros',
+            description: 'Encuentra nuevos logros interactuando con cosas por la página',
+            locked: 'Escondido',
+            theme: {
+                title: 'Alergico a la Luz',
+                description: 'Prueba el tema claro y vuelve al oscuro'
+            },
+            artyom: {
+                title: 'Mejores Amigos',
+                description: 'Encuentra la foto de Artyom (mi primer gecko)'
+            },
+            project: {
+                title: 'Buen Chico',
+                description: 'Abre uno de los links de mis proyectos'
+            },
+            contact: {
+                title: 'Chavalin Interesado',
+                description: 'Abre uno de mis links de contacto'
+            },
         },
-        a: {
+        //Home
+        home: {
+            text1: 'Hola, soy',
+            text2: 'Alejandro Paniagua',
+            text3: 'Un ### español',
+            roles: [
+                'desarrollador de juegos indie',
+                'diseñador de paginas web',
+                'desarrollador de aplicaciones',
+            ]
+        },
+        //About
+        about: {
             title: 'Sobre Mi',
-            desc1: "¡Hey! Me llamo Alejandro, pero me puedes llamar Alex. Soy un desarrollador español al que le gusta pasar tiempo creando juegos y aplicaciones.",
+            desc1: "¡Hey! Me llamo Alejandro, pero me puedes llamar Alex. Soy un desarrollador español al que le gusta pasar el tiempo creando juegos y aplicaciones.",
             desc2: "Comencé a hacer juegos en 2015, con 11 años. Más tarde, en 2019, me tome un descanso para aprender desarrollo web y de aplicaciones y, desde 2022, he estado haciendo todos ellos.",
             desc3: "Soy una persona bien organizada e independiente a la que le encanta dar su propio toque. Algunos de mis intereses son jugar, programar y diseñar, pero también me gusta la impresión 3D y las manualidades.",
-            s: '¡Ver mis habilidades!',
+            contact: '¡Ponte en contacto!',
             next: '¡Hazme click!',
             names: [
-                'Artyom',
+                'Yo',
+                'Yo',
+                'Yo',
+                'Yo',
+                'Yo',
                 'Islas Canarias',
                 'Gato Durmiendo',
                 'Finisterre',
                 'Mallorca',
                 'Otivar',
                 'Flor en Rio',
-                'Muro Lennon'
+                'Muro Lennon',
+                'Artyom',
             ]
         },
-        s: {
+        //Skills
+        skills: {
             title: 'Mis Habilidades',
-            desc: "He estado interesado en el mundo de la tecnología desde pequeño. Debido a eso, he aprendido y manejo una gran cantidad de habilidades relacionadas con diferentes temas.",
+            desc: "He estado interesado en el mundo de la tecnología desde pequeño. Debido a eso, he aprendido una gran cantidad de habilidades relacionadas con diferentes temas:",
             videogames: 'Desarrollo de Videojuegos',
             apps: 'Desarrollo de Aplicaciones',
             web: 'Desarrollo Web',
@@ -424,35 +436,21 @@ const lans = {
             high: 'Alto',
             advanced: 'Avanzado',
             expert: 'Experto',
-            p: '¡Ver mis proyectos!'
         },
-        p: {
+        //Projects
+        projects: {
             title: 'Mis Proyectos',
-            none: 'No se han encontrado proyectos...<br>Prueba a cambiar los filtros seleccionados.',
-            more: '¡Ver más proyectos!',
-            filter: {
-                category: 'Categoría',
-                categories: {
-                    all: 'Todo',
-                    games: 'Juegos',
-                    apps: 'Apps',
-                    other: 'Otros'
-                },
-                filter: 'Filtro',
-                sort: 'Ordenar por',
-                sortby: {
-                    none: 'Nada',
-                    date: 'Fecha',
-                },
-            },
-            scope: {
-                solo: '🦝 Proyecto Solitario',
-                team: '🤝 Proyecto de Equipo',
-                personal: '💖 Proyecto Personal',
-                jam: '💫 Juego de Jam',
+            filtersTitle: 'Filtros',
+            category: {
+                title: 'Categoría',
+                all: '---',
+                games: 'Juegos',
+                apps: 'Apps',
+                other: 'Otros'
             },
             tags: {
-                all: 'Todo',
+                title: 'Tags',
+                all: '---',
                 uiux: 'Diseño UI/UX',
                 discordapi: 'API de Discord',
                 '3dmodel': 'Modelado 3D',
@@ -461,8 +459,20 @@ const lans = {
                 diy: 'Manualidades',
                 electronics: 'Electrónica',
             },
+            sort: {
+                title: 'Ordenar por',
+                none: '---',
+                date: 'Fecha',
+            },
             date: {
-                present: 'Presente'
+                present: 'Presente',
+                paused: 'Pausado',
+            },
+            scope: {
+                solo: 'Proyecto Solitario',
+                team: 'Proyecto de Equipo',
+                personal: 'Proyecto Personal',
+                jam: 'Juego de Jam',
             },
             projects: {
                 hardcoreKitty: {
@@ -661,19 +671,75 @@ const lans = {
                         Comencé dibujando unos diseños en mi cuaderno que fueron digitalizados más tarde usando Adobe Illustrator.
                         Tras eso, hice una simulación en Photoshop de como se vería la sudadera si fuese real.`
                 },
-            }
+            },
+            none: 'No se han encontrado proyectos...<br>Prueba a cambiar los filtros seleccionados.',
+            more: '¡Ver más proyectos!',
         },
-        bot: {
-            mail: 'Email copiado al portapapeles'
-        }
+        //Footer
+        footer: {
+            contactTitle: 'Contacto',
+            mail: 'Email copiado al portapapeles',
+        },
     }
 }
 
-let lan = lans.es
+let lan = locales.es
 
+//Main
+const animator = new AppearAnimation()
 
+//Achievements
+const Achievements = Object.freeze({
+    theme: 'theme',
+    artyom: 'artyom',
+    project: 'project',
+    contact: 'contact',
+})
 
-//Projects info
+const achievements = {}
+
+//Home
+let homeParticles
+let homeText
+
+//About images
+const about = {
+    imgs: [
+        'Data/Images/About/me1.webp',
+        'Data/Images/About/me2.webp',
+        'Data/Images/About/me3.webp',
+        'Data/Images/About/me4.webp',
+        'Data/Images/About/me5.webp',
+        'Data/Images/About/canary.webp',
+        'Data/Images/About/cat.webp',
+        'Data/Images/About/finisterre.webp',
+        'Data/Images/About/mallorca.webp',
+        'Data/Images/About/otivar.webp',
+        'Data/Images/About/flower.webp',
+        'Data/Images/About/lennon.webp',
+        'Data/Images/About/artyom.webp',
+    ],
+    order: [],
+    index: -1,
+    loading: false,
+};
+
+(() => {    
+    //shuffle images, add me first & artyom last
+    for (let i = 1; i < about.imgs.length - 1; i++) about.order.push(i)
+    Util.shuffleArray(about.order)
+    about.order.splice(0, 0, 0) //Add 'me1' first
+    about.order.push(about.imgs.length - 1) //Add 'artyom' last
+})();
+
+//Projects
+const Scope = Object.freeze({
+    team: 'team',
+    solo: 'solo',
+    personal: 'personal',
+    jam: 'jam'
+});
+
 const Category = Object.freeze({
     all: 'all',
     games: 'games',
@@ -713,13 +779,6 @@ const Tag = Object.freeze({
     sketching: 'sketching',
     electronics: 'electronics',
     diy: 'diy',
-});
-
-const Scope = Object.freeze({
-    team: 'team',
-    solo: 'solo',
-    personal: 'personal',
-    jam: 'jam'
 });
 
 const Projects = Object.freeze({
@@ -927,22 +986,22 @@ const Projects = Object.freeze({
     },
 })
 
-const projs = {
+const projects = {
     //Created projects
+    loaded: false,
     created: 0,
     //Category, filter & sorting
     category: Category.all,
     filter: Tag.all,
     sort: '',
     //List (sorted by preferences)
-    filteredList: [],
     list: [
         Projects.hardcoreKitty,
         Projects.spyw4re,
         Projects.stardewpets,
-        Projects.stealer,
-        Projects.hackoon,
         Projects.hightime,
+        Projects.stealer,
+        //Projects.hackoon,
         Projects.fresquita,
         Projects.raccoon,
         Projects.lmdshow,
@@ -954,364 +1013,138 @@ const projs = {
         Projects.assAn,
         Projects.assPC,
         Projects.frame,
-        /**/
+        /*
         Projects.disbots,
         Projects.mod,
         Projects.t45,
         Projects.usb,
         Projects.hoodie,
+        */
     ],
+    filteredList: [],
     //Functions
-    getCategoryName: (category) => lan.p.filter.categories[category in Category ? category : Category.all],
-    getSortName: (sort) => lan.p.filter.sortby[sort == 'date' ? 'date' : 'none'],
-    getTagName: (tag) => tag in lan.p.tags ? lan.p.tags[tag] : tag,
+    getCategoryName: (category) => lan.projects.category[category in Category ? category : Category.all],
+    getSortName: (sort) => lan.projects.sort[sort == 'date' ? 'date' : 'none'],
+    getTagName: (tag) => tag in lan.projects.tags ? lan.projects.tags[tag] : tag,
 }
 
 
 
-//About image index & order (shuffle all & add artyom last)
-const about = {
-    order: [],
-    index: 0
-}
+ /*$                                     /$$ /$$                       /$$     /$$                    
+| $$                                    | $$|__/                      | $$    |__/                    
+| $$        /$$$$$$   /$$$$$$$  /$$$$$$ | $$ /$$ /$$$$$$$$  /$$$$$$  /$$$$$$   /$$  /$$$$$$  /$$$$$$$ 
+| $$       /$$__  $$ /$$_____/ |____  $$| $$| $$|____ /$$/ |____  $$|_  $$_/  | $$ /$$__  $$| $$__  $$
+| $$      | $$  \ $$| $$        /$$$$$$$| $$| $$   /$$$$/   /$$$$$$$  | $$    | $$| $$  \ $$| $$  \ $$
+| $$      | $$  | $$| $$       /$$__  $$| $$| $$  /$$__/   /$$__  $$  | $$ /$$| $$| $$  | $$| $$  | $$
+| $$$$$$$$|  $$$$$$/|  $$$$$$$|  $$$$$$$| $$| $$ /$$$$$$$$|  $$$$$$$  |  $$$$/| $$|  $$$$$$/| $$  | $$
+|________/ \______/  \_______/ \_______/|__/|__/|________/ \_______/   \___/  |__/ \______/ |__/  |_*/
 
-for (let i = 1; i < lan.a.names.length; i++) {
-    about.order.push(i)
-}
-for (let i = about.order.length - 1; i > 0; i--) {
-    const randomIndex = Math.floor(Math.random() * i);
-    [about.order[i], about.order[randomIndex]] = [about.order[randomIndex], about.order[i]];
-}
-about.order.push(0)
-
-
-
-//Goto & visibility
-function goto(id) {
-    //Scroll to element & close nav menu
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" })
-    toggleNavMenu(false)
-}
-
-function isVisible(elm) {
-    var rect = elm.getBoundingClientRect()
-    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight)
-    return !(rect.bottom < 175 || rect.top - viewHeight >= 175)
-}
-
-
-
-//Scrolling
-const ballHome = document.getElementById('ballHome')
-const ballAbout = document.getElementById('ballAbout')
-const ballSkills = document.getElementById('ballSkills')
-const ballProjects = document.getElementById('ballProjects')
-
-let scrollCount = 0
-
-window.onscroll = (force) => {
-    //Fix args
-    if (typeof force != 'boolean') force = false
-
-    //Run code every 5 counts
-    if (!force) {
-        scrollCount--
-        if (scrollCount > 0) return
-        scrollCount = 5
-    }
-
-    //Balls
-    if (isVisible(document.getElementById('home'))) {
-        ballHome.setAttribute('checked', '')
-        ballAbout.removeAttribute('checked')
-        ballSkills.removeAttribute('checked')
-        ballProjects.removeAttribute('checked')
-    } else {
-        ballHome.removeAttribute('checked')
-        if (isVisible(document.getElementById('about'))) {
-            ballAbout.setAttribute('checked', '')
-            ballSkills.removeAttribute('checked')
-            ballProjects.removeAttribute('checked')
-        } else {
-            ballAbout.removeAttribute('checked')
-            if (isVisible(document.getElementById('skills'))) {
-                ballSkills.setAttribute('checked', '')
-                ballProjects.removeAttribute('checked')
-            } else {
-                ballSkills.removeAttribute('checked')
-                ballProjects.setAttribute('checked', '')
-            }
-        }
-    }
-
-    //Skills
-    if (isVisible(document.getElementById('skills'))) {
-        if (isVisible(document.getElementById('skillsVidTitle')))
-            html.style.setProperty('--skills1', '95%')
-        if (isVisible(document.getElementById('skillsUiTitle')))
-            html.style.setProperty('--skills5', '62%')
-        if (isVisible(document.getElementById('skillsWebTitle')))
-            html.style.setProperty('--skills3', '65%')
-        if (isVisible(document.getElementById('skillsAppTitle')))
-            html.style.setProperty('--skills2', '58%')
-        if (isVisible(document.getElementById('skills3dTitle')))
-            html.style.setProperty('--skills4', '35%')
-        if (isVisible(document.getElementById('skillsArtTitle')))
-            html.style.setProperty('--skills6', '38%')
-    }
-
-    //Appear anim
-    const elems = document.querySelectorAll('.appear')
-    elems.forEach(elem => {
-        if (!isVisible(elem)) return
-        elem.classList.add('appeared')
-        elem.classList.remove('appear')
-    })
-}
-
-
-
-//Resize
-window.onresize = () => {
-    if (window.innerHeight < window.innerWidth)
-        html.removeAttribute('mobile')
-    else
-        html.setAttribute('mobile', '')
-}
-
-window.onresize()
-
-
-
-//Menu
-let menuOpen = false
-
-function toggleNavMenu(open) {
-    //Check
-    if (typeof open != 'boolean') open = !menuOpen
-    if (open == menuOpen) return
-
-    //Hide ball
-    document.getElementById('actionDot1').removeAttribute('active')
-
-    //Elems
-    const exit = document.getElementById('navMenuExit')
-    const menu = document.getElementById('navMenu')
-    const space = document.getElementById('navSpace')
-
-    //Toggle
-    if (open) {
-        //Open
-        exit.style.pointerEvents = 'all'
-        menu.setAttribute('menu', '')
-        space.setAttribute('open', '')
-    } else {
-        //Close
-        exit.style.pointerEvents = ''
-        space.removeAttribute('open', '')
-        menu.removeAttribute('menu')
-    }
-    menuOpen = open
-}
-
-
-
-//Change title
-function changeTitle() {
-    let emojis = ['😎', '😄', '🦝', '🦎', '🦖', '🦦', '🍜']
-    document.title = lan.name + ' ' + emojis[Math.floor(Math.random() * emojis.length)]
-}
-
-
-
-//Socials
-let socialsOpen = false
-
-function copyMail() {
-    createSnackbar(lan.bot.mail, false)
-    navigator.clipboard.writeText('alex.paniagua.moreno@gmail.com')
-}
-
-
-
-//Snackbar & Confetti 🎊
-const snacks = []
-
-function createSnackbar(text, confetti) {
-    if (typeof text !== 'string') return
-    if (confetti == undefined) confetti = false
-    snacks.push({
-        text: text,
-        confetti: confetti
-    })
-    snackbarController()
-}
-
-function snackbarController() {
-    //Get snackbar
-    const snack = document.getElementById('snackbar')
-
-    //Show snackbar
-    if (!snack.classList.contains('snackbar') && snacks.length > 0) {
-        //Data
-        snack.innerHTML = snacks[0].text
-        snack.classList.add('snackbar')
-        if (snacks[0].confetti) createConfetti()
-        snacks.shift()
-
-        //Wait to disappear
-        setTimeout(() => {
-            //Disappear
-            snack.innerHTML = ''
-            snack.classList.remove('snackbar')
-
-            //Wait to show text
-            setTimeout(() => { snackbarController() }, 50)
-        }, 3000)
-    }
-}
-
-function createConfetti() {
-    confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 1 }
-    })
-}
-
-
-
-
-
- /*$                                                                            
-| $$                                                                            
-| $$        /$$$$$$  /$$$$$$$   /$$$$$$  /$$   /$$  /$$$$$$   /$$$$$$   /$$$$$$ 
-| $$       |____  $$| $$__  $$ /$$__  $$| $$  | $$ |____  $$ /$$__  $$ /$$__  $$
-| $$        /$$$$$$$| $$  \ $$| $$  \ $$| $$  | $$  /$$$$$$$| $$  \ $$| $$$$$$$$
-| $$       /$$__  $$| $$  | $$| $$  | $$| $$  | $$ /$$__  $$| $$  | $$| $$_____/
-| $$$$$$$$|  $$$$$$$| $$  | $$|  $$$$$$$|  $$$$$$/|  $$$$$$$|  $$$$$$$|  $$$$$$$
-|________/ \_______/|__/  |__/ \____  $$ \______/  \_______/ \____  $$ \_______/
-                               /$$  \ $$                     /$$  \ $$
-                              |  $$$$$$/                    |  $$$$$$/
-                               \______/                      \_____*/
-
-//Recover saved language
-switch (localStorage.getItem('language')) {
+//Recover saved locale & load it
+switch (localStorage.getItem('locale')) {
     //Nothing saved
     case null:
-        //Check device
-        let lang = navigator.language || navigator.userLanguage
+        //Check device language
+        let deviceLanguage = navigator.language || navigator.userLanguage
+
         //Device is in english
-        if (lang.startsWith('en')) lan = lans.en
-        //Save language
-        localStorage.setItem('language', lan.tag)
+        if (deviceLanguage.startsWith('en')) lan = locales.en
+
+        //Save locale
+        localStorage.setItem('locale', lan.key)
         break
 
     //English saved
     case 'en':
-        lan = lans.en
+        lan = locales.en
+        break
+
+    //Default to spanish
+    default:
+        lan = locales.es
         break
 }
 
-changeTitle()
+//Localization functions
+function swapLocale() {
+    //Get new locale key
+    const newKey = lan.key == 'es' ? 'en' : 'es'
 
+    //Load new locale
+    lan = locales[newKey]
+    localStorage.setItem('locale', lan.key)
 
+    //Localize page & hide sidebar
+    localize()
+    toggleSidebar(false)
+}
 
-//Set language
-function setLan() {
-    //Navbar
-    document.getElementById('navHome').innerText = lan.top.home
-    document.getElementById('navAbout').innerText = lan.top.about
-    document.getElementById('navSkills').innerText = lan.top.skills
-    document.getElementById('navProjects').innerText = lan.top.projects
-    document.getElementById('navMenuOpen').innerText = lan.top.menu
+function localize() {
+    //Loading
+    document.getElementById('loadingTitle').innerText = lan.loading.title
 
-    //Navbar menu
-    document.getElementById('navMenuClose').innerText = lan.top.close
-    document.getElementById('navMenuHome').innerText = lan.top.home
-    document.getElementById('navMenuAbout').innerText = lan.top.about
-    document.getElementById('navMenuSkills').innerText = lan.top.skills
-    document.getElementById('navMenuProjects').innerText = lan.top.projects
-    document.getElementById('navMenuTheme').innerText = lan.top.theme
-    document.getElementById('navMenuLanguage').innerText = lan.top.language
-    document.getElementById('navMenuAchievements').innerText = lan.top.achievements
-    document.getElementById('navMenuContact').innerText = lan.top.contact
+    //Sidebar
+    document.getElementById('sidebar-home').innerText = lan.sidebar.home
+    document.getElementById('sidebar-about').innerText = lan.sidebar.about
+    document.getElementById('sidebar-skills').innerText = lan.sidebar.skills
+    document.getElementById('sidebar-projects').innerText = lan.sidebar.projects
+    document.getElementById('sidebar-contact').innerText = lan.sidebar.contact
+    document.getElementById('sidebar-localization').innerText = lan.sidebar.localization
+    document.getElementById('sidebar-achievements').innerText = lan.sidebar.achievements
 
     //Achievements
-    document.getElementById('achMenuTitle').innerText = lan.ach.title
-    document.getElementById('ach1Title').innerText = lan.ach.ach1.title
-    document.getElementById('ach1Description').innerText = lan.ach.ach1.desc
-    document.getElementById('ach1Lock').innerText = lan.ach.lock
-    document.getElementById('ach2Title').innerText = lan.ach.ach2.title
-    document.getElementById('ach2Description').innerText = lan.ach.ach2.desc
-    document.getElementById('ach2Lock').innerText = lan.ach.lock
-    document.getElementById('ach3Title').innerText = lan.ach.ach3.title
-    document.getElementById('ach3Description').innerText = lan.ach.ach3.desc
-    document.getElementById('ach3Lock').innerText = lan.ach.lock
+    document.getElementById('achievementsTitle').innerText = lan.achievements.title
+    document.getElementById('achievementsDescription').innerText = lan.achievements.description
 
     //Home
-    document.getElementById('homeHi').innerText = lan.h.hi
-    document.getElementById('homeTitle1').innerText = lan.h.tit1
-    document.getElementById('homeTitle2').innerText = lan.h.tit2
-    document.getElementById('homeDescription').innerText = lan.h.desc
-    document.getElementById('homeType1').innerText = lan.h.type1
-    document.getElementById('homeAbout').innerText = lan.h.a
+    document.getElementById('homeText1').innerText = lan.home.text1
+    document.getElementById('homeText2').innerText = lan.home.text2
+    document.getElementById('homeText3').innerText = lan.home.text3
+    if (homeText) homeText.reset()
 
     //About
-    document.getElementById('aboutTitle').innerText = lan.a.title
-    document.getElementById('aboutDescription1').innerText = lan.a.desc1
-    document.getElementById('aboutDescription2').innerText = lan.a.desc2
-    document.getElementById('aboutDescription3').innerText = lan.a.desc3
-    document.getElementById('aboutSkills').innerText = lan.a.s
-    document.getElementById('aboutImgName').innerText = lan.a.names[about.order[about.index]]
-    document.getElementById('aboutImgNext').innerText = lan.a.next
+    document.getElementById('aboutTitle').innerText = lan.about.title
+    document.getElementById('aboutDescription1').innerText = lan.about.desc1
+    document.getElementById('aboutDescription2').innerText = lan.about.desc2
+    document.getElementById('aboutDescription3').innerText = lan.about.desc3
+    document.getElementById('aboutContact').innerText = lan.about.contact
+    document.getElementById('aboutImgName').innerText = lan.about.names[about.order[Math.max(about.index, 0)]]
+    document.getElementById('aboutImgNext').innerText = lan.about.next
 
     //Skills
-    document.getElementById('skillsTitle').innerText = lan.s.title
-    document.getElementById('skillsDescription').innerText = lan.s.desc
-    document.getElementById('skillsWebTitle').innerText = lan.s.web
-    document.getElementById('skillsWebPro').innerText = lan.s.high
-    document.getElementById('skillsUiTitle').innerText = lan.s.ui
-    document.getElementById('skillsUiPro').innerText = lan.s.high
-    document.getElementById('skillsVidTitle').innerText = lan.s.videogames
-    document.getElementById('skillsVidPro').innerText = lan.s.advanced
-    document.getElementById('skillsAppTitle').innerText = lan.s.apps
-    document.getElementById('skillsAppPro').innerText = lan.s.high
-    document.getElementById('skills3dTitle').innerText = lan.s.d3
-    document.getElementById('skills3dPro').innerText = lan.s.medium
-    document.getElementById('skillsArtTitle').innerText = lan.s.art
-    document.getElementById('skillsArtPro').innerText = lan.s.medium
-    document.getElementById('skillsProjects').innerText = lan.s.p
+    document.getElementById('skillsTitle').innerText = lan.skills.title
+    document.getElementById('skillsDescription').innerText = lan.skills.desc
+    document.getElementById('skillsWebTitle').innerText = lan.skills.web
+    document.getElementById('skillsWebPro').innerText = lan.skills.high
+    document.getElementById('skillsUiTitle').innerText = lan.skills.ui
+    document.getElementById('skillsUiPro').innerText = lan.skills.high
+    document.getElementById('skillsVidTitle').innerText = lan.skills.videogames
+    document.getElementById('skillsVidPro').innerText = lan.skills.advanced
+    document.getElementById('skillsAppTitle').innerText = lan.skills.apps
+    document.getElementById('skillsAppPro').innerText = lan.skills.high
+    document.getElementById('skills3dTitle').innerText = lan.skills.d3
+    document.getElementById('skills3dPro').innerText = lan.skills.medium
+    document.getElementById('skillsArtTitle').innerText = lan.skills.art
+    document.getElementById('skillsArtPro').innerText = lan.skills.medium
 
     //Projects
-    document.getElementById('projectsTitle').innerText = lan.p.title
-    document.getElementById('projectsMore').innerText = lan.p.more
-    document.getElementById('projectsCategory').innerText = lan.p.filter.category + ':'
-    document.getElementById('projectsSort').innerText = lan.p.filter.sort + ':'
-    document.getElementById('projectsFilter').innerText = lan.p.filter.filter + ':'
+    document.getElementById('projectsTitle').innerText = lan.projects.title
+    document.getElementById('projectsFiltersTitle').innerText = lan.projects.filtersTitle
+    document.getElementById('projectsCategory').innerText = lan.projects.category.title + ':'
+    document.getElementById('projectsFilter').innerText = lan.projects.tags.title + ':'
+    document.getElementById('projectsSort').innerText = lan.projects.sort.title + ':'
     refreshProjects()
+    document.getElementById('projectsMore').innerText = lan.projects.more
+
+    //Footer
+    document.getElementById('footerContactTitle').innerText = lan.footer.contactTitle
 }
 
-
-
-//Switch language
-function switchLan() {
-    toggleNavMenu()
-    if (lan == lans.en)
-        lan = lans.es
-    else
-        lan = lans.en
-    localStorage.setItem('language', lan.tag)
-    changeTitle()
-    setLan()
-}
+localize()
 
 
 
-
-
- /*$$$$$$$ /$$
-|__  $$__/| $$
+ /*$$$$$$$ /$$                                        
+|__  $$__/| $$                                        
    | $$   | $$$$$$$   /$$$$$$  /$$$$$$/$$$$   /$$$$$$ 
    | $$   | $$__  $$ /$$__  $$| $$_  $$_  $$ /$$__  $$
    | $$   | $$  \ $$| $$$$$$$$| $$ \ $$ \ $$| $$$$$$$$
@@ -1320,36 +1153,85 @@ function switchLan() {
    |__/   |__/  |__/ \_______/|__/ |__/ |__/ \______*/
 
 const theme = {
-    changed: false,
     dark: !(localStorage.getItem('theme') == 'light')
 }
 
-function switchTheme() {
-    //Switch theme
-    toggleNavMenu()
+function toggleTheme() {
+    //Toggle theme
     theme.dark = !theme.dark
-    setTheme()
+    refreshTheme()
 
-    //Achievement
-    if (theme.changed) giveAchievement('drill')
-    theme.changed = true
+    //Hide sidebar
+    toggleSidebar()
+
+    //Give chievement
+    if (theme.dark) giveAchievement(Achievements.theme)
 }
 
-function setTheme() {
+function refreshTheme() {
+    //Refresh theme
     if (theme.dark) {
+        //Enable light
         localStorage.setItem('theme', 'dark')
-        document.getElementById('topTheImg').src = 'Data/Images/Icons/dark.webp'
-        html.removeAttribute('light')
+        document.documentElement.removeAttribute('light')
     } else {
+        //Enable dark
         localStorage.setItem('theme', 'light')
-        document.getElementById('topTheImg').src = 'Data/Images/Icons/light.webp'
-        html.setAttribute('light', '')
+        document.documentElement.setAttribute('light', '')
+    }
+
+    //Refresh particle animation color
+    if (homeParticles) homeParticles.changeColor(`color-mix(in srgb, transparent 50%, ${window.getComputedStyle(document.body).getPropertyValue('--text')})`)
+}
+
+refreshTheme()
+
+
+
+ /*$      /$$           /$$          
+| $$$    /$$$          |__/          
+| $$$$  /$$$$  /$$$$$$  /$$ /$$$$$$$ 
+| $$ $$/$$ $$ |____  $$| $$| $$__  $$
+| $$  $$$| $$  /$$$$$$$| $$| $$  \ $$
+| $$\  $ | $$ /$$__  $$| $$| $$  | $$
+| $$ \/  | $$|  $$$$$$$| $$| $$  | $$
+|__/     |__/ \_______/|__/|__/  |_*/
+
+//Sidebar
+function toggleSidebar(toggle) {
+    //Get sidebar element
+    const sidebar = document.getElementById('sidebar')
+
+    //Fix toggle
+    if (typeof toggle !== 'boolean') toggle = !sidebar.hasAttribute('open')
+
+    //Toggle sidebar
+    if (toggle) {
+        sidebar.setAttribute('open', '')
+        document.body.setAttribute('sidebar', '')
+    } else {
+        sidebar.removeAttribute('open')
+        document.body.removeAttribute('sidebar', '')
     }
 }
 
-setTheme()
+//Navigation
+new CurrentPageIndicator(['home', 'about', 'skills', 'projects', 'contact'])
 
+function goTo(id) {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" })
+    toggleSidebar(false)
+}
 
+//Change title
+function changeTitle() {
+    const emojis = ['🦝', '🦎', '🦖', '🎷🐛', '😸']
+    document.title = lan.title + ' ' + emojis[Math.floor(Math.random() * emojis.length)]
+}
+
+changeTitle()
+
+addFocusListener(changeTitle)
 
 
 
@@ -1362,128 +1244,101 @@ setTheme()
 | $$  | $$|  $$$$$$$| $$  | $$| $$|  $$$$$$$   \  $/  |  $$$$$$$| $$ | $$ | $$|  $$$$$$$| $$  | $$  |  $$$$//$$$$$$$/
 |__/  |__/ \_______/|__/  |__/|__/ \_______/    \_/    \_______/|__/ |__/ |__/ \_______/|__/  |__/   \___/ |______*/
 
-//Given achievements
-const ach = {
-    socials: false,
-    artyom: false,
-    drill: false
-}
-
-
-
 //Load achievements
-if (localStorage.getItem('achSocials') == 'true')
-    addAchievement('socials')
-if (localStorage.getItem('achArtyom') == 'true')
-    addAchievement('artyom')
-if (localStorage.getItem('achDrill') == 'true')
-    addAchievement('drill')
-
-
+for (key of Object.keys(Achievements)) {
+    if (!localStorage.getItem(`achievement-${Achievements[key]}`)) continue
+    addAchievement(key)
+}
 
 //Give, reset & show achievements
-function giveAchievement(name) {
-    //Try to give achievement
-    let given = false
-    switch (name) {
-        case 'socials':
-            if (ach.socials == true) return
-            createSnackbar(`🏆 ${lan.ach.ach1.title}`, true)
-            given = true
-            break
-        case 'artyom':
-            if (ach.artyom == true) return
-            createSnackbar(`🏆 ${lan.ach.ach2.title}`, true)
-            given = true
-            break
-        case 'drill':
-            if (ach.drill == true) return
-            createSnackbar(`🏆 ${lan.ach.ach3.title}`, true)
-            given = true
-            break
-    }
+function giveAchievement(key) {
+    //Achievement does not exist
+    if (!Achievements[key]) return
 
-    //Succesfully given
-    if (given) {
-        addAchievement(name)
-        if (!menuOpen)
-            document.getElementById('actionDot1').setAttribute('active', '')
-        document.getElementById('actionDot2').setAttribute('active', '')
+    //Already has achievement
+    if (achievements[key]) return
+
+    //Show snackbar
+    createSnackbar(`🏆 ${lan.achievements[key].title}`, true)
+    
+    //Add achievement
+    addAchievement(key)
+
+    //Show achievement indicator dots
+    document.getElementById('achievementsDot1').setAttribute('active', '')
+    document.getElementById('achievementsDot2').setAttribute('active', '')
+}
+
+function giveAllAchievements() {
+    //Give all achievements
+    for (key of Object.keys(Achievements)) {
+        giveAchievement(Achievements[key])
     }
 }
 
-function giveAchievements() {
-    giveAchievement('socials')
-    giveAchievement('artyom')
-    giveAchievement('drill')
-}
-
-function addAchievement(name) {
-    switch (name) {
-        case 'socials':
-            ach.socials = true
-            localStorage.setItem('achSocials', 'true')
-            document.getElementById('ach1').removeAttribute('locked')
-            break
-        case 'artyom':
-            ach.artyom = true
-            localStorage.setItem('achArtyom', 'true')
-            document.getElementById('ach2').removeAttribute('locked')
-            break
-        case 'drill':
-            ach.drill = true
-            localStorage.setItem('achDrill', 'true')
-            document.getElementById('ach3').removeAttribute('locked')
-            break
-    }
+function addAchievement(key) {
+    achievements[key] = true
+    localStorage.setItem(`achievement-${key}`, 'true')
 }
 
 function resetAchievements() {
-    //Reset added
-    ach.socials = false
-    ach.artyom = false
-    ach.drill = false
-
-    //Reset stored vlues
-    localStorage.setItem('achSocials', '')
-    localStorage.setItem('achArtyom', '')
-    localStorage.setItem('achDrill', '')
-
-    //Reset UI
-    document.getElementById('ach1').setAttribute('locked', '')
-    document.getElementById('ach2').setAttribute('locked', '')
-    document.getElementById('ach3').setAttribute('locked', '')
+    //Reset current achievements
+    for (key of Object.keys(achievements)) {
+        localStorage.setItem(`achievement-${key}`, '')
+        achievements[key] = false
+    }
 }
-
-
 
 //Achievements menu
-const achievementsMenu = document.getElementById('achMenu')
+const achievementsMenu = document.getElementById('achievementsMenu')
 
-achievementsMenu.onclick = (event) => {
-    const rect = achievementsMenu.getBoundingClientRect()
-    const clickedBackdrop = !(rect.top <= event.clientY && event.clientY <= rect.top + rect.height && rect.left <= event.clientX && event.clientX <= rect.left + rect.width)
-    if (clickedBackdrop && achievementsMenu.open) toggleAchievements()
-}
+function toggleAchievementsMenu() {
+    //Hide achievement indicator dots
+    document.getElementById('achievementsDot1').removeAttribute('active')
+    document.getElementById('achievementsDot2').removeAttribute('active')
 
-function toggleAchievements() {
-    //Hide menu dot
-    document.getElementById('actionDot2').removeAttribute('active')
+    //Close sidebar
+    toggleSidebar(false)
 
     //Toggle menu
-    if (!achievementsMenu.open) {
-        achievementsMenu.showModal()
-        document.body.setAttribute('noscroll', '')
-    } else {
+    if (achievementsMenu.open) {
+        //Close
         achievementsMenu.close()
         document.body.removeAttribute('noscroll')
-    }
+    } else {
+        //Clear achievements list
+        const achievementsList = document.getElementById('achievementsList')
+        achievementsList.innerHTML = ''
 
-    //Close navbar menu
-    if (menuOpen) toggleNavMenu()
+        //Load achievements in list
+        for (key of Object.keys(Achievements)) {
+            const element = document.createElement('div')
+            element.classList.add('achievement')
+
+            //Lock if user does not have the achievement
+            if (!achievements[key]) element.setAttribute('locked', '')
+            
+            //Fill element content
+            element.innerHTML = `
+            <img src="Data/Images/Achievements/${key}.webp">
+            <div>
+                <div>${lan.achievements[key].title}</div>
+                <div>${lan.achievements[key].description}</div>
+            </div>
+            <span>${lan.achievements.locked}</span>
+            `
+            
+            //Add element
+            achievementsList.appendChild(element)
+        }
+
+        //Open
+        achievementsMenu.showModal()
+        document.body.setAttribute('noscroll', '')
+    }
 }
 
-
+Util.onDialogBackdropClick(achievementsMenu, toggleAchievementsMenu)
 
 
 
@@ -1496,60 +1351,167 @@ function toggleAchievements() {
 | $$  | $$|  $$$$$$/| $$ | $$ | $$|  $$$$$$$
 |__/  |__/ \______/ |__/ |__/ |__/ \______*/
 
-//Type animation
-function homeType() {
-    const elem = document.getElementById('homeType2')
-    let jobs = lan.h.type2
-    let i = 0
-    let length
-    let letters
-    let time
-    let time2
-    elem.innerText = ''
-    setTimeout(prepare, 1000)
+//Background particles
+homeParticles = new ParticlesAnimation('homeCanvas')
+homeParticles.changeColor(`color-mix(in srgb, transparent 50%, ${window.getComputedStyle(document.body).getPropertyValue('--text')})`)
 
-    function prepare() {
-        length = jobs[i].length
-        letters = length
-        time = 1100 / length
-        time2 = 600 / length
-        writeLetter()
+//Text animation
+class HomeText {
+
+    //Variables
+    timer
+    baseL = ''
+    baseR = ''
+    role = ''
+    text = ''
+    censorIds = []
+    roleId = -1
+
+    //Delay
+    static DELAY_FULL = 2500
+    static DELAY_CHARACTER = 30
+
+    //State
+    state
+    static STATE_CENSOR = 1
+    static STATE_RESIZE = 2
+    static STATE_UNCENSOR = 3
+
+
+    //Constructor
+    constructor() {
+        this.reset()
     }
 
-    function writeLetter() {
-        elem.innerText = jobs[i].substring(0, length - letters)
-        letters--
-        if (letters >= 0)
-            tim(writeLetter, time)
-        else
-            tim(removeLetter, 1500)
+    reset() {
+        //Stop timer
+        clearTimeout(this.timer)
+
+        //Get base parts
+        const parts = lan.home.text3.split('###')
+        this.baseL = parts[0]
+        this.baseR = parts[1]
+
+        //Select first role
+        this.roleId = -1
+        this.selectNextRole()
+        this.text = this.role
+
+        //Update text
+        this.updateText()
+        
+        //Wait for delay to finish
+        this.waitNext(HomeText.DELAY_FULL, HomeText.STATE_CENSOR)
     }
 
-    function removeLetter() {
-        elem.innerText = jobs[i].substring(0, length - letters)
-        letters++
-        if (letters > length) {
-            tim(() => {
-                i++
-                if (jobs[i] == undefined) i = 0
-                prepare()
-            }, 800)
-        } else {
-            tim(removeLetter, time2)
+    updateText() {
+        document.getElementById('homeText3').innerText = this.baseL + this.text + this.baseR
+    }
+
+    selectNextRole() {
+        //Get next id
+        this.roleId++;
+        if (this.roleId >= lan.home.roles.length) this.roleId = 0
+
+        //Update role
+        this.role = lan.home.roles[this.roleId]
+
+        //Reset ids list
+        this.resetCensorIdx()
+    }
+
+    resetCensorIdx() {
+        this.censorIds = []
+        for (let i = 0; i < this.role.length; i++) this.censorIds.push(i)
+    }
+
+    getCharacter() {
+        return Util.randomArray(['#', '$', '€', '%', '&', '?', '!', '@', '^', '-', '~', '>', '<'])
+    }
+
+    waitNext(duration, newState) {
+        if (newState) this.state = newState
+        this.timer = setTimeout(() => { this.next() }, duration)
+    }
+
+    next() {
+        switch (this.state) {
+            //Censor text
+            case HomeText.STATE_CENSOR: {
+                //Censor character
+                const idx = Util.randomArray(this.censorIds, true)
+                this.text = Util.setCharAt(this.text, idx, this.getCharacter())
+                this.updateText()
+
+                //Check if finished censoring
+                if (this.censorIds.length == 0) {
+                    //Finished -> Get next role
+                    this.selectNextRole()
+
+                    //Check next state
+                    if (this.text.length != this.role.length) {
+                        //Different size -> Resize text
+                        this.waitNext(HomeText.DELAY_CHARACTER, HomeText.STATE_RESIZE)
+                        break
+                    } else {
+                        //Same size -> Uncensor it
+                        this.waitNext(HomeText.DELAY_CHARACTER, HomeText.STATE_UNCENSOR)
+                        break
+                    }
+                }
+
+                //Wait for next step
+                this.waitNext(HomeText.DELAY_CHARACTER)
+            }
+            break
+            
+            //Resize text
+            case HomeText.STATE_RESIZE: {
+                //Check if add or remove character
+                if (this.text.length < this.role.length) {
+                    //Add
+                    this.text += this.getCharacter()
+                } else {
+                    //Remove
+                    this.text = this.text.substring(0, this.text.length - 1)
+                }
+                this.updateText()
+
+                //Check if finished
+                if (this.text.length == this.role.length) {
+                    //Same size -> Uncensor it
+                    this.waitNext(HomeText.DELAY_CHARACTER, HomeText.STATE_UNCENSOR)
+                } else {
+                    //Different size -> Resize next
+                    this.waitNext(HomeText.DELAY_CHARACTER)
+                }
+            }
+            break
+
+            //Uncensor text
+            case HomeText.STATE_UNCENSOR: {
+                //Uncensor character    
+                const idx = Util.randomArray(this.censorIds, true)
+                this.text = Util.setCharAt(this.text, idx, this.role[idx])
+                this.updateText()
+
+                //Check next state
+                if (this.censorIds.length == 0) {
+                    //Finished -> Censor it
+                    this.resetCensorIdx()
+                    this.waitNext(HomeText.DELAY_FULL, HomeText.STATE_CENSOR)
+                } else {
+                    //Not finished -> Uncensor next character
+                    this.waitNext(HomeText.DELAY_CHARACTER)
+                }
+            }
+            break
         }
     }
 
-    function tim(lol, time) {
-        if (jobs != lan.h.type2) {
-            jobs = lan.h.type2
-            prepare()
-        } else {
-            setTimeout(lol, time)
-        }
-    }
 }
 
-
+homeText = new HomeText()
 
 
 
@@ -1560,141 +1522,155 @@ function homeType() {
 | $$__  $$| $$  \ $$| $$  \ $$| $$  | $$  | $$    
 | $$  | $$| $$  | $$| $$  | $$| $$  | $$  | $$ /$$
 | $$  | $$| $$$$$$$/|  $$$$$$/|  $$$$$$/  |  $$$$/
-|__/  |__/|_______/  \______/  \______/    \___*/
+|__/  |__/|_______/  \______/  \______/    \__*/  
+
+//Animate
+animator.animate(document.getElementById('about'))
 
 //About elements
 const aboutImg = document.getElementById('aboutImg')
 const aboutImgName = document.getElementById('aboutImgName')
 
-//Update about image
-aboutUpdate()
-
-function aboutUpdate() {
-    const imgs = [
-        'Data/Images/About/artyom.webp',
-        'Data/Images/About/canary.webp',
-        'Data/Images/About/cat.webp',
-        'Data/Images/About/finisterre.webp',
-        'Data/Images/About/mallorca.webp',
-        'Data/Images/About/otivar.webp',
-        'Data/Images/About/flower.webp',
-        'Data/Images/About/lennon.webp'
-    ]
-    aboutImg.src = imgs[about.order[about.index]]
-}
-
 //About image loading
-let aboutImgLoading = false
-
 aboutImg.onload = () => {
     //Update text
-    aboutImgName.innerText = lan.a.names[about.order[about.index]]
+    aboutImgName.innerText = lan.about.names[about.order[about.index]]
 
     //Loading
-    if (aboutImgLoading) {
+    if (about.loading) {
         //Stop animation
         aboutImg.removeAttribute("loading")
 
-        //Artyom
-        if (about.index == lan.a.names.length - 1) giveAchievement('artyom')
+        //Artyom (last image) -> Give achievement
+        if (about.index == about.imgs.length - 1) giveAchievement(Achievements.artyom)
 
         //Finish
-        setTimeout(() => { aboutImgLoading = false }, 400)
+        setTimeout(() => { about.loading = false }, 400)
     }
 }
 
-function aboutClick() {
+about.next = () => {
     //Is loading
-    if (aboutImgLoading) return
-    aboutImgLoading = true
+    if (about.loading) return
+    about.loading = true
+
+    //Hide click me text
+    if (about.index >= 0) aboutImg.setAttribute("clicked", "")
 
     //Get next image index
     let nextIndex = about.index + 1
-    if (nextIndex >= lan.a.names.length) nextIndex = 0
+    if (nextIndex >= about.imgs.length) nextIndex = 0
 
     //Load animation
-    aboutImg.setAttribute("clicked", "")
     aboutImg.setAttribute("loading", "")
     setTimeout(() => {
         //Update
         about.index = nextIndex
-        aboutUpdate()
+        aboutImg.src = about.imgs[about.order[about.index]]
     }, 400)
 }
 
+about.next()
 
 
 
+  /*$$$$$  /$$       /$$ /$$ /$$          
+ /$$__  $$| $$      |__/| $$| $$          
+| $$  \__/| $$   /$$ /$$| $$| $$  /$$$$$$$
+|  $$$$$$ | $$  /$$/| $$| $$| $$ /$$_____/
+ \____  $$| $$$$$$/ | $$| $$| $$|  $$$$$$ 
+ /$$  \ $$| $$_  $$ | $$| $$| $$ \____  $$
+|  $$$$$$/| $$ \  $$| $$| $$| $$ /$$$$$$$/
+ \______/ |__/  \__/|__/|__/|__/|______*/ 
+ 
+class Skills {
 
- /*$$$$$$                                               /$$             
-| $$__  $$                                             | $$             
+    constructor(skills) {
+        //Add observer to update skill bars
+        const observer = new IntersectionObserver((entries) => {
+            for (const entry of entries) {
+                if (!entry.isIntersecting) continue
+                entry.target.style.width = `var(--${entry.target.id})`
+                observer.unobserve(entry.target)
+            }
+        }, {
+            threshold: 0
+        });
+
+        //Assign observer to skill bars
+        for (const id of skills) observer.observe(document.getElementById(id));
+    }
+
+}
+
+new Skills(['skills1', 'skills2', 'skills3', 'skills4', 'skills5', 'skills6'])
+
+
+
+ /*$$$$$$                                               /$$
+| $$__  $$                                             | $$
 | $$  \ $$ /$$$$$$   /$$$$$$  /$$  /$$$$$$   /$$$$$$$ /$$$$$$   /$$$$$$$
 | $$$$$$$//$$__  $$ /$$__  $$|__/ /$$__  $$ /$$_____/|_  $$_/  /$$_____/
-| $$____/| $$  \__/| $$  \ $$ /$$| $$$$$$$$| $$        | $$   |  $$$$$$ 
+| $$____/| $$  \__/| $$  \ $$ /$$| $$$$$$$$| $$        | $$   |  $$$$$$
 | $$     | $$      | $$  | $$| $$| $$_____/| $$        | $$ /$$\____  $$
 | $$     | $$      |  $$$$$$/| $$|  $$$$$$$|  $$$$$$$  |  $$$$//$$$$$$$/
-|__/     |__/       \______/ | $$ \_______/ \_______/   \___/ |_______/ 
-                       /$$  | $$
-                      |  $$$$$$/
-                       \_____*/
+|__/     |__/       \______/ | $$ \_______/ \_______/   \___/ |_______/
+                        /$$  | $$
+                       |  $$$$$$/
+                        \_____*/
 
+//Manage projects
 function addProjects(category, filter, sort) {
-    //Fix category
-    if (category == null) category = projs.category
-    else if (typeof category !== 'string') category = Category.all
+    //Fix options
+    if (typeof category !== 'string') category = projects.category
+    if (typeof filter !== 'string') filter = projects.filter
+    if (typeof sort !== 'string') sort = projects.sort
 
-    //Fix filter
-    if (filter == null) filter = projs.filter
-    else if (typeof filter !== 'string' || filter == Tag.all) filter = Tag.all
-
-    //Fix sort
-    if (sort == null) sort = projs.sort
-    else if (typeof sort !== 'string') sort = ''
-
-    //Check if is refresh
-    const isRefresh = projs.category == category && projs.filter == filter && projs.sort == sort
-
-    //Save category, filter & sorting
-    projs.category = category
-    projs.filter = filter
-    projs.sort = sort
+    //Check if is refresh & save filters if not refreshing
+    const isRefresh = (projects.category == category) && (projects.filter == filter) && (projects.sort == sort) && (projects.loaded)
+    if (!isRefresh) {
+        projects.category = category
+        projects.filter = filter
+        projects.sort = sort
+        projects.loaded = true
+    }
 
     //Update category, filter & sorting names
-    document.getElementById('projectsCategoryBy').innerText = projs.getCategoryName(category)
-    document.getElementById('projectsFilterBy').innerText = projs.getTagName(filter)
-    document.getElementById('projectsSortBy').innerText = projs.getSortName(sort)
-
-    //Get animate & projects length (minimum of 4)
-    const animate = projs.created == 0
-    const length = isRefresh ? Math.max(projs.created, 4) : 4
+    document.getElementById('projectsCategoryBy').innerText = projects.getCategoryName(category)
+    document.getElementById('projectsFilterBy').innerText = projects.getTagName(filter)
+    document.getElementById('projectsSortBy').innerText = projects.getSortName(sort)
 
     //Copy projects list
-    projs.filteredList = []
-    projs.list.forEach(project => projs.filteredList.push(project))
+    projects.filteredList = []
+    projects.list.forEach(project => projects.filteredList.push(project))
 
     //Remove projects of different categories
     if (category != Category.all) {
-        for (let i = projs.filteredList.length - 1; i >= 0; i--) {
-            const project = projs.filteredList[i]
+        for (let i = projects.filteredList.length - 1; i >= 0; i--) {
+            const project = projects.filteredList[i]
             if (project.category == category) continue
-            projs.filteredList.splice(i, 1)
+            projects.filteredList.splice(i, 1)
         }
     }
 
     //Filter projects
     if (filter != Tag.all) {
-        for (let i = projs.filteredList.length - 1; i >= 0; i--) {
-            const project = projs.filteredList[i]
+        for (let i = projects.filteredList.length - 1; i >= 0; i--) {
+            const project = projects.filteredList[i]
             if (project.tags.includes(filter)) continue
-            projs.filteredList.splice(i, 1)
+            projects.filteredList.splice(i, 1)
         }
     }
 
     //Sort list (by date)
-    if (sort == 'date') projs.filteredList.sort((a, b) => b.dateEnd != a.dateEnd ? b.dateEnd - a.dateEnd : b.dateStart - a.dateStart)
+    if (sort == 'date') projects.filteredList.sort((a, b) => b.dateEnd != a.dateEnd ? b.dateEnd - a.dateEnd : b.dateStart - a.dateStart)
 
     //Scroll to projects if not refresh (changed some filter)
-    if (!isRefresh) goto('projects')
+    if (!isRefresh) goTo('projects')
+
+    //Get options before emptying projects.created
+    const animate = (!isRefresh) && (projects.created == 0)
+    const length = (isRefresh ? Math.max(projects.created, 4) : 4)
 
     //Clear
     clearProjects()
@@ -1702,13 +1678,8 @@ function addProjects(category, filter, sort) {
     //Add projects
     for (let i = 0; i < length; i++) addProject(animate, filter)
 
-    //Has projects?
-    if (projs.created == 0)
-        //No -> Show no projects text
-        document.getElementById('projectsList').innerHTML += `<div class="projectsNone"><div>🥲</div><div>${lan.p.none}</div></div>`
-    else
-        //Yes -> Animate projects appear (just in case)
-        window.onscroll(true)
+    //No projects -> Show no projects text
+    if (projects.created == 0) document.getElementById('projectsList').innerHTML += `<div class="projectsNone"><div>🥲</div><div>${lan.projects.none}</div></div>`
 }
 
 function addProject(animate) {
@@ -1716,29 +1687,29 @@ function addProject(animate) {
     if (typeof animate != 'boolean') animate = true
 
     //No more space
-    if (projs.created >= projs.filteredList.length) return
+    if (projects.created >= projects.filteredList.length) return
 
     //Get basic info
-    const id = `project${projs.created}`
-    const project = projs.filteredList[projs.created]
-    const locales = lan.p.projects[project.key]
+    const id = `project${projects.created}`
+    const project = projects.filteredList[projects.created]
+    const locales = lan.projects.projects[project.key]
 
     //Get scope
     let scope = ''
     if (Array.isArray(project.scope)) {
         for (let i = 0; i < project.scope.length; i++) {
             const element = project.scope[i]
-            scope += (i != 0 ? '<br>' : '') + lan.p.scope[element]
+            scope += (i != 0 ? '<br>' : '') + lan.projects.scope[element]
         }
     }
 
     //Get tags
     let tags = ''
-    if (Array.isArray(project.tags)) project.tags.forEach(tag => tags += `<span class="projectTag" onclick="addProjects(null, '${tag}', null)">${projs.getTagName(tag)}</span>`)
+    if (Array.isArray(project.tags)) project.tags.forEach(tag => tags += `<span class="projectTag" onclick="addProjects(null, '${tag}', null)">${projects.getTagName(tag)}</span>`)
 
     //Get date
     const dateStart = project.dateStart
-    const dateEnd = project.dateEnd == Infinity ? lan.p.date.present : project.dateEnd
+    const dateEnd = project.dateEnd == Infinity ? lan.projects.date.present : project.dateEnd
 
     //Get buttons
     let buttons = ''
@@ -1746,7 +1717,7 @@ function addProject(animate) {
     if (Array.isArray(button)) {
         for (let i = 0; i < button.length; i++) {
             const buttonText = locales['b' + (i + 1)]
-            buttons += `<a id="${id}B${i}" class="button" small target="_blank" href="${button[i]}">${buttonText ? buttonText : locales.tit}</a>`
+            buttons += `<a id="${id}B${i}" class="button" small target="_blank" href="${button[i]}" onmousedown="onProjectOpened()">${buttonText ? buttonText : locales.tit}</a>`
         }
     }
 
@@ -1759,70 +1730,99 @@ function addProject(animate) {
     element.classList.add('project')
 
     //Animation & reverse
-    if (animate) element.classList.add(projs.created < 4 ? 'appear' : 'appeared')
-    if (projs.created % 2 != 0) element.setAttribute('reverse', '')
+    if (animate) element.classList.add('appear')
+    if (projects.created % 2 != 0) element.setAttribute('reverse', '')
 
     //Add project HTML content
     element.innerHTML = `
-    <!-- Media (image, video & scope) -->
-    <div id="${id}-media" class="projectMedia">
-        <!-- Scope -->
-        <span class="projectScope" ${scope != '' ? '' : 'hidden'}>${scope}</span>
-        <!-- Video button -->
-        <div class="projectVideoButton" ${typeof vid === 'string' ? '' : 'hidden'}>
-            <span onclick="toggleVideo(${projs.created}, 'https://www.youtube.com/embed/${vid}')">
-            <img src="Data/Images/Icons/play.webp">
-            <span>${locales.vid}</span>
-            </span>
-        </div>
-        <!-- Dummy -->
-        <div class="projectMediaDummy"></div>
-        <!-- Image & video -->
-        <div class="projectMediaContent">
-            <!-- Image -->
-            <img src="Data/Images/Projects/${project.key}.webp">
-            <!-- Video -->
-            <iframe id="${id}-video" allow="fullscreen"></iframe>
-        </div>
-    </div>
-    <!-- Info (tags, title, description & buttons) -->
-    <div class="projectInfo">
-        <!-- Tags -->
-        <div class="projectTags">${tags}</div>
-        <!-- Title & description -->
-        <div class="projectInfoContent">
-            <div>
-                <span>${locales.tit}</span>
-                <span class="projectDate">${dateStart == dateEnd ? dateEnd : dateStart + ' - ' + dateEnd}</span>
+        <!-- Media (image, video & scope) -->
+        <div id="${id}-media" class="projectMedia" ${typeof vid === 'string' ? 'hasvideo' : ''}>
+            <!-- Scope -->
+            <span class="projectScope" ${scope != '' ? '' : 'hidden'}>${scope}</span>
+            <!-- Actions -->
+            <div class="projectActions">
+                <!-- Video button -->
+                <div class="projectActionButton projectVideoButton" onclick="toggleVideo(${projects.created}, 'https://www.youtube.com/embed/${vid}')">
+                    <img src="Data/Images/Icons/play.webp">
+                    <span>${locales.vid}</span>
+                </div>
+                <!-- Fullscreen button -->
+                <div class="projectActionButton" hidevideo onclick="fullscreenImage('Data/Images/Projects/${project.key}.webp')">
+                    <img src="Data/Images/Icons/maximize.webp">
+                </div>
             </div>
-            <span>${locales.con}</span>
+            <!-- Dummy -->
+            <div class="projectMediaDummy"></div>
+            <!-- Image & video -->
+            <div class="projectMediaContent">
+                <!-- Image -->
+                <img src="Data/Images/Projects/${project.key}.webp">
+                <!-- Video -->
+                <iframe id="${id}-video" allow="fullscreen"></iframe>
+            </div>
         </div>
-        <!-- Buttons -->
-        <div class="projectButtons">${buttons}</div>
-    </div>`
+        <!-- Info (tags, title, description & buttons) -->
+        <div class="projectInfo">
+            <!-- Tags -->
+            <div class="projectTags">${tags}</div>
+            <!-- Title & description -->
+            <div class="projectInfoContent">
+                <div>
+                    <span>${locales.tit}</span>
+                    <span class="projectDate">${dateStart == dateEnd ? dateEnd : dateStart + ' - ' + dateEnd}</span>
+                </div>
+                <span>${locales.con}</span>
+            </div>
+            <!-- Buttons -->
+            <div class="projectButtons">${buttons}</div>
+        </div>`
     document.getElementById('projectsList').appendChild(element)
 
+    //Animate
+    if (animate) animator.animate(element)
+
     //Done
-    projs.created++
+    projects.created++
 
     //Update load more button
-    document.getElementById('projectsMoreBox').style.display = projs.created >= projs.filteredList.length ? 'none' : 'flex'
+    document.getElementById('projectsMore').style.visibility = projects.created >= projects.filteredList.length ? 'hidden' : 'visible'
 }
 
 function clearProjects() {
     //Clear projects
-    projs.created = 0
+    projects.created = 0
     document.getElementById('projectsList').innerHTML = ''
-    document.getElementById('projectsMoreBox').style.display = projs.created >= projs.filteredList.length ? 'none' : 'flex'
+    document.getElementById('projectsMore').style.display = (projects.created >= projects.filteredList.length) ? 'none' : 'flex'
 }
 
 function refreshProjects() {
-    addProjects(projs.category, projs.filter, projs.sort)
+    //Add projects with current info
+    addProjects(projects.category, projects.filter, projects.sort)
+}
+
+//Actions (fullscreen pic & toggle video)
+function fullscreenImage(url) {
+    const popup = document.getElementById('projectsFullscreen')
+    const image = document.getElementById('projectsFullscreenImage')
+
+    if (typeof url === 'string') {
+        //Show
+        document.body.setAttribute('noscroll', '')
+        popup.setAttribute('show', '')
+        image.src = url;
+    } else {
+        //Hide
+        document.body.removeAttribute('noscroll')
+        popup.removeAttribute('show')
+    }
 }
 
 function toggleVideo(number, url) {
+    //Get elements
     const media = document.getElementById(`project${number}-media`)
     const video = document.getElementById(`project${number}-video`)
+
+    //Toggle video
     if (media.getAttribute('video') != null) {
         media.removeAttribute('video')
         video.src = ''
@@ -1830,17 +1830,19 @@ function toggleVideo(number, url) {
         media.setAttribute('video', '')
         video.src = url
     }
+  document.body.dispatchEvent(clickEvent);
+}
+
+function onProjectOpened() {
+    addFocusListener(() => {
+        giveAchievement(Achievements.project)
+        return true
+    })
 }
 
 //Filters menu
 const filterMenu = document.getElementById('filterMenu')
 const filterMenuTitle = document.getElementById('filterMenuTitle')
-
-filterMenu.onclick = (event) => {
-    const rect = filterMenu.getBoundingClientRect()
-    const clickedBackdrop = !(rect.top <= event.clientY && event.clientY <= rect.top + rect.height && rect.left <= event.clientX && event.clientX <= rect.left + rect.width)
-    if (clickedBackdrop && filterMenu.open) toggleFiltersMenu()
-}
 
 function toggleFiltersMenu(type) {
     const types = ['filter', 'category']
@@ -1859,27 +1861,27 @@ function toggleFiltersMenu(type) {
             //Category menu
             case 'category': {
                 //Change menu title
-                filterMenuTitle.innerText = lan.p.filter.category
+                filterMenuTitle.innerText = lan.projects.category.title
 
-                //Get tags
-                const tags = []
+                //Get categories
+                const categories = []
                 Object.keys(Category).forEach(key => {
-                    tags.push(Category[key])
+                    categories.push(Category[key])
                 })
 
-                //Add tags
-                tags.forEach(tag => list.innerHTML += `<span class="projectTag" onclick="addProjects('${tag}', null, null); toggleFiltersMenu();">${projs.getCategoryName(tag)}</span>`)
+                //Add categories
+                categories.forEach(category => list.innerHTML += `<span class="projectTag" onclick="addProjects('${category}', null, null); toggleFiltersMenu();">${projects.getCategoryName(category)}</span>`)
                 break
             }
 
-            //Filter menu
+            //Tags menu
             default: {
                 //Change menu title
-                filterMenuTitle.innerText = lan.p.filter.filter
+                filterMenuTitle.innerText = lan.projects.tags.title
 
                 //Get tags (only the ones used in projects)
                 const usedTags = []
-                projs.list.forEach(project => {
+                projects.list.forEach(project => {
                     project.tags.forEach(tag => {
                         if (!usedTags.includes(tag)) usedTags.push(tag)
                     })
@@ -1894,7 +1896,7 @@ function toggleFiltersMenu(type) {
                 })
 
                 //Add tags
-                tags.forEach(tag => list.innerHTML += `<span class="projectTag" onclick="addProjects(null, '${tag}', null); toggleFiltersMenu();">${projs.getTagName(tag)}</span>`)
+                tags.forEach(tag => list.innerHTML += `<span class="projectTag" onclick="addProjects(null, '${tag}', null); toggleFiltersMenu();">${projects.getTagName(tag)}</span>`)
                 break
             }
         }
@@ -1909,20 +1911,37 @@ function toggleFiltersMenu(type) {
     }
 }
 
+Util.onDialogBackdropClick(filterMenu, toggleFiltersMenu)
+
+//Toggle sort mode
+function toggleSortMode() {
+    addProjects(null, null, (projects.sort == '' ? 'date' : ''))
+}
 
 
+ /*$$$$$$$                    /$$                        
+| $$_____/                   | $$                        
+| $$     /$$$$$$   /$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$ 
+| $$$$$ /$$__  $$ /$$__  $$|_  $$_/   /$$__  $$ /$$__  $$
+| $$__/| $$  \ $$| $$  \ $$  | $$    | $$$$$$$$| $$  \__/
+| $$   | $$  | $$| $$  | $$  | $$ /$$| $$_____/| $$      
+| $$   |  $$$$$$/|  $$$$$$/  |  $$$$/|  $$$$$$$| $$      
+|__/    \______/  \______/    \___/   \_______/|_*/      
 
+//Contact
+function copyMail() {
+    createSnackbar(lan.footer.mail, false)
+    navigator.clipboard.writeText('alex.paniagua.moreno@gmail.com')
+}
 
- /*$$$$$$              /$$     /$$
-| $$__  $$            | $$    | $$
-| $$  \ $$  /$$$$$$  /$$$$$$ /$$$$$$    /$$$$$$  /$$$$$$/$$$$ 
-| $$$$$$$  /$$__  $$|_  $$_/|_  $$_/   /$$__  $$| $$_  $$_  $$
-| $$__  $$| $$  \ $$  | $$    | $$    | $$  \ $$| $$ \ $$ \ $$
-| $$  \ $$| $$  | $$  | $$ /$$| $$ /$$| $$  | $$| $$ | $$ | $$
-| $$$$$$$/|  $$$$$$/  |  $$$$/|  $$$$/|  $$$$$$/| $$ | $$ | $$
-|_______/  \______/    \___/   \___/   \______/ |__/ |__/ |_*/
+function onContactOpened() {
+    addFocusListener(() => {
+        giveAchievement(Achievements.contact)
+        return true
+    })
+}
 
-//Bottom text quotes
+//Quotes
 (() => {
     const quote = [
         'War, war never changes',
@@ -1961,40 +1980,55 @@ function toggleFiltersMenu(type) {
         'Starfield'
     ]
     const q = Math.floor(Math.random() * quote.length)
-    document.getElementById('botQuote').innerHTML = quote[q]
-    document.getElementById('botFrom').innerHTML = from[q]
-})()
+    document.getElementById('footerQuoteText').innerText = quote[q]
+    document.getElementById('footerQuoteFrom').innerText = from[q]
+})();
 
 
 
+ /*$                                 /$$ /$$
+| $$                                | $$|__/
+| $$        /$$$$$$   /$$$$$$   /$$$$$$$ /$$ /$$$$$$$   /$$$$$$
+| $$       /$$__  $$ |____  $$ /$$__  $$| $$| $$__  $$ /$$__  $$
+| $$      | $$  \ $$  /$$$$$$$| $$  | $$| $$| $$  \ $$| $$  \ $$
+| $$      | $$  | $$ /$$__  $$| $$  | $$| $$| $$  | $$| $$  | $$
+| $$$$$$$$|  $$$$$$/|  $$$$$$$|  $$$$$$$| $$| $$  | $$|  $$$$$$$
+|________/ \______/  \_______/ \_______/|__/|__/  |__/ \____  $$
+                                                       /$$  \ $$
+                                                      |  $$$$$$/
+                                                       \_____*/
 
+//Load animation
+(() => {
+    document.body.setAttribute('noscroll', '')
 
- /*$                                 /$$
-| $$                                | $$
-| $$        /$$$$$$   /$$$$$$   /$$$$$$$
-| $$       /$$__  $$ |____  $$ /$$__  $$
-| $$      | $$  \ $$  /$$$$$$$| $$  | $$
-| $$      | $$  | $$ /$$__  $$| $$  | $$
-| $$$$$$$$|  $$$$$$/|  $$$$$$$|  $$$$$$$
-|________/ \______/  \_______/ \______*/
+    const loading = document.getElementById('loading')
+    const loadingBar = document.getElementById('loadingBar')
+    const loadingProgress = document.getElementById('loadingProgress')
 
-//Stop scroll
-document.body.setAttribute('noscroll', '')
+    let progress = 0
 
-//Update page scroll & size
-window.onresize()
-window.onscroll()
+    const waitNext = () => {
+        setTimeout(() => { nextProgress() }, 10)
+    }
 
-//Update language
-setLan()
+    const nextProgress = () => {
+        //Next percent
+        progress = Math.min(100, progress + Math.floor(Math.random() * 2) + 1)
+        loadingBar.style.setProperty('--fill', `${progress}%`)
+        loadingProgress.innerText = `${progress}%`
 
-//Hide waves
-html.style.setProperty('--waveBot', '100vh')
-setTimeout(() => {
-    homeType()
-    document.getElementById('waves').style.opacity = '0'
-    document.getElementById('waves').style.pointerEvents = 'none'
-    setTimeout(() => {
-        document.body.removeAttribute('noscroll')
-    }, 500)
-}, 500)
+        //Check if finished
+        if (progress >= 100) {
+            //Loaded -> Hide loading page, enable scroll & reset home typing animation
+            loading.setAttribute('loaded', '')
+            document.body.removeAttribute('noscroll')
+            homeText.reset()
+        } else {
+            //Didn't finish -> Next progress
+            waitNext()
+        }
+    }
+
+    nextProgress()
+})();
