@@ -127,6 +127,7 @@ const locales = {
                 title: 'Sort by',
                 none: '---',
                 date: 'Date',
+                favs: 'Favourites',
             },
             date: {
                 present: 'Present',
@@ -463,6 +464,7 @@ const locales = {
                 title: 'Ordenar por',
                 none: '---',
                 date: 'Fecha',
+                favs: 'Favoritos',
             },
             date: {
                 present: 'Presente',
@@ -781,11 +783,18 @@ const Tag = Object.freeze({
     diy: 'diy',
 });
 
+const Sort = Object.freeze({
+    none: 'none',
+    date: 'date',
+    favs: 'favs',
+});
+
 const Projects = Object.freeze({
     hardcoreKitty: {
         key: 'hardcoreKitty',
         dateStart: 2025,
         dateEnd: 2025,
+        favPoints: 100,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
@@ -796,6 +805,7 @@ const Projects = Object.freeze({
         key: 'stealer',
         dateStart: 2024,
         dateEnd: 2024,
+        favPoints: 50,
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
         tags: [Tag.python, Tag.vscode],
@@ -805,6 +815,7 @@ const Projects = Object.freeze({
         key: 'spyw4re',
         dateStart: 2024,
         dateEnd: 2024,
+        favPoints: 100,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.js, Tag.nodejs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
@@ -815,6 +826,7 @@ const Projects = Object.freeze({
         key: 'stardewpets',
         dateStart: 2024,
         dateEnd: 2025,
+        favPoints: 100,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
         tags: [Tag.ts, Tag.html, Tag.css, Tag.vscode, Tag.photoshop],
@@ -824,6 +836,7 @@ const Projects = Object.freeze({
         key: 'hackoon',
         dateStart: 2024,
         dateEnd: Infinity,
+        favPoints: 0,
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
@@ -833,6 +846,7 @@ const Projects = Object.freeze({
         key: 'hightime',
         dateStart: 2024,
         dateEnd: 2024,
+        favPoints: 90,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.photoshop],
@@ -843,6 +857,7 @@ const Projects = Object.freeze({
         key: 'fresquita',
         dateStart: 2024,
         dateEnd: 2024,
+        favPoints: 80,
         scope: [Scope.solo, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
@@ -853,6 +868,7 @@ const Projects = Object.freeze({
         key: 'raccoon',
         dateStart: 2023,
         dateEnd: 2023,
+        favPoints: 80,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
@@ -863,6 +879,7 @@ const Projects = Object.freeze({
         key: 'lmdshow',
         dateStart: 2023,
         dateEnd: 2023,
+        favPoints: 80,
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop, Tag.substance],
@@ -873,6 +890,7 @@ const Projects = Object.freeze({
         key: 'memory',
         dateStart: 2023,
         dateEnd: 2023,
+        favPoints: 80,
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.photoshop, Tag.illustrator],
@@ -882,6 +900,7 @@ const Projects = Object.freeze({
         key: 'spirits',
         dateStart: 2023,
         dateEnd: 2023,
+        favPoints: 80,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
@@ -892,6 +911,7 @@ const Projects = Object.freeze({
         key: 'vaporcade',
         dateStart: 2023,
         dateEnd: 2023,
+        favPoints: 80,
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
@@ -901,6 +921,7 @@ const Projects = Object.freeze({
         key: 'papa',
         dateStart: 2023,
         dateEnd: 2023,
+        favPoints: 70,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
@@ -910,6 +931,7 @@ const Projects = Object.freeze({
         key: 'otters',
         dateStart: 2022,
         dateEnd: 2022,
+        favPoints: 20,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.max3ds, Tag.substance, Tag.illustrator, Tag.photoshop],
@@ -919,6 +941,7 @@ const Projects = Object.freeze({
         key: 'assAn',
         dateStart: 2021,
         dateEnd: 2024,
+        favPoints: 50,
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
         tags: [Tag.java, Tag.android, Tag.uiux],
@@ -928,6 +951,7 @@ const Projects = Object.freeze({
         key: 'assPC',
         dateStart: 2021,
         dateEnd: 2025,
+        favPoints: 50,
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
         tags: [Tag.html, Tag.css, Tag.js, Tag.nodejs, Tag.electronjs, Tag.vscode, Tag.uiux],
@@ -937,6 +961,7 @@ const Projects = Object.freeze({
         key: 'frame',
         dateStart: 2022,
         dateEnd: 2024,
+        favPoints: 50,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
         tags: [Tag.html, Tag.css, Tag.js, Tag.vscode, Tag.uiux],
@@ -947,6 +972,7 @@ const Projects = Object.freeze({
         key: 'disbots',
         dateStart: 2018,
         dateEnd: 2020,
+        favPoints: 0,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
         tags: [Tag.js, Tag.vscode, Tag.discordapi],
@@ -956,6 +982,7 @@ const Projects = Object.freeze({
         key: 'mod',
         dateStart: 2021,
         dateEnd: 2021,
+        favPoints: 0,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
         tags: [Tag.model3d, Tag.print3d, Tag.illustrator, Tag.sketching, Tag.diy],
@@ -964,6 +991,7 @@ const Projects = Object.freeze({
         key: 't45',
         dateStart: 2018,
         dateEnd: 2018,
+        favPoints: 0,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
         tags: [Tag.print3d, Tag.diy],
@@ -972,6 +1000,7 @@ const Projects = Object.freeze({
         key: 'usb',
         dateStart: 2018,
         dateEnd: 2018,
+        favPoints: 0,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
         tags: [Tag.model3d, Tag.print3d, Tag.electronics, Tag.diy],
@@ -980,6 +1009,7 @@ const Projects = Object.freeze({
         key: 'hoodie',
         dateStart: 2021,
         dateEnd: 2021,
+        favPoints: 0,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
         tags: [Tag.illustrator, Tag.photoshop, Tag.sketching],
@@ -1024,8 +1054,8 @@ const projects = {
     filteredList: [],
     //Functions
     getCategoryName: (category) => lan.projects.category[category in Category ? category : Category.all],
-    getSortName: (sort) => lan.projects.sort[sort == 'date' ? 'date' : 'none'],
     getTagName: (tag) => tag in lan.projects.tags ? lan.projects.tags[tag] : tag,
+    getSortName: (sort) => lan.projects.sort[sort in Sort ? sort : Sort.none],
 }
 
 
@@ -1662,7 +1692,14 @@ function addProjects(category, filter, sort) {
     }
 
     //Sort list (by date)
-    if (sort == 'date') projects.filteredList.sort((a, b) => b.dateEnd != a.dateEnd ? b.dateEnd - a.dateEnd : b.dateStart - a.dateStart)
+    switch (sort) {
+        case Sort.date:
+            projects.filteredList.sort((a, b) => b.dateEnd != a.dateEnd ? b.dateEnd - a.dateEnd : b.dateStart - a.dateStart)
+            break
+        case Sort.favs:
+            projects.filteredList.sort((a, b) => b.favPoints - a.favPoints)
+            break
+    }
 
     //Scroll to projects if not refresh (changed some filter)
     if (!isRefresh && projects.loaded) goTo('projects')
@@ -1847,70 +1884,81 @@ const filterMenu = document.getElementById('filterMenu')
 const filterMenuTitle = document.getElementById('filterMenuTitle')
 
 function toggleFiltersMenu(type) {
-    const types = ['filter', 'category']
-    if (!types.includes(type)) type = 'filter'
-
     //Get elements
     const list = document.getElementById('filterMenuTags')
 
-    //Toggle menu
-    if (!filterMenu.open) {
-        //Clear list
-        list.innerHTML = ''
-
-        //Execute menu logic
-        switch (type) {
-            //Category menu
-            case 'category': {
-                //Change menu title
-                filterMenuTitle.innerText = lan.projects.category.title
-
-                //Get categories
-                const categories = []
-                Object.keys(Category).forEach(key => {
-                    categories.push(Category[key])
-                })
-
-                //Add categories
-                categories.forEach(category => list.innerHTML += `<span class="projectTag" onclick="addProjects('${category}', null, null); toggleFiltersMenu();">${projects.getCategoryName(category)}</span>`)
-                break
-            }
-
-            //Tags menu
-            default: {
-                //Change menu title
-                filterMenuTitle.innerText = lan.projects.tags.title
-
-                //Get tags (only the ones used in projects)
-                const usedTags = []
-                projects.list.forEach(project => {
-                    project.tags.forEach(tag => {
-                        if (!usedTags.includes(tag)) usedTags.push(tag)
-                    })
-                })
-
-                //Get tags (ordered and with all first)
-                const tags = [Tag.all]
-                Object.keys(Tag).forEach(key => {
-                    const tag = Tag[key]
-                    if (!usedTags.includes(tag)) return
-                    tags.push(tag)
-                })
-
-                //Add tags
-                tags.forEach(tag => list.innerHTML += `<span class="projectTag" onclick="addProjects(null, '${tag}', null); toggleFiltersMenu();">${projects.getTagName(tag)}</span>`)
-                break
-            }
-        }
-
-        //Open
-        filterMenu.showModal()
-        document.body.setAttribute('noscroll', '')
-    } else {
-        //Close
+    //Close menu if open
+    if (filterMenu.open) {
         filterMenu.close()
         document.body.removeAttribute('noscroll')
+        return
     }
+
+    //Clear list
+    list.innerHTML = ''
+
+    //Execute menu logic
+    switch (type) {
+        //Category
+        case 'category': {
+            //Change menu title
+            filterMenuTitle.innerText = lan.projects.category.title
+
+            //Get categories
+            const tags = []
+            for (const key of Object.keys(Category)) tags.push(Category[key]);
+
+            //Add categories
+            tags.forEach(tag => list.innerHTML += `<span class="projectTag" onclick="addProjects('${tag}', null, null); toggleFiltersMenu();">${projects.getCategoryName(tag)}</span>`)
+            break
+        }
+
+        //Sort
+        case 'sort': {
+            //Change menu title
+            filterMenuTitle.innerText = lan.projects.sort.title
+
+            //Get sort options
+            const tags = []
+            for (const key of Object.keys(Sort)) tags.push(Sort[key]);
+            
+            //Add categories
+            tags.forEach(tag => list.innerHTML += `<span class="projectTag" onclick="addProjects(null, null, '${tag}'); toggleFiltersMenu();">${projects.getSortName(tag)}</span>`)
+            break
+        }
+
+        //Tags
+        default: {
+            //Change menu title
+            filterMenuTitle.innerText = lan.projects.tags.title
+
+            //Get tags (only the ones used in projects)
+            const usedTags = []
+            for (const project of projects.list) {
+                for (const tag of project.tags) {
+                    if (usedTags.includes(tag)) continue
+                    usedTags.push(tag)
+                }
+            }
+
+            //Get tags (ordered and with all first)
+            const tags = [Tag.all]
+            for (const key of Object.keys(Tag)) {
+                const tag = Tag[key]
+                if (!usedTags.includes(tag)) continue
+                tags.push(tag)
+            }
+            
+
+            //Add tags
+            tags.forEach(tag => list.innerHTML += `<span class="projectTag" onclick="addProjects(null, '${tag}', null); toggleFiltersMenu();">${projects.getTagName(tag)}</span>`)
+            break
+        }
+    }
+
+    //Open
+    filterMenu.showModal()
+    document.body.setAttribute('noscroll', '')
 }
 
 Util.onDialogBackdropClick(filterMenu, toggleFiltersMenu)
