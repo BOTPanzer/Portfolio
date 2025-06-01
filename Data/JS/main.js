@@ -125,7 +125,6 @@ const locales = {
             },
             sort: {
                 title: 'Sort by',
-                none: '---',
                 date: 'Date',
                 favs: 'Favourites',
             },
@@ -268,15 +267,6 @@ const locales = {
                         It is an isometric role playing game in which you control an otter that goes into an adventure to save its brother.`,
                     b1: "Download&nbsp<i>Otter's Odyssey</i>"
                 },
-                assAn: {
-                    tit: 'Oriøn Assistant (Android)',
-                    con: `Oriøn Assistant for Android is an app full of useful smaller apps such as a music player or a QR scanner.
-                        <br><br>
-                        At first, the idea started as a simple web browser that detected commands and helped with gaming tasks.
-                        After forgetting it for some time, I decided to rename it and give it a modern design with Android Studio. 
-                        At the moment it has music and video players, a photo vault, notes, a QR scanner and an app to send data to the Windows version of the app.`,
-                    b1: 'Download APK'
-                },
                 assPC: {
                     tit: 'Oriøn Assistant (Windows)',
                     con: `Oriøn Assistant for Windows is an app launcher with support for custom themes and HTML/JS apps called modules.
@@ -288,6 +278,15 @@ const locales = {
                         Some updates later I renamed it to Oriøn Assistant to match the Android app and added compatibility between them.`,
                     b1: 'Oriøn Assistant',
                     b2: 'Batch Launcher'
+                },
+                assAn: {
+                    tit: 'Oriøn Assistant (Android)',
+                    con: `Oriøn Assistant for Android is an app full of useful smaller apps such as a music player or a QR scanner.
+                        <br><br>
+                        At first, the idea started as a simple web browser that detected commands and helped with gaming tasks.
+                        After forgetting it for some time, I decided to rename it and give it a modern design with Android Studio. 
+                        At the moment it has music and video players, a photo vault, notes, a QR scanner and an app to send data to the Windows version of the app.`,
+                    b1: 'Download APK'
                 },
                 frame: {
                     tit: 'Oriøn Framework',
@@ -462,13 +461,12 @@ const locales = {
             },
             sort: {
                 title: 'Ordenar por',
-                none: '---',
                 date: 'Fecha',
                 favs: 'Favoritos',
             },
             date: {
                 present: 'Presente',
-                paused: 'Pausado',
+                paused: 'En Pausa',
             },
             scope: {
                 solo: 'Proyecto Solitario',
@@ -605,15 +603,6 @@ const locales = {
                         Es un juego isométrico de rol en el que controlas a una nutria que se adentra en una aventura para rescatar a su hermano.`,
                     b1: "Descargar&nbsp<i>Otter's Odyssey</i>"
                 },
-                assAn: {
-                    tit: 'Oriøn Assistant (Android)',
-                    con: `Oriøn Assistant para Android es una app llena de apps más pequeñas como un reproductor de música o un lector de QR.
-                        <br><br>
-                        Al principio, la idea comenzó como un buscador web simple que detectába comandos y ayudaba con tareas de juegos.
-                        Tras olvidarla por un tiempo, decidí renombrarla y darle un diseño moderno con Android Studio.
-                        Actualmente la app tiene reproductores de música y video, un bunquer de fotos, notas, un lector de QR y una app para pasar datos a la versión de Windows de la app.`,
-                    b1: 'Descargar APK'
-                },
                 assPC: {
                     tit: 'Oriøn Assistant (Windows)',
                     con: `Oriøn Assistant para Windows es un launcher de apps con soporte para temas y apps HTML/JS custom llamadas módulos.
@@ -625,6 +614,15 @@ const locales = {
                         Algunas actualizaciones después lo renombré a Oriøn Assistant para que coincidiera con la app de Android y añadí compatibilidad entre ellas.`,
                     b1: 'Asistente Oriøn',
                     b2: 'Launcher Batch'
+                },
+                assAn: {
+                    tit: 'Oriøn Assistant (Android)',
+                    con: `Oriøn Assistant para Android es una app llena de apps más pequeñas como un reproductor de música o un lector de QR.
+                        <br><br>
+                        Al principio, la idea comenzó como un buscador web simple que detectába comandos y ayudaba con tareas de juegos.
+                        Tras olvidarla por un tiempo, decidí renombrarla y darle un diseño moderno con Android Studio.
+                        Actualmente la app tiene reproductores de música y video, un bunquer de fotos, notas, un lector de QR y una app para pasar datos a la versión de Windows de la app.`,
+                    b1: 'Descargar APK'
                 },
                 frame: {
                     tit: 'Framework Oriøn',
@@ -784,9 +782,8 @@ const Tag = Object.freeze({
 });
 
 const Sort = Object.freeze({
-    none: 'none',
-    date: 'date',
     favs: 'favs',
+    date: 'date',
 });
 
 const Projects = Object.freeze({
@@ -937,30 +934,30 @@ const Projects = Object.freeze({
         tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.max3ds, Tag.substance, Tag.illustrator, Tag.photoshop],
         button: ['https://botpa.itch.io/otters-odyssey']
     },
-    assAn: {
-        key: 'assAn',
-        dateStart: 2021,
-        dateEnd: 2024,
-        favPoints: 50,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.apps,
-        tags: [Tag.java, Tag.android, Tag.uiux],
-        button: ['Data/Orion Assistant 1.10.4.apk']
-    },
     assPC: {
         key: 'assPC',
         dateStart: 2021,
-        dateEnd: 2025,
+        //dateEnd: 2025,
         favPoints: 50,
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
         tags: [Tag.html, Tag.css, Tag.js, Tag.nodejs, Tag.electronjs, Tag.vscode, Tag.uiux],
         button: ['https://github.com/BOTPanzer/Orion-Assistant', 'https://github.com/BOTPanzer/USB-Launcher']
     },
+    assAn: {
+        key: 'assAn',
+        dateStart: 2021,
+        //dateEnd: 2024,
+        favPoints: 50,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.apps,
+        tags: [Tag.java, Tag.android, Tag.uiux],
+        button: ['Data/Orion Assistant 1.10.4.apk']
+    },
     frame: {
         key: 'frame',
         dateStart: 2022,
-        dateEnd: 2024,
+        //dateEnd: 2024,
         favPoints: 50,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
@@ -1023,7 +1020,7 @@ const projects = {
     //Category, filter & sorting
     category: Category.all,
     filter: Tag.all,
-    sort: '',
+    sort: Sort.favs,
     //List (sorted by preferences)
     list: [
         Projects.hardcoreKitty,
@@ -1040,8 +1037,8 @@ const projects = {
         Projects.vaporcade,
         Projects.papa,
         Projects.otters,
-        Projects.assAn,
         Projects.assPC,
+        Projects.assAn,
         Projects.frame,
         /*
         Projects.disbots,
@@ -1055,7 +1052,7 @@ const projects = {
     //Functions
     getCategoryName: (category) => lan.projects.category[category in Category ? category : Category.all],
     getTagName: (tag) => tag in lan.projects.tags ? lan.projects.tags[tag] : tag,
-    getSortName: (sort) => lan.projects.sort[sort in Sort ? sort : Sort.none],
+    getSortName: (sort) => lan.projects.sort[sort in Sort ? sort : Sort.favs],
 }
 
 
@@ -1694,7 +1691,7 @@ function addProjects(category, filter, sort) {
     //Sort list (by date)
     switch (sort) {
         case Sort.date:
-            projects.filteredList.sort((a, b) => b.dateEnd != a.dateEnd ? b.dateEnd - a.dateEnd : b.dateStart - a.dateStart)
+            projects.filteredList.sort((a, b) => Math.max(b.dateStart, b.dateEnd) - Math.max(a.dateStart, a.dateEnd))
             break
         case Sort.favs:
             projects.filteredList.sort((a, b) => b.favPoints - a.favPoints)
