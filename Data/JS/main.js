@@ -1632,7 +1632,6 @@ function addProjects(category, filter, sort) {
         projects.category = category
         projects.filter = filter
         projects.sort = sort
-        projects.loaded = true
     }
 
     //Update category, filter & sorting names
@@ -1666,7 +1665,7 @@ function addProjects(category, filter, sort) {
     if (sort == 'date') projects.filteredList.sort((a, b) => b.dateEnd != a.dateEnd ? b.dateEnd - a.dateEnd : b.dateStart - a.dateStart)
 
     //Scroll to projects if not refresh (changed some filter)
-    if (!isRefresh) goTo('projects')
+    if (!isRefresh && projects.loaded) goTo('projects')
 
     //Get options before emptying projects.created
     const animate = (!isRefresh) && (projects.created == 0)
@@ -1680,6 +1679,9 @@ function addProjects(category, filter, sort) {
 
     //No projects -> Show no projects text
     if (projects.created == 0) document.getElementById('projectsList').innerHTML += `<div class="projectsNone"><div>🥲</div><div>${lan.projects.none}</div></div>`
+
+    //Mark as loaded
+    projects.loaded = true
 }
 
 function addProject(animate) {
