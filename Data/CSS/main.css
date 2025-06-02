@@ -1049,6 +1049,13 @@ dialog[open] {
     animation: nextArrowBounce 4s infinite ease-in-out;
 }
 
+@media screen and (orientation:portrait) {
+    .nextArrow {
+        /* Layout */
+        display: none;
+    }
+}
+
 @keyframes nextArrowBounce {
     0% {
         transform: translateX(0);
