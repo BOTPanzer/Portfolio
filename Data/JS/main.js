@@ -1739,6 +1739,9 @@ function toggleSnakeMenu() {
         //Start game
         snake.game.restart()
     }
+
+    //Close sidebar
+    toggleSidebar(false)
 }
 
 Util.onDialogBackdropClick(snakeMenu, toggleSnakeMenu)
