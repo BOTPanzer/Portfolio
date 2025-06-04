@@ -1623,7 +1623,7 @@ const snake = {
         ['arrowup','arrowup','arrowdown','arrowdown','arrowleft','arrowright','arrowleft','arrowright','b','a'],
     ],
     codesNextIndex: 0,
-    onCodeKey() {
+    onCodeKey(key) {
         //Get next index
         const index = snake.codesNextIndex
 
