@@ -1925,6 +1925,12 @@ img.snakeControlsArrow {
     object-fit: cover;
 }
 
+.projectMedia[video] > .projectMediaContent > img {
+    /* Visuals */
+    opacity: 0;
+    transition: opacity .2s;
+}
+
 .projectMediaContent > iframe {
     /* Size */
     width: 100%;
@@ -1938,15 +1944,23 @@ img.snakeControlsArrow {
     position: absolute;
     top: 0;
     left: 0;
-    display: none;
+    display: flex;
 
     /* Visuals */
     border: none;
+    opacity: 0;
+
+    /* Other */
+    pointer-events: none;
+    transition: opacity .2s;
 }
 
 .projectMedia[video] > .projectMediaContent > iframe {
-    /* Layout */
-    display: flex;
+    /* Visuals */
+    opacity: 1;
+
+    /* Other */
+    pointer-events: unset;
 }
 
 /* Projects -> Info */

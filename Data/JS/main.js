@@ -176,7 +176,7 @@ const locales = {
                         <br><br>
                         In Spyw4re, you are a CCTV operator in an asylum. The building is falling down and a pacient is still inside, so you'll need to help him get out.
                         <br><br>
-                        In order to leave, you'll need need to solve some puzzles and defeat some enemies, but don't think it will be that easy, someone doesn't want you to help him...`,
+                        In order to leave, you'll need to solve some puzzles and defeat some enemies, but don't think it will be that easy, someone doesn't want you to help him...`,
                     b1: "Download&nbsp<i>Spyw4re</i>",
                     vid: 'Gameplay Video'
                 },
@@ -1671,7 +1671,7 @@ const snake = {
     },
 
     //Toggle easteregg (AFK timer)
-    afkDuration: 30 * 1000, //30 seconds
+    afkDuration: 25000, //25 seconds
     afkTimer: undefined,
     onAFK() {
         //Already enabled or message/menu is open
