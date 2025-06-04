@@ -86,7 +86,7 @@
 
             <!-- Space -->
             <div style="height: 10px; margin: auto 0px;"></div>
-
+            
             <!-- Options -->
             <div class="sidebarButton" onclick="swapLocale()">
                 <img src="Data/Images/Icons/language.webp">
@@ -103,22 +103,13 @@
                 <!-- Achievements indicator -->
                 <div id="achievementsDot2" class="dotIndicator"></div>
             </div>
+            <div id="goTo-snake" class="sidebarButton" onclick="toggleSnakeMenu()" hidden>
+                <img src="Data/Images/Icons/game.webp">
+                <span id="sidebar-snake">Snake</span>
+            </div>
         </div>
     </div>
 
-
-
-      <!--$$$                                /$$       /$$                          
-     /$$__  $$                              | $$      | $$                          
-    | $$  \__/ /$$$$$$$   /$$$$$$   /$$$$$$$| $$   /$$| $$$$$$$   /$$$$$$   /$$$$$$ 
-    |  $$$$$$ | $$__  $$ |____  $$ /$$_____/| $$  /$$/| $$__  $$ |____  $$ /$$__  $$
-     \____  $$| $$  \ $$  /$$$$$$$| $$      | $$$$$$/ | $$  \ $$  /$$$$$$$| $$  \__/
-     /$$  \ $$| $$  | $$ /$$__  $$| $$      | $$_  $$ | $$  | $$ /$$__  $$| $$      
-    |  $$$$$$/| $$  | $$|  $$$$$$$|  $$$$$$$| $$ \  $$| $$$$$$$/|  $$$$$$$| $$      
-     \______/ |__/  |__/ \_______/ \_______/|__/  \__/|_______/  \_______/|--> 
-
-    <div id="snackbar"></div>
-    
 
 
       <!--$$$            /$$       /$$                                                                   /$$             
@@ -145,6 +136,63 @@
         <!-- Achievements list -->
         <div id="achievementsList"></div>
     </dialog>
+
+
+
+      <!--$$$                      /$$                
+     /$$__  $$                    | $$                
+    | $$  \__/ /$$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$ 
+    |  $$$$$$ | $$__  $$ |____  $$| $$  /$$/ /$$__  $$
+     \____  $$| $$  \ $$  /$$$$$$$| $$$$$$/ | $$$$$$$$
+     /$$  \ $$| $$  | $$ /$$__  $$| $$_  $$ | $$_____/
+    |  $$$$$$/| $$  | $$|  $$$$$$$| $$ \  $$|  $$$$$$$
+     \______/ |__/  |__/ \_______/|__/  \__/ \_____-->
+    
+    <!-- Game -->
+    <dialog id="snakeMenu">
+        <!-- Title -->
+        <span class="menuTitle">Snake</span>
+
+        <!-- Close button -->
+        <div class="menuClose" onclick="toggleSnakeMenu()">
+            <img src="Data/Images/Icons/close.webp">
+        </div>
+
+        <!-- Game info -->
+        <div class="snakeInfo">
+            <span>
+                <span id="snakeInfoPointsText">Points: </span>
+                <span id="snakeInfoPoints">0</span>
+            </span>
+            <span>
+                <span id="snakeInfoBestText">Highscore: </span>
+                <span id="snakeInfoBest">0</span>
+            </span>
+        </div>
+
+        <!-- Game canvas -->
+        <canvas id="snakeCanvas" width="360" height="360"></canvas>
+
+        <!-- Restart game -->
+        <div class="snakeControls">
+            <div class="snakeControlsArrows">
+                <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" onclick="snake.game.keyPress('a')">
+                <div style="display: flex; flex-direction: column;">
+                    <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" up onclick="snake.game.keyPress('w')">
+                    <div class="snakeControlsArrow"></div>
+                    <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" down onclick="snake.game.keyPress('s')">
+                </div>
+                <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" right onclick="snake.game.keyPress('d')">
+            </div>
+            <div id="snakeRestart" class="button" onclick="snake.game.restart()">Restart</div>
+        </div>
+    </dialog>
+
+    <!-- AFK message -->
+    <div id="snakeAFK" onclick="this.removeAttribute('open'); toggleSnakeMenu()">
+        <span id="snakeAFKText">Seems a bit quiet here...<br>Wanna play a game?</span>
+        <img src="Data/Images/Icons/afk.webp">
+    </div>
 
 
     
@@ -305,7 +353,7 @@
                     <div>
                         <div id="skills1"></div>
                     </div>
-                    <span>Unity · C# · C++ · VS Code</span>
+                    <span>Unity · C# · C++</span>
                 </div>
 
                 <div class="skillsBar">
@@ -314,9 +362,9 @@
                         <span id="skillsUiPro">Medium</span>
                     </div>
                     <div>
-                        <div id="skills5"></div>
+                        <div id="skills2"></div>
                     </div>
-                    <span>Figma · Illustrator</span>
+                    <span>Figma · Illustrator · Photoshop</span>
                 </div>
 
                 <div class="skillsBar">
@@ -332,11 +380,11 @@
 
                 <div class="skillsBar">
                     <div>
-                        <span id="skillsAppTitle">Apps Development</span>
+                        <span id="skillsAppTitle">App Development</span>
                         <span id="skillsAppPro">High</span>
                     </div>
                     <div>
-                        <div id="skills2"></div>
+                        <div id="skills4"></div>
                     </div>
                     <span>Android Studio · Java · NodeJS · ElectronJS</span>
                 </div>
@@ -347,7 +395,7 @@
                         <span id="skills3dPro">Medium</span>
                     </div>
                     <div>
-                        <div id="skills4"></div>
+                        <div id="skills5"></div>
                     </div>
                     <span>Blender · 3DS MAX · Fusion 360 · Cura</span>
                 </div>
@@ -503,6 +551,20 @@
             <div id="footerCredits">Copyright © Alejandro Paniagua</div>
         </div>
     </div>
+    
+
+
+      <!--$$$                                /$$       /$$                          
+     /$$__  $$                              | $$      | $$                          
+    | $$  \__/ /$$$$$$$   /$$$$$$   /$$$$$$$| $$   /$$| $$$$$$$   /$$$$$$   /$$$$$$ 
+    |  $$$$$$ | $$__  $$ |____  $$ /$$_____/| $$  /$$/| $$__  $$ |____  $$ /$$__  $$
+     \____  $$| $$  \ $$  /$$$$$$$| $$      | $$$$$$/ | $$  \ $$  /$$$$$$$| $$  \__/
+     /$$  \ $$| $$  | $$ /$$__  $$| $$      | $$_  $$ | $$  | $$ /$$__  $$| $$      
+    |  $$$$$$/| $$  | $$|  $$$$$$$|  $$$$$$$| $$ \  $$| $$$$$$$/|  $$$$$$$| $$      
+     \______/ |__/  |__/ \_______/ \_______/|__/  \__/|_______/  \_______/|--> 
+
+    <dialog id="snackbar"></dialog>
+
 </body>
 
 <!-- Script -->

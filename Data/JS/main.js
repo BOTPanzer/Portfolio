@@ -26,6 +26,7 @@ const locales = {
             projects: 'Projects',
             contact: 'Contact',
             localization: 'English',
+            theme: 'Theme',
             achievements: 'Achievements',
         },
         //Achievements
@@ -49,6 +50,12 @@ const locales = {
                 title: 'Interested Fellow',
                 description: 'Open one of my contact links'
             },
+        },
+        //Snake
+        snake: {
+            points: 'Points: ',
+            restart: 'Restart',
+            afk: 'Seems a bit quiet here...<br>Wanna play a game?',
         },
         //Home
         home: {
@@ -362,6 +369,7 @@ const locales = {
             projects: 'Proyectos',
             contact: 'Contacto',
             localization: 'Español',
+            theme: 'Tema',
             achievements: 'Logros',
         },
         //Achievements
@@ -385,6 +393,12 @@ const locales = {
                 title: 'Chavalin Interesado',
                 description: 'Abre uno de mis links de contacto'
             },
+        },
+        //Snake
+        snake: {
+            points: 'Puntos: ',
+            restart: 'Reiniciar',
+            afk: 'Hay un poco de silencio...<br>¿Quieres jugar un juego?',
         },
         //Home
         home: {
@@ -1067,9 +1081,9 @@ const projects = {
 |________/ \______/  \_______/ \_______/|__/|__/|________/ \_______/   \___/  |__/ \______/ |__/  |_*/
 
 //Recover saved locale & load it
-switch (localStorage.getItem('locale')) {
+switch (DB.get('locale', 'none', DB.STRING)) {
     //Nothing saved
-    case null:
+    case 'none':
         //Check device language
         let deviceLanguage = navigator.language || navigator.userLanguage
 
@@ -1077,7 +1091,7 @@ switch (localStorage.getItem('locale')) {
         if (deviceLanguage.startsWith('en')) lan = locales.en
 
         //Save locale
-        localStorage.setItem('locale', lan.key)
+        DB.set('locale', lan.key)
         break
 
     //English saved
@@ -1098,7 +1112,7 @@ function swapLocale() {
 
     //Load new locale
     lan = locales[newKey]
-    localStorage.setItem('locale', lan.key)
+    DB.set('locale', lan.key)
 
     //Localize page & hide sidebar
     localize()
@@ -1116,11 +1130,17 @@ function localize() {
     document.getElementById('sidebar-projects').innerText = lan.sidebar.projects
     document.getElementById('sidebar-contact').innerText = lan.sidebar.contact
     document.getElementById('sidebar-localization').innerText = lan.sidebar.localization
+    document.getElementById('sidebar-theme').innerText = lan.sidebar.theme
     document.getElementById('sidebar-achievements').innerText = lan.sidebar.achievements
 
     //Achievements
     document.getElementById('achievementsTitle').innerText = lan.achievements.title
     document.getElementById('achievementsDescription').innerText = lan.achievements.description
+
+    //Snake
+    document.getElementById('snakeInfoPointsText').innerText = lan.snake.points
+    document.getElementById('snakeRestart').innerText = lan.snake.restart
+    document.getElementById('snakeAFKText').innerHTML = lan.snake.afk
 
     //Home
     document.getElementById('homeText1').innerText = lan.home.text1
@@ -1180,7 +1200,7 @@ localize()
    |__/   |__/  |__/ \_______/|__/ |__/ |__/ \______*/
 
 const theme = {
-    dark: !(localStorage.getItem('theme') == 'light')
+    dark: (DB.get('theme', 'dark', DB.STRING) == 'dark')
 }
 
 function toggleTheme() {
@@ -1199,11 +1219,11 @@ function refreshTheme() {
     //Refresh theme
     if (theme.dark) {
         //Enable light
-        localStorage.setItem('theme', 'dark')
+        DB.set('theme', 'dark', DB.STRING)
         document.documentElement.removeAttribute('light')
     } else {
         //Enable dark
-        localStorage.setItem('theme', 'light')
+        DB.set('theme', 'light', DB.STRING)
         document.documentElement.setAttribute('light', '')
     }
 
@@ -1273,7 +1293,7 @@ addFocusListener(changeTitle)
 
 //Load achievements
 for (key of Object.keys(Achievements)) {
-    if (!localStorage.getItem(`achievement-${Achievements[key]}`)) continue
+    if (!DB.get(`achievement-${Achievements[key]}`, false, DB.BOOLEAN)) continue
     addAchievement(key)
 }
 
@@ -1305,14 +1325,14 @@ function giveAllAchievements() {
 
 function addAchievement(key) {
     achievements[key] = true
-    localStorage.setItem(`achievement-${key}`, 'true')
+    DB.set(`achievement-${key}`, true)
 }
 
 function resetAchievements() {
     //Reset current achievements
     for (key of Object.keys(achievements)) {
-        localStorage.setItem(`achievement-${key}`, '')
         achievements[key] = false
+        DB.set(`achievement-${key}`, false)
     }
 }
 
@@ -1366,6 +1386,362 @@ function toggleAchievementsMenu() {
 }
 
 Util.onDialogBackdropClick(achievementsMenu, toggleAchievementsMenu)
+
+
+
+  /*$$$$$                      /$$                
+ /$$__  $$                    | $$                
+| $$  \__/ /$$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$ 
+|  $$$$$$ | $$__  $$ |____  $$| $$  /$$/ /$$__  $$
+ \____  $$| $$  \ $$  /$$$$$$$| $$$$$$/ | $$$$$$$$
+ /$$  \ $$| $$  | $$ /$$__  $$| $$_  $$ | $$_____/
+|  $$$$$$/| $$  | $$|  $$$$$$$| $$ \  $$|  $$$$$$$
+ \______/ |__/  |__/ \_______/|__/  \__/ \______*/
+
+const snakeMenu = document.getElementById('snakeMenu')
+const snakeMessageAFK = document.getElementById('snakeAFK')
+const snakeSidebarButton = document.getElementById('goTo-snake')
+
+//Game
+class Snake {
+    
+    //Technical
+    animationFrame = undefined
+    inputQueue = []
+    context = undefined
+    frameSkip = 0
+
+    //Game
+    size = new Vec2()
+    grid = 15 //Cell size
+
+    dead = true
+    points = 0
+    best = DB.get('snake.best', 0, DB.NUMBER)
+    
+    snake = {
+        pos: new Vec2(150),
+        dir: new Vec2(1, 0),
+        cells: [],
+        length: 4,
+    }
+    apple = new Vec2(0)
+
+    //Constructor
+    constructor(canvas) {
+        //Get context
+        this.context = canvas.getContext('2d')
+
+        //Init game info
+        this.size = new Vec2(canvas.width, canvas.height)
+    }
+
+    //State
+    loop() {
+        //Draw frame if not dead
+        if (this.dead) return
+        this.animationFrame = requestAnimationFrame(() => { this.loop() })
+
+        //Slow game speed (skip frames)
+        this.frameSkip--
+        if (this.frameSkip > 0) return
+
+        //New frame
+        this.frameSkip = 7
+        this.context.clearRect(0, 0, this.size.x, this.size.y)
+
+        //Check keys from input queue
+        for (let i = this.inputQueue.length - 1; i >= 0; i--) {
+            //Get key & remove it from queue
+            const key = this.inputQueue.pop()
+
+            //Check if key is valid
+            let valid = false
+            switch (key) {
+                //Up
+                case 'w':
+                case 'arrowup':
+                    if (this.snake.dir.y !== 0) break
+                    this.snake.dir = new Vec2(0, -1)
+                    valid = true
+                    break
+                //Right
+                case 'd':
+                case 'arrowright':
+                    if (this.snake.dir.x !== 0) break
+                    this.snake.dir = new Vec2(1, 0)
+                    valid = true
+                    break
+                //Down
+                case 's':
+                case 'arrowdown':
+                    if (this.snake.dir.y !== 0) break
+                    this.snake.dir = new Vec2(0, 1)
+                    valid = true
+                    break
+                //Left
+                case 'a':
+                case 'arrowleft':
+                    if (this.snake.dir.x !== 0) break
+                    this.snake.dir = new Vec2(-1, 0)
+                    valid = true
+                    break
+            }
+
+            //Check if key was valid
+            if (valid) break
+        }
+
+        //Move snake
+        this.snake.pos.x += this.snake.dir.x * this.grid;
+        this.snake.pos.y += this.snake.dir.y * this.grid;
+
+        //Wrap on screen edges
+        if (this.snake.pos.x < 0) {
+            this.snake.pos.x = this.size.x - this.grid;
+        } else if (this.snake.pos.x >= this.size.x) {
+            this.snake.pos.x = 0;
+        }
+        
+        if (this.snake.pos.y < 0) {
+            this.snake.pos.y = this.size.y - this.grid;
+        } else if (this.snake.pos.y >= this.size.y) {
+            this.snake.pos.y = 0;
+        }
+
+        //Keep track of where snake has been (front of the array is always the head)
+        this.snake.cells.unshift(new Vec2(this.snake.pos))
+
+        //Remove cells as we move away from them
+        if (this.snake.cells.length > this.snake.length) this.snake.cells.pop()
+
+        //Draw apple
+        this.drawBox(this.apple, '#eb3734')
+
+        //Draw snake one cell at a time
+        this.snake.cells.forEach((cell, index) => {
+            //Drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
+            this.drawBox(cell, '#34eb5b')
+
+            //Snake ate apple
+            if (cell.x === this.apple.x && cell.y === this.apple.y) {
+                this.snake.length++;
+                this.points++
+                this.apple = this.getRandomPoint()
+                
+                //UI
+                document.getElementById('snakeInfoPoints').innerHTML = this.points
+            }
+
+            // check collision with all cells after this one (modified bubble sort)
+            for (var i = index + 1; i < this.snake.cells.length; i++) {
+                //Snake occupies same space as a body part -> reset game
+                if (cell.x != this.snake.cells[i].x || cell.y !== this.snake.cells[i].y) continue
+
+                //Highscore
+                if (this.points > this.best) {
+                    this.best = this.points
+                    DB.set('snake.best', this.best)
+
+                    //Highscore!
+                    createSnackbar('🕹️ Highscore!', true)
+                    
+                    //UI
+                    document.getElementById('snakeInfoBest').innerHTML = this.best
+                }
+
+                //Die
+                this.dead = true
+            }
+        })
+    }
+
+    restart() {
+        //Reset game info
+        this.dead = false
+        this.points = 0
+        this.snake.pos = new Vec2(150)
+        this.snake.dir = new Vec2(1, 0)
+        this.snake.cells = []
+        this.snake.length = 4
+        this.apple = this.getRandomPoint()
+
+        //UI
+        document.getElementById('snakeInfoPoints').innerHTML = this.points
+        document.getElementById('snakeInfoBest').innerHTML = this.best
+
+        //Start drawing
+        cancelAnimationFrame(this.animationFrame)
+        this.animationFrame = requestAnimationFrame(() => { this.loop() })
+    }
+
+    stop() {
+        cancelAnimationFrame(this.animationFrame)
+        this.dead = true
+    }
+
+    //Helpers
+    drawBox(pos, color) {
+        this.context.fillStyle = color
+        this.context.fillRect(pos.x, pos.y, this.grid - 1, this.grid - 1)
+    }
+    
+    getRandomPoint() {
+        return new Vec2(
+            Util.getRandomInt(0, this.size.x / this.grid - 1) * this.grid, 
+            Util.getRandomInt(0, this.size.y / this.grid - 1) * this.grid
+        )
+    }
+
+    keyPress(key) {
+        this.inputQueue.unshift(key)
+    }
+
+}
+
+const snake = {
+    //Easteregg
+    enabled: DB.get('snake', false, DB.BOOLEAN), 
+    enable() {
+        snake.enabled = true
+        DB.set('snake', true)
+        snakeSidebarButton.removeAttribute('hidden')
+    },
+    disable() {
+        snake.enabled = false
+        DB.set('snake', false)
+        snakeSidebarButton.setAttribute('hidden', '')
+        snake.onInputAFK()
+    },
+
+    //Game
+    game: new Snake(document.getElementById('snakeCanvas')),
+
+    //Toggle easteregg (code)
+    codes: [
+        ['s','n','a','k','e'],
+        ['arrowup','arrowup','arrowdown','arrowdown','arrowleft','arrowright','arrowleft','arrowright','b','a'],
+    ],
+    codesNextIndex: 0,
+    onCodeKey() {
+        //Get next index
+        const index = snake.codesNextIndex
+
+        //States of key validity
+        const INVALID = 0
+        const VALID = 1
+        const FINISHED = 2
+
+        //Check if key is valid
+        let state = INVALID
+        for (const code of snake.codes) {
+            //Code is smaller than next position
+            if (code.length <= index) continue
+
+            //Key does not match in code
+            if (code[index] != key) continue
+
+            //Valid key -> Check if finished code
+            if (code.length == index + 1) {
+                //Finished -> Mark as finished & stop looking
+                state = FINISHED
+                break
+            }
+            
+            //Not finished -> Mark as valid key
+            state = VALID
+        }    
+
+        //Check state
+        switch (state) {
+            case INVALID:
+                //Invalid -> Reset next index
+                snake.codesNextIndex = 0
+                break
+            case VALID:
+                //Valid -> Add key to current combination   
+                snake.codesNextIndex++
+                break
+            case FINISHED:
+                //Finished -> Reset next index & open snake
+                snake.codesNextIndex = 0
+                toggleSnakeMenu()
+                break
+        }
+    },
+
+    //Toggle easteregg (AFK timer)
+    afkDuration: 30 * 1000, //30 seconds
+    afkTimer: undefined,
+    onAFK() {
+        //Already enabled or message/menu is open
+        if (snake.enabled || snakeMessageAFK.hasAttribute('open') || snakeMenu.open) return
+
+        //Show popup
+        snakeMessageAFK.setAttribute('open', '')
+    },
+    onInputAFK() {
+        //Clear popup timer & start counting again if easteregg not enabled
+        clearTimeout(snake.afkTimer)
+        if (!snake.enabled) snake.afkTimer = setTimeout(snake.onAFK, snake.afkDuration)
+    },
+}
+
+//Toggle easteregg
+if (snake.enabled) 
+    //Enabled -> Show sidebar button
+    snakeSidebarButton.removeAttribute('hidden') 
+else 
+    //Disabled -> Start counting for AKF message
+    snake.onInputAFK()
+
+//Input (game & toggle easteregg)
+window.addEventListener('keydown', event => {
+    //AFK check
+    snake.onInputAFK()
+
+    //Get pressed key
+    const key = event.key.toLowerCase()
+
+    //Check if game is open
+    if (snakeMenu.open) {
+        //Open -> Add key to input queue & check later on game loop
+        snake.game.keyPress(key)
+    } else {
+        //Closed -> Check input to toggle easteregg by code
+        snake.onCodeKey(key)
+    }
+})
+
+window.addEventListener('scroll', event => {
+    //AFK check
+    snake.onInputAFK()
+})
+
+//Snake menu
+function toggleSnakeMenu() {
+    //Toggle menu
+    if (snakeMenu.open) {
+        //Close
+        snakeMenu.close()
+        document.body.removeAttribute('noscroll')
+        
+        //Stop game
+        snake.game.stop()
+    } else {
+        //Open
+        snakeMenu.showModal()
+        document.body.setAttribute('noscroll', '')
+
+        //Mark easteregg as enabled
+        snake.enable()
+
+        //Start game
+        snake.game.restart()
+    }
+}
+
+Util.onDialogBackdropClick(snakeMenu, toggleSnakeMenu)
 
 
 
@@ -1866,7 +2242,6 @@ function toggleVideo(number, url) {
         media.setAttribute('video', '')
         video.src = url
     }
-  document.body.dispatchEvent(clickEvent);
 }
 
 function onProjectOpened() {

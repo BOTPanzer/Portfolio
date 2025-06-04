@@ -136,6 +136,7 @@ a:not([class]) {
 .button {
     /* Size */
     width: fit-content;
+    height: fit-content;
 
     /* Spacing */
     padding: 8px 16px;
@@ -446,6 +447,11 @@ a:not([class]) {
     background-color: var(--hover);
 }
 
+.sidebarButton[hidden] {
+    /* Layout */
+    display: none;
+}
+
 .sidebarButton > img {
     /* Size */
     width: 20px;
@@ -514,7 +520,7 @@ a:not([class]) {
 |  $$$$$$/| $$  | $$|  $$$$$$$|  $$$$$$$| $$ \  $$| $$$$$$$/|  $$$$$$$| $$      
  \______/ |__/  |__/ \_______/ \_______/|__/  \__/|_______/  \_______/|_*/      
 
-.snackbar {
+#snackbar {
     /* Size */
     min-width: 150px;
     max-width: 500px;
@@ -525,7 +531,6 @@ a:not([class]) {
     /* Layout */
     position: fixed;
     bottom: 0;
-    left: 50%;
 
     /* Text */
     text-align: center;
@@ -534,29 +539,35 @@ a:not([class]) {
     border-radius: 30px;
     background-color: var(--bg);
     border: var(--border);
-    opacity: 0;
+    outline: transparent;
+    color: var(--text);
+    opacity: 1;
     
     /* Other */
     z-index: 999;
     pointer-events: none;
+}
+
+#snackbar[open] {
+    /* Other */
     animation: snackbar 3s forwards;
 }
 
 @keyframes snackbar {
     0% {
-        transform: translateY(0) translateX(-50%);
+        transform: translateY(0);
         opacity: 0;
     }
     25% {
-        transform: translateY(-20px) translateX(-50%);
+        transform: translateY(-20px);
         opacity: 1;
     }
     75% {
-        transform: translateY(-20px) translateX(-50%);
+        transform: translateY(-20px);
         opacity: 1;
     }
     100% {
-        transform: translateY(0) translateX(-50%);
+        transform: translateY(0);
         opacity: 0;
     }
 }
@@ -573,13 +584,13 @@ a:not([class]) {
 |__/     |__/ \_______/|__/  |__/ \______/ |______*/
 
 /* Menu backdrop (click to close) */
-dialog::backdrop {
+dialog:not(#snackbar)::backdrop {
     /* Visuals */
     background-color: var(--backdrop);
 }
 
 /* Menu container */
-dialog {
+dialog:not(#snackbar) {
     /* Size */
     width: 400px;
     max-width: calc(100% - 20px);
@@ -610,7 +621,7 @@ dialog {
     transition: opacity .2s ease;
 }
 
-dialog[open] {
+dialog:not(#snackbar)[open] {
     /* Visuals */
     opacity: 1;
 
@@ -835,6 +846,157 @@ dialog[open] {
     99% {
         opacity: 0;
     }
+}
+
+
+
+  /*$$$$$                      /$$                
+ /$$__  $$                    | $$                
+| $$  \__/ /$$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$ 
+|  $$$$$$ | $$__  $$ |____  $$| $$  /$$/ /$$__  $$
+ \____  $$| $$  \ $$  /$$$$$$$| $$$$$$/ | $$$$$$$$
+ /$$  \ $$| $$  | $$ /$$__  $$| $$_  $$ | $$_____/
+|  $$$$$$/| $$  | $$|  $$$$$$$| $$ \  $$|  $$$$$$$
+ \______/ |__/  |__/ \_______/|__/  \__/ \______*/
+
+/* Snake menu */
+#snakeMenu {
+    /* Size */
+    width: fit-content;
+}
+
+.snakeInfo {
+    /* Spacing */
+    margin-top: -10px;
+
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    /* Text */
+    font-family: roboto;
+}
+
+#snakeCanvas {
+    /* Spacing */
+    margin: 20px 0;
+
+    /* Layout */
+    position: relative;
+    box-sizing: border-box;
+
+    /* Visuals */
+    border: var(--border);
+}
+
+.snakeControls {
+    /* Size */
+    min-width: 80%;
+
+    /* Spacing */
+    margin-bottom: 20px;
+
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.snakeControlsArrows {
+    /* Layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.snakeControlsArrow {
+    /* Size */
+    width: 40px;
+    height: 40px;
+
+    /* Visuals */
+    filter: var(--textFilter);
+}
+
+.snakeControlsArrow[up] {
+    /* Other */
+    rotate: 90deg;
+}
+
+.snakeControlsArrow[down] {
+    /* Other */
+    rotate: -90deg;
+}
+
+.snakeControlsArrow[right] {
+    /* Other */
+    rotate: 180deg;
+}
+
+img.snakeControlsArrow {
+    /* Other */
+    cursor: pointer;
+}
+
+/* AFK popup */
+#snakeAFK {
+    /* Spacing */
+    padding: 20px;
+    padding-right: 130px;
+
+    /* Layout */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    /* Visuals */
+    background-color: var(--bg);
+    border: var(--border);
+    border-radius: 20px;
+    opacity: 0;
+    
+    /* Other */
+    z-index: 500;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+#snakeAFK[open] {
+    /* Visuals */
+    animation: snakeAFK 1s forwards;
+    
+    /* Other */
+    pointer-events: unset;
+}
+
+@keyframes snakeAFK {
+    0% {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+#snakeAFK > img {
+    /* Size */
+    width: 100px;
+    height: 100px;
+
+    /* Layout */
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+    /* Visuals */
+    border-radius: 10px;
 }
 
 
@@ -1300,12 +1462,12 @@ dialog[open] {
 
 /* Skills */
 #skills {
-    --skills1: 95%; /* Videogames */
-    --skills5: 72%; /* UI/UX Design */
-    --skills3: 75%; /* Web Development */
-    --skills2: 80%; /* Apps Development */
-    --skills4: 58%; /* 3D Modeling/Printing & CAD */
-    --skills6: 35%; /* Art & Media */
+    --skills1: 85%; /* Videogames */
+    --skills2: 63%; /* UI/UX Design */
+    --skills3: 65%; /* Web Development */
+    --skills4: 70%; /* Apps Development */
+    --skills5: 45%; /* 3D Modeling/Printing & CAD */
+    --skills6: 30%; /* Art & Media */
 }
 
 /* Title */

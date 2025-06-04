@@ -132,10 +132,11 @@ function snackbarController() {
     const snack = document.getElementById('snackbar')
 
     //Show snackbar
-    if (!snack.classList.contains('snackbar') && snacks.length > 0) {
+    if (!snack.open && snacks.length > 0) {
         //Data
         snack.innerHTML = snacks[0].text
-        snack.classList.add('snackbar')
+        snack.show()
+        
         if (snacks[0].confetti) createConfetti()
         snacks.shift()
 
@@ -143,7 +144,7 @@ function snackbarController() {
         setTimeout(() => {
             //Disappear
             snack.innerHTML = ''
-            snack.classList.remove('snackbar')
+            snack.close()
 
             //Wait to show text
             setTimeout(() => { snackbarController() }, 50)
@@ -311,6 +312,153 @@ class ParticlesAnimation {
 
 
 
+ /*$    /$$                      /$$                        
+| $$   | $$                     | $$                        
+| $$   | $$ /$$$$$$   /$$$$$$$ /$$$$$$    /$$$$$$   /$$$$$$ 
+|  $$ / $$//$$__  $$ /$$_____/|_  $$_/   /$$__  $$ /$$__  $$
+ \  $$ $$/| $$$$$$$$| $$        | $$    | $$  \ $$| $$  \__/
+  \  $$$/ | $$_____/| $$        | $$ /$$| $$  | $$| $$      
+   \  $/  |  $$$$$$$|  $$$$$$$  |  $$$$/|  $$$$$$/| $$      
+    \_/    \_______/ \_______/   \___/   \______/ |_*/      
+
+class Vec2 {
+
+    //Values
+    x = 0
+    y = 0
+
+    //Constructor
+    constructor(x, y) {
+        if (typeof x === 'object') {
+            //Init from another Vec2
+            this.x = x.x
+            this.y = x.y
+        } else {
+            //Init from numbers
+            if (typeof x == 'number') 
+                this.x = x
+            if (typeof y == 'number') 
+                this.y = y
+            else
+                this.y = this.x //Copy x if no y
+        }
+
+    }
+
+    //Functions
+    equals(v) { 
+        return (this.x == v.x && this.y == v.y)
+    }
+
+    add(v) { 
+        return new vec2(this.x + v.x, this.y + v.y) 
+    }
+
+    subtract(v) { 
+        return new vec2(this.x - v.x, this.y - v.y) 
+    }
+
+    multiply(n) { 
+        return new vec2(this.x * n, this.y * n) 
+    }
+
+    divide(n) { 
+        return new vec2(this.x / n, this.y / n) 
+    }
+
+    magnitude() { 
+        return Math.sqrt(this.x * this.x + this.y * this.y) 
+    }
+
+    normalized() { 
+        return this.divide(this.magnitude()) 
+    }
+
+    moveTowards(towards, delta) {
+        let dir = towards.subtract(this)
+        if (dir.magnitude() > delta) 
+            return this.add(dir.normalized().multiply(delta))
+        else 
+            return towards
+    }
+}
+
+
+
+  /*$$$$$   /$$                                                     
+ /$$__  $$ | $$                                                     
+| $$  \__//$$$$$$    /$$$$$$   /$$$$$$  /$$$$$$   /$$$$$$   /$$$$$$ 
+|  $$$$$$|_  $$_/   /$$__  $$ /$$__  $$|____  $$ /$$__  $$ /$$__  $$
+ \____  $$ | $$    | $$  \ $$| $$  \__/ /$$$$$$$| $$  \ $$| $$$$$$$$
+ /$$  \ $$ | $$ /$$| $$  | $$| $$      /$$__  $$| $$  | $$| $$_____/
+|  $$$$$$/ |  $$$$/|  $$$$$$/| $$     |  $$$$$$$|  $$$$$$$|  $$$$$$$
+ \______/   \___/   \______/ |__/      \_______/ \____  $$ \_______/
+                                                 /$$  \ $$          
+                                                |  $$$$$$/          
+                                                 \_____*/           
+
+class DB {
+
+    static BOOLEAN = 'boolean'
+    static NUMBER = 'number'
+    static FUNCTION = 'function'
+    static STRING = 'string'
+
+    static get(key, fallback, type) {
+        //Check args
+        if (typeof key !== 'string') return
+        if (typeof type !== 'string') type = ''
+
+        //Get key value
+        const value = localStorage.getItem(key)
+        if (value == null) return fallback
+
+        //Check type
+        switch (type) {
+            //Boolean
+            case DB.BOOLEAN:
+                return value == 'true'
+            //Number
+            case DB.NUMBER:
+                return Number(value)
+            //Function
+            case DB.FUNCTION:
+                return eval(value)
+            //String & other (localStorage returns strings by default)
+            case DB.STRING:
+            default:
+                return value
+        }
+    }
+
+    static set(key, value) {
+        //Check args
+        if (typeof key !== 'string') return
+
+        //Update key value
+        localStorage.setItem(key, value)
+    }
+
+    static has(key) {
+        //Check args
+        if (typeof key !== 'string') return false
+
+        //Check if key exists
+        return (localStorage.getItem(key) != null)
+    }
+
+    static remove(key) {
+        //Check args
+        if (typeof key !== 'string') return
+
+        //Remove key
+        localStorage.removeItem(key)
+    }
+
+}
+
+
+
  /*$   /$$   /$$     /$$ /$$
 | $$  | $$  | $$    |__/| $$
 | $$  | $$ /$$$$$$   /$$| $$
@@ -321,6 +469,10 @@ class ParticlesAnimation {
  \______/    \___/  |__/|_*/
 
 class Util {
+
+    static getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
 
     static shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
