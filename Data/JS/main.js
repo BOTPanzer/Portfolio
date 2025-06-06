@@ -1688,6 +1688,10 @@ const snake = {
 }
 
 //Toggle easteregg
+window.addEventListener('blur', () => { clearTimeout(snake.afkTimer) })
+
+window.addEventListener('focus', () => { snake.onInputAFK() })
+
 if (snake.enabled) 
     //Enabled -> Show sidebar button
     snakeSidebarButton.removeAttribute('hidden') 
