@@ -1709,6 +1709,11 @@ img.snakeControlsArrow {
 }
 
 @media screen and (orientation:portrait) {
+    .projectMedia {
+        /* Visuals */
+        border: 1px solid transparent;
+    }
+
     .projectMedia[video][hasvideo] {
         /* Spacing */
         margin-bottom: 35px;
@@ -1777,6 +1782,12 @@ img.snakeControlsArrow {
     }
 }
 
+@media screen and (orientation:portrait) {
+    .projectScope {
+        border-radius: 20px;
+    }
+}
+
 /* Projects -> Media -> Actions (video & fullscreen buttons) */
 .projectActions {
     /* Size */
@@ -1812,13 +1823,19 @@ img.snakeControlsArrow {
     gap: 10px;
 
     /* Visuals */
-    background-color: var(--bg);
-    border: var(--border);
+    backdrop-filter: blur(10px);
+    background-color: color-mix(in srgb, var(--bg) 60%, transparent);
     border-radius: 30px;
 
     /* Other */
     cursor: pointer;
-    transition: margin-left .2s, opacity .2s;
+    transition: margin-left .2s, opacity .2s, background-color .2s, border .2s;
+}
+
+.projectMedia[video] .projectActionButton {
+    /* Visuals */
+    background-color: var(--bg);
+    border: var(--border);
 }
 
 .projectMedia[video] .projectActionButton[hidevideo] {
@@ -1909,6 +1926,20 @@ img.snakeControlsArrow {
         /* Layout */
         left: 0;
         right: 0;
+
+        /* Visuals */
+        border-radius: 20px;
+    }
+}
+
+@media screen and (orientation:portrait) {
+    .projectMediaContent {
+        /* Size */
+        width: calc(100% - 10px);
+
+        /* Layout */
+        left: 5px;
+        right: 5px;
 
         /* Visuals */
         border-radius: 20px;
