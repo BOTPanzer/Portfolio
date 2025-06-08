@@ -2170,15 +2170,10 @@ function addProject(animate) {
                     <img src="Data/Images/Icons/maximize.webp">
                 </div>
             </div>
-            <!-- Dummy -->
-            <div class="projectMediaDummy"></div>
-            <!-- Image & video -->
-            <div class="projectMediaContent">
-                <!-- Image -->
-                <img src="Data/Images/Projects/${project.key}.webp">
-                <!-- Video -->
-                <iframe id="${id}-video" allow="fullscreen"></iframe>
-            </div>
+            <!-- Image -->
+            <img src="Data/Images/Projects/${project.key}.webp">
+            <!-- Video -->
+            <iframe id="${id}-video" allow="fullscreen"></iframe>
         </div>
         <!-- Info (tags, title, description & buttons) -->
         <div class="projectInfo">

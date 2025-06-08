@@ -1672,7 +1672,6 @@ img.snakeControlsArrow {
 /* Projects -> Media */
 .projectMedia {
     /* Size */
-    height: 100%;
     width: 65%;
 
     /* Layout */
@@ -1680,10 +1679,6 @@ img.snakeControlsArrow {
     display: flex;
     align-items: center;
     position: relative;
-
-    /* Visuals */
-    border: 1px solid var(--text);
-    border-radius: 20px;
 
     /* Other */
     transition: border .2s, margin-bottom .2s;
@@ -1694,29 +1689,10 @@ img.snakeControlsArrow {
         /* Size */
         width: 100%;
     }
-}
-
-.projectMedia[video] {
-    /* Visuals */
-    border: 1px solid transparent;
-}
-
-@media screen and (orientation:landscape) {
-    .projectMedia:hover:not([video]) {
-        /* Visuals */
-        border: 1px solid transparent;
-    }
-}
-
-@media screen and (orientation:portrait) {
-    .projectMedia {
-        /* Visuals */
-        border: 1px solid transparent;
-    }
 
     .projectMedia[video][hasvideo] {
         /* Spacing */
-        margin-bottom: 35px;
+        margin-bottom: 45px;
     }
 }
 
@@ -1727,8 +1703,8 @@ img.snakeControlsArrow {
 
     /* Layout */
     position: absolute;
-    top: -1px;
-    left: -1px;
+    top: -10px;
+    left: -10px;
 
     /* Text */
     line-height: 2em;
@@ -1740,7 +1716,7 @@ img.snakeControlsArrow {
     /* Visuals */
     background: var(--text);
     color: var(--bg);
-    border-radius: 20px 0;
+    border-radius: 20px;
 
     /* Other */
     z-index: 2;
@@ -1772,19 +1748,18 @@ img.snakeControlsArrow {
     .project[reverse] .projectScope {
         /* Layout */
         left: unset;
-        right: -1px;
+        right: -10px;
 
         /* Text */
         text-align: end;
-        
-        /* Visuals */
-        border-radius: 0 20px;
     }
 }
 
 @media screen and (orientation:portrait) {
     .projectScope {
-        border-radius: 20px;
+        /* Layout */
+        top: -5px;
+        left: -5px;
     }
 }
 
@@ -1804,7 +1779,14 @@ img.snakeControlsArrow {
     /* Other */
     z-index: 2;
     transition: transform .2s;
-    --translate: 60px;
+    --translate: 95px;
+}
+
+@media screen and (orientation:portrait) {
+    .projectActions {
+        /* Other */
+        --translate: 70px;
+    }
 }
 
 .projectMedia[video] .projectActions {
@@ -1874,95 +1856,20 @@ img.snakeControlsArrow {
     display: none;
 }
 
-/* Projects -> Media -> Dummy */
-.projectMediaDummy {
-    /* Size */
-    width: calc(100% - 40px);
-    aspect-ratio: 16/9;
-
-    /* Spacing */
-    margin: 20px;
-}
-
-/* Projects -> Media -> Content */
-.projectMediaContent {
-    /* Size */
-    width: calc(100% - 40px);
-    aspect-ratio: 16/9;
-
-    /* Layout */
-    position: absolute;
-    top: auto;
-    bottom: auto;
-    left: 20px;
-    right: 20px;
-
-    /* Visuals */
-    background-color: var(--bg);
-    border-radius: 10px;
-
-    /* Other */
-    overflow: hidden;
-    transition: width .2s, left .2s, right .2s, border-radius .2s;
-}
-
-.projectMedia[video] > .projectMediaContent {
+/* Projects -> Media -> Image/Video */
+.projectMedia > img {
     /* Size */
     width: 100%;
-
-    /* Layout */
-    left: 0;
-    right: 0;
+    aspect-ratio: 16/9;
 
     /* Visuals */
     border-radius: 20px;
-}
-
-@media screen and (orientation:landscape) {
-    .projectMedia:hover:not([video]) > .projectMediaContent {
-        /* Size */
-        width: 100%;
-
-        /* Layout */
-        left: 0;
-        right: 0;
-
-        /* Visuals */
-        border-radius: 20px;
-    }
-}
-
-@media screen and (orientation:portrait) {
-    .projectMediaContent {
-        /* Size */
-        width: calc(100% - 10px);
-
-        /* Layout */
-        left: 5px;
-        right: 5px;
-
-        /* Visuals */
-        border-radius: 20px;
-    }
-}
-
-/* Projects -> Media -> Content -> Image/Video */
-.projectMediaContent > img {
-    /* Size */
-    width: 100%;
-    height: 100%;
 
     /* Other */
     object-fit: cover;
 }
 
-.projectMedia[video] > .projectMediaContent > img {
-    /* Visuals */
-    opacity: 0;
-    transition: opacity .2s;
-}
-
-.projectMediaContent > iframe {
+.projectMedia > iframe {
     /* Size */
     width: 100%;
     height: 100%;
@@ -1978,20 +1885,31 @@ img.snakeControlsArrow {
     display: flex;
 
     /* Visuals */
+    border-radius: 20px;
     border: none;
-    opacity: 0;
 
     /* Other */
     pointer-events: none;
     transition: opacity .2s;
 }
 
-.projectMedia[video] > .projectMediaContent > iframe {
-    /* Visuals */
-    opacity: 1;
-
+.projectMedia[video] > iframe {
     /* Other */
     pointer-events: unset;
+}
+
+@media screen and (orientation:landscape) {
+    .projectMedia > img,
+    .projectMedia > iframe {
+        /* Other */
+        transition: scale .2s;
+    }
+
+    .projectMedia[video][hasvideo] > img,
+    .projectMedia[video][hasvideo] > iframe {
+        /* Other */
+        scale: 1.1;
+    }
 }
 
 /* Projects -> Info */
