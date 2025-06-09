@@ -158,7 +158,7 @@
             <img src="Data/Images/Icons/close.webp">
         </div>
 
-        <!-- Game info -->
+        <!-- Points info -->
         <div class="snakeInfo">
             <span>
                 <span id="snakeInfoPointsText">Points: </span>
@@ -173,7 +173,7 @@
         <!-- Game canvas -->
         <canvas id="snakeCanvas" width="360" height="360"></canvas>
 
-        <!-- Restart game -->
+        <!-- Arrows & restart button -->
         <div class="snakeControls">
             <div class="snakeControlsArrows">
                 <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" onclick="snake.game.keyPress('a')">
@@ -186,6 +186,9 @@
             </div>
             <div id="snakeRestart" class="button" onclick="snake.game.restart()">Restart</div>
         </div>
+
+        <!-- State info -->
+        <span id="snakeInfoState"></span>
     </dialog>
 
     <!-- AFK message -->

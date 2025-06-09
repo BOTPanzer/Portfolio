@@ -55,6 +55,7 @@ const locales = {
         snake: {
             points: 'Points: ',
             restart: 'Restart',
+            death: 'You died!',
             afk: 'Seems a bit quiet here...<br>Wanna play a game?',
         },
         //Home
@@ -398,6 +399,7 @@ const locales = {
         snake: {
             points: 'Puntos: ',
             restart: 'Reiniciar',
+            death: '¡Has muerto!',
             afk: 'Hay un poco de silencio...<br>¿Quieres jugar un juego?',
         },
         //Home
@@ -1407,9 +1409,10 @@ class Snake {
     
     //Technical
     animationFrame = undefined
+    updateInterval = undefined
+    delta = 1000 / 9 //9 fps
     inputQueue = []
     context = undefined
-    frameSkip = 0
 
     //Game
     size = new Vec2()
@@ -1436,20 +1439,11 @@ class Snake {
         this.size = new Vec2(canvas.width, canvas.height)
     }
 
-    //State
-    loop() {
-        //Draw frame if not dead
+    //Update & render
+    update() {
+        //Dead -> Don't update
         if (this.dead) return
-        this.animationFrame = requestAnimationFrame(() => { this.loop() })
-
-        //Slow game speed (skip frames)
-        this.frameSkip--
-        if (this.frameSkip > 0) return
-
-        //New frame
-        this.frameSkip = 7
-        this.context.clearRect(0, 0, this.size.x, this.size.y)
-
+        
         //Check keys from input queue
         for (let i = this.inputQueue.length - 1; i >= 0; i--) {
             //Get key & remove it from queue
@@ -1515,14 +1509,8 @@ class Snake {
         //Remove cells as we move away from them
         if (this.snake.cells.length > this.snake.length) this.snake.cells.pop()
 
-        //Draw apple
-        this.drawBox(this.apple, '#eb3734')
-
-        //Draw snake one cell at a time
+        //Check snake cells
         this.snake.cells.forEach((cell, index) => {
-            //Drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
-            this.drawBox(cell, '#34eb5b')
-
             //Snake ate apple
             if (cell.x === this.apple.x && cell.y === this.apple.y) {
                 this.snake.length++;
@@ -1530,7 +1518,7 @@ class Snake {
                 this.apple = this.getRandomPoint()
                 
                 //UI
-                document.getElementById('snakeInfoPoints').innerHTML = this.points
+                document.getElementById('snakeInfoPoints').innerText = this.points
             }
 
             // check collision with all cells after this one (modified bubble sort)
@@ -1547,17 +1535,60 @@ class Snake {
                     createSnackbar('🕹️ Highscore!', true)
                     
                     //UI
-                    document.getElementById('snakeInfoBest').innerHTML = this.best
+                    document.getElementById('snakeInfoBest').innerText = this.best
                 }
 
                 //Die
                 this.dead = true
+                document.getElementById('snakeInfoState').innerText = lan.snake.death
             }
         })
     }
 
+    draw() {
+        //Dead -> Don't draw
+        if (this.dead) return
+        
+        //Clear canvas
+        this.context.clearRect(0, 0, this.size.x, this.size.y)
+        
+        //Draw apple
+        this.drawBox(this.apple, '#eb3734')
+
+        //Draw snake one cell at a time
+        this.snake.cells.forEach(cell => {
+            //Drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
+            this.drawBox(cell, '#34eb5b')
+        })
+
+        //Request next frame
+        this.animationFrame = requestAnimationFrame(() => { this.draw() })
+    }
+
+    //State
+    resume() {
+        //Pause just in case
+        this.pause()
+
+        //Resume
+        this.animationFrame = requestAnimationFrame(() => { this.draw() })
+        this.updateInterval = setInterval(() => { this.update() }, this.delta)
+    }
+
+    pause() {
+        //Pause
+        cancelAnimationFrame(this.animationFrame)
+        clearInterval(this.updateInterval)
+    }
+
+    stop() {
+        this.dead = true
+        this.pause()
+    }
+
     restart() {
         //Reset game info
+        this.inputQueue = []
         this.dead = false
         this.points = 0
         this.snake.pos = new Vec2(150)
@@ -1567,17 +1598,12 @@ class Snake {
         this.apple = this.getRandomPoint()
 
         //UI
-        document.getElementById('snakeInfoPoints').innerHTML = this.points
-        document.getElementById('snakeInfoBest').innerHTML = this.best
+        document.getElementById('snakeInfoPoints').innerText = this.points
+        document.getElementById('snakeInfoBest').innerText = this.best
+        document.getElementById('snakeInfoState').innerText = ''
 
         //Start drawing
-        cancelAnimationFrame(this.animationFrame)
-        this.animationFrame = requestAnimationFrame(() => { this.loop() })
-    }
-
-    stop() {
-        cancelAnimationFrame(this.animationFrame)
-        this.dead = true
+        this.resume()
     }
 
     //Helpers

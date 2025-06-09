@@ -940,6 +940,18 @@ img.snakeControlsArrow {
     cursor: pointer;
 }
 
+#snakeInfoState {
+    /* Size */
+    width: 100%;
+    
+    /* Layout */
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+
 /* AFK popup */
 #snakeAFK {
     /* Spacing */
