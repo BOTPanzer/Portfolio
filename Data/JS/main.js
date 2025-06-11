@@ -25,6 +25,7 @@ const locales = {
             skills: 'Skills',
             projects: 'Projects',
             contact: 'Contact',
+            resume: 'Resume',
             localization: 'English',
             theme: 'Theme',
             achievements: 'Achievements',
@@ -369,6 +370,7 @@ const locales = {
             skills: 'Habilidades',
             projects: 'Proyectos',
             contact: 'Contacto',
+            resume: 'Curriculum',
             localization: 'Español',
             theme: 'Tema',
             achievements: 'Logros',
@@ -1131,6 +1133,8 @@ function localize() {
     document.getElementById('sidebar-skills').innerText = lan.sidebar.skills
     document.getElementById('sidebar-projects').innerText = lan.sidebar.projects
     document.getElementById('sidebar-contact').innerText = lan.sidebar.contact
+    document.getElementById('goTo-resume').href = (lan.key == 'es' ? 'Data/Documents/CV (español).pdf' : 'Data/Documents/CV (english).pdf')
+    document.getElementById('sidebar-resume').innerText = lan.sidebar.resume
     document.getElementById('sidebar-localization').innerText = lan.sidebar.localization
     document.getElementById('sidebar-theme').innerText = lan.sidebar.theme
     document.getElementById('sidebar-achievements').innerText = lan.sidebar.achievements

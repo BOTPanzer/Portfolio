@@ -436,6 +436,7 @@ a:not([class]) {
 
     /* Visuals */
     border-radius: 20px;
+    color: var(--text);
     
     /* Other */
     cursor: pointer;

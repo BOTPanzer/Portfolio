@@ -58,55 +58,59 @@
     <div id="sidebar" class="sidebar" onclick="toggleSidebar()">
         <div class="sidebarLayout" onclick="event.stopPropagation()">
             <!-- Pages -->
-            <div id="goTo-home" class="sidebarButton" onclick="goTo('home')" selected>
+            <a id="goTo-home" class="sidebarButton" onclick="goTo('home')" selected>
                 <img src="Data/Images/Icons/home.webp">
                 <span id="sidebar-home">Home</span>
                 <indicator class="sidebarButtonIndicator"></indicator>
-            </div>
-            <div id="goTo-about" class="sidebarButton" onclick="goTo('about')">
+            </a>
+            <a id="goTo-about" class="sidebarButton" onclick="goTo('about')">
                 <img src="Data/Images/Icons/about.webp">
                 <span id="sidebar-about">About</span>
                 <indicator class="sidebarButtonIndicator"></indicator>
-            </div>
-            <div id="goTo-skills" class="sidebarButton" onclick="goTo('skills')">
+            </a>
+            <a id="goTo-skills" class="sidebarButton" onclick="goTo('skills')">
                 <img src="Data/Images/Icons/skills.webp">
                 <span id="sidebar-skills">Skills</span>
                 <indicator class="sidebarButtonIndicator"></indicator>
-            </div>
-            <div id="goTo-projects" class="sidebarButton" onclick="goTo('projects')">
+            </a>
+            <a id="goTo-projects" class="sidebarButton" onclick="goTo('projects')">
                 <img src="Data/Images/Icons/projects.webp">
                 <span id="sidebar-projects">Projects</span>
                 <indicator class="sidebarButtonIndicator"></indicator>
-            </div>
-            <div id="goTo-contact" class="sidebarButton" onclick="goTo('contact')">
+            </a>
+            <a id="goTo-contact" class="sidebarButton" onclick="goTo('contact')">
                 <img src="Data/Images/Icons/email.webp">
                 <span id="sidebar-contact">Contact</span>
                 <indicator class="sidebarButtonIndicator"></indicator>
-            </div>
+            </a>
+            <a id="goTo-resume" class="sidebarButton" target="_blank" href="Data/Documents/CV (english).pdf">
+                <img src="Data/Images/Icons/resume.webp">
+                <span id="sidebar-resume">Resume</span>
+            </a>
 
             <!-- Space -->
             <div style="height: 10px; margin: auto 0px;"></div>
             
             <!-- Options -->
-            <div class="sidebarButton" onclick="swapLocale()">
+            <a class="sidebarButton" onclick="swapLocale()">
                 <img src="Data/Images/Icons/language.webp">
                 <span id="sidebar-localization">Language</span>
-            </div>
-            <div class="sidebarButton" onclick="toggleTheme()">
+            </a>
+            <a class="sidebarButton" onclick="toggleTheme()">
                 <img src="Data/Images/Icons/theme.webp">
                 <span id="sidebar-theme">Theme</span>
-            </div>
-            <div class="sidebarButton" onclick="toggleAchievementsMenu()">
+            </a>
+            <a id="goTo-snake" class="sidebarButton" onclick="toggleSnakeMenu()" hidden>
+                <img src="Data/Images/Icons/game.webp">
+                <span id="sidebar-snake">Snake</span>
+            </a>
+            <a class="sidebarButton" onclick="toggleAchievementsMenu()">
                 <img src="Data/Images/Icons/achievements.webp">
                 <span id="sidebar-achievements">Achievements</span>
 
                 <!-- Achievements indicator -->
                 <div id="achievementsDot2" class="dotIndicator"></div>
-            </div>
-            <div id="goTo-snake" class="sidebarButton" onclick="toggleSnakeMenu()" hidden>
-                <img src="Data/Images/Icons/game.webp">
-                <span id="sidebar-snake">Snake</span>
-            </div>
+            </a>
         </div>
     </div>
 
