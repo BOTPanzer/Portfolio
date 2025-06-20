@@ -67,7 +67,7 @@ const locales = {
             roles: [
                 'indie game developer',
                 'web designer',
-                'an app developer',
+                'app developer',
             ]
         },
         //About
