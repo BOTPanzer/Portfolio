@@ -346,41 +346,54 @@ class Vec2 {
     }
 
     //Functions
-    equals(v) { 
+    equals(v) {
         return (this.x == v.x && this.y == v.y)
     }
 
-    add(v) { 
-        return new vec2(this.x + v.x, this.y + v.y) 
+    add(v) {
+        return new Vec2(this.x + v.x, this.y + v.y)
     }
 
-    subtract(v) { 
-        return new vec2(this.x - v.x, this.y - v.y) 
+    subtract(v) {
+        return new Vec2(this.x - v.x, this.y - v.y)
     }
 
     multiply(n) { 
-        return new vec2(this.x * n, this.y * n) 
+        return new Vec2(this.x * n, this.y * n)
     }
 
     divide(n) { 
-        return new vec2(this.x / n, this.y / n) 
+        return new Vec2(this.x / n, this.y / n)
     }
 
     magnitude() { 
-        return Math.sqrt(this.x * this.x + this.y * this.y) 
+        return Math.sqrt(this.x * this.x + this.y * this.y)
+    }
+
+    clampMagnitude(max) {
+        const magnitude = this.magnitude()
+        if (magnitude > max)
+            return this.divide(magnitude).multiply(max)
+        else
+            return new Vec2(this)
     }
 
     normalized() { 
-        return this.divide(this.magnitude()) 
+        return this.divide(this.magnitude())
     }
 
     moveTowards(towards, delta) {
-        let dir = towards.subtract(this)
-        if (dir.magnitude() > delta) 
+        const dir = towards.subtract(this)
+        if (dir.magnitude() > delta)
             return this.add(dir.normalized().multiply(delta))
-        else 
+        else
             return towards
     }
+
+    toString() {
+        return `(${this.x}, ${this.y})`;
+    }
+    
 }
 
 
@@ -401,7 +414,7 @@ class DB {
 
     static BOOLEAN = 'boolean'
     static NUMBER = 'number'
-    static FUNCTION = 'function'
+    static OBJECT = 'object'
     static STRING = 'string'
 
     static get(key, fallback, type) {
@@ -421,9 +434,9 @@ class DB {
             //Number
             case DB.NUMBER:
                 return Number(value)
-            //Function
-            case DB.FUNCTION:
-                return eval(value)
+            //Object
+            case DB.OBJECT:
+                return JSON.parse(value)
             //String & other (localStorage returns strings by default)
             case DB.STRING:
             default:
@@ -436,7 +449,7 @@ class DB {
         if (typeof key !== 'string') return
 
         //Update key value
-        localStorage.setItem(key, value)
+        localStorage.setItem(key, typeof value == DB.OBJECT ? JSON.stringify(value) : value)
     }
 
     static has(key) {
@@ -469,6 +482,10 @@ class DB {
  \______/    \___/  |__/|_*/
 
 class Util {
+
+    static clamp(x, min, max) {
+        return Math.min(Math.max(x, min), max)
+    }
 
     static getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;

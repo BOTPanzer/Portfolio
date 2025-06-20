@@ -148,6 +148,13 @@ const locales = {
                 jam: 'Jam Game',
             },
             projects: {
+                mapPinner: {
+                    tit: "Map Pinner",
+                    con: `Map Pinner is a free web tool designed to help you plan and organize your trips.
+                        <br><br>
+                        With Map Pinner you can easily select a map image, place pins on your map & customize each one with custom colors, categories, names, links, and descriptions.`,
+                    b1: "Try&nbsp<i>Map Pinner</i>",
+                },
                 hardcoreKitty: {
                     tit: "Hardcore Kitty",
                     con: `Third place in the 6º edition of the <a href="https://itch.io/jam/6-edicin-game-jam-game-scholars" target="_blank">GameScholars gamejam</a>.
@@ -493,6 +500,13 @@ const locales = {
                 jam: 'Juego de Jam',
             },
             projects: {
+                mapPinner: {
+                    tit: "Map Pinner",
+                    con: `Map Pinner es una herramienta web gratuita diseñada para ayudarte a planificar y organizar tus viajes.
+                        <br><br>
+                        Con Map Pinner puedes seleccionar una imagen como mapa, colocar pins y personalizar cada una con colores, categorías, nombres, links y descripciones personalizadas.`,
+                    b1: "Probar&nbsp<i>Map Pinner</i>",
+                },
                 hardcoreKitty: {
                     tit: "Hardcore Kitty",
                     con: `Tercer puesto en la 6º edicion de la <a href="https://itch.io/jam/6-edicin-game-jam-game-scholars" target="_blank">gamejam de GameScholars</a>.
@@ -805,6 +819,16 @@ const Sort = Object.freeze({
 });
 
 const Projects = Object.freeze({
+    mapPinner: {
+        key: 'mapPinner',
+        dateStart: 2025,
+        dateEnd: 2025,
+        favPoints: 50,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.apps,
+        tags: [Tag.html, Tag.css, Tag.js, Tag.vscode],
+        button: ['http://botpanzer.github.io/Map-Pinner'],
+    },
     hardcoreKitty: {
         key: 'hardcoreKitty',
         dateStart: 2025,
@@ -936,7 +960,7 @@ const Projects = Object.freeze({
         key: 'papa',
         dateStart: 2023,
         dateEnd: 2023,
-        favPoints: 70,
+        favPoints: 50,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
@@ -955,7 +979,7 @@ const Projects = Object.freeze({
     assPC: {
         key: 'assPC',
         dateStart: 2021,
-        //dateEnd: 2025,
+        dateEnd: 2025,
         favPoints: 50,
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
@@ -965,7 +989,7 @@ const Projects = Object.freeze({
     assAn: {
         key: 'assAn',
         dateStart: 2021,
-        //dateEnd: 2024,
+        dateEnd: 2025,
         favPoints: 50,
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
@@ -1041,6 +1065,7 @@ const projects = {
     sort: Sort.favs,
     //List (sorted by preferences)
     list: [
+        Projects.mapPinner,
         Projects.hardcoreKitty,
         Projects.spyw4re,
         Projects.stardewpets,
