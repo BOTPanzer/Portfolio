@@ -83,7 +83,7 @@
                 <span id="sidebar-contact">Contact</span>
                 <indicator class="sidebarButtonIndicator"></indicator>
             </a>
-            <a id="goTo-resume" class="sidebarButton" target="_blank" href="Data/Documents/CV (english).pdf">
+            <a id="goTo-resume" class="sidebarButton" onclick="toggleResumeMenu()">
                 <img src="Data/Images/Icons/resume.webp">
                 <span id="sidebar-resume">Resume</span>
             </a>
@@ -113,6 +113,33 @@
             </a>
         </div>
     </div>
+
+
+
+     <!--$$$$                                                       
+    | $$__  $$                                                      
+    | $$  \ $$  /$$$$$$   /$$$$$$$ /$$   /$$ /$$$$$$/$$$$   /$$$$$$ 
+    | $$$$$$$/ /$$__  $$ /$$_____/| $$  | $$| $$_  $$_  $$ /$$__  $$
+    | $$__  $$| $$$$$$$$|  $$$$$$ | $$  | $$| $$ \ $$ \ $$| $$$$$$$$
+    | $$  \ $$| $$_____/ \____  $$| $$  | $$| $$ | $$ | $$| $$_____/
+    | $$  | $$|  $$$$$$$ /$$$$$$$/|  $$$$$$/| $$ | $$ | $$|  $$$$$$$
+    |__/  |__/ \_______/|_______/  \______/ |__/ |__/ |__/ \_____-->
+
+    <dialog id="resumeMenu">
+        <!-- Title -->
+        <span id="resumeMenuTitle" class="menuTitle">Curriculum</span>
+
+        <!-- Close button -->
+        <div class="menuClose" onclick="toggleResumeMenu()">
+            <img src="Data/Images/Icons/close.webp">
+        </div>
+        
+        <!-- Language selector -->
+        <div class="menuList">
+            <a class="button" target="_blank" href="Data/Documents/CV (english).pdf">English</a>
+            <a class="button" target="_blank" href="Data/Documents/CV (español).pdf">Español</a>
+        </div>
+    </dialog>
 
 
 
@@ -483,7 +510,7 @@
                 </div>
                 
                 <!-- Tags list -->
-                <div id="filterMenuTags"></div>
+                <div id="filterMenuTags" class="menuList"></div>
             </dialog>
 
             <!-- List -->

@@ -30,6 +30,10 @@ const locales = {
             theme: 'Theme',
             achievements: 'Achievements',
         },
+        //Resume
+        resume: {
+            title: 'Resume',
+        },
         //Achievements
         achievements: {
             title: 'Achievements',
@@ -381,6 +385,10 @@ const locales = {
             localization: 'Español',
             theme: 'Tema',
             achievements: 'Logros',
+        },
+        //Resume
+        resume: {
+            title: 'Curriculum',
         },
         //Achievements
         achievements: {
@@ -1158,11 +1166,13 @@ function localize() {
     document.getElementById('sidebar-skills').innerText = lan.sidebar.skills
     document.getElementById('sidebar-projects').innerText = lan.sidebar.projects
     document.getElementById('sidebar-contact').innerText = lan.sidebar.contact
-    document.getElementById('goTo-resume').href = (lan.key == 'es' ? 'Data/Documents/CV (español).pdf' : 'Data/Documents/CV (english).pdf')
     document.getElementById('sidebar-resume').innerText = lan.sidebar.resume
     document.getElementById('sidebar-localization').innerText = lan.sidebar.localization
     document.getElementById('sidebar-theme').innerText = lan.sidebar.theme
     document.getElementById('sidebar-achievements').innerText = lan.sidebar.achievements
+
+    //Resume
+    document.getElementById('resumeMenuTitle').innerText = lan.resume.title
 
     //Achievements
     document.getElementById('achievementsTitle').innerText = lan.achievements.title
@@ -1310,6 +1320,33 @@ function changeTitle() {
 changeTitle()
 
 addFocusListener(changeTitle)
+
+
+
+ /*$$$$$$                                                       
+| $$__  $$                                                      
+| $$  \ $$  /$$$$$$   /$$$$$$$ /$$   /$$ /$$$$$$/$$$$   /$$$$$$ 
+| $$$$$$$/ /$$__  $$ /$$_____/| $$  | $$| $$_  $$_  $$ /$$__  $$
+| $$__  $$| $$$$$$$$|  $$$$$$ | $$  | $$| $$ \ $$ \ $$| $$$$$$$$
+| $$  \ $$| $$_____/ \____  $$| $$  | $$| $$ | $$ | $$| $$_____/
+| $$  | $$|  $$$$$$$ /$$$$$$$/|  $$$$$$/| $$ | $$ | $$|  $$$$$$$
+|__/  |__/ \_______/|_______/  \______/ |__/ |__/ |__/ \______*/
+
+//Resume menu
+const resumeMenu = document.getElementById('resumeMenu')
+
+function toggleResumeMenu() {
+    //Toggle menu
+    if (resumeMenu.open) {
+        //Close
+        resumeMenu.close()
+        document.body.removeAttribute('noscroll')
+    } else {
+        //Open
+        resumeMenu.showModal()
+        document.body.setAttribute('noscroll', '')
+    }
+}
 
 
 

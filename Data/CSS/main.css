@@ -141,9 +141,6 @@ a:not([class]) {
     /* Spacing */
     padding: 8px 16px;
 
-    /* Layout */
-    display: flex;
-
     /* Text */
     color: var(--text);
     font-size: 1rem;
@@ -151,6 +148,7 @@ a:not([class]) {
     /* Style */
     border: solid 1px var(--text);
     border-radius: 30px;
+    outline: none;
     
     /* Other */
     cursor: pointer;
@@ -683,6 +681,24 @@ dialog:not(#snackbar)[open] {
     /* Visuals */
     background-color: color-mix(in srgb, var(--accent) 30%, transparent);
     border: solid 2px var(--text);
+}
+
+/* Menu list */
+.menuList {
+    /* Size */
+    width: 100%;
+
+    /* Spacing */
+    margin-bottom: 20px;
+    padding: 0 20px;
+
+    /* Layout */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 
@@ -1636,24 +1652,6 @@ img.snakeControlsArrow {
     display: flex;
     flex-direction: column;
     gap: calc(100px);
-}
-
-/* Filters menu tags list */
-#filterMenuTags {
-    /* Size */
-    width: 100%;
-
-    /* Spacing */
-    margin-bottom: 20px;
-    padding: 0 20px;
-
-    /* Layout */
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
 }
 
 /* Projects */
