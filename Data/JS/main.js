@@ -1348,6 +1348,8 @@ function toggleResumeMenu() {
     }
 }
 
+Util.onDialogBackdropClick(resumeMenu, toggleResumeMenu)
+
 
 
   /*$$$$$            /$$       /$$                                                                   /$$
