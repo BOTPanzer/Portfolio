@@ -579,7 +579,7 @@ const locales = {
                         ¿Que a qué me refiero con a salvo? 
                         Digamos que algunos de tus amigos no te harán la vida facil...`,
                     b1: "Descargar&nbsp<i>The lost Fresquita</i>",
-                    vid: 'IlloJuan jugando en Stream'
+                    vid: 'IlloJuan Jugando en Stream'
                 },
                 raccoon: {
                     tit: "Esto AÚN no es un Juego",
@@ -2251,16 +2251,16 @@ function addProject(animate) {
         <!-- Media (image, video & scope) -->
         <div id="${id}-media" class="projectMedia" ${typeof vid === 'string' ? 'hasvideo' : ''}>
             <!-- Scope -->
-            <span class="projectScope" ${scope != '' ? '' : 'hidden'}>${scope}</span>
+            <span class="projectScope glass" ${scope != '' ? '' : 'hidden'}>${scope}</span>
             <!-- Actions -->
             <div class="projectActions">
                 <!-- Video button -->
-                <div class="projectActionButton projectVideoButton" onclick="toggleVideo(${projects.created}, 'https://www.youtube.com/embed/${vid}')">
+                <div class="glass projectActionButton projectVideoButton" onclick="toggleVideo(${projects.created}, 'https://www.youtube.com/embed/${vid}')">
                     <img src="Data/Images/Icons/play.webp">
                     <span>${locales.vid}</span>
                 </div>
                 <!-- Fullscreen button -->
-                <div class="projectActionButton" hidevideo onclick="fullscreenImage('Data/Images/Projects/${project.key}.webp')">
+                <div class="glass projectActionButton" hidevideo onclick="fullscreenImage('Data/Images/Projects/${project.key}.webp')">
                     <img src="Data/Images/Icons/maximize.webp">
                 </div>
             </div>
@@ -2274,7 +2274,7 @@ function addProject(animate) {
             <!-- Tags -->
             <div class="projectTags">${tags}</div>
             <!-- Title & description -->
-            <div class="projectInfoContent">
+            <div class="glass projectInfoContent">
                 <div>
                     <span>${locales.tit}</span>
                     <span class="projectDate">${dateStart == dateEnd ? dateEnd : dateStart + ' - ' + dateEnd}</span>
