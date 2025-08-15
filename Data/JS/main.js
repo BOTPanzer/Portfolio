@@ -178,7 +178,7 @@ const locales = {
                 },
                 stardewpets: {
                     tit: "Stardew Pets",
-                    con: `Stardew Pets is a VS Code extension that lets you have Stardew Valley pets accompanying you while you code.
+                    con: `Stardew Pets is a VS Code extension with +10K downloads that lets you have Stardew Valley pets accompanying you while you code.
                         <br><br>
                         Right now you can have cats, dogs, dinos, turtles, raccoons, goats, sheeps, ostrichs, pigs, rabbits, chicken, cows and junimos as a pet, each with different variants.`,
                     b1: "Install&nbsp<i>Stardew Pets</i>",
@@ -534,7 +534,7 @@ const locales = {
                 },
                 stardewpets: {
                     tit: "Stardew Pets",
-                    con: `Stardew Pets es una extensión para VS Code que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
+                    con: `Stardew Pets es una extensión para VS Code con +10K descargas que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
                         <br><br>
                         Actualmente puedes tener como mascota a gatos, perros, dinos, tortugas, mapaches, cabras, ovejas, avestruces, cerdos, conejos, pollos, vacas y junimos, cada uno con diferentes variantes.`,
                     b1: "Instalar&nbsp<i>Stardew Pets</i>",
