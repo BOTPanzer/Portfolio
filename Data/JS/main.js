@@ -101,13 +101,13 @@ const locales = {
         //Skills
         skills: {
             title: 'My Skills',
-            desc: "I've been interested in the world of technology since I was little. Thanks to that, I've learnt a large number of skills related to different topics:",
+            desc: "I've been interested in the world of technology since I was little and, thanks to that, I've learnt a large number of skills related to different topics:",
             videogames: 'Videogame Development',
             apps: 'App Development',
             web: 'Web Development',
+            art: 'Art & Design',
             ui: 'UI/UX Design',
             d3: '3D Modeling/Printing &  CAD',
-            art: 'Art & Media',
             basic: 'Basic',
             medium: 'Medium',
             high: 'High',
@@ -457,13 +457,13 @@ const locales = {
         //Skills
         skills: {
             title: 'Mis Habilidades',
-            desc: "He estado interesado en el mundo de la tecnología desde pequeño. Debido a eso, he aprendido una gran cantidad de habilidades relacionadas con diferentes temas:",
+            desc: "He estado interesado en el mundo de la tecnología desde pequeño y, debido a eso, he aprendido una gran cantidad de habilidades relacionadas con diferentes temas:",
             videogames: 'Desarrollo de Videojuegos',
             apps: 'Desarrollo de Aplicaciones',
             web: 'Desarrollo Web',
+            art: 'Arte & Diseño',
             ui: 'Diseño de UI/UX',
             d3: 'Modelado/Impresión 3D & CAD',
-            art: 'Arte & Media',
             basic: 'Basico',
             medium: 'Medio',
             high: 'Alto',
@@ -1201,18 +1201,18 @@ function localize() {
     //Skills
     document.getElementById('skillsTitle').innerText = lan.skills.title
     document.getElementById('skillsDescription').innerText = lan.skills.desc
-    document.getElementById('skillsWebTitle').innerText = lan.skills.web
-    document.getElementById('skillsWebPro').innerText = lan.skills.high
-    document.getElementById('skillsUiTitle').innerText = lan.skills.ui
-    document.getElementById('skillsUiPro').innerText = lan.skills.high
     document.getElementById('skillsVidTitle').innerText = lan.skills.videogames
     document.getElementById('skillsVidPro').innerText = lan.skills.advanced
     document.getElementById('skillsAppTitle').innerText = lan.skills.apps
     document.getElementById('skillsAppPro').innerText = lan.skills.high
-    document.getElementById('skills3dTitle').innerText = lan.skills.d3
-    document.getElementById('skills3dPro').innerText = lan.skills.medium
+    document.getElementById('skillsWebTitle').innerText = lan.skills.web
+    document.getElementById('skillsWebPro').innerText = lan.skills.high
     document.getElementById('skillsArtTitle').innerText = lan.skills.art
-    document.getElementById('skillsArtPro').innerText = lan.skills.medium
+    document.getElementById('skillsArtPro').innerText = lan.skills.high
+    document.getElementById('skillsUiTitle').innerText = lan.skills.ui
+    document.getElementById('skillsUiPro').innerText = lan.skills.high
+    document.getElementById('skills3dTitle').innerText = lan.skills.d3
+    document.getElementById('skills3dPro').innerText = lan.skills.basic
 
     //Projects
     document.getElementById('projectsTitle').innerText = lan.projects.title

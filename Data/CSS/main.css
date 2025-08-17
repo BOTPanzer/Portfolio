@@ -22,27 +22,31 @@ html {
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
 
-    /* Colors */
-    --bg: #000000;
-    --hover: rgba(255, 255, 255, 0.2);
-    --border: solid 2px var(--hover);
-    --borderAlt: solid 1px var(--text);
-    --backdrop: rgba(0, 0, 0, 0.4);
-
     /* Text */
     --text: #f5f5f5;
     --textFilter: brightness(0) invert(1);
-    --textAlt: #54575e;
+    --textAlt: #63666d;
     --textAltFilter: brightness(0) saturate(100%) invert(35%) sepia(24%) saturate(606%) hue-rotate(181deg) brightness(92%) contrast(86%);
     --link: #f32853;
     --linkFilter: brightness(0) invert(29%) sepia(74%) saturate(2123%) hue-rotate(327deg) brightness(83%) contrast(111%);
+
+    /* Layout */
+    --bg: #000000;
+    --backdrop: rgba(0, 0, 0, 0.4);
+    --hover: color-mix(in srgb, var(--textAlt) 25%, transparent);
+
+    /* Borders */
+    --borderTransparent: solid 1px transparent;
+    --border: solid 1px var(--text);
+    --borderSoft: solid 1px var(--hover);
+    --borderSoftThick: solid 2px var(--hover);
 }
 
 html[light] {
     /* Colors */
     --bg: #f5f5f5;
     --hover: rgba(0, 0, 0, 0.2);
-    --border: solid 2px var(--hover);
+    --borderSoftThick: solid 2px var(--hover);
     --backdrop: rgba(0, 0, 0, 0.4);
 
     /* Text */
@@ -147,7 +151,7 @@ a:not([class]) {
     font-size: 1rem;
 
     /* Style */
-    border: var(--borderAlt);
+    border: var(--border);
     border-radius: 30px;
     outline: none;
     
@@ -184,13 +188,11 @@ a:not([class]) {
 
 /* Glass */
 .glass {
-    --noise: url(data:image/png;base64,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);
-    --glass: color-mix(in srgb, var(--bg) 65%, transparent);
-
-    background-image: var(--noise);
-    background-color: var(--glass);
-    background-blend-mode: multiply;
+    background-color: color-mix(in srgb, var(--bg) 65%, transparent);
     backdrop-filter: blur(10px);
+
+    box-sizing: border-box;
+    border: var(--borderSoft);
 }
 
 
@@ -288,7 +290,7 @@ a:not([class]) {
 
     /* Visuals */
     background-color: var(--bg);
-    border: var(--border);
+    border: var(--borderSoftThick);
     border-radius: 15px;
     opacity: 0;
 
@@ -549,7 +551,7 @@ a:not([class]) {
     /* Visuals */
     border-radius: 30px;
     background-color: var(--bg);
-    border: var(--border);
+    border: var(--borderSoftThick);
     outline: transparent;
     color: var(--text);
     opacity: 1;
@@ -620,7 +622,7 @@ dialog:not(#snackbar) {
     /* Visuals */
     border-radius: 25px;
     background-color: var(--bg);
-    border: var(--border);
+    border: var(--borderSoftThick);
     outline: transparent;
     color: var(--text);
     opacity: 0;
@@ -672,7 +674,7 @@ dialog:not(#snackbar)[open] {
     justify-content: center;
 
     /* Visuals */
-    border: solid 1px transparent;
+    border: var(--borderTransparent);
     border-radius: 40px;
 
     /* Other */
@@ -692,7 +694,7 @@ dialog:not(#snackbar)[open] {
 .menuClose:hover {
     /* Visuals */
     background-color: color-mix(in srgb, var(--accent) 30%, transparent);
-    border: solid 1px var(--text);
+    border: var(--border)
 }
 
 /* Menu list */
@@ -763,7 +765,7 @@ dialog:not(#snackbar)[open] {
     gap: 15px;
 
     /* Visuals */
-    border: solid 2px var(--text);
+    border: var(--border);
     border-radius: 25px;
     background: var(--bg);
 
@@ -916,7 +918,7 @@ dialog:not(#snackbar)[open] {
     box-sizing: border-box;
 
     /* Visuals */
-    border: var(--border);
+    border: var(--borderSoftThick);
 }
 
 .snakeControls {
@@ -997,7 +999,7 @@ img.snakeControlsArrow {
 
     /* Visuals */
     background-color: var(--bg);
-    border: var(--border);
+    border: var(--borderSoftThick);
     border-radius: 20px;
     opacity: 0;
     
@@ -1416,7 +1418,7 @@ img.snakeControlsArrow {
     position: relative;
 
     /* Other */
-    border: 1px solid var(--text);
+    border: var(--border);
     border-radius: 20px;
     cursor: pointer;
 }
@@ -1503,12 +1505,12 @@ img.snakeControlsArrow {
 
 /* Skills */
 #skills {
-    --skills1: 85%; /* Videogames */
-    --skills2: 63%; /* UI/UX Design */
-    --skills3: 65%; /* Web Development */
-    --skills4: 70%; /* Apps Development */
-    --skills5: 45%; /* 3D Modeling/Printing & CAD */
-    --skills6: 30%; /* Art & Media */
+    --skills1: 95%; /* Videogames */
+    --skills2: 75%; /* Apps Development */
+    --skills3: 60%; /* Web Development */
+    --skills4: 60%; /* Art & Design */
+    --skills5: 48%; /* UI/UX Design */
+    --skills6: 20%; /* 3D Modeling/Printing & CAD */
 }
 
 /* Title */
@@ -1551,13 +1553,7 @@ img.snakeControlsArrow {
     color: var(--textAlt);
 }
 
-.skillsBar div:nth-of-type(1) {
-    /* Layout */
-    display: flex;
-    align-items: center;
-}
-
-.skillsBar div:nth-of-type(1) span:nth-of-type(1) {
+.skillsBar > span:nth-child(1) {
     /* Text */
     font-family: phonk;
     font-size: 1.2em;
@@ -1565,38 +1561,51 @@ img.snakeControlsArrow {
     color: var(--text);
 }
 
-.skillsBar div:nth-of-type(1) span:nth-of-type(2) {
-    /* Layout */
-    margin-left: auto;
-
-    /* Text */
-    font-size: 1em;
-}
-
-.skillsBar div:nth-of-type(2) {
+.skillsBar > div:nth-child(2) {
     /* Size */
-    height: 5px;
+    height: 30px;
     width: 100%;
 
     /* Layout */
+    display: flex;
+    align-items: center;
+    position: relative;
     margin: 7px 0 4px 0;
-
-    /* Other */
-    background-color: var(--textAlt);
-    border-radius: 5px;
 }
 
-.skillsBar div:nth-of-type(2) > div {
+.skillsBar > div:nth-child(2) > span:nth-child(1) {
+    /* Spacing */
+    padding: 3px 7px;
+
+    /* Layout */
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: -10px;
+
+    /* Visuals */
+    background-color: var(--bg);
+    border: var(--borderSoft);
+
+    /* Text */
+    color: var(--text);
+}
+
+.skillsBar > div:nth-child(2) > div:nth-child(2) {
     /* Size */
-    height: 5px;
+    height: 100%;
     width: 0;
 
     /* Layout */
     margin: 0;
+    
+    /* VisuALS */
+    background: linear-gradient(to right, color-mix(in srgb, var(--textAlt) 50%, transparent) 0%, color-mix(in srgb, var(--text) 70%, transparent));
+    border: var(--borderTransparent);
+    border-image: linear-gradient(to right, var(--bg) 0%, var(--text) 100%);
+    border-image-slice: 1;
 
     /* Other */
-    background-color: var(--text);
-    border-radius: 5px;
     transition: width 1s;
 }
 
@@ -1833,15 +1842,17 @@ img.snakeControlsArrow {
     transition: margin-left .2s, background-color .2s, border .2s;
 }
 
-.projectMedia[video] .projectActionButton {
-    /* Visuals */
-    background: unset;
-    border: var(--borderAlt);
-}
+@media screen and (orientation:landscape) {
+    .projectMedia[video] .projectActionButton {
+        /* Visuals */
+        background: unset;
+        border: var(--border);
+    }
 
-.projectMedia[video] .projectActionButton:hover {
-    /* Visuals */
-    background-color: var(--hover);
+    .projectMedia[video] .projectActionButton:hover {
+        /* Visuals */
+        background-color: var(--hover);
+    }
 }
 
 .projectMedia[video] .projectActionButton[hidevideo] {
@@ -1912,7 +1923,7 @@ img.snakeControlsArrow {
 
     /* Visuals */
     border-radius: 20px;
-    border: none;
+    border: unset;
 
     /* Other */
     pointer-events: none;
@@ -1935,20 +1946,6 @@ img.snakeControlsArrow {
     .projectMedia[video][hasvideo] > iframe {
         /* Other */
         scale: 1.1;
-    }
-}
-
-@media screen and (orientation:portrait) {
-    .projectMedia > iframe {
-        /* Size */
-        width: calc(100% + 2px);
-        height: calc(100% + 2px);
-
-        /* Layout */
-        top: -1px;
-        right: -1px;
-        bottom: -1px;
-        left: -1px;
     }
 }
 
@@ -2143,39 +2140,24 @@ img.snakeControlsArrow {
     font-weight: 500;
 
     /* Visuals */
-    background-color: var(--bg);
+    background:
+        linear-gradient(to bottom, transparent, transparent),
+        linear-gradient(to bottom, var(--bg), var(--bg));
     color: var(--text);
     border-radius: 50px;
-    border: solid 1px var(--hover);
+    border: var(--borderSoft);
 
     /* Other */
     cursor: pointer;
-    transition: border .2s;
+    transition: background .2s, border .2s;
 }
 
 .projectTag:hover {
     /* Visuals */
-    border: var(--borderAlt);
-}
-
-.projectTag::after {
-    content: '';
-
-    /* Layout */
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border-radius: inherit;
-
-    /* Other */
-    transition: background-color .2s;
-}
-
-.projectTag:hover::after {
-    /* Visuals */
-    background-color: var(--hover);
+    background:
+        linear-gradient(to bottom, var(--hover), var(--hover)),
+        linear-gradient(to bottom, var(--bg), var(--bg));
+    border: var(--border);
 }
 
 /* Projects none */
@@ -2265,7 +2247,7 @@ img.snakeControlsArrow {
     gap: 20px;
 
     /* Other */
-    border-top: var(--border);
+    border-top: var(--borderSoftThick);
 }
 
 @media screen and (orientation:portrait) {
