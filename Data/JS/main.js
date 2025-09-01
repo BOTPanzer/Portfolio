@@ -178,9 +178,9 @@ const locales = {
                 },
                 stardewpets: {
                     tit: "Stardew Pets",
-                    con: `Stardew Pets is a VS Code extension with +10K downloads that lets you have Stardew Valley pets accompanying you while you code.
+                    con: `Stardew Pets is a VS Code extension with +11K downloads that lets you have Stardew Valley pets accompanying you while you code.
                         <br><br>
-                        Right now you can have cats, dogs, dinos, turtles, raccoons, goats, sheeps, ostrichs, pigs, rabbits, chicken, cows and junimos as a pet, each with different variants.`,
+                        Aditionaly, you can decorate your pets place with money obtained by protecting them from enemies that may appear.`,
                     b1: "Install&nbsp<i>Stardew Pets</i>",
                 },
                 spyw4re: {
@@ -534,9 +534,9 @@ const locales = {
                 },
                 stardewpets: {
                     tit: "Stardew Pets",
-                    con: `Stardew Pets es una extensión para VS Code con +10K descargas que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
+                    con: `Stardew Pets es una extensión para VS Code con +11K descargas que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
                         <br><br>
-                        Actualmente puedes tener como mascota a gatos, perros, dinos, tortugas, mapaches, cabras, ovejas, avestruces, cerdos, conejos, pollos, vacas y junimos, cada uno con diferentes variantes.`,
+                        Además, podrás decorar el lugar de tus mascotas con dinero obtenido al protegerlas de enemigos que aparezcan.`,
                     b1: "Instalar&nbsp<i>Stardew Pets</i>",
                 },
                 spyw4re: {
