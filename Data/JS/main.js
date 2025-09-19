@@ -101,18 +101,18 @@ const locales = {
         //Skills
         skills: {
             title: 'My Skills',
-            desc: "I've been interested in the world of technology since I was little and, thanks to that, I've learnt a large number of skills related to different topics:",
-            videogames: 'Videogame Development',
-            apps: 'App Development',
+            desc: "I've been interested in the world of technology since I was little and, thanks to that, I've learnt a large number of skills related to different topics.",
+            years: '+ years',
+            game: 'Videogame Development',
+            app: 'App Development',
             web: 'Web Development',
-            art: 'Art & Design',
+            design: 'Graphic Design',
             ui: 'UI/UX Design',
-            d3: '3D Modeling/Printing &  CAD',
-            basic: 'Basic',
-            medium: 'Medium',
-            high: 'High',
-            advanced: 'Advanced',
-            expert: 'Expert',
+            '3d': '3D Modeling/Printing &  CAD',
+            note: {
+                title: 'Note:',
+                text: '2+ skills can be learnt at the same time.',
+            }
         },
         //Projects
         projects: {
@@ -123,6 +123,7 @@ const locales = {
                 all: '---',
                 games: 'Games',
                 apps: 'Apps',
+                design: 'Design',
                 other: 'Other'
             },
             tags: {
@@ -152,14 +153,24 @@ const locales = {
                 jam: 'Jam Game',
             },
             projects: {
-                mapPinner: {
+                akira_posters: {
+                    tit: "Akira Posters",
+                    con: `Some posters I made after watching Akira, one of the most influential pieces of art in the cyberpunk genre. Left poster is of Kaneda, right one is of Kei.`,
+                    b1: "See posters"
+                },
+                artist_posters: {
+                    tit: "Artist Posters",
+                    con: "Some posters I made from artists I listen to. There is a total of 13 posters, some of them of repeated artists.",
+                    b1: "See posters"
+                },
+                map_pinner: {
                     tit: "Map Pinner",
                     con: `Map Pinner is a free web tool designed to help you plan and organize your trips.
                         <br><br>
                         With Map Pinner you can easily select a map image, place pins on your map & customize each one with custom colors, categories, names, links, and descriptions.`,
                     b1: "Try&nbsp<i>Map Pinner</i>",
                 },
-                hardcoreKitty: {
+                hardcore_kitty: {
                     tit: "Hardcore Kitty",
                     con: `Third place in the 6º edition of the <a href="https://itch.io/jam/6-edicin-game-jam-game-scholars" target="_blank">GameScholars gamejam</a>.
                         <br><br>
@@ -176,7 +187,7 @@ const locales = {
                         Currently, it is capable of stealing emails, usernames and passwords from saved credentials in browsers.`,
                     b1: "Download&nbsp<i>Turbo Stealer</i>",
                 },
-                stardewpets: {
+                stardew_pets: {
                     tit: "Stardew Pets",
                     con: `Stardew Pets is a VS Code extension with +11K downloads that lets you have Stardew Valley pets accompanying you while you code.
                         <br><br>
@@ -247,7 +258,7 @@ const locales = {
                     b1: "Download&nbsp<i>Escape From LMDShow</i>",
                     vid: 'IlloJuan Playing on Stream'
                 },
-                memory: {
+                memory_shift: {
                     tit: "Memory Shift",
                     con: `Memory Shift is a 2D action-platformer featuring fast-paced gameplay and a hacking system.
                         <br><br>
@@ -287,7 +298,7 @@ const locales = {
                         It is an isometric role playing game in which you control an otter that goes into an adventure to save its brother.`,
                     b1: "Download&nbsp<i>Otter's Odyssey</i>"
                 },
-                assPC: {
+                assistant_pc: {
                     tit: 'Oriøn Assistant (Windows)',
                     con: `Oriøn Assistant for Windows is an app launcher with support for custom themes and HTML/JS apps called modules.
                         <br><br>
@@ -299,7 +310,7 @@ const locales = {
                     b1: 'Oriøn Assistant',
                     b2: 'Batch Launcher'
                 },
-                assAn: {
+                assistant_android: {
                     tit: 'Oriøn Assistant (Android)',
                     con: `Oriøn Assistant for Android is an app full of useful smaller apps such as a music player or a QR scanner.
                         <br><br>
@@ -308,7 +319,7 @@ const locales = {
                         At the moment it has music and video players, a photo vault, notes, a QR scanner and an app to send data to the Windows version of the app.`,
                     b1: 'Download APK'
                 },
-                frame: {
+                framework: {
                     tit: 'Oriøn Framework',
                     con: `Oriøn Framework is an HTML, CSS & JS based framework made with personalization in mind. 
                         This project got separated from the PC version of Oriøn Assistant in an attempt to make it available for everyone.
@@ -316,14 +327,14 @@ const locales = {
                         Here you can find new simple and easy to use HTML elements like buttons, inputs, switches, checkboxes, radio buttons and various loading animations and effects.`,
                     b1: 'See documentation'
                 },
-                disbots: {
+                discord_bots: {
                     tit: 'Discord Bots',
                     con: `I've created two discord bots. The first one, Syrup, is a simple bot capable of moderating a server and providing simple games for people to enjoy.
                         <br><br>
                         After Syrup came Coscu, a more advanced bot capable of the same and more. This new version could jump into a call with people and play custom sounds and music.`,
                     b1: 'Syrup Repository'
                 },
-                mod: {
+                modding: {
                     tit: 'PC Modding',
                     con: `Ever since I got into the PC world I started to get interested in modding, so I decided to make my own modded PC.
                         <br><br>
@@ -363,6 +374,7 @@ const locales = {
         footer: {
             contactTitle: 'Contact',
             mail: 'Email copied to clipboard',
+            credits: 'This page was handmade with love by Alejandro Paniagua<br>No AI was involved in the creation',
         },
     }, 
     es: {
@@ -457,18 +469,18 @@ const locales = {
         //Skills
         skills: {
             title: 'Mis Habilidades',
-            desc: "He estado interesado en el mundo de la tecnología desde pequeño y, debido a eso, he aprendido una gran cantidad de habilidades relacionadas con diferentes temas:",
-            videogames: 'Desarrollo de Videojuegos',
-            apps: 'Desarrollo de Aplicaciones',
+            desc: "He estado interesado en el mundo de la tecnología desde pequeño y, gracias a eso, he aprendido una gran cantidad de habilidades relacionadas con diferentes temas.",
+            years: '+ años',
+            game: 'Desarrollo de Videojuegos',
+            app: 'Desarrollo de Aplicaciones',
             web: 'Desarrollo Web',
-            art: 'Arte & Diseño',
+            design: 'Diseño Gráfico',
             ui: 'Diseño de UI/UX',
-            d3: 'Modelado/Impresión 3D & CAD',
-            basic: 'Basico',
-            medium: 'Medio',
-            high: 'Alto',
-            advanced: 'Avanzado',
-            expert: 'Experto',
+            '3d': 'Modelado/Impresión 3D & CAD',
+            note: {
+                title: 'Nota:',
+                text: '2+ habilidades se pueden aprender a la vez.',
+            }
         },
         //Projects
         projects: {
@@ -479,6 +491,7 @@ const locales = {
                 all: '---',
                 games: 'Juegos',
                 apps: 'Apps',
+                design: 'Diseño',
                 other: 'Otros'
             },
             tags: {
@@ -508,14 +521,24 @@ const locales = {
                 jam: 'Juego de Jam',
             },
             projects: {
-                mapPinner: {
+                akira_posters: {
+                    tit: "Posters de Akira",
+                    con: `Algunos posters que hice despues de ver Akira, una de las piezas de arte más influyentes en el genero cyberpunk. El poster izquierdo es de Kaneda, el derecho de Kei.`,
+                    b1: "Ver posters"
+                },
+                artist_posters: {
+                    tit: "Posters de Artistas",
+                    con: "Algunos posters que hice de artistas que escucho. Hay un total de 13 posters, algunos de ellos de artistas repetidos.",
+                    b1: "Ver posters"
+                },
+                map_pinner: {
                     tit: "Map Pinner",
                     con: `Map Pinner es una herramienta web gratuita diseñada para ayudarte a planificar y organizar tus viajes.
                         <br><br>
                         Con Map Pinner puedes seleccionar una imagen como mapa, colocar pins y personalizar cada una con colores, categorías, nombres, links y descripciones personalizadas.`,
-                    b1: "Probar&nbsp<i>Map Pinner</i>",
+                    b1: "Probar&nbsp<i>Map Pinner</i>"
                 },
-                hardcoreKitty: {
+                hardcore_kitty: {
                     tit: "Hardcore Kitty",
                     con: `Tercer puesto en la 6º edicion de la <a href="https://itch.io/jam/6-edicin-game-jam-game-scholars" target="_blank">gamejam de GameScholars</a>.
                         <br><br>
@@ -530,14 +553,14 @@ const locales = {
                     con: `Solo por motivos educacionales, Turbo Stealer es una aplicación de línea de comandos programada en Python capaz de robar información del ordenador en que se ejecuta.
                         <br><br>
                         Actualmente, es capaz de robar correos electrónicos, nombres de usuario y contraseñas de credenciales guardadas en los navegadores.`,
-                    b1: "Descargar&nbsp<i>Turbo Stealer</i>",
+                    b1: "Descargar&nbsp<i>Turbo Stealer</i>"
                 },
-                stardewpets: {
+                stardew_pets: {
                     tit: "Stardew Pets",
                     con: `Stardew Pets es una extensión para VS Code con +11K descargas que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
                         <br><br>
                         Además, podrás decorar el lugar de tus mascotas con dinero obtenido al protegerlas de enemigos que aparezcan.`,
-                    b1: "Instalar&nbsp<i>Stardew Pets</i>",
+                    b1: "Instalar&nbsp<i>Stardew Pets</i>"
                 },
                 spyw4re: {
                     tit: "Spyw4re",
@@ -603,7 +626,7 @@ const locales = {
                     b1: "Descargar&nbsp<i>Escape From LMDShow</i>",
                     vid: 'IlloJuan Jugando en Stream'
                 },
-                memory: {
+                memory_shift: {
                     tit: "Memory Shift",
                     con: `Memory Shift es un plataformas de acción 2D con un gameplay rápido y un sistema de hackeo.
                         <br><br>
@@ -643,7 +666,7 @@ const locales = {
                         Es un juego isométrico de rol en el que controlas a una nutria que se adentra en una aventura para rescatar a su hermano.`,
                     b1: "Descargar&nbsp<i>Otter's Odyssey</i>"
                 },
-                assPC: {
+                assistant_pc: {
                     tit: 'Oriøn Assistant (Windows)',
                     con: `Oriøn Assistant para Windows es un launcher de apps con soporte para temas y apps HTML/JS custom llamadas módulos.
                         <br><br>
@@ -655,7 +678,7 @@ const locales = {
                     b1: 'Asistente Oriøn',
                     b2: 'Launcher Batch'
                 },
-                assAn: {
+                assistant_android: {
                     tit: 'Oriøn Assistant (Android)',
                     con: `Oriøn Assistant para Android es una app llena de apps más pequeñas como un reproductor de música o un lector de QR.
                         <br><br>
@@ -664,7 +687,7 @@ const locales = {
                         Actualmente la app tiene reproductores de música y video, un bunquer de fotos, notas, un lector de QR y una app para pasar datos a la versión de Windows de la app.`,
                     b1: 'Descargar APK'
                 },
-                frame: {
+                framework: {
                     tit: 'Framework Oriøn',
                     con: `El framework Oriøn es un framework basado en HTML, CSS & JS hecho con personalización en mente.
                         Este proyecto fue separado de la versión de PC del Asistente Oriøn en un intento de hacerlo disponible para todos.
@@ -672,14 +695,14 @@ const locales = {
                         Aquí puedes encontrar nuevos elementos HTML simples y fáciles de usar como botones, inputs, interruptores, casillas de verificación, botones de radio y varias animaciones y efectos de carga.`,
                     b1: 'Ver documentación'
                 },
-                disbots: {
+                discord_bots: {
                     tit: 'Bots de Discord',
                     con: `He creado dos bots de discord. El primero, Syrup, es un bot simple capaz de moderar un servidor y proveer juegos simples para que la gente se divierta.
                         <br><br>
                         Después de Syrup llegó Coscu, un bot más avanzado capaz de lo mismo y más. Esta nueva versión podría entrar en llamadas con gente y reproducir sonidos personalizados y música.`,
                     b1: 'Repositorio de Syrup'
                 },
-                mod: {
+                modding: {
                     tit: 'PC Modding',
                     con: `Desde que entré en el mundo del PC comencé a interesarme por el modding, así que decidí hacer mi propio PC modificado.
                         <br><br>
@@ -719,6 +742,7 @@ const locales = {
         footer: {
             contactTitle: 'Contacto',
             mail: 'Email copiado al portapapeles',
+            credits: 'Esta pagina ha sido creada a mano con cariño por Alejandro Paniagua<br>Ninguna IA ha participado en la creación',
         },
     }
 }
@@ -772,6 +796,40 @@ const about = {
     about.order.push(about.imgs.length - 1) //Add 'artyom' last
 })();
 
+//Skills
+const Skills = Object.freeze({
+    game: {
+        id: 'skillsGame',
+        locale: 'game',
+        experience: 4,
+    },
+    app: {
+        id: 'skillsApp',
+        locale: 'app',
+        experience: 5,
+    },
+    web: {
+        id: 'skillsWeb',
+        locale: 'web',
+        experience: 2,
+    },
+    design: {
+        id: 'skillsDesign',
+        locale: 'design',
+        experience: 2,
+    },
+    ui: {
+        id: 'skillsUI',
+        locale: 'ui',
+        experience: 1,
+    },
+    '3d': {
+        id: 'skills3D',
+        locale: '3d',
+        experience: 1,
+    }
+})
+
 //Projects
 const Scope = Object.freeze({
     team: 'team',
@@ -784,6 +842,7 @@ const Category = Object.freeze({
     all: 'all',
     games: 'games',
     apps: 'apps',
+    design: 'design',
     other: 'other',
 });
 
@@ -827,8 +886,18 @@ const Sort = Object.freeze({
 });
 
 const Projects = Object.freeze({
-    mapPinner: {
-        key: 'mapPinner',
+    akira_posters: {
+        key: 'akira_posters',
+        dateStart: 2025,
+        dateEnd: 2025,
+        favPoints: 50,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.design,
+        tags: [Tag.photoshop],
+        button: ["https://www.artstation.com/artwork/lGQ84V"],
+    },
+    map_pinner: {
+        key: 'map_pinner',
         dateStart: 2025,
         dateEnd: 2025,
         favPoints: 50,
@@ -837,8 +906,8 @@ const Projects = Object.freeze({
         tags: [Tag.html, Tag.css, Tag.js, Tag.vscode],
         button: ['http://botpanzer.github.io/Map-Pinner'],
     },
-    hardcoreKitty: {
-        key: 'hardcoreKitty',
+    hardcore_kitty: {
+        key: 'hardcore_kitty',
         dateStart: 2025,
         dateEnd: 2025,
         favPoints: 100,
@@ -869,8 +938,18 @@ const Projects = Object.freeze({
         button: ['https://botpa.itch.io/spyw4re'],
         vid: 'Qc3aWfPAxg0',
     },
-    stardewpets: {
-        key: 'stardewpets',
+    artist_posters: {
+        key: 'artist_posters',
+        dateStart: 2024,
+        dateEnd: 2024,
+        favPoints: 50,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.design,
+        tags: [Tag.photoshop],
+        button: ["https://www.artstation.com/bot_panzer/albums/14597252"],
+    },
+    stardew_pets: {
+        key: 'stardew_pets',
         dateStart: 2024,
         dateEnd: 2025,
         favPoints: 100,
@@ -933,8 +1012,8 @@ const Projects = Object.freeze({
         button: ['https://botpa.itch.io/escape-from-lmdshow'],
         vid: 'z0Qv5HZyZgU',
     },
-    memory: {
-        key: 'memory',
+    memory_shift: {
+        key: 'memory_shift',
         dateStart: 2023,
         dateEnd: 2023,
         favPoints: 80,
@@ -984,8 +1063,8 @@ const Projects = Object.freeze({
         tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.max3ds, Tag.substance, Tag.illustrator, Tag.photoshop],
         button: ['https://botpa.itch.io/otters-odyssey']
     },
-    assPC: {
-        key: 'assPC',
+    assistant_pc: {
+        key: 'assistant_pc',
         dateStart: 2021,
         dateEnd: 2025,
         favPoints: 50,
@@ -994,8 +1073,8 @@ const Projects = Object.freeze({
         tags: [Tag.html, Tag.css, Tag.js, Tag.nodejs, Tag.electronjs, Tag.vscode, Tag.uiux],
         button: ['https://github.com/BOTPanzer/Orion-Assistant', 'https://github.com/BOTPanzer/USB-Launcher']
     },
-    assAn: {
-        key: 'assAn',
+    assistant_android: {
+        key: 'assistant_android',
         dateStart: 2021,
         dateEnd: 2025,
         favPoints: 50,
@@ -1004,10 +1083,10 @@ const Projects = Object.freeze({
         tags: [Tag.java, Tag.android, Tag.uiux],
         button: ['Data/Orion Assistant 1.10.4.apk']
     },
-    frame: {
-        key: 'frame',
+    framework: {
+        key: 'framework',
         dateStart: 2022,
-        //dateEnd: 2024,
+        dateEnd: 2024,
         favPoints: 50,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
@@ -1015,8 +1094,8 @@ const Projects = Object.freeze({
         button: ['https://botpanzer.github.io/Orion-Framework']
     },
     //Usually hidden from here
-    disbots: {
-        key: 'disbots',
+    discord_bots: {
+        key: 'discord_bots',
         dateStart: 2018,
         dateEnd: 2020,
         favPoints: 0,
@@ -1025,8 +1104,8 @@ const Projects = Object.freeze({
         tags: [Tag.js, Tag.vscode, Tag.discordapi],
         button: ["https://github.com/BOTPanzer/Syrup"]
     },
-    mod: {
-        key: 'mod',
+    modding: {
+        key: 'modding',
         dateStart: 2021,
         dateEnd: 2021,
         favPoints: 0,
@@ -1073,27 +1152,29 @@ const projects = {
     sort: Sort.favs,
     //List (sorted by preferences)
     list: [
-        Projects.mapPinner,
-        Projects.hardcoreKitty,
+        Projects.akira_posters,
+        Projects.map_pinner,
+        Projects.hardcore_kitty,
         Projects.spyw4re,
-        Projects.stardewpets,
+        Projects.artist_posters,
+        Projects.stardew_pets,
         Projects.hightime,
         Projects.stealer,
         //Projects.hackoon,
         Projects.fresquita,
         Projects.raccoon,
         Projects.lmdshow,
-        Projects.memory,
+        Projects.memory_shift,
         Projects.spirits,
         Projects.vaporcade,
         Projects.papa,
         Projects.otters,
-        Projects.assPC,
-        Projects.assAn,
-        Projects.frame,
+        Projects.assistant_pc,
+        Projects.assistant_android,
+        Projects.framework,
         /*
-        Projects.disbots,
-        Projects.mod,
+        Projects.discord_bots,
+        Projects.modding,
         Projects.t45,
         Projects.usb,
         Projects.hoodie,
@@ -1201,18 +1282,13 @@ function localize() {
     //Skills
     document.getElementById('skillsTitle').innerText = lan.skills.title
     document.getElementById('skillsDescription').innerText = lan.skills.desc
-    document.getElementById('skillsVidTitle').innerText = lan.skills.videogames
-    document.getElementById('skillsVidPro').innerText = lan.skills.advanced
-    document.getElementById('skillsAppTitle').innerText = lan.skills.apps
-    document.getElementById('skillsAppPro').innerText = lan.skills.high
-    document.getElementById('skillsWebTitle').innerText = lan.skills.web
-    document.getElementById('skillsWebPro').innerText = lan.skills.high
-    document.getElementById('skillsArtTitle').innerText = lan.skills.art
-    document.getElementById('skillsArtPro').innerText = lan.skills.high
-    document.getElementById('skillsUiTitle').innerText = lan.skills.ui
-    document.getElementById('skillsUiPro').innerText = lan.skills.high
-    document.getElementById('skills3dTitle').innerText = lan.skills.d3
-    document.getElementById('skills3dPro').innerText = lan.skills.basic
+    for (const key of Object.keys(Skills)) {
+        const skill = Skills[key];
+        document.getElementById(`${skill.id}Title`).innerText = lan.skills[skill.locale]
+        document.getElementById(`${skill.id}Pro`).innerText = skill.experience + lan.skills.years
+    }
+    document.getElementById('skillsNoteTitle').innerText = lan.skills.note.title
+    document.getElementById('skillsNoteText').innerText = lan.skills.note.text
 
     //Projects
     document.getElementById('projectsTitle').innerText = lan.projects.title
@@ -1225,6 +1301,7 @@ function localize() {
 
     //Footer
     document.getElementById('footerContactTitle').innerText = lan.footer.contactTitle
+    document.getElementById('footerCredits').innerHTML = lan.footer.credits
 }
 
 localize()
@@ -2087,27 +2164,44 @@ about.next()
 |  $$$$$$/| $$ \  $$| $$| $$| $$ /$$$$$$$/
  \______/ |__/  \__/|__/|__/|__/|______*/ 
  
-class Skills {
+class SkillsAnimation {
 
     constructor(skills) {
-        //Add observer to update skill bars
+        //Create observer to update skills visibility
         const observer = new IntersectionObserver((entries) => {
             for (const entry of entries) {
-                if (!entry.isIntersecting) continue
-                entry.target.style.width = `var(--${entry.target.id})`
-                observer.unobserve(entry.target)
+                //Not intersecting
+                if (!entry.isIntersecting) continue;
+
+                //Show experience
+                entry.target.setAttribute('visible', '');
+                observer.unobserve(entry.target);
             }
         }, {
             threshold: 0
         });
 
-        //Assign observer to skill bars
-        for (const id of skills) observer.observe(document.getElementById(id));
+        //Create max experience
+        let maxExperience = 0;
+
+        //Assign experience & observer to skills
+        for (const key of Object.keys(skills)) {
+            const skill = skills[key];
+            const element = document.getElementById(skill.id);
+            element.style.setProperty('--skillExperience', skill.experience);
+            observer.observe(element);
+
+            //Compare max experience
+            maxExperience = Math.max(maxExperience, skill.experience);
+        }
+
+        //Update max experience
+        document.getElementById('skills').style.setProperty('--skillsMax', maxExperience);
     }
 
 }
 
-new Skills(['skills1', 'skills2', 'skills3', 'skills4', 'skills5', 'skills6'])
+new SkillsAnimation(Skills)
 
 
 
@@ -2145,7 +2239,7 @@ function addProjects(category, filter, sort) {
 
     //Copy projects list
     projects.filteredList = []
-    projects.list.forEach(project => projects.filteredList.push(project))
+    for (const project of projects.list) projects.filteredList.push(project)
 
     //Remove projects of different categories
     if (category != Category.all) {

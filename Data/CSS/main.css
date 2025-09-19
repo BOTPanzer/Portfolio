@@ -1505,12 +1505,8 @@ img.snakeControlsArrow {
 
 /* Skills */
 #skills {
-    --skills1: 95%; /* Videogames */
-    --skills2: 75%; /* Apps Development */
-    --skills3: 60%; /* Web Development */
-    --skills4: 60%; /* Art & Design */
-    --skills5: 48%; /* UI/UX Design */
-    --skills6: 20%; /* 3D Modeling/Printing & CAD */
+    /* Max years of experience */
+    --skillsMax: 5;
 }
 
 /* Title */
@@ -1529,7 +1525,7 @@ img.snakeControlsArrow {
 @media screen and (orientation:landscape) {
     #skillsDescription {
         /* Layout */
-        margin-right: calc(30%);
+        margin-right: 30%;
     }
 }
 
@@ -1592,6 +1588,8 @@ img.snakeControlsArrow {
 }
 
 .skillsBar > div:nth-child(2) > div:nth-child(2) {
+    --skillExperience: 1;
+
     /* Size */
     height: 100%;
     width: 0;
@@ -1607,6 +1605,29 @@ img.snakeControlsArrow {
 
     /* Other */
     transition: width 1s;
+}
+
+.skillsBar > div:nth-child(2) > div:nth-child(2)[visible] {
+    /* Size */
+    width: calc(var(--skillExperience) / var(--skillsMax) * 100%);
+}
+
+/* Note */
+.skillsNote {
+    /* Layout */
+    display: flex;
+    gap: 10px;
+
+    /* Text */
+    font-family: roboto;
+    font-size: 0.7rem;
+}
+
+@media screen and (orientation:landscape) {
+    .skillsNote {
+        /* Layout */
+        margin-right: 65%;
+    }
 }
 
 
@@ -2313,7 +2334,7 @@ img.snakeControlsArrow {
 
 #footerCredits {
     /* Spacing */
-    margin-top: 10px; 
+    margin-top: 10px;
 
     /* Text */
     font-size: 0.8em; 
