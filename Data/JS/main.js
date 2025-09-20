@@ -2358,10 +2358,13 @@ function addProject(animate) {
                     <img src="Data/Images/Icons/maximize.webp">
                 </div>
             </div>
-            <!-- Image -->
-            <img src="Data/Images/Projects/${project.key}.webp">
-            <!-- Video -->
-            <iframe id="${id}-video" allow="fullscreen"></iframe>
+            <!-- Media -->
+            <div class="projectMediaContent" style="--glitchImg: url('../Images/Projects/${project.key}.webp');">
+                <!-- Image -->
+                <img src="Data/Images/Projects/${project.key}.webp">
+                <!-- Video -->
+                <iframe id="${id}-video" allow="fullscreen"></iframe>
+            </div>
         </div>
         <!-- Info (tags, title, description & buttons) -->
         <div class="projectInfo">

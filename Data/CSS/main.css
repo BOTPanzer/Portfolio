@@ -1743,7 +1743,7 @@ img.snakeControlsArrow {
         width: 100%;
     }
 
-    .projectMedia[video][hasvideo] {
+    .projectMedia[video] {
         /* Spacing */
         margin-bottom: 45px;
     }
@@ -1829,6 +1829,7 @@ img.snakeControlsArrow {
 
     /* Other */
     z-index: 2;
+    pointer-events: none;
     transition: transform .2s;
     --translate: 95px;
 }
@@ -1860,6 +1861,7 @@ img.snakeControlsArrow {
 
     /* Other */
     cursor: pointer;
+    pointer-events: auto;
     transition: margin-left .2s, background-color .2s, border .2s;
 }
 
@@ -1912,11 +1914,128 @@ img.snakeControlsArrow {
     display: none;
 }
 
-/* Projects -> Media -> Image/Video */
-.projectMedia > img {
+/* Projects -> Media -> Content (Glitch/Image/Video) */
+.projectMediaContent {
+    --glitchImg: url('');
+
     /* Size */
     width: 100%;
     aspect-ratio: 16/9;
+
+    /* Layout */
+    position: relative;
+
+    /* Other */
+    transition: scale .2s;
+}
+
+@media screen and (orientation:landscape) {
+    .projectMedia[video] .projectMediaContent {
+        /* Other */
+        scale: 1.1;
+    }
+
+    .projectMedia:not([video]):hover .projectMediaContent::before,
+    .projectMedia:not([video]):hover .projectMediaContent::after {
+        content: '';
+        --appearAnimation: projectGlitchAppear 0s;
+
+        /* Size */
+        width: 100%;
+        height: 100%;
+
+        /* Layout */
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        /* Visuals */
+        background-color: red;
+        background-image: var(--glitchImg);
+        background-size: cover;
+        background-position: center;
+
+        /* Other */
+        z-index: 1;
+        pointer-events: none;
+        animation: projectGlitchColor 0.8s, projectGlitchClip 0.4s infinite;
+    }
+
+    .projectMedia:not([video]):hover .projectMediaContent::after {
+        /* Other */
+        animation: projectGlitchColor 0.8s, projectGlitchClip 0.4s -0.2s infinite;
+    }
+
+    @keyframes projectGlitchColor {
+        0% {
+            translate: 20px -15px;
+            filter: hue-rotate(0deg) brightness(1) saturate(1);
+        }
+        20% {
+            translate: -10px 9px;
+            filter: hue-rotate(150deg) brightness(1.2) saturate(1.5);
+        }
+        40% {
+            translate: 30px -4px;
+            filter: hue-rotate(300deg) brightness(0.8) saturate(0.5);
+        }
+        60% {
+            translate: 0px 0px;
+            filter: hue-rotate(45deg) brightness(1.1) saturate(1.2);
+        }
+        80% {
+            translate: 15px 9px;
+            filter: hue-rotate(220deg) brightness(0.9) saturate(0.8);
+        }
+        99% {
+            translate: 20px -15px;
+            filter: hue-rotate(0deg) brightness(1) saturate(1);
+        }
+        100% {
+            content: unset;
+        }
+    }
+
+    @keyframes projectGlitchClip {
+        0% {
+            clip-path: polygon(0 83%, 100% 83%, 94% 92%, 0 91%);
+        }
+        12% {
+            clip-path: polygon(39% 0, 97% 0, 100% 9%, 43% 10%);
+        }
+        25% {
+            clip-path: polygon(2% 25%, 84% 26%, 92% 39%, 0 39%);
+        }
+        37% {
+            clip-path: polygon(3% 90%, 88% 89%, 84% 100%, 0 100%);
+        }
+        50% {
+            clip-path: polygon(3% 60%, 90% 62%, 85% 73%, 6% 73%);
+        }
+        62% {
+            clip-path: polygon(21% 91%, 95% 91%, 100% 100%, 25% 100%);
+        }
+        75% {
+            clip-path: polygon(19% 10%, 100% 10%, 94% 23%, 21% 23%);
+        }
+        87% {
+            clip-path: polygon(0 8%, 68% 9%, 73% 17%, 5% 16%);
+        }
+        100% {
+            clip-path: polygon(0 76%, 96% 76%, 94% 90%, 5% 91%);
+        }
+    }
+}
+
+.projectMediaContent > img {
+    /* Size */
+    width: 100%;
+    height: 100%;
+
+    /* Layout */
+    position: absolute;
+    top: 0;
+    left: 0;
 
     /* Visuals */
     border-radius: 20px;
@@ -1925,10 +2044,10 @@ img.snakeControlsArrow {
     object-fit: cover;
 }
 
-.projectMedia > iframe {
+.projectMediaContent > iframe {
     /* Size */
-    width: 100%;
-    height: 100%;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
 
     /* Spacing */
     margin: 0;
@@ -1936,11 +2055,8 @@ img.snakeControlsArrow {
 
     /* Layout */
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
+    top: -1px;
+    left: -1px;
 
     /* Visuals */
     border-radius: 20px;
@@ -1951,23 +2067,9 @@ img.snakeControlsArrow {
     transition: opacity .2s;
 }
 
-.projectMedia[video] > iframe {
+.projectMedia[video] .projectMediaContent > iframe {
     /* Other */
     pointer-events: unset;
-}
-
-@media screen and (orientation:landscape) {
-    .projectMedia > img,
-    .projectMedia > iframe {
-        /* Other */
-        transition: scale .2s;
-    }
-
-    .projectMedia[video][hasvideo] > img,
-    .projectMedia[video][hasvideo] > iframe {
-        /* Other */
-        scale: 1.1;
-    }
 }
 
 /* Projects -> Info */
