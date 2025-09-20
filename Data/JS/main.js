@@ -372,9 +372,11 @@ const locales = {
         },
         //Footer
         footer: {
-            contactTitle: 'Contact',
-            mail: 'Email copied to clipboard',
-            credits: 'This page was handmade with love by Alejandro Paniagua<br>No AI was involved in the creation',
+            contact: {
+                title: 'Contact',
+                mail: 'Email copied to clipboard',
+            },
+            credits: `This page was handmade with love by a human (✿◡‿◡)<br>AI must help, not replace (︶^︶)`,
         },
     }, 
     es: {
@@ -740,9 +742,11 @@ const locales = {
         },
         //Footer
         footer: {
-            contactTitle: 'Contacto',
-            mail: 'Email copiado al portapapeles',
-            credits: 'Esta pagina ha sido creada a mano con cariño por Alejandro Paniagua<br>Ninguna IA ha participado en la creación',
+            contact: {
+                title: 'Contacto',
+                mail: 'Email copiado al portapapeles',
+            },
+            credits: 'Esta pagina fue hecha a mano con cariño por un humano (✿◡‿◡)<br>La IA debe ayudar, no remplazar (︶^︶)',
         },
     }
 }
@@ -1300,7 +1304,7 @@ function localize() {
     document.getElementById('projectsMore').innerText = lan.projects.more
 
     //Footer
-    document.getElementById('footerContactTitle').innerText = lan.footer.contactTitle
+    document.getElementById('footerContactTitle').innerText = lan.footer.contact.title
     document.getElementById('footerCredits').innerHTML = lan.footer.credits
 }
 
@@ -2342,8 +2346,15 @@ function addProject(animate) {
 
     //Add project HTML content
     element.innerHTML = `
-        <!-- Media (image, video & scope) -->
+        <!-- Media (content, scope & actions) -->
         <div id="${id}-media" class="projectMedia" ${typeof vid === 'string' ? 'hasvideo' : ''}>
+            <!-- Content -->
+            <div class="projectMediaContent" style="--glitchImg: url('../Images/Projects/${project.key}.webp');">
+                <!-- Image -->
+                <img src="Data/Images/Projects/${project.key}.webp">
+                <!-- Video -->
+                <iframe id="${id}-video" allow="fullscreen"></iframe>
+            </div>
             <!-- Scope -->
             <span class="projectScope glass" ${scope != '' ? '' : 'hidden'}>${scope}</span>
             <!-- Actions -->
@@ -2357,13 +2368,6 @@ function addProject(animate) {
                 <div class="glass projectActionButton" hidevideo onclick="fullscreenImage('Data/Images/Projects/${project.key}.webp')">
                     <img src="Data/Images/Icons/maximize.webp">
                 </div>
-            </div>
-            <!-- Media -->
-            <div class="projectMediaContent" style="--glitchImg: url('../Images/Projects/${project.key}.webp');">
-                <!-- Image -->
-                <img src="Data/Images/Projects/${project.key}.webp">
-                <!-- Video -->
-                <iframe id="${id}-video" allow="fullscreen"></iframe>
             </div>
         </div>
         <!-- Info (tags, title, description & buttons) -->
@@ -2380,7 +2384,8 @@ function addProject(animate) {
             </div>
             <!-- Buttons -->
             <div class="projectButtons">${buttons}</div>
-        </div>`
+        </div>
+    `
     document.getElementById('projectsList').appendChild(element)
 
     //Animate
@@ -2543,61 +2548,100 @@ function toggleSortMode() {
 | $$   |  $$$$$$/|  $$$$$$/  |  $$$$/|  $$$$$$$| $$      
 |__/    \______/  \______/    \___/   \_______/|_*/      
 
-//Contact
-function copyMail() {
-    createSnackbar(lan.footer.mail, false)
-    navigator.clipboard.writeText('alex.paniagua.moreno@gmail.com')
-}
+class Footer {
 
-function onContactOpened() {
-    addFocusListener(() => {
-        giveAchievement(Achievements.contact)
-        return true
-    })
-}
+    //Contact
+    copyMail = () => {
+        createSnackbar(lan.footer.contact.mail, false)
+        navigator.clipboard.writeText('alex.paniagua.moreno@gmail.com')
+    }
 
-//Quotes
-(() => {
-    const quote = [
+    onContactOpened = () => {
+        addFocusListener(() => {
+            giveAchievement(Achievements.contact)
+            return true
+        })
+    }
+
+    //Quotes library
+    #quotes = [
+        'See you in the major leagues, Jack',
+        "Before it all goes dark... for one last second, I'll know I wasn't alone",
+        "What is better, I wonder: a life built on a lie, or a death born out of truth?",
+        'In the end, all that we are... all that we have... is memories',
         'War, war never changes',
         'Truth is, the game was rigged grom the start',
-        'OPA! Artyom!',
-        'See you in the major leagues, Jack',
-        "There's a monster inside all of us",
-        "Keep it cool, that's how you survive",
-        'Oh my stars she is just so handsome',
         "Oh, it's you. It's been a looong time",
+        "There's a monster inside all of us",
+        'Link, this is a huge discovery!',
+        "Relax. I've already thought of everything",
+        'Oh my stars she is just so handsome',
         'Your brother needs you',
         "I can't believe we did that!",
         "It's only been a week, but it feels like a year",
         'No matter what, you keep finding something to fight for',
+        "I don't think I can ever forgive you for that. But I would like to try",
         'The body is naught but a vessel for the soul',
         "I'm always succeeding, even when I'm not",
-        'Link, this is a huge discovery!',
-        'Any adventure you can fly away from'
+        'Any adventure you can fly away from',
+        "We'll see... about that",
     ]
-    const from = [
-        'Fallout',
-        'Fallout NV',
-        'Metro Exodus',
-        'Cyberpunk 2077',
-        'Arcane',
-        'Valorant',
-        'The Outer Worlds',
-        'Portal 2',
-        'Ruiner',
-        'Celeste',
-        'Katana Zero',
-        'The Last of Us',
-        'Ghostwire: Tokyo',
-        'Deathloop',
-        'Zelda: Tears of the Kingdom',
-        'Starfield'
+    #authors = [
+        'V - Cyberpunk 2077',
+        'So Mi - Cyberpunk 2077',
+        'Anna - Metro Exodus',
+        'Pavel - Metro: Last Light',
+        'Narrator - Fallout',
+        'Benny - Fallout: New Vegas',
+        'Glados - Portal 2',
+        'Silco - Arcane',
+        'Zelda - Zelda: Tears of the Kingdom',
+        'Killjoy - Valorant',
+        'Parvati - The Outer Worlds',
+        'HER - Ruiner',
+        'Madeline - Celeste',
+        'Zero - Katana Zero',
+        'Joel - The Last of Us: Part 1',
+        'Ellie - The Last of Us: Part 2',
+        'Hannya - Ghostwire: Tokyo',
+        'Colt - Deathloop',
+        'Vasco - Starfield',
+        'G-Man - Half Life: Alyx',
     ]
-    const q = Math.floor(Math.random() * quote.length)
-    document.getElementById('footerQuoteText').innerText = quote[q]
-    document.getElementById('footerQuoteFrom').innerText = from[q]
-})();
+
+    //Quotes
+    #quoteText = document.getElementById('footerQuoteText')
+    #quoteAuthor = document.getElementById('footerQuoteAuthor')
+    #quoteIndex = 0
+
+    randomQuote = () => {
+        this.#quoteIndex = Math.floor(Math.random() * this.#quotes.length);
+        this.updateQuote();
+    }
+
+    updateQuote = () => {
+        this.#quoteText.innerText = `"${this.#quotes[this.#quoteIndex]}"`;
+        this.#quoteAuthor.innerText = this.#authors[this.#quoteIndex];
+    }
+
+    prevQuote = () => {
+        this.#quoteIndex--;
+        if (this.#quoteIndex < 0) this.#quoteIndex = this.#quotes.length - 1;
+        this.updateQuote();
+    }
+
+    nextQuote = () => {
+        this.#quoteIndex++;
+        if (this.#quoteIndex >= this.#quotes.length) this.#quoteIndex = 0;
+        this.updateQuote();
+    }
+
+}
+
+const footer = new Footer();
+
+//Quotes
+footer.randomQuote();
 
 
 

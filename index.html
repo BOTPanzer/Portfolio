@@ -523,7 +523,7 @@
         | $$$$$$$/|  $$$$$$/  |  $$$$/|  $$$$/|  $$$$$$/| $$ | $$ | $$
         |_______/  \______/    \___/   \___/   \______/ |__/ |__/ |-->
 
-        <!-- Contact (for mobile) -->
+        <!-- Contact -->
         <div id="contact" class="footer">
             <!-- Top -->
             <div class="pageTop" small>
@@ -541,43 +541,48 @@
 
             <!-- Contact buttons -->
             <div class="footerContacts">
-                <a class="footerContact" onclick="copyMail()">
+                <a class="footerContact" onclick="footer.copyMail()">
                     <img src="Data/Images/Icons/email.webp">
                 </a>
-                <a class="footerContact" target="_blank" href="https://www.linkedin.com/in/alejandro-paniagua-moreno" onmousedown="onContactOpened()">
+                <a class="footerContact" onmousedown="footer.onContactOpened()" target="_blank" href="https://www.linkedin.com/in/alejandro-paniagua-moreno">
                     <img src="Data/Images/Icons/linkedin.webp">
                 </a>
-                <a class="footerContact" target="_blank" href="https://botpa.itch.io/" onmousedown="onContactOpened()">
+                <a class="footerContact" onmousedown="footer.onContactOpened()" target="_blank" href="https://botpa.itch.io/">
                     <img src="Data/Images/Icons/itchio.webp">
                 </a>
-                <a class="footerContact" target="_blank" href="https://github.com/BOTPanzer/" onmousedown="onContactOpened()">
+                <a class="footerContact" onmousedown="footer.onContactOpened()" target="_blank" href="https://github.com/BOTPanzer/">
                     <img src="Data/Images/Icons/github.webp">
                 </a>
-                <a class="footerContact" target="_blank" href="https://www.reddit.com/user/Botpa69" onmousedown="onContactOpened()">
+                <a class="footerContact" onmousedown="footer.onContactOpened()" target="_blank" href="https://www.reddit.com/user/Botpa69">
                     <img src="Data/Images/Icons/reddit.webp">
                 </a>
-                <a class="footerContact" target="_blank" href="https://www.youtube.com/@botpa" onmousedown="onContactOpened()">
+                <a class="footerContact" onmousedown="footer.onContactOpened()" target="_blank" href="https://www.youtube.com/@botpa">
                     <img src="Data/Images/Icons/youtube.webp">
                 </a>
-                <a class="footerContact" target="_blank" href="https://www.tiktok.com/@botpanzer" onmousedown="onContactOpened()">
+                <a class="footerContact" onmousedown="footer.onContactOpened()" target="_blank" href="https://www.tiktok.com/@botpanzer">
                     <img src="Data/Images/Icons/tiktok.webp">
                 </a>
             </div>
         </div>
 
-        <!-- Quote & Copyright Notice -->
+        <!-- Quote & Credits -->
         <div class="footer">
-            <!-- Quotes I like :D -->
+            <!-- Quotes from games/shows I like (✿◡‿◡) -->
             <div class="footerQuote">
-                <div id="footerQuoteText">There's a monster inside all of us</div>
-                <div id="footerQuoteFrom">Arcane</div>
+                <span id="footerQuoteText">There's a monster inside all of us</span>
+                <span id="footerQuoteAuthor">Silco - Arcane</span>
+                
+                <div class="footerArrows">
+                    <img id="footerArrowPrev" class="footerArrow" src="Data/Images/Icons/arrow_long.webp" onclick="footer.prevQuote()" mirror>
+                    <img id="footerArrowNext" class="footerArrow" src="Data/Images/Icons/arrow_long.webp" onclick="footer.nextQuote()">
+                </div>
             </div>
 
             <!-- Credits -->
             <div id="footerCredits">
-                This page was handmade with love by Alejandro Paniagua
+                This page was handmade with love by Alex (✿◡‿◡)
                 <br>
-                No AI was involved in the creation
+                No AI was involved in the creation (︶^︶)
             </div>
         </div>
     </div>
