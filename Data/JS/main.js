@@ -30,39 +30,6 @@ const locales = {
             theme: 'Theme',
             achievements: 'Achievements',
         },
-        //Curriculum
-        curriculum: {
-            title: 'Resume',
-        },
-        //Achievements
-        achievements: {
-            title: 'Achievements',
-            description: 'Find new achievements by interacting with things around the page',
-            hidden: 'Hidden',
-            theme: {
-                title: 'Alergic to Light',
-                description: 'Try light theme and go back to dark'
-            },
-            artyom: {
-                title: 'Best Friends',
-                description: `Find Artyom's photo (my first gecko)`
-            },
-            project: {
-                title: 'Good Boy',
-                description: 'Open one of my projects links'
-            },
-            contact: {
-                title: 'Interested Fellow',
-                description: 'Open one of my contact links'
-            },
-        },
-        //Snake
-        snake: {
-            points: 'Points: ',
-            restart: 'Restart',
-            death: 'You died!',
-            afk: 'Seems a bit quiet here...<br>Wanna play a game?',
-        },
         //Home
         home: {
             text1: `Howdy, i'm`,
@@ -77,25 +44,23 @@ const locales = {
         //About
         about: {
             title: 'About Me',
-            desc1: "Howdy! My name is Alejandro, but you call me Alex. I'm a spanish developer who likes spending time creating games and apps.",
-            desc2: "I started making games in 2015, at the age of 11. Then, in 2019, I took a break to learn web and app development and, since 2022, I've been doing all of them.",
-            desc3: "I'm a well-organized, independent person who loves giving things his own touch. Some of my interests are playing, programming and designing, but I also enjoy 3D printing and DIY projects.",
+            desc1: "Howdy! My name is Alejandro, but you call me Alex. I'm a ###-year-old Spanish developer who likes spending time playing and developing games.",
+            desc2: "I started making games in 2015, at the age of 11, and took a break to learn app & web development in 2019. I've been doing all of them since 2022, but making games is what I enjoy the most.",
+            desc3: "I'm a well-organized, independent and really perfectionist person who loves giving things his own touch. Some of my interests are playing, programming, graphic design and photography.",
             contact: 'Get in touch!',
-            next: 'Click me!',
+            next: 'Click me to see my photos!',
             names: [
                 'Me',
                 'Me',
-                'Me',
-                'Me',
-                'Me',
+                'Me & Judy',
+                'Almuñécar',
+                'Amsterdam',
                 'Canary Islands',
                 'Sleeping Cat',
-                'Finisterre',
+                'River Flower',
                 'Mallorca',
                 'Otivar',
-                'River Flower',
-                'Lennon Wall',
-                'Artyom',
+                'Artyom'
             ]
         },
         //Skills
@@ -378,6 +343,39 @@ const locales = {
             },
             credits: `This page was handmade with love by a human (✿◡‿◡)<br>AI must help, not replace (︶^︶)`,
         },
+        //Curriculum
+        curriculum: {
+            title: 'Resume',
+        },
+        //Snake
+        snake: {
+            points: 'Points: ',
+            restart: 'Restart',
+            death: 'You died!',
+            afk: 'Seems a bit quiet here...<br>Wanna play a game?',
+        },
+        //Achievements
+        achievements: {
+            title: 'Achievements',
+            description: 'Find new achievements by interacting with things around the page',
+            hidden: 'Hidden',
+            theme: {
+                title: 'Alergic to Light',
+                description: 'Try light theme and go back to dark'
+            },
+            artyom: {
+                title: 'Best Friends',
+                description: `Find Artyom's photo (my first gecko)`
+            },
+            project: {
+                title: 'Good Boy',
+                description: 'Open one of my projects links'
+            },
+            contact: {
+                title: 'Interested Fellow',
+                description: 'Open one of my contact links'
+            },
+        },
     }, 
     es: {
         //Locale
@@ -400,39 +398,6 @@ const locales = {
             theme: 'Tema',
             achievements: 'Logros',
         },
-        //Curriculum
-        curriculum: {
-            title: 'Curriculum',
-        },
-        //Achievements
-        achievements: {
-            title: 'Logros',
-            description: 'Encuentra nuevos logros interactuando con cosas por la página',
-            hidden: 'Escondido',
-            theme: {
-                title: 'Alergico a la Luz',
-                description: 'Prueba el tema claro y vuelve al oscuro'
-            },
-            artyom: {
-                title: 'Mejores Amigos',
-                description: 'Encuentra la foto de Artyom (mi primer gecko)'
-            },
-            project: {
-                title: 'Buen Chico',
-                description: 'Abre uno de los links de mis proyectos'
-            },
-            contact: {
-                title: 'Chavalin Interesado',
-                description: 'Abre uno de mis links de contacto'
-            },
-        },
-        //Snake
-        snake: {
-            points: 'Puntos: ',
-            restart: 'Reiniciar',
-            death: '¡Has muerto!',
-            afk: 'Hay un poco de silencio...<br>¿Quieres jugar un juego?',
-        },
         //Home
         home: {
             text1: 'Hola, soy',
@@ -447,25 +412,23 @@ const locales = {
         //About
         about: {
             title: 'Sobre Mi',
-            desc1: "¡Hey! Me llamo Alejandro, pero me puedes llamar Alex. Soy un desarrollador español al que le gusta pasar el tiempo creando juegos y aplicaciones.",
-            desc2: "Comencé a hacer juegos en 2015, con 11 años. Más tarde, en 2019, me tome un descanso para aprender desarrollo web y de aplicaciones y, desde 2022, he estado haciendo todos ellos.",
-            desc3: "Soy una persona bien organizada e independiente a la que le encanta dar su propio toque. Algunos de mis intereses son jugar, programar y diseñar, pero también me gusta la impresión 3D y las manualidades.",
+            desc1: "¡Hey! Me llamo Alejandro, pero me puedes llamar Alex. Soy un desarrollador español de ### años al que le gusta pasar el tiempo jugando y desarrollando juegos.",
+            desc2: "Comencé a hacer juegos en 2015, con 11 años, y tomé un descanso para aprender desarrollo de apps & webs en 2019. He estado haciendo todo ello desde 2022, pero hacer juegos es lo que más me entretiene.",
+            desc3: "Soy una persona organizada, independiente y muy perfeccionista a la que le encanta dar su propio toque. Algunos de mis intereses son jugar, programar, el diseño gráfico y la fotografia.",
             contact: '¡Ponte en contacto!',
-            next: '¡Hazme click!',
+            next: '¡Hazme click para ver mis fotos!',
             names: [
                 'Yo',
                 'Yo',
-                'Yo',
-                'Yo',
-                'Yo',
+                'Yo & Judy',
+                'Almuñécar',
+                'Amsterdam',
                 'Islas Canarias',
                 'Gato Durmiendo',
-                'Finisterre',
+                'Flor en Rio',
                 'Mallorca',
                 'Otivar',
-                'Flor en Rio',
-                'Muro Lennon',
-                'Artyom',
+                'Artyom'
             ]
         },
         //Skills
@@ -747,6 +710,39 @@ const locales = {
                 mail: 'Email copiado al portapapeles',
             },
             credits: 'Esta pagina fue hecha a mano con cariño por un humano (✿◡‿◡)<br>La IA debe ayudar, no remplazar (︶^︶)',
+        },
+        //Curriculum
+        curriculum: {
+            title: 'Curriculum',
+        },
+        //Snake
+        snake: {
+            points: 'Puntos: ',
+            restart: 'Reiniciar',
+            death: '¡Has muerto!',
+            afk: 'Hay un poco de silencio...<br>¿Quieres jugar un juego?',
+        },
+        //Achievements
+        achievements: {
+            title: 'Logros',
+            description: 'Encuentra nuevos logros interactuando con cosas por la página',
+            hidden: 'Escondido',
+            theme: {
+                title: 'Alergico a la Luz',
+                description: 'Prueba el tema claro y vuelve al oscuro'
+            },
+            artyom: {
+                title: 'Mejores Amigos',
+                description: 'Encuentra la foto de Artyom (mi primer gecko)'
+            },
+            project: {
+                title: 'Buen Chico',
+                description: 'Abre uno de los links de mis proyectos'
+            },
+            contact: {
+                title: 'Chavalin Interesado',
+                description: 'Abre uno de mis links de contacto'
+            },
         },
     }
 }
@@ -1052,16 +1048,14 @@ class AboutPage {
         'Data/Images/About/me1.webp',
         'Data/Images/About/me2.webp',
         'Data/Images/About/me3.webp',
-        'Data/Images/About/me4.webp',
-        'Data/Images/About/me5.webp',
+        'Data/Images/About/almuñécar.webp',
+        'Data/Images/About/amsterdam.webp',
         'Data/Images/About/canary.webp',
         'Data/Images/About/cat.webp',
-        'Data/Images/About/finisterre.webp',
+        'Data/Images/About/flower.webp',
         'Data/Images/About/mallorca.webp',
         'Data/Images/About/otivar.webp',
-        'Data/Images/About/flower.webp',
-        'Data/Images/About/lennon.webp',
-        'Data/Images/About/artyom.webp',
+        'Data/Images/About/artyom.webp'
     ];
     #order = [];
     #index = -1;
@@ -1092,7 +1086,7 @@ class AboutPage {
     localize = () => {
         //Info
         this.#title.innerText = loc.about.title;
-        this.#description1.innerText = loc.about.desc1;
+        this.#description1.innerText = loc.about.desc1.replace('###', Math.abs(new Date(Date.now() - new Date("2004-01-23")).getUTCFullYear() - 1970)); //Replace ### with age
         this.#description2.innerText = loc.about.desc2;
         this.#description3.innerText = loc.about.desc3;
         this.#contact.innerText = loc.about.contact;
@@ -1339,7 +1333,7 @@ const Project = Object.freeze({
         favPoints: 50,
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
-        tags: [Tag.html, Tag.css, Tag.js, Tag.vscode],
+        tags: [Tag.html, Tag.css, Tag.js/*, Tag.vscode*/],
         button: ['http://botpanzer.github.io/Map-Pinner']
     },
     hardcore_kitty: {
@@ -1349,7 +1343,7 @@ const Project = Object.freeze({
         favPoints: 100,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.blender, Tag.photoshop],
         button: ['https://botpa.itch.io/hardcore-kitty'],
         vid: 'S0YSZCOFGlg'
     },
@@ -1360,7 +1354,7 @@ const Project = Object.freeze({
         favPoints: 50,
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
-        tags: [Tag.python, Tag.vscode],
+        tags: [Tag.python/*, Tag.vscode*/],
         button: ['https://github.com/BOTPanzer/Turbo-Stealer']
     },
     spyw4re: {
@@ -1370,7 +1364,7 @@ const Project = Object.freeze({
         favPoints: 100,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.js, Tag.nodejs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
+        tags: [Tag.cs, Tag.js, Tag.nodejs, Tag.unity/*, Tag.vscode*/, Tag.blender, Tag.photoshop],
         button: ['https://botpa.itch.io/spyw4re'],
         vid: 'Qc3aWfPAxg0'
     },
@@ -1391,7 +1385,7 @@ const Project = Object.freeze({
         favPoints: 100,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
-        tags: [Tag.ts, Tag.html, Tag.css, Tag.vscode, Tag.photoshop],
+        tags: [Tag.ts, Tag.html, Tag.css/*, Tag.vscode*/, Tag.photoshop],
         button: ['https://marketplace.visualstudio.com/items?itemName=botpa.stardew-pets']
     },
     hackoon: {
@@ -1401,7 +1395,7 @@ const Project = Object.freeze({
         favPoints: 0,
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.blender, Tag.photoshop],
         button: ['https://www.tiktok.com/@botpanzer']
     },
     hightime: {
@@ -1411,7 +1405,7 @@ const Project = Object.freeze({
         favPoints: 90,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.photoshop],
         button: ['https://botpa.itch.io/high-on-time'],
         vid: 'UGMQDJxov1M',
     },
@@ -1422,7 +1416,7 @@ const Project = Object.freeze({
         favPoints: 80,
         scope: [Scope.solo, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.blender, Tag.photoshop],
         button: ['https://botpa.itch.io/the-lost-fresquita'],
         vid: 'SC_3TWWP46k'
     },
@@ -1433,7 +1427,7 @@ const Project = Object.freeze({
         favPoints: 80,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.blender, Tag.photoshop],
         button: ['https://botpa.itch.io/esto-aun-no-es-un-juego'],
         vid: 'UGH5wQYlAt4'
     },
@@ -1444,7 +1438,7 @@ const Project = Object.freeze({
         favPoints: 80,
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop, Tag.substance],
+        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.blender, Tag.photoshop, Tag.substance],
         button: ['https://botpa.itch.io/escape-from-lmdshow'],
         vid: 'z0Qv5HZyZgU'
     },
@@ -1455,7 +1449,7 @@ const Project = Object.freeze({
         favPoints: 80,
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.photoshop, Tag.illustrator],
+        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.photoshop, Tag.illustrator],
         button: ['https://botpa.itch.io/memory-shift']
     },
     spirits: {
@@ -1465,7 +1459,7 @@ const Project = Object.freeze({
         favPoints: 80,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.illustrator, Tag.photoshop],
         button: ['https://botpa.itch.io/twin-spirits'],
         vid: 'SdIGAw2ABeU'
     },
@@ -1476,7 +1470,7 @@ const Project = Object.freeze({
         favPoints: 80,
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.illustrator, Tag.photoshop],
         button: ['https://botpa.itch.io/vaporcade']
     },
     papa: {
@@ -1486,7 +1480,7 @@ const Project = Object.freeze({
         favPoints: 50,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.illustrator, Tag.photoshop],
         button: ['https://botpa.itch.io/cooking-papa']
     },
     otters: {
@@ -1496,7 +1490,7 @@ const Project = Object.freeze({
         favPoints: 20,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.max3ds, Tag.substance, Tag.illustrator, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.max3ds, Tag.substance, Tag.illustrator, Tag.photoshop],
         button: ['https://botpa.itch.io/otters-odyssey']
     },
     assistant_pc: {
@@ -1506,7 +1500,7 @@ const Project = Object.freeze({
         favPoints: 50,
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
-        tags: [Tag.html, Tag.css, Tag.js, Tag.nodejs, Tag.electronjs, Tag.vscode, Tag.uiux],
+        tags: [Tag.html, Tag.css, Tag.js, Tag.nodejs, Tag.electronjs/*, Tag.vscode*/, Tag.uiux],
         button: ['https://github.com/BOTPanzer/Orion-Assistant', 'https://github.com/BOTPanzer/USB-Launcher']
     },
     assistant_android: {
@@ -1526,7 +1520,7 @@ const Project = Object.freeze({
         favPoints: 50,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
-        tags: [Tag.html, Tag.css, Tag.js, Tag.vscode, Tag.uiux],
+        tags: [Tag.html, Tag.css, Tag.js/*, Tag.vscode*/, Tag.uiux],
         button: ['https://botpanzer.github.io/Orion-Framework']
     },
     //Usually hidden from here
@@ -1537,7 +1531,7 @@ const Project = Object.freeze({
         favPoints: 0,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
-        tags: [Tag.js, Tag.vscode, Tag.discordapi],
+        tags: [Tag.js/*, Tag.vscode*/, Tag.discordapi],
         button: ["https://github.com/BOTPanzer/Syrup"]
     },
     modding: {
@@ -2472,6 +2466,7 @@ class SnakeEasteregg {
         //Clear popup timer & start counting again if easteregg not enabled
         clearTimeout(this.#afkTimer);
         if (!this.#enabled) this.#afkTimer = setTimeout(this.onAFK, this.#afkDuration);
+        console.log('a')
     }
 
     //Menu
@@ -2516,7 +2511,7 @@ class SnakeEasteregg {
         //Toggle easteregg
         window.addEventListener('blur', () => clearTimeout(this.#afkTimer));
 
-        window.addEventListener('focus', () => this.onInputAFK);
+        window.addEventListener('focus', this.onInputAFK);
 
         if (this.#enabled) {
             //Enabled -> Show sidebar button
@@ -2542,9 +2537,11 @@ class SnakeEasteregg {
                 //Closed -> Check input to toggle easteregg by code
                 this.onCodeKey(key);
             }
-        })
+        });
 
-        window.addEventListener('scroll', () => this.onInputAFK);
+        window.addEventListener('scroll', this.onInputAFK);
+
+        window.addEventListener('click', this.onInputAFK);
 
         //Close menu listener
         Util.onDialogBackdropClick(this.#menu, this.toggleMenu);

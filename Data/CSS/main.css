@@ -632,6 +632,7 @@ dialog:not(#snackbar) {
     user-select: none;
     pointer-events: none;
     transition: opacity .2s ease;
+    -moz-transition: none; /* Animation is broken in firefox, as always */
 }
 
 dialog:not(#snackbar)[open] {
@@ -1795,16 +1796,17 @@ img.snakeControlsArrow {
         background-image: var(--glitchImg);
         background-size: cover;
         background-position: center;
+        scale: 1.05;
 
         /* Other */
         z-index: 1;
         pointer-events: none;
-        animation: projectGlitchColor 0.8s, projectGlitchClip 0.4s infinite;
+        animation: projectGlitchColor 0.4s forwards, projectGlitchClip 0.4s infinite;
     }
 
     .projectMedia:not([video]):hover .projectMediaContent::after {
         /* Other */
-        animation: projectGlitchColor 0.8s, projectGlitchClip 0.4s -0.2s infinite;
+        animation: projectGlitchColor 0.4s forwards, projectGlitchClip 0.4s -0.2s infinite;
     }
 
     @keyframes projectGlitchColor {
@@ -1833,7 +1835,7 @@ img.snakeControlsArrow {
             filter: hue-rotate(0deg) brightness(1) saturate(1);
         }
         100% {
-            content: unset;
+            visibility: hidden;
         }
     }
 
