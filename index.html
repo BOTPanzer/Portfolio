@@ -46,8 +46,8 @@
     |  $$$$$$/| $$|  $$$$$$$|  $$$$$$$| $$$$$$$/|  $$$$$$$| $$      
      \______/ |__/ \_______/ \_______/|_______/  \_______/|-->      
 
-    <!-- Sidebar toggle (for mobile) -->
-    <div class="sidebarToggle" onclick="toggleSidebar()">
+    <!-- Toggle (for mobile) -->
+    <div class="sidebarToggle" onclick="sidebar.toggle()">
         <img src="Data/Images/Icons/menu.webp">
 
         <!-- Achievements indicator -->
@@ -55,7 +55,7 @@
     </div>
 
     <!-- Sidebar -->
-    <div id="sidebar" class="sidebar" onclick="toggleSidebar()">
+    <div id="sidebar" class="sidebar" onclick="sidebar.toggle()">
         <div class="sidebarLayout" onclick="event.stopPropagation()">
             <!-- Pages -->
             <a id="goTo-home" class="sidebarButton" onclick="goTo('home')" selected>
@@ -83,9 +83,9 @@
                 <span id="sidebar-contact">Contact</span>
                 <indicator class="sidebarButtonIndicator"></indicator>
             </a>
-            <a id="goTo-resume" class="sidebarButton" onclick="toggleResumeMenu()">
-                <img src="Data/Images/Icons/resume.webp">
-                <span id="sidebar-resume">Resume</span>
+            <a id="goTo-curriculum" class="sidebarButton" onclick="curriculum.toggleMenu()">
+                <img src="Data/Images/Icons/curriculum.webp">
+                <span id="sidebar-curriculum">Resume</span>
             </a>
 
             <!-- Space -->
@@ -100,11 +100,11 @@
                 <img src="Data/Images/Icons/theme.webp">
                 <span id="sidebar-theme">Theme</span>
             </a>
-            <a id="goTo-snake" class="sidebarButton" onclick="toggleSnakeMenu()" hidden>
+            <a id="goTo-snake" class="sidebarButton" onclick="snake.toggleMenu()" hidden>
                 <img src="Data/Images/Icons/game.webp">
                 <span id="sidebar-snake">Snake</span>
             </a>
-            <a class="sidebarButton" onclick="toggleAchievementsMenu()">
+            <a class="sidebarButton" onclick="achievements.toggleMenu()">
                 <img src="Data/Images/Icons/achievements.webp">
                 <span id="sidebar-achievements">Achievements</span>
 
@@ -112,144 +112,6 @@
                 <div id="achievementsDot2" class="dotIndicator"></div>
             </a>
         </div>
-    </div>
-
-
-
-     <!--$$$$                                                       
-    | $$__  $$                                                      
-    | $$  \ $$  /$$$$$$   /$$$$$$$ /$$   /$$ /$$$$$$/$$$$   /$$$$$$ 
-    | $$$$$$$/ /$$__  $$ /$$_____/| $$  | $$| $$_  $$_  $$ /$$__  $$
-    | $$__  $$| $$$$$$$$|  $$$$$$ | $$  | $$| $$ \ $$ \ $$| $$$$$$$$
-    | $$  \ $$| $$_____/ \____  $$| $$  | $$| $$ | $$ | $$| $$_____/
-    | $$  | $$|  $$$$$$$ /$$$$$$$/|  $$$$$$/| $$ | $$ | $$|  $$$$$$$
-    |__/  |__/ \_______/|_______/  \______/ |__/ |__/ |__/ \_____-->
-
-    <dialog id="resumeMenu">
-        <!-- Title -->
-        <span id="resumeMenuTitle" class="menuTitle">Curriculum</span>
-
-        <!-- Close button -->
-        <div class="menuClose" onclick="toggleResumeMenu()">
-            <img src="Data/Images/Icons/close.webp">
-        </div>
-        
-        <!-- Language selector -->
-        <div class="menuList">
-            <a class="button" target="_blank" href="Data/Documents/CV (english).pdf">English</a>
-            <a class="button" target="_blank" href="Data/Documents/CV (español).pdf">Español</a>
-        </div>
-    </dialog>
-
-
-
-      <!--$$$            /$$       /$$                                                                   /$$             
-     /$$__  $$          | $$      |__/                                                                  | $$             
-    | $$  \ $$  /$$$$$$$| $$$$$$$  /$$  /$$$$$$  /$$    /$$ /$$$$$$  /$$$$$$/$$$$   /$$$$$$  /$$$$$$$  /$$$$$$   /$$$$$$$
-    | $$$$$$$$ /$$_____/| $$__  $$| $$ /$$__  $$|  $$  /$$//$$__  $$| $$_  $$_  $$ /$$__  $$| $$__  $$|_  $$_/  /$$_____/
-    | $$__  $$| $$      | $$  \ $$| $$| $$$$$$$$ \  $$/$$/| $$$$$$$$| $$ \ $$ \ $$| $$$$$$$$| $$  \ $$  | $$   |  $$$$$$ 
-    | $$  | $$| $$      | $$  | $$| $$| $$_____/  \  $$$/ | $$_____/| $$ | $$ | $$| $$_____/| $$  | $$  | $$ /$$\____  $$
-    | $$  | $$|  $$$$$$$| $$  | $$| $$|  $$$$$$$   \  $/  |  $$$$$$$| $$ | $$ | $$|  $$$$$$$| $$  | $$  |  $$$$//$$$$$$$/
-    |__/  |__/ \_______/|__/  |__/|__/ \_______/    \_/    \_______/|__/ |__/ |__/ \_______/|__/  |__/   \___/ |_____--> 
-
-    <dialog id="achievementsMenu">
-        <!-- Title -->
-        <span id="achievementsTitle" class="menuTitle">Achievements</span>
-
-        <!-- Close button -->
-        <div class="menuClose" onclick="toggleAchievementsMenu()">
-            <img src="Data/Images/Icons/close.webp">
-        </div>
-
-        <!-- Description -->
-        <span id="achievementsDescription">Find new achievements by interacting with the page</span>
-
-        <!-- Achievements list -->
-        <div id="achievementsList"></div>
-    </dialog>
-
-
-
-      <!--$$$                      /$$                
-     /$$__  $$                    | $$                
-    | $$  \__/ /$$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$ 
-    |  $$$$$$ | $$__  $$ |____  $$| $$  /$$/ /$$__  $$
-     \____  $$| $$  \ $$  /$$$$$$$| $$$$$$/ | $$$$$$$$
-     /$$  \ $$| $$  | $$ /$$__  $$| $$_  $$ | $$_____/
-    |  $$$$$$/| $$  | $$|  $$$$$$$| $$ \  $$|  $$$$$$$
-     \______/ |__/  |__/ \_______/|__/  \__/ \_____-->
-
-    <!-- Game -->
-    <dialog id="snakeMenu">
-        <!-- Title -->
-        <span class="menuTitle">Snake</span>
-
-        <!-- Close button -->
-        <div class="menuClose" onclick="toggleSnakeMenu()">
-            <img src="Data/Images/Icons/close.webp">
-        </div>
-
-        <!-- Points info -->
-        <div class="snakeInfo">
-            <span>
-                <span id="snakeInfoPointsText">Points: </span>
-                <span id="snakeInfoPoints">0</span>
-            </span>
-            <span>
-                <span id="snakeInfoBestText">Highscore: </span>
-                <span id="snakeInfoBest">0</span>
-            </span>
-        </div>
-
-        <!-- Game canvas -->
-        <canvas id="snakeCanvas" width="360" height="360"></canvas>
-
-        <!-- Arrows & restart button -->
-        <div class="snakeControls">
-            <div class="snakeControlsArrows">
-                <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" onclick="snake.game.keyPress('a')">
-                <div style="display: flex; flex-direction: column;">
-                    <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" up onclick="snake.game.keyPress('w')">
-                    <div class="snakeControlsArrow"></div>
-                    <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" down onclick="snake.game.keyPress('s')">
-                </div>
-                <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" right onclick="snake.game.keyPress('d')">
-            </div>
-            <div id="snakeRestart" class="button" onclick="snake.game.restart()">Restart</div>
-        </div>
-
-        <!-- State info -->
-        <span id="snakeInfoState"></span>
-    </dialog>
-
-    <!-- AFK message -->
-    <div id="snakeAFK" onclick="this.removeAttribute('open'); toggleSnakeMenu()">
-        <span id="snakeAFKText">Seems a bit quiet here...<br>Wanna play a game?</span>
-        <img src="Data/Images/Icons/afk.webp">
-    </div>
-
-
-
-     <!--$$$$                                               /$$             
-    | $$__  $$                                             | $$             
-    | $$  \ $$ /$$$$$$   /$$$$$$  /$$  /$$$$$$   /$$$$$$$ /$$$$$$   /$$$$$$$
-    | $$$$$$$//$$__  $$ /$$__  $$|__/ /$$__  $$ /$$_____/|_  $$_/  /$$_____/
-    | $$____/| $$  \__/| $$  \ $$ /$$| $$$$$$$$| $$        | $$   |  $$$$$$ 
-    | $$     | $$      | $$  | $$| $$| $$_____/| $$        | $$ /$$\____  $$
-    | $$     | $$      |  $$$$$$/| $$|  $$$$$$$|  $$$$$$$  |  $$$$//$$$$$$$/
-    |__/     |__/       \______/ | $$ \_______/ \_______/   \___/ |_______/ 
-                            /$$  | $$                                       
-                           |  $$$$$$/                                       
-                            \____-->
-
-    <div id="projectsFullscreen">
-        <!-- Close button -->
-        <div class="menuClose" onclick="fullscreenImage()">
-            <img src="Data/Images/Icons/close.webp">
-        </div>
-
-        <!-- Image -->
-        <img id="projectsFullscreenImage">
     </div>
 
 
@@ -478,15 +340,15 @@
                 <div>
                     <span>
                         <span id="projectsCategory">Category:</span>
-                        <span id="projectsCategoryBy" class="projectTag" onclick="toggleFiltersMenu('category')">Category</span>
+                        <span id="projectsCategoryBy" class="projectTag" onclick="projects.toggleFilterMenu('category')">Category</span>
                     </span>
                     <span>
-                        <span id="projectsFilter">Tags:</span>
-                        <span id="projectsFilterBy" class="projectTag" onclick="toggleFiltersMenu()">Tags</span>
+                        <span id="projectsTags">Tags:</span>
+                        <span id="projectsTagsBy" class="projectTag" onclick="projects.toggleFilterMenu()">Tags</span>
                     </span>
                     <span>
                         <span id="projectsSort">Sort by:</span>
-                        <span id="projectsSortBy" class="projectTag" onclick="toggleFiltersMenu('sort')">Sort</span>
+                        <span id="projectsSortBy" class="projectTag" onclick="projects.toggleFilterMenu('sort')">Sort</span>
                     </span>
                 </div>
             </div>
@@ -497,7 +359,7 @@
                 <span id="filterMenuTitle" class="menuTitle">Filter By</span>
 
                 <!-- Close button -->
-                <div class="menuClose" onclick="toggleFiltersMenu()">
+                <div class="menuClose" onclick="projects.toggleFilterMenu()">
                     <img src="Data/Images/Icons/close.webp">
                 </div>
                 
@@ -509,19 +371,19 @@
             <div id="projectsList"></div>
 
             <!-- Show more -->
-            <div id="projectsMore" class="button" onclick="addProject(); addProject();">Show more</div>
+            <div id="projectsMore" class="button" onclick="projects.addProject(); projects.addProject();">Show more</div>
         </div>
 
 
 
-         <!--$$$$              /$$     /$$                            
-        | $$__  $$            | $$    | $$                            
-        | $$  \ $$  /$$$$$$  /$$$$$$ /$$$$$$    /$$$$$$  /$$$$$$/$$$$ 
-        | $$$$$$$  /$$__  $$|_  $$_/|_  $$_/   /$$__  $$| $$_  $$_  $$
-        | $$__  $$| $$  \ $$  | $$    | $$    | $$  \ $$| $$ \ $$ \ $$
-        | $$  \ $$| $$  | $$  | $$ /$$| $$ /$$| $$  | $$| $$ | $$ | $$
-        | $$$$$$$/|  $$$$$$/  |  $$$$/|  $$$$/|  $$$$$$/| $$ | $$ | $$
-        |_______/  \______/    \___/   \___/   \______/ |__/ |__/ |-->
+         <!--$$$$$                    /$$
+        | $$_____/                   | $$
+        | $$     /$$$$$$   /$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$
+        | $$$$$ /$$__  $$ /$$__  $$|_  $$_/   /$$__  $$ /$$__  $$
+        | $$__/| $$  \ $$| $$  \ $$  | $$    | $$$$$$$$| $$  \__/
+        | $$   | $$  | $$| $$  | $$  | $$ /$$| $$_____/| $$
+        | $$   |  $$$$$$/|  $$$$$$/  |  $$$$/|  $$$$$$$| $$
+        |__/    \______/  \______/    \___/   \_______/|-->
 
         <!-- Contact -->
         <div id="contact" class="footer">
@@ -586,6 +448,144 @@
             </div>
         </div>
     </div>
+
+
+
+     <!--$$$$                                               /$$             
+    | $$__  $$                                             | $$             
+    | $$  \ $$ /$$$$$$   /$$$$$$  /$$  /$$$$$$   /$$$$$$$ /$$$$$$   /$$$$$$$
+    | $$$$$$$//$$__  $$ /$$__  $$|__/ /$$__  $$ /$$_____/|_  $$_/  /$$_____/
+    | $$____/| $$  \__/| $$  \ $$ /$$| $$$$$$$$| $$        | $$   |  $$$$$$ 
+    | $$     | $$      | $$  | $$| $$| $$_____/| $$        | $$ /$$\____  $$
+    | $$     | $$      |  $$$$$$/| $$|  $$$$$$$|  $$$$$$$  |  $$$$//$$$$$$$/
+    |__/     |__/       \______/ | $$ \_______/ \_______/   \___/ |_______/ 
+                            /$$  | $$                                       
+                           |  $$$$$$/                                       
+                            \____-->
+
+    <div id="projectsFullscreen">
+        <!-- Close button -->
+        <div class="menuClose" onclick="projects.fullscreenImage()">
+            <img src="Data/Images/Icons/close.webp">
+        </div>
+
+        <!-- Image -->
+        <img id="projectsFullscreenImage">
+    </div>
+
+
+
+      <!--$$$                                /$$                     /$$
+     /$$__  $$                              |__/                    | $$
+    | $$  \__/ /$$   /$$  /$$$$$$   /$$$$$$  /$$  /$$$$$$$ /$$   /$$| $$ /$$   /$$ /$$$$$$/$$$$
+    | $$      | $$  | $$ /$$__  $$ /$$__  $$| $$ /$$_____/| $$  | $$| $$| $$  | $$| $$_  $$_  $$
+    | $$      | $$  | $$| $$  \__/| $$  \__/| $$| $$      | $$  | $$| $$| $$  | $$| $$ \ $$ \ $$
+    | $$    $$| $$  | $$| $$      | $$      | $$| $$      | $$  | $$| $$| $$  | $$| $$ | $$ | $$
+    |  $$$$$$/|  $$$$$$/| $$      | $$      | $$|  $$$$$$$|  $$$$$$/| $$|  $$$$$$/| $$ | $$ | $$
+     \______/  \______/ |__/      |__/      |__/ \_______/ \______/ |__/ \______/ |__/ |__/ |-->
+
+    <dialog id="curriculumMenu">
+        <!-- Title -->
+        <span id="curriculumMenuTitle" class="menuTitle">Curriculum</span>
+
+        <!-- Close button -->
+        <div class="menuClose" onclick="curriculum.toggleMenu()">
+            <img src="Data/Images/Icons/close.webp">
+        </div>
+        
+        <!-- Language selector -->
+        <div class="menuList">
+            <a class="button" target="_blank" href="Data/Documents/CV (english).pdf" onclick="curriculum.toggleMenu()">English</a>
+            <a class="button" target="_blank" href="Data/Documents/CV (español).pdf" onclick="curriculum.toggleMenu()">Español</a>
+        </div>
+    </dialog>
+
+
+
+      <!--$$$                      /$$                
+     /$$__  $$                    | $$                
+    | $$  \__/ /$$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$ 
+    |  $$$$$$ | $$__  $$ |____  $$| $$  /$$/ /$$__  $$
+     \____  $$| $$  \ $$  /$$$$$$$| $$$$$$/ | $$$$$$$$
+     /$$  \ $$| $$  | $$ /$$__  $$| $$_  $$ | $$_____/
+    |  $$$$$$/| $$  | $$|  $$$$$$$| $$ \  $$|  $$$$$$$
+     \______/ |__/  |__/ \_______/|__/  \__/ \_____-->
+
+    <!-- Game -->
+    <dialog id="snakeMenu">
+        <!-- Title -->
+        <span class="menuTitle">Snake</span>
+
+        <!-- Close button -->
+        <div class="menuClose" onclick="snake.toggleMenu()">
+            <img src="Data/Images/Icons/close.webp">
+        </div>
+
+        <!-- Points info -->
+        <div class="snakeInfo">
+            <span>
+                <span id="snakeInfoPointsText">Points: </span>
+                <span id="snakeInfoPoints">0</span>
+            </span>
+            <span>
+                <span id="snakeInfoBestText">Highscore: </span>
+                <span id="snakeInfoBest">0</span>
+            </span>
+        </div>
+
+        <!-- Game canvas -->
+        <canvas id="snakeCanvas" width="360" height="360"></canvas>
+
+        <!-- Arrows & restart button -->
+        <div class="snakeControls">
+            <div class="snakeControlsArrows">
+                <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" onclick="snake.game.keyPress('a')">
+                <div>
+                    <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" up onclick="snake.game.keyPress('w')">
+                    <div class="snakeControlsArrow"></div>
+                    <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" down onclick="snake.game.keyPress('s')">
+                </div>
+                <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" right onclick="snake.game.keyPress('d')">
+            </div>
+            <div id="snakeRestart" class="button" onclick="snake.game.restart()">Restart</div>
+        </div>
+
+        <!-- State info -->
+        <span id="snakeInfoState"></span>
+    </dialog>
+
+    <!-- AFK message -->
+    <div id="snakeAFK" onclick="snake.toggleMenu(); this.removeAttribute('open')">
+        <span id="snakeAFKText">Seems a bit quiet here...<br>Wanna play a game?</span>
+        <img src="Data/Images/Icons/afk.webp">
+    </div>
+
+
+
+      <!--$$$            /$$       /$$                                                                   /$$             
+     /$$__  $$          | $$      |__/                                                                  | $$             
+    | $$  \ $$  /$$$$$$$| $$$$$$$  /$$  /$$$$$$  /$$    /$$ /$$$$$$  /$$$$$$/$$$$   /$$$$$$  /$$$$$$$  /$$$$$$   /$$$$$$$
+    | $$$$$$$$ /$$_____/| $$__  $$| $$ /$$__  $$|  $$  /$$//$$__  $$| $$_  $$_  $$ /$$__  $$| $$__  $$|_  $$_/  /$$_____/
+    | $$__  $$| $$      | $$  \ $$| $$| $$$$$$$$ \  $$/$$/| $$$$$$$$| $$ \ $$ \ $$| $$$$$$$$| $$  \ $$  | $$   |  $$$$$$ 
+    | $$  | $$| $$      | $$  | $$| $$| $$_____/  \  $$$/ | $$_____/| $$ | $$ | $$| $$_____/| $$  | $$  | $$ /$$\____  $$
+    | $$  | $$|  $$$$$$$| $$  | $$| $$|  $$$$$$$   \  $/  |  $$$$$$$| $$ | $$ | $$|  $$$$$$$| $$  | $$  |  $$$$//$$$$$$$/
+    |__/  |__/ \_______/|__/  |__/|__/ \_______/    \_/    \_______/|__/ |__/ |__/ \_______/|__/  |__/   \___/ |_____--> 
+
+    <dialog id="achievementsMenu">
+        <!-- Title -->
+        <span id="achievementsTitle" class="menuTitle">Achievements</span>
+
+        <!-- Close button -->
+        <div class="menuClose" onclick="achievements.toggleMenu()">
+            <img src="Data/Images/Icons/close.webp">
+        </div>
+
+        <!-- Description -->
+        <span id="achievementsDescription">Find new achievements by interacting with the page</span>
+
+        <!-- Achievements list -->
+        <div id="achievementsList"></div>
+    </dialog>
 
 
 

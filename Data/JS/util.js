@@ -14,36 +14,36 @@ class CurrentPageIndicator {
 
     constructor(pages) {
         //Reverse pages to give priority to the ones after
-        pages.reverse()
+        pages.reverse();
 
         //Default to home
-        const visiblePages = { 'home': true }
-        let currentPage = 'home'
+        const visiblePages = { 'home': true };
+        let currentPage = 'home';
 
         //Update current
         function updateCurrentPage() {
             //Get new current
-            let newCurrentPage = null
+            let newCurrentPage = null;
 
             for (const id of pages) {
-                if (!visiblePages[id]) continue
+                if (!visiblePages[id]) continue;
                 newCurrentPage = id;
-                break
+                break;
             }
 
             //Check new current
-            if (newCurrentPage == currentPage) return
+            if (newCurrentPage == currentPage) return;
             
             //Update current page
-            if (currentPage != null) document.getElementById('goTo-' + currentPage).removeAttribute('selected')
-            currentPage = newCurrentPage
-            if (currentPage != null) document.getElementById('goTo-' + currentPage).setAttribute('selected', '')
+            if (currentPage != null) document.getElementById('goTo-' + currentPage).removeAttribute('selected');
+            currentPage = newCurrentPage;
+            if (currentPage != null) document.getElementById('goTo-' + currentPage).setAttribute('selected', '');
         }
 
         //Add observer to update current pages
         const observer = new IntersectionObserver((entries) => {
             for (const entry of entries) visiblePages[entry.target.id] = entry.isIntersecting;
-            updateCurrentPage()
+            updateCurrentPage();
         }, {
             threshold: 0.2
         });
@@ -63,27 +63,26 @@ class CurrentPageIndicator {
 | $$$$$$$$| $$ /$$$$$$$/  |  $$$$/|  $$$$$$$| $$  | $$|  $$$$$$$| $$       /$$$$$$$/
 |________/|__/|_______/    \___/   \_______/|__/  |__/ \_______/|__/      |______*/ 
 
-
 //On page resize
-const onResize = []
+const onResize = [];
 
-window.onresize = () => onResize.forEach(f => f())
+window.onresize = () => onResize.forEach(f => f());
 
 function addResizeListener(f) {
     //Not a function
-    if (typeof f != 'function') return
+    if (typeof f != 'function') return;
 
     //Add to list
-    onResize.push(f)
+    onResize.push(f);
 }
 
 //On page focus
-const onFocus = []
+const onFocus = [];
 
 window.onfocus = () => {
     for (let i = onFocus.length - 1; i >= 0; i--) {
         //Run function
-        const result = onFocus[i]()
+        const result = onFocus[i]();
 
         //Remove function if result is true
         if (typeof result === 'boolean' && result) onFocus.splice(i, 1); 
@@ -92,10 +91,10 @@ window.onfocus = () => {
 
 function addFocusListener(f) {
     //Not a function
-    if (typeof f != 'function') return
+    if (typeof f != 'function') return;
 
     //Add to list
-    onFocus.push(f)
+    onFocus.push(f);
 }
 
 
@@ -500,13 +499,13 @@ class Util {
 
     static randomArray(array, remove) {
         //Fix remove
-        if (typeof remove != 'boolean') remove = false
+        if (typeof remove != 'boolean') remove = false;
 
         //Get index
-        const idx = Math.floor(Math.random() * array.length)
-        const value = array[idx]
-        if (remove) array.splice(idx, 1)
-        return value
+        const idx = Math.floor(Math.random() * array.length);
+        const value = array[idx];
+        if (remove) array.splice(idx, 1);
+        return value;
     }
 
     static setCharAt(str, index, chr) {
@@ -521,6 +520,17 @@ class Util {
             const clickedBackdrop = !(rect.top <= event.clientY && event.clientY <= rect.top + rect.height && rect.left <= event.clientX && event.clientX <= rect.left + rect.width)
             if (clickedBackdrop && dialog.open) onClick()
         }
+    }
+
+    static toggleScroll(scroll) {
+        //Fix args
+        if (typeof scroll !== 'boolean') !document.body.hasAttribute('noscroll');
+
+        //Toggle scroll
+        if (scroll)
+            document.body.removeAttribute('noscroll');
+        else
+            document.body.setAttribute('noscroll', '');
     }
 
 }

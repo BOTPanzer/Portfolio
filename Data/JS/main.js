@@ -1,13 +1,13 @@
-  /*$$$$$  /$$           /$$                 /$$
- /$$__  $$| $$          | $$                | $$
-| $$  \__/| $$  /$$$$$$ | $$$$$$$   /$$$$$$ | $$
-| $$ /$$$$| $$ /$$__  $$| $$__  $$ |____  $$| $$
-| $$|_  $$| $$| $$  \ $$| $$  \ $$  /$$$$$$$| $$
-| $$  \ $$| $$| $$  | $$| $$  | $$ /$$__  $$| $$
-|  $$$$$$/| $$|  $$$$$$/| $$$$$$$/|  $$$$$$$| $$
- \______/ |__/ \______/ |_______/  \_______/|_*/
+ /*$      /$$           /$$          
+| $$$    /$$$          |__/          
+| $$$$  /$$$$  /$$$$$$  /$$ /$$$$$$$ 
+| $$ $$/$$ $$ |____  $$| $$| $$__  $$
+| $$  $$$| $$  /$$$$$$$| $$| $$  \ $$
+| $$\  $ | $$ /$$__  $$| $$| $$  | $$
+| $$ \/  | $$|  $$$$$$$| $$| $$  | $$
+|__/     |__/ \_______/|__/|__/  |_*/
 
-//Locales
+//Localization keys
 const locales = {
     en: {
         //Locale
@@ -25,20 +25,20 @@ const locales = {
             skills: 'Skills',
             projects: 'Projects',
             contact: 'Contact',
-            resume: 'Resume',
+            curriculum: 'Resume',
             localization: 'English',
             theme: 'Theme',
             achievements: 'Achievements',
         },
-        //Resume
-        resume: {
+        //Curriculum
+        curriculum: {
             title: 'Resume',
         },
         //Achievements
         achievements: {
             title: 'Achievements',
             description: 'Find new achievements by interacting with things around the page',
-            locked: 'Hidden',
+            hidden: 'Hidden',
             theme: {
                 title: 'Alergic to Light',
                 description: 'Try light theme and go back to dark'
@@ -103,7 +103,7 @@ const locales = {
             title: 'My Skills',
             desc: "I've been interested in the world of technology since I was little and, thanks to that, I've learnt a large number of skills related to different topics.",
             years: '+ years',
-            game: 'Videogame Development',
+            game: 'Game Development',
             app: 'App Development',
             web: 'Web Development',
             design: 'Graphic Design',
@@ -395,20 +395,20 @@ const locales = {
             skills: 'Habilidades',
             projects: 'Proyectos',
             contact: 'Contacto',
-            resume: 'Curriculum',
+            curriculum: 'Curriculum',
             localization: 'Español',
             theme: 'Tema',
             achievements: 'Logros',
         },
-        //Resume
-        resume: {
+        //Curriculum
+        curriculum: {
             title: 'Curriculum',
         },
         //Achievements
         achievements: {
             title: 'Logros',
             description: 'Encuentra nuevos logros interactuando con cosas por la página',
-            locked: 'Escondido',
+            hidden: 'Escondido',
             theme: {
                 title: 'Alergico a la Luz',
                 description: 'Prueba el tema claro y vuelve al oscuro'
@@ -751,1179 +751,78 @@ const locales = {
     }
 }
 
-let lan = locales.es
+let loc = locales.en;
 
-//Main
-const animator = new AppearAnimation()
-
-//Achievements
-const Achievements = Object.freeze({
-    theme: 'theme',
-    artyom: 'artyom',
-    project: 'project',
-    contact: 'contact',
-})
-
-const achievements = {}
-
-//Home
-let homeParticles
-let homeText
-
-//About images
-const about = {
-    imgs: [
-        'Data/Images/About/me1.webp',
-        'Data/Images/About/me2.webp',
-        'Data/Images/About/me3.webp',
-        'Data/Images/About/me4.webp',
-        'Data/Images/About/me5.webp',
-        'Data/Images/About/canary.webp',
-        'Data/Images/About/cat.webp',
-        'Data/Images/About/finisterre.webp',
-        'Data/Images/About/mallorca.webp',
-        'Data/Images/About/otivar.webp',
-        'Data/Images/About/flower.webp',
-        'Data/Images/About/lennon.webp',
-        'Data/Images/About/artyom.webp',
-    ],
-    order: [],
-    index: -1,
-    loading: false,
-};
-
-(() => {    
-    //shuffle images, add me first & artyom last
-    for (let i = 1; i < about.imgs.length - 1; i++) about.order.push(i)
-    Util.shuffleArray(about.order)
-    about.order.splice(0, 0, 0) //Add 'me1' first
-    about.order.push(about.imgs.length - 1) //Add 'artyom' last
-})();
-
-//Skills
-const Skills = Object.freeze({
-    game: {
-        id: 'skillsGame',
-        locale: 'game',
-        experience: 4,
-    },
-    app: {
-        id: 'skillsApp',
-        locale: 'app',
-        experience: 5,
-    },
-    web: {
-        id: 'skillsWeb',
-        locale: 'web',
-        experience: 2,
-    },
-    design: {
-        id: 'skillsDesign',
-        locale: 'design',
-        experience: 2,
-    },
-    ui: {
-        id: 'skillsUI',
-        locale: 'ui',
-        experience: 1,
-    },
-    '3d': {
-        id: 'skills3D',
-        locale: '3d',
-        experience: 1,
-    }
-})
-
-//Projects
-const Scope = Object.freeze({
-    team: 'team',
-    solo: 'solo',
-    personal: 'personal',
-    jam: 'jam'
-});
-
-const Category = Object.freeze({
-    all: 'all',
-    games: 'games',
-    apps: 'apps',
-    design: 'design',
-    other: 'other',
-});
-
-const Tag = Object.freeze({
-    //All
-    all: 'all',
-    //Languages
-    cs: 'C#',
-    java: 'JAVA',
-    cpp: 'C++',
-    python: 'Python',
-    html: 'HTML',
-    css: 'CSS',
-    js: 'JavaScript',
-    ts: 'TypeScript',
-    nodejs: 'NodeJS',
-    electronjs: 'ElectronJS',
-    cmd: 'CMD',
-    //Apps
-    unity: 'Unity',
-    vscode: 'VS Code',
-    blender: 'Blender',
-    photoshop: 'Photoshop',
-    illustrator: 'Illustrator',
-    max3ds: '3ds Max',
-    substance: 'Substance Painter',
-    android: 'Android Studio',
-    //Other
-    discordapi: 'discordapi',
-    uiux: 'uiux',
-    print3d: '3dprint',
-    model3d: '3dmodel',
-    sketching: 'sketching',
-    electronics: 'electronics',
-    diy: 'diy',
-});
-
-const Sort = Object.freeze({
-    favs: 'favs',
-    date: 'date',
-});
-
-const Projects = Object.freeze({
-    akira_posters: {
-        key: 'akira_posters',
-        dateStart: 2025,
-        dateEnd: 2025,
-        favPoints: 50,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.design,
-        tags: [Tag.photoshop],
-        button: ["https://www.artstation.com/artwork/lGQ84V"],
-    },
-    map_pinner: {
-        key: 'map_pinner',
-        dateStart: 2025,
-        dateEnd: 2025,
-        favPoints: 50,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.apps,
-        tags: [Tag.html, Tag.css, Tag.js, Tag.vscode],
-        button: ['http://botpanzer.github.io/Map-Pinner'],
-    },
-    hardcore_kitty: {
-        key: 'hardcore_kitty',
-        dateStart: 2025,
-        dateEnd: 2025,
-        favPoints: 100,
-        scope: [Scope.team, Scope.jam],
-        category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
-        button: ['https://botpa.itch.io/hardcore-kitty'],
-        vid: 'S0YSZCOFGlg',
-    },
-    stealer: {
-        key: 'stealer',
-        dateStart: 2024,
-        dateEnd: 2024,
-        favPoints: 50,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.apps,
-        tags: [Tag.python, Tag.vscode],
-        button: ['https://github.com/BOTPanzer/Turbo-Stealer'],
-    },
-    spyw4re: {
-        key: 'spyw4re',
-        dateStart: 2024,
-        dateEnd: 2024,
-        favPoints: 100,
-        scope: [Scope.team, Scope.jam],
-        category: Category.games,
-        tags: [Tag.cs, Tag.js, Tag.nodejs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
-        button: ['https://botpa.itch.io/spyw4re'],
-        vid: 'Qc3aWfPAxg0',
-    },
-    artist_posters: {
-        key: 'artist_posters',
-        dateStart: 2024,
-        dateEnd: 2024,
-        favPoints: 50,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.design,
-        tags: [Tag.photoshop],
-        button: ["https://www.artstation.com/bot_panzer/albums/14597252"],
-    },
-    stardew_pets: {
-        key: 'stardew_pets',
-        dateStart: 2024,
-        dateEnd: 2025,
-        favPoints: 100,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.other,
-        tags: [Tag.ts, Tag.html, Tag.css, Tag.vscode, Tag.photoshop],
-        button: ['https://marketplace.visualstudio.com/items?itemName=botpa.stardew-pets'],
-    },
-    hackoon: {
-        key: 'hackoon',
-        dateStart: 2024,
-        dateEnd: Infinity,
-        favPoints: 0,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
-        button: ['https://www.tiktok.com/@botpanzer'],
-    },
-    hightime: {
-        key: 'hightime',
-        dateStart: 2024,
-        dateEnd: 2024,
-        favPoints: 90,
-        scope: [Scope.team, Scope.jam],
-        category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.photoshop],
-        button: ['https://botpa.itch.io/high-on-time'],
-        vid: 'UGMQDJxov1M',
-    },
-    fresquita: {
-        key: 'fresquita',
-        dateStart: 2024,
-        dateEnd: 2024,
-        favPoints: 80,
-        scope: [Scope.solo, Scope.jam],
-        category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
-        button: ['https://botpa.itch.io/the-lost-fresquita'],
-        vid: 'SC_3TWWP46k',
-    },
-    raccoon: {
-        key: 'raccoon',
-        dateStart: 2023,
-        dateEnd: 2023,
-        favPoints: 80,
-        scope: [Scope.team, Scope.jam],
-        category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
-        button: ['https://botpa.itch.io/esto-aun-no-es-un-juego'],
-        vid: 'UGH5wQYlAt4',
-    },
-    lmdshow: {
-        key: 'lmdshow',
-        dateStart: 2023,
-        dateEnd: 2023,
-        favPoints: 80,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop, Tag.substance],
-        button: ['https://botpa.itch.io/escape-from-lmdshow'],
-        vid: 'z0Qv5HZyZgU',
-    },
-    memory_shift: {
-        key: 'memory_shift',
-        dateStart: 2023,
-        dateEnd: 2023,
-        favPoints: 80,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.photoshop, Tag.illustrator],
-        button: ['https://botpa.itch.io/memory-shift'],
-    },
-    spirits: {
-        key: 'spirits',
-        dateStart: 2023,
-        dateEnd: 2023,
-        favPoints: 80,
-        scope: [Scope.team, Scope.jam],
-        category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
-        button: ['https://botpa.itch.io/twin-spirits'],
-        vid: 'SdIGAw2ABeU',
-    },
-    vaporcade: {
-        key: 'vaporcade',
-        dateStart: 2023,
-        dateEnd: 2023,
-        favPoints: 80,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
-        button: ['https://botpa.itch.io/vaporcade']
-    },
-    papa: {
-        key: 'papa',
-        dateStart: 2023,
-        dateEnd: 2023,
-        favPoints: 50,
-        scope: [Scope.team, Scope.jam],
-        category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
-        button: ['https://botpa.itch.io/cooking-papa']
-    },
-    otters: {
-        key: 'otters',
-        dateStart: 2022,
-        dateEnd: 2022,
-        favPoints: 20,
-        scope: [Scope.team, Scope.jam],
-        category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.max3ds, Tag.substance, Tag.illustrator, Tag.photoshop],
-        button: ['https://botpa.itch.io/otters-odyssey']
-    },
-    assistant_pc: {
-        key: 'assistant_pc',
-        dateStart: 2021,
-        dateEnd: 2025,
-        favPoints: 50,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.apps,
-        tags: [Tag.html, Tag.css, Tag.js, Tag.nodejs, Tag.electronjs, Tag.vscode, Tag.uiux],
-        button: ['https://github.com/BOTPanzer/Orion-Assistant', 'https://github.com/BOTPanzer/USB-Launcher']
-    },
-    assistant_android: {
-        key: 'assistant_android',
-        dateStart: 2021,
-        dateEnd: 2025,
-        favPoints: 50,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.apps,
-        tags: [Tag.java, Tag.android, Tag.uiux],
-        button: ['Data/Orion Assistant 1.10.4.apk']
-    },
-    framework: {
-        key: 'framework',
-        dateStart: 2022,
-        dateEnd: 2024,
-        favPoints: 50,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.other,
-        tags: [Tag.html, Tag.css, Tag.js, Tag.vscode, Tag.uiux],
-        button: ['https://botpanzer.github.io/Orion-Framework']
-    },
-    //Usually hidden from here
-    discord_bots: {
-        key: 'discord_bots',
-        dateStart: 2018,
-        dateEnd: 2020,
-        favPoints: 0,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.other,
-        tags: [Tag.js, Tag.vscode, Tag.discordapi],
-        button: ["https://github.com/BOTPanzer/Syrup"]
-    },
-    modding: {
-        key: 'modding',
-        dateStart: 2021,
-        dateEnd: 2021,
-        favPoints: 0,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.other,
-        tags: [Tag.model3d, Tag.print3d, Tag.illustrator, Tag.sketching, Tag.diy],
-    },
-    t45: {
-        key: 't45',
-        dateStart: 2018,
-        dateEnd: 2018,
-        favPoints: 0,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.other,
-        tags: [Tag.print3d, Tag.diy],
-    },
-    usb: {
-        key: 'usb',
-        dateStart: 2018,
-        dateEnd: 2018,
-        favPoints: 0,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.other,
-        tags: [Tag.model3d, Tag.print3d, Tag.electronics, Tag.diy],
-    },
-    hoodie: {
-        key: 'hoodie',
-        dateStart: 2021,
-        dateEnd: 2021,
-        favPoints: 0,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.other,
-        tags: [Tag.illustrator, Tag.photoshop, Tag.sketching],
-    },
-})
-
-const projects = {
-    //Created projects
-    loaded: false,
-    created: 0,
-    //Category, filter & sorting
-    category: Category.all,
-    filter: Tag.all,
-    sort: Sort.favs,
-    //List (sorted by preferences)
-    list: [
-        Projects.akira_posters,
-        Projects.map_pinner,
-        Projects.hardcore_kitty,
-        Projects.spyw4re,
-        Projects.artist_posters,
-        Projects.stardew_pets,
-        Projects.hightime,
-        Projects.stealer,
-        //Projects.hackoon,
-        Projects.fresquita,
-        Projects.raccoon,
-        Projects.lmdshow,
-        Projects.memory_shift,
-        Projects.spirits,
-        Projects.vaporcade,
-        Projects.papa,
-        Projects.otters,
-        Projects.assistant_pc,
-        Projects.assistant_android,
-        Projects.framework,
-        /*
-        Projects.discord_bots,
-        Projects.modding,
-        Projects.t45,
-        Projects.usb,
-        Projects.hoodie,
-        */
-    ],
-    filteredList: [],
-    //Functions
-    getCategoryName: (category) => lan.projects.category[category in Category ? category : Category.all],
-    getTagName: (tag) => tag in lan.projects.tags ? lan.projects.tags[tag] : tag,
-    getSortName: (sort) => lan.projects.sort[sort in Sort ? sort : Sort.favs],
-}
-
-
-
- /*$                                     /$$ /$$                       /$$     /$$                    
-| $$                                    | $$|__/                      | $$    |__/                    
-| $$        /$$$$$$   /$$$$$$$  /$$$$$$ | $$ /$$ /$$$$$$$$  /$$$$$$  /$$$$$$   /$$  /$$$$$$  /$$$$$$$ 
-| $$       /$$__  $$ /$$_____/ |____  $$| $$| $$|____ /$$/ |____  $$|_  $$_/  | $$ /$$__  $$| $$__  $$
-| $$      | $$  \ $$| $$        /$$$$$$$| $$| $$   /$$$$/   /$$$$$$$  | $$    | $$| $$  \ $$| $$  \ $$
-| $$      | $$  | $$| $$       /$$__  $$| $$| $$  /$$__/   /$$__  $$  | $$ /$$| $$| $$  | $$| $$  | $$
-| $$$$$$$$|  $$$$$$/|  $$$$$$$|  $$$$$$$| $$| $$ /$$$$$$$$|  $$$$$$$  |  $$$$/| $$|  $$$$$$/| $$  | $$
-|________/ \______/  \_______/ \_______/|__/|__/|________/ \_______/   \___/  |__/ \______/ |__/  |_*/
-
-//Recover saved locale & load it
-switch (DB.get('locale', 'none', DB.STRING)) {
-    //Nothing saved
-    case 'none':
-        //Check device language
-        let deviceLanguage = navigator.language || navigator.userLanguage
-
-        //Device is in english
-        if (deviceLanguage.startsWith('en')) lan = locales.en
-
-        //Save locale
-        DB.set('locale', lan.key)
-        break
-
-    //English saved
-    case 'en':
-        lan = locales.en
-        break
-
-    //Default to spanish
-    default:
-        lan = locales.es
-        break
-}
-
-//Localization functions
-function swapLocale() {
-    //Get new locale key
-    const newKey = lan.key == 'es' ? 'en' : 'es'
-
-    //Load new locale
-    lan = locales[newKey]
-    DB.set('locale', lan.key)
-
-    //Localize page & hide sidebar
-    localize()
-    toggleSidebar(false)
-}
-
-function localize() {
-    //Loading
-    document.getElementById('loadingTitle').innerText = lan.loading.title
-
-    //Sidebar
-    document.getElementById('sidebar-home').innerText = lan.sidebar.home
-    document.getElementById('sidebar-about').innerText = lan.sidebar.about
-    document.getElementById('sidebar-skills').innerText = lan.sidebar.skills
-    document.getElementById('sidebar-projects').innerText = lan.sidebar.projects
-    document.getElementById('sidebar-contact').innerText = lan.sidebar.contact
-    document.getElementById('sidebar-resume').innerText = lan.sidebar.resume
-    document.getElementById('sidebar-localization').innerText = lan.sidebar.localization
-    document.getElementById('sidebar-theme').innerText = lan.sidebar.theme
-    document.getElementById('sidebar-achievements').innerText = lan.sidebar.achievements
-
-    //Resume
-    document.getElementById('resumeMenuTitle').innerText = lan.resume.title
-
-    //Achievements
-    document.getElementById('achievementsTitle').innerText = lan.achievements.title
-    document.getElementById('achievementsDescription').innerText = lan.achievements.description
-
-    //Snake
-    document.getElementById('snakeInfoPointsText').innerText = lan.snake.points
-    document.getElementById('snakeRestart').innerText = lan.snake.restart
-    document.getElementById('snakeAFKText').innerHTML = lan.snake.afk
-
-    //Home
-    document.getElementById('homeText1').innerText = lan.home.text1
-    document.getElementById('homeText2').innerText = lan.home.text2
-    document.getElementById('homeText3').innerText = lan.home.text3
-    if (homeText) homeText.reset()
-
-    //About
-    document.getElementById('aboutTitle').innerText = lan.about.title
-    document.getElementById('aboutDescription1').innerText = lan.about.desc1
-    document.getElementById('aboutDescription2').innerText = lan.about.desc2
-    document.getElementById('aboutDescription3').innerText = lan.about.desc3
-    document.getElementById('aboutContact').innerText = lan.about.contact
-    document.getElementById('aboutImgName').innerText = lan.about.names[about.order[Math.max(about.index, 0)]]
-    document.getElementById('aboutImgNext').innerText = lan.about.next
-
-    //Skills
-    document.getElementById('skillsTitle').innerText = lan.skills.title
-    document.getElementById('skillsDescription').innerText = lan.skills.desc
-    for (const key of Object.keys(Skills)) {
-        const skill = Skills[key];
-        document.getElementById(`${skill.id}Title`).innerText = lan.skills[skill.locale]
-        document.getElementById(`${skill.id}Pro`).innerText = skill.experience + lan.skills.years
-    }
-    document.getElementById('skillsNoteTitle').innerText = lan.skills.note.title
-    document.getElementById('skillsNoteText').innerText = lan.skills.note.text
-
-    //Projects
-    document.getElementById('projectsTitle').innerText = lan.projects.title
-    document.getElementById('projectsFiltersTitle').innerText = lan.projects.filtersTitle
-    document.getElementById('projectsCategory').innerText = lan.projects.category.title + ':'
-    document.getElementById('projectsFilter').innerText = lan.projects.tags.title + ':'
-    document.getElementById('projectsSort').innerText = lan.projects.sort.title + ':'
-    refreshProjects()
-    document.getElementById('projectsMore').innerText = lan.projects.more
-
-    //Footer
-    document.getElementById('footerContactTitle').innerText = lan.footer.contact.title
-    document.getElementById('footerCredits').innerHTML = lan.footer.credits
-}
-
-localize()
-
-
-
- /*$$$$$$$ /$$                                        
-|__  $$__/| $$                                        
-   | $$   | $$$$$$$   /$$$$$$  /$$$$$$/$$$$   /$$$$$$ 
-   | $$   | $$__  $$ /$$__  $$| $$_  $$_  $$ /$$__  $$
-   | $$   | $$  \ $$| $$$$$$$$| $$ \ $$ \ $$| $$$$$$$$
-   | $$   | $$  | $$| $$_____/| $$ | $$ | $$| $$_____/
-   | $$   | $$  | $$|  $$$$$$$| $$ | $$ | $$|  $$$$$$$
-   |__/   |__/  |__/ \_______/|__/ |__/ |__/ \______*/
-
-const theme = {
-    dark: (DB.get('theme', 'dark', DB.STRING) == 'dark')
-}
-
-function toggleTheme() {
-    //Toggle theme
-    theme.dark = !theme.dark
-    refreshTheme()
-
-    //Hide sidebar
-    toggleSidebar()
-
-    //Give chievement
-    if (theme.dark) giveAchievement(Achievements.theme)
-}
-
-function refreshTheme() {
-    //Refresh theme
-    if (theme.dark) {
-        //Enable light
-        DB.set('theme', 'dark', DB.STRING)
-        document.documentElement.removeAttribute('light')
-    } else {
-        //Enable dark
-        DB.set('theme', 'light', DB.STRING)
-        document.documentElement.setAttribute('light', '')
-    }
-
-    //Refresh particle animation color
-    if (homeParticles) homeParticles.changeColor(`color-mix(in srgb, transparent 50%, ${window.getComputedStyle(document.body).getPropertyValue('--text')})`)
-}
-
-refreshTheme()
-
-
-
- /*$      /$$           /$$          
-| $$$    /$$$          |__/          
-| $$$$  /$$$$  /$$$$$$  /$$ /$$$$$$$ 
-| $$ $$/$$ $$ |____  $$| $$| $$__  $$
-| $$  $$$| $$  /$$$$$$$| $$| $$  \ $$
-| $$\  $ | $$ /$$__  $$| $$| $$  | $$
-| $$ \/  | $$|  $$$$$$$| $$| $$  | $$
-|__/     |__/ \_______/|__/|__/  |_*/
+//Appear animation manager
+const animator = new AppearAnimation();
 
 //Sidebar
-function toggleSidebar(toggle) {
-    //Get sidebar element
-    const sidebar = document.getElementById('sidebar')
+class Sidebar {
 
-    //Fix toggle
-    if (typeof toggle !== 'boolean') toggle = !sidebar.hasAttribute('open')
+    //Sidebar
+    #sidebar = document.getElementById('sidebar');
 
-    //Toggle sidebar
-    if (toggle) {
-        sidebar.setAttribute('open', '')
-        document.body.setAttribute('sidebar', '')
-    } else {
-        sidebar.removeAttribute('open')
-        document.body.removeAttribute('sidebar', '')
+    toggle = (toggle) => {
+        //Fix toggle
+        if (typeof toggle !== 'boolean') toggle = !this.#sidebar.hasAttribute('open');
+
+        //Toggle sidebar
+        if (toggle) {
+            this.#sidebar.setAttribute('open', '');
+            document.body.setAttribute('sidebar', '');
+        } else {
+            this.#sidebar.removeAttribute('open');
+            document.body.removeAttribute('sidebar', '');
+        }
     }
+
+    //Buttons
+    #home = document.getElementById('sidebar-home');
+    #about = document.getElementById('sidebar-about');
+    #skills = document.getElementById('sidebar-skills');
+    #projects = document.getElementById('sidebar-projects');
+    #contact = document.getElementById('sidebar-contact');
+    #curriculum = document.getElementById('sidebar-curriculum');
+    #localization = document.getElementById('sidebar-localization');
+    #theme = document.getElementById('sidebar-theme');
+    #achievements = document.getElementById('sidebar-achievements');
+
+    localize = () => {
+        this.#home.innerText = loc.sidebar.home;
+        this.#about.innerText = loc.sidebar.about;
+        this.#skills.innerText = loc.sidebar.skills;
+        this.#projects.innerText = loc.sidebar.projects;
+        this.#contact.innerText = loc.sidebar.contact;
+        this.#curriculum.innerText = loc.sidebar.curriculum;
+        this.#localization.innerText = loc.sidebar.localization;
+        this.#theme.innerText = loc.sidebar.theme;
+        this.#achievements.innerText = loc.sidebar.achievements;
+    }
+
 }
+
+const sidebar = new Sidebar();
 
 //Navigation
-new CurrentPageIndicator(['home', 'about', 'skills', 'projects', 'contact'])
+new CurrentPageIndicator(['home', 'about', 'skills', 'projects', 'contact']);
 
 function goTo(id) {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" })
-    toggleSidebar(false)
+    //Scroll to element
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+
+    //Close sidebar
+    sidebar.toggle(false);
 }
 
-//Change title
+//Page title
 function changeTitle() {
-    const emojis = ['🦝', '🦎', '🦖', '🎷🐛', '😸']
-    document.title = lan.title + ' ' + emojis[Math.floor(Math.random() * emojis.length)]
+    const emojis = ['🦝', '🦎', '🦖', '🎷🐛', '😸'];
+    document.title = `${loc.title} ${Util.randomArray(emojis)}`;
 }
 
-changeTitle()
+addFocusListener(changeTitle);
 
-addFocusListener(changeTitle)
-
-
-
- /*$$$$$$                                                       
-| $$__  $$                                                      
-| $$  \ $$  /$$$$$$   /$$$$$$$ /$$   /$$ /$$$$$$/$$$$   /$$$$$$ 
-| $$$$$$$/ /$$__  $$ /$$_____/| $$  | $$| $$_  $$_  $$ /$$__  $$
-| $$__  $$| $$$$$$$$|  $$$$$$ | $$  | $$| $$ \ $$ \ $$| $$$$$$$$
-| $$  \ $$| $$_____/ \____  $$| $$  | $$| $$ | $$ | $$| $$_____/
-| $$  | $$|  $$$$$$$ /$$$$$$$/|  $$$$$$/| $$ | $$ | $$|  $$$$$$$
-|__/  |__/ \_______/|_______/  \______/ |__/ |__/ |__/ \______*/
-
-//Resume menu
-const resumeMenu = document.getElementById('resumeMenu')
-
-function toggleResumeMenu() {
-    //Toggle menu
-    if (resumeMenu.open) {
-        //Close
-        resumeMenu.close()
-        document.body.removeAttribute('noscroll')
-    } else {
-        //Open
-        resumeMenu.showModal()
-        document.body.setAttribute('noscroll', '')
-    }
-}
-
-Util.onDialogBackdropClick(resumeMenu, toggleResumeMenu)
-
-
-
-  /*$$$$$            /$$       /$$                                                                   /$$
- /$$__  $$          | $$      |__/                                                                  | $$
-| $$  \ $$  /$$$$$$$| $$$$$$$  /$$  /$$$$$$  /$$    /$$ /$$$$$$  /$$$$$$/$$$$   /$$$$$$  /$$$$$$$  /$$$$$$   /$$$$$$$
-| $$$$$$$$ /$$_____/| $$__  $$| $$ /$$__  $$|  $$  /$$//$$__  $$| $$_  $$_  $$ /$$__  $$| $$__  $$|_  $$_/  /$$_____/
-| $$__  $$| $$      | $$  \ $$| $$| $$$$$$$$ \  $$/$$/| $$$$$$$$| $$ \ $$ \ $$| $$$$$$$$| $$  \ $$  | $$   |  $$$$$$ 
-| $$  | $$| $$      | $$  | $$| $$| $$_____/  \  $$$/ | $$_____/| $$ | $$ | $$| $$_____/| $$  | $$  | $$ /$$\____  $$
-| $$  | $$|  $$$$$$$| $$  | $$| $$|  $$$$$$$   \  $/  |  $$$$$$$| $$ | $$ | $$|  $$$$$$$| $$  | $$  |  $$$$//$$$$$$$/
-|__/  |__/ \_______/|__/  |__/|__/ \_______/    \_/    \_______/|__/ |__/ |__/ \_______/|__/  |__/   \___/ |______*/
-
-//Load achievements
-for (key of Object.keys(Achievements)) {
-    if (!DB.get(`achievement-${Achievements[key]}`, false, DB.BOOLEAN)) continue
-    addAchievement(key)
-}
-
-//Give, reset & show achievements
-function giveAchievement(key) {
-    //Achievement does not exist
-    if (!Achievements[key]) return
-
-    //Already has achievement
-    if (achievements[key]) return
-
-    //Show snackbar
-    createSnackbar(`🏆 ${lan.achievements[key].title}`, true)
-    
-    //Add achievement
-    addAchievement(key)
-
-    //Show achievement indicator dots
-    document.getElementById('achievementsDot1').setAttribute('active', '')
-    document.getElementById('achievementsDot2').setAttribute('active', '')
-}
-
-function giveAllAchievements() {
-    //Give all achievements
-    for (key of Object.keys(Achievements)) {
-        giveAchievement(Achievements[key])
-    }
-}
-
-function addAchievement(key) {
-    achievements[key] = true
-    DB.set(`achievement-${key}`, true)
-}
-
-function resetAchievements() {
-    //Reset current achievements
-    for (key of Object.keys(achievements)) {
-        achievements[key] = false
-        DB.set(`achievement-${key}`, false)
-    }
-}
-
-//Achievements menu
-const achievementsMenu = document.getElementById('achievementsMenu')
-
-function toggleAchievementsMenu() {
-    //Hide achievement indicator dots
-    document.getElementById('achievementsDot1').removeAttribute('active')
-    document.getElementById('achievementsDot2').removeAttribute('active')
-
-    //Close sidebar
-    toggleSidebar(false)
-
-    //Toggle menu
-    if (achievementsMenu.open) {
-        //Close
-        achievementsMenu.close()
-        document.body.removeAttribute('noscroll')
-    } else {
-        //Clear achievements list
-        const achievementsList = document.getElementById('achievementsList')
-        achievementsList.innerHTML = ''
-
-        //Load achievements in list
-        for (key of Object.keys(Achievements)) {
-            const element = document.createElement('div')
-            element.classList.add('achievement')
-
-            //Lock if user does not have the achievement
-            if (!achievements[key]) element.setAttribute('locked', '')
-            
-            //Fill element content
-            element.innerHTML = `
-            <img src="Data/Images/Achievements/${key}.webp">
-            <div>
-                <div>${lan.achievements[key].title}</div>
-                <div>${lan.achievements[key].description}</div>
-            </div>
-            <span>${lan.achievements.locked}</span>
-            `
-            
-            //Add element
-            achievementsList.appendChild(element)
-        }
-
-        //Open
-        achievementsMenu.showModal()
-        document.body.setAttribute('noscroll', '')
-    }
-}
-
-Util.onDialogBackdropClick(achievementsMenu, toggleAchievementsMenu)
-
-
-
-  /*$$$$$                      /$$                
- /$$__  $$                    | $$                
-| $$  \__/ /$$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$ 
-|  $$$$$$ | $$__  $$ |____  $$| $$  /$$/ /$$__  $$
- \____  $$| $$  \ $$  /$$$$$$$| $$$$$$/ | $$$$$$$$
- /$$  \ $$| $$  | $$ /$$__  $$| $$_  $$ | $$_____/
-|  $$$$$$/| $$  | $$|  $$$$$$$| $$ \  $$|  $$$$$$$
- \______/ |__/  |__/ \_______/|__/  \__/ \______*/
-
-const snakeMenu = document.getElementById('snakeMenu')
-const snakeMessageAFK = document.getElementById('snakeAFK')
-const snakeSidebarButton = document.getElementById('goTo-snake')
-
-//Game
-class Snake {
-    
-    //Technical
-    animationFrame = undefined
-    updateInterval = undefined
-    delta = 1000 / 9 //9 fps
-    inputQueue = []
-    context = undefined
-
-    //Game
-    size = new Vec2()
-    grid = 15 //Cell size
-
-    dead = true
-    points = 0
-    best = DB.get('snake.best', 0, DB.NUMBER)
-    
-    snake = {
-        pos: new Vec2(150),
-        dir: new Vec2(1, 0),
-        cells: [],
-        length: 4,
-    }
-    apple = new Vec2(0)
-
-    //Constructor
-    constructor(canvas) {
-        //Get context
-        this.context = canvas.getContext('2d')
-
-        //Init game info
-        this.size = new Vec2(canvas.width, canvas.height)
-    }
-
-    //Update & render
-    update() {
-        //Dead -> Don't update
-        if (this.dead) return
-        
-        //Check keys from input queue
-        for (let i = this.inputQueue.length - 1; i >= 0; i--) {
-            //Get key & remove it from queue
-            const key = this.inputQueue.pop()
-
-            //Check if key is valid
-            let valid = false
-            switch (key) {
-                //Up
-                case 'w':
-                case 'arrowup':
-                    if (this.snake.dir.y !== 0) break
-                    this.snake.dir = new Vec2(0, -1)
-                    valid = true
-                    break
-                //Right
-                case 'd':
-                case 'arrowright':
-                    if (this.snake.dir.x !== 0) break
-                    this.snake.dir = new Vec2(1, 0)
-                    valid = true
-                    break
-                //Down
-                case 's':
-                case 'arrowdown':
-                    if (this.snake.dir.y !== 0) break
-                    this.snake.dir = new Vec2(0, 1)
-                    valid = true
-                    break
-                //Left
-                case 'a':
-                case 'arrowleft':
-                    if (this.snake.dir.x !== 0) break
-                    this.snake.dir = new Vec2(-1, 0)
-                    valid = true
-                    break
-            }
-
-            //Check if key was valid
-            if (valid) break
-        }
-
-        //Move snake
-        this.snake.pos.x += this.snake.dir.x * this.grid;
-        this.snake.pos.y += this.snake.dir.y * this.grid;
-
-        //Wrap on screen edges
-        if (this.snake.pos.x < 0) {
-            this.snake.pos.x = this.size.x - this.grid;
-        } else if (this.snake.pos.x >= this.size.x) {
-            this.snake.pos.x = 0;
-        }
-        
-        if (this.snake.pos.y < 0) {
-            this.snake.pos.y = this.size.y - this.grid;
-        } else if (this.snake.pos.y >= this.size.y) {
-            this.snake.pos.y = 0;
-        }
-
-        //Keep track of where snake has been (front of the array is always the head)
-        this.snake.cells.unshift(new Vec2(this.snake.pos))
-
-        //Remove cells as we move away from them
-        if (this.snake.cells.length > this.snake.length) this.snake.cells.pop()
-
-        //Check snake cells
-        this.snake.cells.forEach((cell, index) => {
-            //Snake ate apple
-            if (cell.x === this.apple.x && cell.y === this.apple.y) {
-                this.snake.length++;
-                this.points++
-                this.apple = this.getRandomPoint()
-                
-                //UI
-                document.getElementById('snakeInfoPoints').innerText = this.points
-            }
-
-            // check collision with all cells after this one (modified bubble sort)
-            for (var i = index + 1; i < this.snake.cells.length; i++) {
-                //Snake occupies same space as a body part -> reset game
-                if (cell.x != this.snake.cells[i].x || cell.y !== this.snake.cells[i].y) continue
-
-                //Highscore
-                if (this.points > this.best) {
-                    this.best = this.points
-                    DB.set('snake.best', this.best)
-
-                    //Highscore!
-                    createSnackbar('🕹️ Highscore!', true)
-                    
-                    //UI
-                    document.getElementById('snakeInfoBest').innerText = this.best
-                }
-
-                //Die
-                this.dead = true
-                document.getElementById('snakeInfoState').innerText = lan.snake.death
-            }
-        })
-    }
-
-    draw() {
-        //Dead -> Don't draw
-        if (this.dead) return
-        
-        //Clear canvas
-        this.context.clearRect(0, 0, this.size.x, this.size.y)
-        
-        //Draw apple
-        this.drawBox(this.apple, '#eb3734')
-
-        //Draw snake one cell at a time
-        this.snake.cells.forEach(cell => {
-            //Drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
-            this.drawBox(cell, '#34eb5b')
-        })
-
-        //Request next frame
-        this.animationFrame = requestAnimationFrame(() => { this.draw() })
-    }
-
-    //State
-    resume() {
-        //Pause just in case
-        this.pause()
-
-        //Resume
-        this.animationFrame = requestAnimationFrame(() => { this.draw() })
-        this.updateInterval = setInterval(() => { this.update() }, this.delta)
-    }
-
-    pause() {
-        //Pause
-        cancelAnimationFrame(this.animationFrame)
-        clearInterval(this.updateInterval)
-    }
-
-    stop() {
-        this.dead = true
-        this.pause()
-    }
-
-    restart() {
-        //Reset game info
-        this.inputQueue = []
-        this.dead = false
-        this.points = 0
-        this.snake.pos = new Vec2(150)
-        this.snake.dir = new Vec2(1, 0)
-        this.snake.cells = []
-        this.snake.length = 4
-        this.apple = this.getRandomPoint()
-
-        //UI
-        document.getElementById('snakeInfoPoints').innerText = this.points
-        document.getElementById('snakeInfoBest').innerText = this.best
-        document.getElementById('snakeInfoState').innerText = ''
-
-        //Start drawing
-        this.resume()
-    }
-
-    //Helpers
-    drawBox(pos, color) {
-        this.context.fillStyle = color
-        this.context.fillRect(pos.x, pos.y, this.grid - 1, this.grid - 1)
-    }
-    
-    getRandomPoint() {
-        return new Vec2(
-            Util.getRandomInt(0, this.size.x / this.grid - 1) * this.grid, 
-            Util.getRandomInt(0, this.size.y / this.grid - 1) * this.grid
-        )
-    }
-
-    keyPress(key) {
-        this.inputQueue.unshift(key)
-    }
-
-}
-
-const snake = {
-    //Easteregg
-    enabled: DB.get('snake', false, DB.BOOLEAN), 
-    enable() {
-        snake.enabled = true
-        DB.set('snake', true)
-        snakeSidebarButton.removeAttribute('hidden')
-    },
-    disable() {
-        snake.enabled = false
-        DB.set('snake', false)
-        snakeSidebarButton.setAttribute('hidden', '')
-        snake.onInputAFK()
-    },
-
-    //Game
-    game: new Snake(document.getElementById('snakeCanvas')),
-
-    //Toggle easteregg (code)
-    codes: [
-        ['s','n','a','k','e'],
-        ['arrowup','arrowup','arrowdown','arrowdown','arrowleft','arrowright','arrowleft','arrowright','b','a'],
-    ],
-    codesNextIndex: 0,
-    onCodeKey(key) {
-        //Get next index
-        const index = snake.codesNextIndex
-
-        //States of key validity
-        const INVALID = 0
-        const VALID = 1
-        const FINISHED = 2
-
-        //Check if key is valid
-        let state = INVALID
-        for (const code of snake.codes) {
-            //Code is smaller than next position
-            if (code.length <= index) continue
-
-            //Key does not match in code
-            if (code[index] != key) continue
-
-            //Valid key -> Check if finished code
-            if (code.length == index + 1) {
-                //Finished -> Mark as finished & stop looking
-                state = FINISHED
-                break
-            }
-            
-            //Not finished -> Mark as valid key
-            state = VALID
-        }    
-
-        //Check state
-        switch (state) {
-            case INVALID:
-                //Invalid -> Reset next index
-                snake.codesNextIndex = 0
-                break
-            case VALID:
-                //Valid -> Add key to current combination   
-                snake.codesNextIndex++
-                break
-            case FINISHED:
-                //Finished -> Reset next index & open snake
-                snake.codesNextIndex = 0
-                toggleSnakeMenu()
-                break
-        }
-    },
-
-    //Toggle easteregg (AFK timer)
-    afkDuration: 25000, //25 seconds
-    afkTimer: undefined,
-    onAFK() {
-        //Already enabled or message/menu is open
-        if (snake.enabled || snakeMessageAFK.hasAttribute('open') || snakeMenu.open) return
-
-        //Show popup
-        snakeMessageAFK.setAttribute('open', '')
-    },
-    onInputAFK() {
-        //Clear popup timer & start counting again if easteregg not enabled
-        clearTimeout(snake.afkTimer)
-        if (!snake.enabled) snake.afkTimer = setTimeout(snake.onAFK, snake.afkDuration)
-    },
-}
-
-//Toggle easteregg
-window.addEventListener('blur', () => { clearTimeout(snake.afkTimer) })
-
-window.addEventListener('focus', () => { snake.onInputAFK() })
-
-if (snake.enabled) 
-    //Enabled -> Show sidebar button
-    snakeSidebarButton.removeAttribute('hidden') 
-else 
-    //Disabled -> Start counting for AKF message
-    snake.onInputAFK()
-
-//Input (game & toggle easteregg)
-window.addEventListener('keydown', event => {
-    //AFK check
-    snake.onInputAFK()
-
-    //Get pressed key
-    const key = event.key.toLowerCase()
-
-    //Check if game is open
-    if (snakeMenu.open) {
-        //Open -> Add key to input queue & check later on game loop
-        snake.game.keyPress(key)
-    } else {
-        //Closed -> Check input to toggle easteregg by code
-        snake.onCodeKey(key)
-    }
-})
-
-window.addEventListener('scroll', event => {
-    //AFK check
-    snake.onInputAFK()
-})
-
-//Snake menu
-function toggleSnakeMenu() {
-    //Toggle menu
-    if (snakeMenu.open) {
-        //Close
-        snakeMenu.close()
-        document.body.removeAttribute('noscroll')
-        
-        //Stop game
-        snake.game.stop()
-    } else {
-        //Open
-        snakeMenu.showModal()
-        document.body.setAttribute('noscroll', '')
-
-        //Mark easteregg as enabled
-        snake.enable()
-
-        //Start game
-        snake.game.restart()
-    }
-
-    //Close sidebar
-    toggleSidebar(false)
-}
-
-Util.onDialogBackdropClick(snakeMenu, toggleSnakeMenu)
+changeTitle();
 
 
 
@@ -1936,10 +835,6 @@ Util.onDialogBackdropClick(snakeMenu, toggleSnakeMenu)
 | $$  | $$|  $$$$$$/| $$ | $$ | $$|  $$$$$$$
 |__/  |__/ \______/ |__/ |__/ |__/ \______*/
 
-//Background particles
-homeParticles = new ParticlesAnimation('homeCanvas')
-homeParticles.changeColor(`color-mix(in srgb, transparent 50%, ${window.getComputedStyle(document.body).getPropertyValue('--text')})`)
-
 //Text animation
 class HomeText {
 
@@ -1951,6 +846,7 @@ class HomeText {
     text = ''
     censorIds = []
     roleId = -1
+    textElement = document.getElementById('homeText3')
 
     //Delay
     static DELAY_FULL = 2500
@@ -1973,7 +869,7 @@ class HomeText {
         clearTimeout(this.timer)
 
         //Get base parts
-        const parts = lan.home.text3.split('###')
+        const parts = loc.home.text3.split('###')
         this.baseL = parts[0]
         this.baseR = parts[1]
 
@@ -1990,16 +886,16 @@ class HomeText {
     }
 
     updateText() {
-        document.getElementById('homeText3').innerText = this.baseL + this.text + this.baseR
+        this.textElement.innerText = this.baseL + this.text + this.baseR
     }
 
     selectNextRole() {
         //Get next id
         this.roleId++;
-        if (this.roleId >= lan.home.roles.length) this.roleId = 0
+        if (this.roleId >= loc.home.roles.length) this.roleId = 0
 
         //Update role
-        this.role = lan.home.roles[this.roleId]
+        this.role = loc.home.roles[this.roleId]
 
         //Reset ids list
         this.resetCensorIdx()
@@ -2096,7 +992,35 @@ class HomeText {
 
 }
 
-homeText = new HomeText()
+//Page
+class HomePage {
+
+    //Elements
+    #text1 = document.getElementById('homeText1');
+    #text2 = document.getElementById('homeText2');
+
+    //Animations
+    #particlesAnimation = new ParticlesAnimation('homeCanvas');
+    #textAnimation = new HomeText();
+
+    get particlesAnimation() { return this.#particlesAnimation }
+    get textAnimation() { return this.#textAnimation }
+
+    //Page
+    localize = () => {
+        this.#text1.innerText = loc.home.text1;
+        this.#text2.innerText = loc.home.text2;
+        this.textAnimation.reset();
+    }
+
+    constructor() {
+        //Update particles color
+        this.particlesAnimation.changeColor(`color-mix(in srgb, transparent 50%, ${window.getComputedStyle(document.body).getPropertyValue('--text')})`);
+    }
+
+}
+
+const home = new HomePage();
 
 
 
@@ -2109,53 +1033,112 @@ homeText = new HomeText()
 | $$  | $$| $$$$$$$/|  $$$$$$/|  $$$$$$/  |  $$$$/
 |__/  |__/|_______/  \______/  \______/    \__*/  
 
-//Animate
-animator.animate(document.getElementById('about'))
+//Page
+class AboutPage {
 
-//About elements
-const aboutImg = document.getElementById('aboutImg')
-const aboutImgName = document.getElementById('aboutImgName')
+    //Elements
+    #page = document.getElementById('about');
+    #title = document.getElementById('aboutTitle');
+    #description1 = document.getElementById('aboutDescription1');
+    #description2 = document.getElementById('aboutDescription2');
+    #description3 = document.getElementById('aboutDescription3');
+    #contact = document.getElementById('aboutContact');
+    #img = document.getElementById('aboutImg');
+    #imgName = document.getElementById('aboutImgName');
+    #imgNext = document.getElementById('aboutImgNext');
 
-//About image loading
-aboutImg.onload = () => {
-    //Update text
-    aboutImgName.innerText = lan.about.names[about.order[about.index]]
+    //Carousel
+    #imgs = [
+        'Data/Images/About/me1.webp',
+        'Data/Images/About/me2.webp',
+        'Data/Images/About/me3.webp',
+        'Data/Images/About/me4.webp',
+        'Data/Images/About/me5.webp',
+        'Data/Images/About/canary.webp',
+        'Data/Images/About/cat.webp',
+        'Data/Images/About/finisterre.webp',
+        'Data/Images/About/mallorca.webp',
+        'Data/Images/About/otivar.webp',
+        'Data/Images/About/flower.webp',
+        'Data/Images/About/lennon.webp',
+        'Data/Images/About/artyom.webp',
+    ];
+    #order = [];
+    #index = -1;
+    #loading = false;
 
-    //Loading
-    if (about.loading) {
-        //Stop animation
-        aboutImg.removeAttribute("loading")
+    next = () => {
+        //Is loading
+        if (this.#loading) return;
+        this.#loading = true;
 
-        //Artyom (last image) -> Give achievement
-        if (about.index == about.imgs.length - 1) giveAchievement(Achievements.artyom)
+        //Hide click me text
+        if (this.#index >= 0) this.#img.setAttribute("clicked", "");
 
-        //Finish
-        setTimeout(() => { about.loading = false }, 400)
+        //Get next image index
+        let nextIndex = this.#index + 1;
+        if (nextIndex >= this.#imgs.length) nextIndex = 0;
+
+        //Load animation
+        this.#img.setAttribute("loading", "");
+        setTimeout(() => {
+            //Update
+            this.#index = nextIndex;
+            this.#img.src = this.#imgs[this.#order[this.#index]];
+        }, 400);
     }
+
+    //Page
+    localize = () => {
+        //Info
+        this.#title.innerText = loc.about.title;
+        this.#description1.innerText = loc.about.desc1;
+        this.#description2.innerText = loc.about.desc2;
+        this.#description3.innerText = loc.about.desc3;
+        this.#contact.innerText = loc.about.contact;
+
+        //Carousel
+        this.#imgName.innerText = loc.about.names[this.#order[Math.max(this.#index, 0)]];
+        this.#imgNext.innerText = loc.about.next;
+    }
+
+    constructor() {
+        //Animate
+        animator.animate(this.#page);
+
+        //Image load listener
+        this.#img.onload = () => {
+            //Update text
+            this.#imgName.innerText = loc.about.names[this.#order[this.#index]];
+
+            //Loading
+            if (this.#loading) {
+                //Stop animation
+                this.#img.removeAttribute("loading");
+
+                //Artyom (last image) -> Give achievement
+                if (this.#index == this.#imgs.length - 1) achievements.give(Achievement.artyom);
+
+                //Finish
+                setTimeout(() => { this.#loading = false }, 400);
+            }
+        }
+        
+        //Add images (excluding 'me1' and 'artyom') % shuffle them
+        for (let i = 1; i < this.#imgs.length - 1; i++) this.#order.push(i);
+        Util.shuffleArray(this.#order);
+
+        //Add 'me1' first & 'artyom' last
+        this.#order.splice(0, 0, 0);                //Add 'me1' first
+        this.#order.push(this.#imgs.length - 1);    //Add 'artyom' last
+
+        //Select first image (index starts at -1)
+        this.next();
+    }
+
 }
 
-about.next = () => {
-    //Is loading
-    if (about.loading) return
-    about.loading = true
-
-    //Hide click me text
-    if (about.index >= 0) aboutImg.setAttribute("clicked", "")
-
-    //Get next image index
-    let nextIndex = about.index + 1
-    if (nextIndex >= about.imgs.length) nextIndex = 0
-
-    //Load animation
-    aboutImg.setAttribute("loading", "")
-    setTimeout(() => {
-        //Update
-        about.index = nextIndex
-        aboutImg.src = about.imgs[about.order[about.index]]
-    }, 400)
-}
-
-about.next()
+const about = new AboutPage();
 
 
 
@@ -2167,10 +1150,69 @@ about.next()
  /$$  \ $$| $$_  $$ | $$| $$| $$ \____  $$
 |  $$$$$$/| $$ \  $$| $$| $$| $$ /$$$$$$$/
  \______/ |__/  \__/|__/|__/|__/|______*/ 
- 
-class SkillsAnimation {
 
-    constructor(skills) {
+//Enum
+const Skill = Object.freeze({
+    game: {
+        id: 'skillsGame',
+        locale: 'game',
+        experience: 4,
+    },
+    app: {
+        id: 'skillsApp',
+        locale: 'app',
+        experience: 5,
+    },
+    web: {
+        id: 'skillsWeb',
+        locale: 'web',
+        experience: 2,
+    },
+    design: {
+        id: 'skillsDesign',
+        locale: 'design',
+        experience: 2,
+    },
+    ui: {
+        id: 'skillsUI',
+        locale: 'ui',
+        experience: 2,
+    },
+    '3d': {
+        id: 'skills3D',
+        locale: '3d',
+        experience: 1,
+    }
+});
+
+//Page
+class SkillsPage {
+
+    //Elements
+    #title = document.getElementById('skillsTitle');
+    #description = document.getElementById('skillsDescription');
+    #noteTitle = document.getElementById('skillsNoteTitle');
+    #noteText = document.getElementById('skillsNoteText');
+
+    //Page
+    localize = () => {
+        //Title & description
+        this.#title.innerText = loc.skills.title;
+        this.#description.innerText = loc.skills.desc;
+
+        //Skills
+        for (const key of Object.keys(Skill)) {
+            const skill = Skill[key];
+            document.getElementById(`${skill.id}Title`).innerText = loc.skills[skill.locale];
+            document.getElementById(`${skill.id}Pro`).innerText = skill.experience + loc.skills.years;
+        }
+
+        //Note
+        this.#noteTitle.innerText = loc.skills.note.title;
+        this.#noteText.innerText = loc.skills.note.text;
+    }
+
+    constructor() {
         //Create observer to update skills visibility
         const observer = new IntersectionObserver((entries) => {
             for (const entry of entries) {
@@ -2185,12 +1227,12 @@ class SkillsAnimation {
             threshold: 0
         });
 
-        //Create max experience
+        //Create max experience var
         let maxExperience = 0;
 
         //Assign experience & observer to skills
-        for (const key of Object.keys(skills)) {
-            const skill = skills[key];
+        for (const key of Object.keys(Skill)) {
+            const skill = Skill[key];
             const element = document.getElementById(skill.id);
             element.style.setProperty('--skillExperience', skill.experience);
             observer.observe(element);
@@ -2205,7 +1247,7 @@ class SkillsAnimation {
 
 }
 
-new SkillsAnimation(Skills)
+const skills = new SkillsPage();
 
 
 
@@ -2221,322 +1263,726 @@ new SkillsAnimation(Skills)
                        |  $$$$$$/
                         \_____*/
 
-//Manage projects
-function addProjects(category, filter, sort) {
-    //Fix options
-    if (typeof category !== 'string') category = projects.category
-    if (typeof filter !== 'string') filter = projects.filter
-    if (typeof sort !== 'string') sort = projects.sort
+//Enums
+const Category = Object.freeze({
+    all: 'all',
+    games: 'games',
+    apps: 'apps',
+    design: 'design',
+    other: 'other'
+});
 
-    //Check if is refresh & save filters if not refreshing
-    const isRefresh = (projects.category == category) && (projects.filter == filter) && (projects.sort == sort) && (projects.loaded)
-    if (!isRefresh) {
-        projects.category = category
-        projects.filter = filter
-        projects.sort = sort
+const Tag = Object.freeze({
+    //All
+    all: 'all',
+
+    //Languages
+    cs: 'C#',
+    java: 'JAVA',
+    cpp: 'C++',
+    python: 'Python',
+    html: 'HTML',
+    css: 'CSS',
+    js: 'JavaScript',
+    ts: 'TypeScript',
+    nodejs: 'NodeJS',
+    electronjs: 'ElectronJS',
+    cmd: 'CMD',
+
+    //Apps
+    unity: 'Unity',
+    vscode: 'VSCode',
+    blender: 'Blender',
+    photoshop: 'Photoshop',
+    illustrator: 'Illustrator',
+    max3ds: '3ds Max',
+    substance: 'Substance Painter',
+    android: 'Android Studio',
+
+    //Other
+    discordapi: 'discordapi',
+    uiux: 'uiux',
+    print3d: '3dprint',
+    model3d: '3dmodel',
+    sketching: 'sketching',
+    electronics: 'electronics',
+    diy: 'diy'
+});
+
+const Sort = Object.freeze({
+    favs: 'favs',
+    date: 'date'
+});
+
+const Scope = Object.freeze({
+    team: 'team',
+    solo: 'solo',
+    personal: 'personal',
+    jam: 'jam'
+});
+
+const Project = Object.freeze({
+    akira_posters: {
+        key: 'akira_posters',
+        dateStart: 2025,
+        dateEnd: 2025,
+        favPoints: 50,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.design,
+        tags: [Tag.photoshop],
+        button: ["https://www.artstation.com/artwork/lGQ84V"]
+    },
+    map_pinner: {
+        key: 'map_pinner',
+        dateStart: 2025,
+        dateEnd: 2025,
+        favPoints: 50,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.apps,
+        tags: [Tag.html, Tag.css, Tag.js, Tag.vscode],
+        button: ['http://botpanzer.github.io/Map-Pinner']
+    },
+    hardcore_kitty: {
+        key: 'hardcore_kitty',
+        dateStart: 2025,
+        dateEnd: 2025,
+        favPoints: 100,
+        scope: [Scope.team, Scope.jam],
+        category: Category.games,
+        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
+        button: ['https://botpa.itch.io/hardcore-kitty'],
+        vid: 'S0YSZCOFGlg'
+    },
+    stealer: {
+        key: 'stealer',
+        dateStart: 2024,
+        dateEnd: 2024,
+        favPoints: 50,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.apps,
+        tags: [Tag.python, Tag.vscode],
+        button: ['https://github.com/BOTPanzer/Turbo-Stealer']
+    },
+    spyw4re: {
+        key: 'spyw4re',
+        dateStart: 2024,
+        dateEnd: 2024,
+        favPoints: 100,
+        scope: [Scope.team, Scope.jam],
+        category: Category.games,
+        tags: [Tag.cs, Tag.js, Tag.nodejs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
+        button: ['https://botpa.itch.io/spyw4re'],
+        vid: 'Qc3aWfPAxg0'
+    },
+    artist_posters: {
+        key: 'artist_posters',
+        dateStart: 2024,
+        dateEnd: 2024,
+        favPoints: 50,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.design,
+        tags: [Tag.photoshop],
+        button: ["https://www.artstation.com/bot_panzer/albums/14597252"]
+    },
+    stardew_pets: {
+        key: 'stardew_pets',
+        dateStart: 2024,
+        dateEnd: 2025,
+        favPoints: 100,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.other,
+        tags: [Tag.ts, Tag.html, Tag.css, Tag.vscode, Tag.photoshop],
+        button: ['https://marketplace.visualstudio.com/items?itemName=botpa.stardew-pets']
+    },
+    hackoon: {
+        key: 'hackoon',
+        dateStart: 2024,
+        dateEnd: Infinity,
+        favPoints: 0,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.games,
+        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
+        button: ['https://www.tiktok.com/@botpanzer']
+    },
+    hightime: {
+        key: 'hightime',
+        dateStart: 2024,
+        dateEnd: 2024,
+        favPoints: 90,
+        scope: [Scope.team, Scope.jam],
+        category: Category.games,
+        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.photoshop],
+        button: ['https://botpa.itch.io/high-on-time'],
+        vid: 'UGMQDJxov1M',
+    },
+    fresquita: {
+        key: 'fresquita',
+        dateStart: 2024,
+        dateEnd: 2024,
+        favPoints: 80,
+        scope: [Scope.solo, Scope.jam],
+        category: Category.games,
+        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
+        button: ['https://botpa.itch.io/the-lost-fresquita'],
+        vid: 'SC_3TWWP46k'
+    },
+    raccoon: {
+        key: 'raccoon',
+        dateStart: 2023,
+        dateEnd: 2023,
+        favPoints: 80,
+        scope: [Scope.team, Scope.jam],
+        category: Category.games,
+        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop],
+        button: ['https://botpa.itch.io/esto-aun-no-es-un-juego'],
+        vid: 'UGH5wQYlAt4'
+    },
+    lmdshow: {
+        key: 'lmdshow',
+        dateStart: 2023,
+        dateEnd: 2023,
+        favPoints: 80,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.games,
+        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.blender, Tag.photoshop, Tag.substance],
+        button: ['https://botpa.itch.io/escape-from-lmdshow'],
+        vid: 'z0Qv5HZyZgU'
+    },
+    memory_shift: {
+        key: 'memory_shift',
+        dateStart: 2023,
+        dateEnd: 2023,
+        favPoints: 80,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.games,
+        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.photoshop, Tag.illustrator],
+        button: ['https://botpa.itch.io/memory-shift']
+    },
+    spirits: {
+        key: 'spirits',
+        dateStart: 2023,
+        dateEnd: 2023,
+        favPoints: 80,
+        scope: [Scope.team, Scope.jam],
+        category: Category.games,
+        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
+        button: ['https://botpa.itch.io/twin-spirits'],
+        vid: 'SdIGAw2ABeU'
+    },
+    vaporcade: {
+        key: 'vaporcade',
+        dateStart: 2023,
+        dateEnd: 2023,
+        favPoints: 80,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.games,
+        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
+        button: ['https://botpa.itch.io/vaporcade']
+    },
+    papa: {
+        key: 'papa',
+        dateStart: 2023,
+        dateEnd: 2023,
+        favPoints: 50,
+        scope: [Scope.team, Scope.jam],
+        category: Category.games,
+        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.illustrator, Tag.photoshop],
+        button: ['https://botpa.itch.io/cooking-papa']
+    },
+    otters: {
+        key: 'otters',
+        dateStart: 2022,
+        dateEnd: 2022,
+        favPoints: 20,
+        scope: [Scope.team, Scope.jam],
+        category: Category.games,
+        tags: [Tag.cs, Tag.unity, Tag.vscode, Tag.max3ds, Tag.substance, Tag.illustrator, Tag.photoshop],
+        button: ['https://botpa.itch.io/otters-odyssey']
+    },
+    assistant_pc: {
+        key: 'assistant_pc',
+        dateStart: 2021,
+        dateEnd: 2025,
+        favPoints: 50,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.apps,
+        tags: [Tag.html, Tag.css, Tag.js, Tag.nodejs, Tag.electronjs, Tag.vscode, Tag.uiux],
+        button: ['https://github.com/BOTPanzer/Orion-Assistant', 'https://github.com/BOTPanzer/USB-Launcher']
+    },
+    assistant_android: {
+        key: 'assistant_android',
+        dateStart: 2021,
+        dateEnd: 2025,
+        favPoints: 50,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.apps,
+        tags: [Tag.java, Tag.android, Tag.uiux],
+        button: ['Data/Orion Assistant 1.10.4.apk']
+    },
+    framework: {
+        key: 'framework',
+        dateStart: 2022,
+        dateEnd: 2024,
+        favPoints: 50,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.other,
+        tags: [Tag.html, Tag.css, Tag.js, Tag.vscode, Tag.uiux],
+        button: ['https://botpanzer.github.io/Orion-Framework']
+    },
+    //Usually hidden from here
+    discord_bots: {
+        key: 'discord_bots',
+        dateStart: 2018,
+        dateEnd: 2020,
+        favPoints: 0,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.other,
+        tags: [Tag.js, Tag.vscode, Tag.discordapi],
+        button: ["https://github.com/BOTPanzer/Syrup"]
+    },
+    modding: {
+        key: 'modding',
+        dateStart: 2021,
+        dateEnd: 2021,
+        favPoints: 0,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.other,
+        tags: [Tag.model3d, Tag.print3d, Tag.illustrator, Tag.sketching, Tag.diy]
+    },
+    t45: {
+        key: 't45',
+        dateStart: 2018,
+        dateEnd: 2018,
+        favPoints: 0,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.other,
+        tags: [Tag.print3d, Tag.diy]
+    },
+    usb: {
+        key: 'usb',
+        dateStart: 2018,
+        dateEnd: 2018,
+        favPoints: 0,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.other,
+        tags: [Tag.model3d, Tag.print3d, Tag.electronics, Tag.diy]
+    },
+    hoodie: {
+        key: 'hoodie',
+        dateStart: 2021,
+        dateEnd: 2021,
+        favPoints: 0,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.other,
+        tags: [Tag.illustrator, Tag.photoshop, Tag.sketching]
+    }
+})
+
+//Page
+class ProjectsPage {
+
+    //Elements
+    #title = document.getElementById('projectsTitle');
+    #list = document.getElementById('projectsList');
+    #more = document.getElementById('projectsMore');
+
+    //Projects info
+    #info = {
+        //Created projects
+        loaded: false,
+        created: 0,
+
+        //Category, filter & sorting
+        category: Category.all,
+        tag: Tag.all,
+        sort: Sort.favs,
+
+        //List (sorted by preferences)
+        unfilteredList: [
+            Project.akira_posters,
+            Project.map_pinner,
+            Project.hardcore_kitty,
+            Project.spyw4re,
+            Project.artist_posters,
+            Project.stardew_pets,
+            Project.hightime,
+            Project.stealer,
+            //Projects.hackoon,
+            Project.fresquita,
+            Project.raccoon,
+            Project.lmdshow,
+            Project.memory_shift,
+            Project.spirits,
+            Project.vaporcade,
+            Project.papa,
+            Project.otters,
+            Project.assistant_pc,
+            Project.assistant_android,
+            Project.framework,
+            /*
+            Projects.discord_bots,
+            Projects.modding,
+            Projects.t45,
+            Projects.usb,
+            Projects.hoodie,
+            */
+        ],
+        list: [],
     }
 
-    //Update category, filter & sorting names
-    document.getElementById('projectsCategoryBy').innerText = projects.getCategoryName(category)
-    document.getElementById('projectsFilterBy').innerText = projects.getTagName(filter)
-    document.getElementById('projectsSortBy').innerText = projects.getSortName(sort)
+    getCategoryName = (category) => { return loc.projects.category[category in Category ? category : Category.all]; }
 
-    //Copy projects list
-    projects.filteredList = []
-    for (const project of projects.list) projects.filteredList.push(project)
+    getTagName = (tag) => { return tag in loc.projects.tags ? loc.projects.tags[tag] : tag; }
+    
+    getSortName = (sort) => { return loc.projects.sort[sort in Sort ? sort : Sort.favs]; }
 
-    //Remove projects of different categories
-    if (category != Category.all) {
-        for (let i = projects.filteredList.length - 1; i >= 0; i--) {
-            const project = projects.filteredList[i]
-            if (project.category == category) continue
-            projects.filteredList.splice(i, 1)
+    //Manage projects
+    addProjects = (category, filter, sort) => {
+        //Fix options
+        if (typeof category !== 'string') category = this.#info.category;
+        if (typeof filter !== 'string') filter = this.#info.tag;
+        if (typeof sort !== 'string') sort = this.#info.sort;
+
+        //Check if is refresh & save filters if not refreshing
+        const isRefresh = (this.#info.category == category) && (this.#info.tag == filter) && (this.#info.sort == sort) && (this.#info.loaded);
+        if (!isRefresh) {
+            this.#info.category = category;
+            this.#info.tag = filter;
+            this.#info.sort = sort;
         }
-    }
 
-    //Filter projects
-    if (filter != Tag.all) {
-        for (let i = projects.filteredList.length - 1; i >= 0; i--) {
-            const project = projects.filteredList[i]
-            if (project.tags.includes(filter)) continue
-            projects.filteredList.splice(i, 1)
+        //Update category, filter & sorting names
+        this.#filtersCategoryBy.innerText = this.getCategoryName(category);
+        this.#filtersTagsBy.innerText = this.getTagName(filter);
+        this.#filtersSortBy.innerText = this.getSortName(sort);
+
+        //Copy projects list
+        this.#info.list = [];
+        for (const project of this.#info.unfilteredList) this.#info.list.push(project);
+
+        //Remove projects of different categories
+        if (category != Category.all) {
+            for (let i = this.#info.list.length - 1; i >= 0; i--) {
+                const project = this.#info.list[i];
+                if (project.category == category) continue;
+                this.#info.list.splice(i, 1);
+            }
         }
-    }
 
-    //Sort list (by date)
-    switch (sort) {
-        case Sort.date:
-            projects.filteredList.sort((a, b) => Math.max(b.dateStart, b.dateEnd) - Math.max(a.dateStart, a.dateEnd))
-            break
-        case Sort.favs:
-            projects.filteredList.sort((a, b) => b.favPoints - a.favPoints)
-            break
-    }
-
-    //Scroll to projects if not refresh (changed some filter)
-    if (!isRefresh && projects.loaded) goTo('projects')
-
-    //Get options before emptying projects.created
-    const animate = (!isRefresh) && (projects.created == 0)
-    const length = (isRefresh ? Math.max(projects.created, 4) : 4)
-
-    //Clear
-    clearProjects()
-
-    //Add projects
-    for (let i = 0; i < length; i++) addProject(animate, filter)
-
-    //No projects -> Show no projects text
-    if (projects.created == 0) document.getElementById('projectsList').innerHTML += `<div class="projectsNone"><div>🥲</div><div>${lan.projects.none}</div></div>`
-
-    //Mark as loaded
-    projects.loaded = true
-}
-
-function addProject(animate) {
-    //Fix animate bool
-    if (typeof animate != 'boolean') animate = true
-
-    //No more space
-    if (projects.created >= projects.filteredList.length) return
-
-    //Get basic info
-    const id = `project${projects.created}`
-    const project = projects.filteredList[projects.created]
-    const locales = lan.projects.projects[project.key]
-
-    //Get scope
-    let scope = ''
-    if (Array.isArray(project.scope)) {
-        for (let i = 0; i < project.scope.length; i++) {
-            const element = project.scope[i]
-            scope += (i != 0 ? '<br>' : '') + lan.projects.scope[element]
+        //Filter projects
+        if (filter != Tag.all) {
+            for (let i = this.#info.list.length - 1; i >= 0; i--) {
+                const project = this.#info.list[i];
+                if (project.tags.includes(filter)) continue;
+                this.#info.list.splice(i, 1);
+            }
         }
-    }
 
-    //Get tags
-    let tags = ''
-    if (Array.isArray(project.tags)) project.tags.forEach(tag => tags += `<span class="projectTag" onclick="addProjects(null, '${tag}', null)">${projects.getTagName(tag)}</span>`)
-
-    //Get date
-    const dateStart = project.dateStart
-    const dateEnd = project.dateEnd == Infinity ? lan.projects.date.present : project.dateEnd
-
-    //Get buttons
-    let buttons = ''
-    const button = project.button
-    if (Array.isArray(button)) {
-        for (let i = 0; i < button.length; i++) {
-            const buttonText = locales['b' + (i + 1)]
-            buttons += `<a id="${id}B${i}" class="button" small target="_blank" href="${button[i]}" onmousedown="onProjectOpened()">${buttonText ? buttonText : locales.tit}</a>`
+        //Sort list (by date)
+        switch (sort) {
+            case Sort.date:
+                this.#info.list.sort((a, b) => Math.max(b.dateStart, b.dateEnd) - Math.max(a.dateStart, a.dateEnd));
+                break;
+            case Sort.favs:
+                this.#info.list.sort((a, b) => b.favPoints - a.favPoints);
+                break;
         }
+
+        //Scroll to projects if not refresh (changed some filter)
+        if (!isRefresh && this.#info.loaded) goTo('projects');
+
+        //Get options before emptying this.#info.created
+        const animate = (!isRefresh) && (this.#info.created == 0);
+        const length = (isRefresh ? Math.max(this.#info.created, 4) : 4);
+
+        //Clear
+        this.clearProjects();
+
+        //Add projects
+        for (let i = 0; i < length; i++) this.addProject(animate, filter);
+
+        //No projects -> Show no projects text
+        if (this.#info.created == 0) this.#list.innerHTML += `<div class="projectsNone"><div>🥲</div><div>${loc.projects.none}</div></div>`;
+
+        //Mark as loaded
+        this.#info.loaded = true;
     }
 
-    //Video button (youtube link key)
-    const vid = project.vid
+    addProject = (animate) => {
+        //Fix animate bool
+        if (typeof animate != 'boolean') animate = true;
 
-    //Create project HTML base
-    const element = document.createElement('div')
-    element.id = id
-    element.classList.add('project')
+        //No more space
+        if (this.#info.created >= this.#info.list.length) return;
 
-    //Animation & reverse
-    if (animate) element.classList.add('appear')
-    if (projects.created % 2 != 0) element.setAttribute('reverse', '')
+        //Get basic info
+        const id = `project${this.#info.created}`;
+        const project = this.#info.list[this.#info.created];
+        const locales = loc.projects.projects[project.key];
 
-    //Add project HTML content
-    element.innerHTML = `
-        <!-- Media (content, scope & actions) -->
-        <div id="${id}-media" class="projectMedia" ${typeof vid === 'string' ? 'hasvideo' : ''}>
-            <!-- Content -->
-            <div class="projectMediaContent" style="--glitchImg: url('../Images/Projects/${project.key}.webp');">
-                <!-- Image -->
-                <img src="Data/Images/Projects/${project.key}.webp">
-                <!-- Video -->
-                <iframe id="${id}-video" allow="fullscreen"></iframe>
-            </div>
-            <!-- Scope -->
-            <span class="projectScope glass" ${scope != '' ? '' : 'hidden'}>${scope}</span>
-            <!-- Actions -->
-            <div class="projectActions">
-                <!-- Video button -->
-                <div class="glass projectActionButton projectVideoButton" onclick="toggleVideo(${projects.created}, 'https://www.youtube.com/embed/${vid}')">
-                    <img src="Data/Images/Icons/play.webp">
-                    <span>${locales.vid}</span>
+        //Get scope
+        let scope = '';
+        if (Array.isArray(project.scope)) {
+            for (let i = 0; i < project.scope.length; i++) {
+                const element = project.scope[i];
+                scope += (i != 0 ? '<br>' : '') + loc.projects.scope[element];
+            }
+        }
+
+        //Get tags
+        let tags = '';
+        if (Array.isArray(project.tags)) {
+            for (const tag of project.tags) {
+                tags += `<span class="projectTag" onclick="projects.addProjects(null, '${tag}', null)">${this.getTagName(tag)}</span>`;
+            }
+        }
+
+        //Get date
+        const dateStart = project.dateStart;
+        const dateEnd = project.dateEnd == Infinity ? loc.projects.date.present : project.dateEnd;
+
+        //Get buttons
+        let buttons = '';
+        const button = project.button;
+        if (Array.isArray(button)) {
+            for (let i = 0; i < button.length; i++) {
+                const buttonText = locales['b' + (i + 1)];
+                buttons += `<a id="${id}B${i}" class="button" small target="_blank" href="${button[i]}" onmousedown="projects.onProjectOpened()">${buttonText ? buttonText : locales.tit}</a>`;
+            }
+        }
+
+        //Video button (youtube link key)
+        const vid = project.vid;
+
+        //Create project HTML base
+        const element = document.createElement('div');
+        element.id = id;
+        element.classList.add('project');
+
+        //Animation & reverse
+        if (animate) element.classList.add('appear');
+        if (this.#info.created % 2 != 0) element.setAttribute('reverse', '');
+
+        //Add project HTML content
+        element.innerHTML = `
+            <!-- Media (content, scope & actions) -->
+            <div id="${id}-media" class="projectMedia" ${typeof vid === 'string' ? 'hasvideo' : ''}>
+                <!-- Content -->
+                <div class="projectMediaContent" style="--glitchImg: url('../Images/Projects/${project.key}.webp');">
+                    <!-- Image -->
+                    <img src="Data/Images/Projects/${project.key}.webp">
+                    <!-- Video -->
+                    <iframe id="${id}-video" allow="fullscreen"></iframe>
                 </div>
-                <!-- Fullscreen button -->
-                <div class="glass projectActionButton" hidevideo onclick="fullscreenImage('Data/Images/Projects/${project.key}.webp')">
-                    <img src="Data/Images/Icons/maximize.webp">
+                <!-- Scope -->
+                <span class="projectScope glass" ${scope != '' ? '' : 'hidden'}>${scope}</span>
+                <!-- Actions -->
+                <div class="projectActions">
+                    <!-- Video button -->
+                    <div class="glass projectActionButton projectVideoButton" onclick="projects.toggleVideo(${this.#info.created}, 'https://www.youtube.com/embed/${vid}')">
+                        <img src="Data/Images/Icons/play.webp">
+                        <span>${locales.vid}</span>
+                    </div>
+                    <!-- Fullscreen button -->
+                    <div class="glass projectActionButton" hidevideo onclick="projects.fullscreenImage('Data/Images/Projects/${project.key}.webp')">
+                        <img src="Data/Images/Icons/maximize.webp">
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Info (tags, title, description & buttons) -->
-        <div class="projectInfo">
-            <!-- Tags -->
-            <div class="projectTags">${tags}</div>
-            <!-- Title & description -->
-            <div class="glass projectInfoContent">
-                <div>
-                    <span>${locales.tit}</span>
-                    <span class="projectDate">${dateStart == dateEnd ? dateEnd : dateStart + ' - ' + dateEnd}</span>
+            <!-- Info (tags, title, description & buttons) -->
+            <div class="projectInfo">
+                <!-- Tags -->
+                <div class="projectTags">${tags}</div>
+                <!-- Title & description -->
+                <div class="glass projectInfoContent">
+                    <div>
+                        <span>${locales.tit}</span>
+                        <span class="projectDate">${dateStart == dateEnd ? dateEnd : dateStart + ' - ' + dateEnd}</span>
+                    </div>
+                    <span>${locales.con}</span>
                 </div>
-                <span>${locales.con}</span>
+                <!-- Buttons -->
+                <div class="projectButtons">${buttons}</div>
             </div>
-            <!-- Buttons -->
-            <div class="projectButtons">${buttons}</div>
-        </div>
-    `
-    document.getElementById('projectsList').appendChild(element)
+        `;
+        this.#list.appendChild(element);
 
-    //Animate
-    if (animate) animator.animate(element)
+        //Animate
+        if (animate) animator.animate(element);
 
-    //Done
-    projects.created++
+        //Done
+        this.#info.created++;
 
-    //Update load more button
-    document.getElementById('projectsMore').style.visibility = projects.created >= projects.filteredList.length ? 'hidden' : 'visible'
-}
-
-function clearProjects() {
-    //Clear projects
-    projects.created = 0
-    document.getElementById('projectsList').innerHTML = ''
-    document.getElementById('projectsMore').style.display = (projects.created >= projects.filteredList.length) ? 'none' : 'flex'
-}
-
-function refreshProjects() {
-    //Add projects with current info
-    addProjects(projects.category, projects.filter, projects.sort)
-}
-
-//Actions (fullscreen pic & toggle video)
-function fullscreenImage(url) {
-    const popup = document.getElementById('projectsFullscreen')
-    const image = document.getElementById('projectsFullscreenImage')
-
-    if (typeof url === 'string') {
-        //Show
-        document.body.setAttribute('noscroll', '')
-        popup.setAttribute('show', '')
-        image.src = url;
-    } else {
-        //Hide
-        document.body.removeAttribute('noscroll')
-        popup.removeAttribute('show')
-    }
-}
-
-function toggleVideo(number, url) {
-    //Get elements
-    const media = document.getElementById(`project${number}-media`)
-    const video = document.getElementById(`project${number}-video`)
-
-    //Toggle video
-    if (media.getAttribute('video') != null) {
-        media.removeAttribute('video')
-        video.src = ''
-    } else {
-        media.setAttribute('video', '')
-        video.src = url
-    }
-}
-
-function onProjectOpened() {
-    addFocusListener(() => {
-        giveAchievement(Achievements.project)
-        return true
-    })
-}
-
-//Filters menu
-const filterMenu = document.getElementById('filterMenu')
-const filterMenuTitle = document.getElementById('filterMenuTitle')
-
-function toggleFiltersMenu(type) {
-    //Get elements
-    const list = document.getElementById('filterMenuTags')
-
-    //Close menu if open
-    if (filterMenu.open) {
-        filterMenu.close()
-        document.body.removeAttribute('noscroll')
-        return
+        //Update load more button
+        document.getElementById('projectsMore').style.visibility = this.#info.created >= this.#info.list.length ? 'hidden' : 'visible';
     }
 
-    //Clear list
-    list.innerHTML = ''
+    clearProjects = () => {
+        //Clear projects
+        this.#info.created = 0;
+        this.#list.innerHTML = '';
+        this.#more.style.display = (this.#info.created >= this.#info.list.length) ? 'none' : 'flex';
+    }
 
-    //Execute menu logic
-    switch (type) {
-        //Category
-        case 'category': {
-            //Change menu title
-            filterMenuTitle.innerText = lan.projects.category.title
+    refreshProjects = () => {
+        //Add projects with current info
+        this.addProjects(this.#info.category, this.#info.tag, this.#info.sort)
+    }
 
-            //Get categories
-            const tags = []
-            for (const key of Object.keys(Category)) tags.push(Category[key]);
+    //Actions (fullscreen pic & toggle video)
+    #fullscreen = document.getElementById('projectsFullscreen');
+    #fullscreenImage = document.getElementById('projectsFullscreenImage');
 
-            //Add categories
-            tags.forEach(tag => list.innerHTML += `<span class="projectTag" onclick="addProjects('${tag}', null, null); toggleFiltersMenu();">${projects.getCategoryName(tag)}</span>`)
-            break
+    fullscreenImage = (url) => {
+        if (typeof url === 'string') {
+            //Show
+            this.#fullscreenImage.src = url;
+            this.#fullscreen.setAttribute('show', '');
+            Util.toggleScroll(false);
+        } else {
+            //Hide
+            this.#fullscreen.removeAttribute('show');
+            Util.toggleScroll(true);
+        }
+    }
+
+    toggleVideo = (index, url) => {
+        //Get project elements
+        const media = document.getElementById(`project${index}-media`);
+        const video = document.getElementById(`project${index}-video`);
+
+        //Toggle video
+        if (media.hasAttribute('video')) {
+            //Close
+            media.removeAttribute('video');
+            video.src = '';
+        } else {
+            //Open
+            media.setAttribute('video', '');
+            video.src = url;
+        }
+    }
+
+    onProjectOpened = () => {
+        //Add achievement on resume
+        addFocusListener(() => {
+            achievements.give(Achievement.project);
+            return true;
+        })
+    }
+
+    //Filters
+    #filtersTitle = document.getElementById('projectsFiltersTitle');
+    #filtersCategory = document.getElementById('projectsCategory');
+    #filtersCategoryBy = document.getElementById('projectsCategoryBy');
+    #filtersTags = document.getElementById('projectsTags');
+    #filtersTagsBy = document.getElementById('projectsTagsBy');
+    #filtersSort = document.getElementById('projectsSort');
+    #filtersSortBy = document.getElementById('projectsSortBy');
+
+    #filterMenu = document.getElementById('filterMenu');
+    #filterMenuTitle = document.getElementById('filterMenuTitle');
+    #filterMenuList = document.getElementById('filterMenuTags');
+
+    toggleFilterMenu = (type) => {
+        //Close menu if open
+        if (this.#filterMenu.open) {
+            this.#filterMenu.close();
+            Util.toggleScroll(true);
+            return
         }
 
-        //Sort
-        case 'sort': {
-            //Change menu title
-            filterMenuTitle.innerText = lan.projects.sort.title
+        //Clear list
+        this.#filterMenuList.innerHTML = ''
 
-            //Get sort options
-            const tags = []
-            for (const key of Object.keys(Sort)) tags.push(Sort[key]);
-            
-            //Add categories
-            tags.forEach(tag => list.innerHTML += `<span class="projectTag" onclick="addProjects(null, null, '${tag}'); toggleFiltersMenu();">${projects.getSortName(tag)}</span>`)
-            break
-        }
+        //Execute menu logic
+        switch (type) {
+            //Category
+            case 'category': {
+                //Change menu title
+                this.#filterMenuTitle.innerText = loc.projects.category.title;
 
-        //Tags
-        default: {
-            //Change menu title
-            filterMenuTitle.innerText = lan.projects.tags.title
+                //Get categories
+                const tags = [];
+                for (const key of Object.keys(Category)) tags.push(Category[key]);
 
-            //Get tags (only the ones used in projects)
-            const usedTags = []
-            for (const project of projects.list) {
-                for (const tag of project.tags) {
-                    if (usedTags.includes(tag)) continue
-                    usedTags.push(tag)
+                //Add categories
+                for (const tag of tags) this.#filterMenuList.innerHTML += `<span class="projectTag" onclick="projects.addProjects('${tag}', null, null); projects.toggleFilterMenu();">${this.getCategoryName(tag)}</span>`;
+                break;
+            }
+
+            //Sort
+            case 'sort': {
+                //Change menu title
+                this.#filterMenuTitle.innerText = loc.projects.sort.title;
+
+                //Get sort options
+                const tags = [];
+                for (const key of Object.keys(Sort)) tags.push(Sort[key]);
+                
+                //Add categories
+                for (const tag of tags) this.#filterMenuList.innerHTML += `<span class="projectTag" onclick="projects.addProjects(null, null, '${tag}'); projects.toggleFilterMenu();">${this.getSortName(tag)}</span>`;
+                break;
+            }
+
+            //Tags
+            default: {
+                //Change menu title
+                this.#filterMenuTitle.innerText = loc.projects.tags.title;
+
+                //Get tags (only the ones used in projects)
+                const usedTags = [];
+                for (const project of this.#info.unfilteredList) {
+                    for (const tag of project.tags) {
+                        if (usedTags.includes(tag)) continue;
+                        usedTags.push(tag);
+                    }
                 }
-            }
 
-            //Get tags (ordered and with all first)
-            const tags = [Tag.all]
-            for (const key of Object.keys(Tag)) {
-                const tag = Tag[key]
-                if (!usedTags.includes(tag)) continue
-                tags.push(tag)
+                //Get tags (ordered and with all first)
+                const tags = [Tag.all];
+                for (const key of Object.keys(Tag)) {
+                    const tag = Tag[key];
+                    if (!usedTags.includes(tag)) continue;
+                    tags.push(tag);
+                }
+                
+                //Add tags
+                for (const tag of tags) this.#filterMenuList.innerHTML += `<span class="projectTag" onclick="projects.addProjects(null, '${tag}', null); projects.toggleFilterMenu();">${this.getTagName(tag)}</span>`;
+                break;
             }
-            
-
-            //Add tags
-            tags.forEach(tag => list.innerHTML += `<span class="projectTag" onclick="addProjects(null, '${tag}', null); toggleFiltersMenu();">${projects.getTagName(tag)}</span>`)
-            break
         }
+
+        //Open
+        this.#filterMenu.showModal();
+        Util.toggleScroll(false);
     }
 
-    //Open
-    filterMenu.showModal()
-    document.body.setAttribute('noscroll', '')
+    //Page
+    localize = () => {
+        //Title
+        this.#title.innerText = loc.projects.title;
+
+        //Filters
+        this.#filtersTitle.innerText = loc.projects.filtersTitle;
+        this.#filtersCategory.innerText = `${loc.projects.category.title}:`;
+        this.#filtersTags.innerText = `${loc.projects.tags.title}:`;
+        this.#filtersSort.innerText = `${loc.projects.sort.title}:`;
+
+        //Projects
+        this.refreshProjects();
+        this.#more.innerText = loc.projects.more;
+    }
+
+    constructor() {
+        //Close menu listener
+        Util.onDialogBackdropClick(this.#filterMenu, this.toggleFilterMenu);
+    }
+    
 }
 
-Util.onDialogBackdropClick(filterMenu, toggleFiltersMenu)
+const projects = new ProjectsPage();
 
-//Toggle sort mode
-function toggleSortMode() {
-    addProjects(null, null, (projects.sort == '' ? 'date' : ''))
-}
 
 
  /*$$$$$$$                    /$$                        
@@ -2548,22 +1994,24 @@ function toggleSortMode() {
 | $$   |  $$$$$$/|  $$$$$$/  |  $$$$/|  $$$$$$$| $$      
 |__/    \______/  \______/    \___/   \_______/|_*/      
 
-class Footer {
+//Page
+class FooterPage {
 
     //Contact
     copyMail = () => {
-        createSnackbar(lan.footer.contact.mail, false)
-        navigator.clipboard.writeText('alex.paniagua.moreno@gmail.com')
+        createSnackbar(loc.footer.contact.mail, false);
+        navigator.clipboard.writeText('alex.paniagua.moreno@gmail.com');
     }
 
     onContactOpened = () => {
+        //Add achievement on resume
         addFocusListener(() => {
-            giveAchievement(Achievements.contact)
-            return true
+            achievements.give(Achievement.contact);
+            return true;
         })
     }
 
-    //Quotes library
+    //Quotes
     #quotes = [
         'See you in the major leagues, Jack',
         "Before it all goes dark... for one last second, I'll know I wasn't alone",
@@ -2585,7 +2033,7 @@ class Footer {
         "I'm always succeeding, even when I'm not",
         'Any adventure you can fly away from',
         "We'll see... about that",
-    ]
+    ];
     #authors = [
         'V - Cyberpunk 2077',
         'So Mi - Cyberpunk 2077',
@@ -2607,17 +2055,10 @@ class Footer {
         'Colt - Deathloop',
         'Vasco - Starfield',
         'G-Man - Half Life: Alyx',
-    ]
-
-    //Quotes
-    #quoteText = document.getElementById('footerQuoteText')
-    #quoteAuthor = document.getElementById('footerQuoteAuthor')
-    #quoteIndex = 0
-
-    randomQuote = () => {
-        this.#quoteIndex = Math.floor(Math.random() * this.#quotes.length);
-        this.updateQuote();
-    }
+    ];
+    #quoteText = document.getElementById('footerQuoteText');
+    #quoteAuthor = document.getElementById('footerQuoteAuthor');
+    #quoteIndex = 0;
 
     updateQuote = () => {
         this.#quoteText.innerText = `"${this.#quotes[this.#quoteIndex]}"`;
@@ -2636,12 +2077,625 @@ class Footer {
         this.updateQuote();
     }
 
+    //Page
+    localize = () => {
+        document.getElementById('footerContactTitle').innerText = loc.footer.contact.title;
+        document.getElementById('footerCredits').innerHTML = loc.footer.credits;
+    }
+
+    constructor() {
+        //Select random quote
+        this.#quoteIndex = Math.floor(Math.random() * this.#quotes.length);
+        this.updateQuote();
+    }
+
 }
 
-const footer = new Footer();
+const footer = new FooterPage();
 
-//Quotes
-footer.randomQuote();
+
+
+  /*$$$$$                                /$$                     /$$
+ /$$__  $$                              |__/                    | $$
+| $$  \__/ /$$   /$$  /$$$$$$   /$$$$$$  /$$  /$$$$$$$ /$$   /$$| $$ /$$   /$$ /$$$$$$/$$$$
+| $$      | $$  | $$ /$$__  $$ /$$__  $$| $$ /$$_____/| $$  | $$| $$| $$  | $$| $$_  $$_  $$
+| $$      | $$  | $$| $$  \__/| $$  \__/| $$| $$      | $$  | $$| $$| $$  | $$| $$ \ $$ \ $$
+| $$    $$| $$  | $$| $$      | $$      | $$| $$      | $$  | $$| $$| $$  | $$| $$ | $$ | $$
+|  $$$$$$/|  $$$$$$/| $$      | $$      | $$|  $$$$$$$|  $$$$$$/| $$|  $$$$$$/| $$ | $$ | $$
+ \______/  \______/ |__/      |__/      |__/ \_______/ \______/ |__/ \______/ |__/ |__/ |_*/
+
+class CurriculumMenu {
+
+    //Menu
+    #menu = document.getElementById('curriculumMenu');
+    #title = document.getElementById('curriculumMenuTitle');
+
+    toggleMenu = () => {
+        //Toggle menu
+        if (this.#menu.open) {
+            //Close
+            this.#menu.close();
+            Util.toggleScroll(true);
+        } else {
+            //Open
+            this.#menu.showModal();
+            Util.toggleScroll(false);
+        }
+    }
+
+    localize = () => {
+        this.#title.innerText = loc.curriculum.title;
+    }
+
+    constructor() {
+        //Close menu listener
+        Util.onDialogBackdropClick(this.#menu, this.toggleMenu);
+    }
+
+}
+
+const curriculum = new CurriculumMenu();
+
+
+
+  /*$$$$$                      /$$                
+ /$$__  $$                    | $$                
+| $$  \__/ /$$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$ 
+|  $$$$$$ | $$__  $$ |____  $$| $$  /$$/ /$$__  $$
+ \____  $$| $$  \ $$  /$$$$$$$| $$$$$$/ | $$$$$$$$
+ /$$  \ $$| $$  | $$ /$$__  $$| $$_  $$ | $$_____/
+|  $$$$$$/| $$  | $$|  $$$$$$$| $$ \  $$|  $$$$$$$
+ \______/ |__/  |__/ \_______/|__/  \__/ \______*/
+
+//Game
+class SnakeGame {
+    
+    //Technical
+    #animationFrame = undefined;
+    #updateInterval = undefined;
+    #context = undefined;
+    #inputQueue = [];
+    #delta = 1000 / 9;  //9 fps
+
+    //Game
+    #size = new Vec2();
+    #grid = 15; //Cell size
+
+    #dead = true;
+    #points = 0;
+    #best = DB.get('snake.best', 0, DB.NUMBER);
+    
+    #snake = {
+        pos: new Vec2(150),
+        dir: new Vec2(1, 0),
+        cells: [],
+        length: 4,
+    };
+    #apple = new Vec2(0);
+
+    //UI
+    #infoPoints = document.getElementById('snakeInfoPoints');
+    #infoBest = document.getElementById('snakeInfoBest');
+    #infoState = document.getElementById('snakeInfoState');
+
+
+    //Constructor
+    constructor(canvas) {
+        //Get context
+        this.#context = canvas.getContext('2d');
+
+        //Init game info
+        this.#size = new Vec2(canvas.width, canvas.height);
+    }
+
+    //Update & render
+    update = () => {
+        //Dead -> Don't update
+        if (this.#dead) return;
+        
+        //Check keys from input queue
+        for (let i = this.#inputQueue.length - 1; i >= 0; i--) {
+            //Get key & remove it from queue
+            const key = this.#inputQueue.pop();
+
+            //Check if key is valid
+            let valid = false;
+            switch (key) {
+                //Up
+                case 'w':
+                case 'arrowup':
+                    if (this.#snake.dir.y !== 0) break;
+                    this.#snake.dir = new Vec2(0, -1);
+                    valid = true;
+                    break;
+                //Right
+                case 'd':
+                case 'arrowright':
+                    if (this.#snake.dir.x !== 0) break;
+                    this.#snake.dir = new Vec2(1, 0);
+                    valid = true;
+                    break;
+                //Down
+                case 's':
+                case 'arrowdown':
+                    if (this.#snake.dir.y !== 0) break;
+                    this.#snake.dir = new Vec2(0, 1);
+                    valid = true;
+                    break;
+                //Left
+                case 'a':
+                case 'arrowleft':
+                    if (this.#snake.dir.x !== 0) break;
+                    this.#snake.dir = new Vec2(-1, 0);
+                    valid = true;
+                    break;
+            }
+
+            //Check if key was valid
+            if (valid) break;
+        }
+
+        //Move snake
+        this.#snake.pos.x += this.#snake.dir.x * this.#grid;
+        this.#snake.pos.y += this.#snake.dir.y * this.#grid;
+
+        //Wrap on screen edges
+        if (this.#snake.pos.x < 0) {
+            this.#snake.pos.x = this.#size.x - this.#grid;
+        } else if (this.#snake.pos.x >= this.#size.x) {
+            this.#snake.pos.x = 0;
+        }
+        
+        if (this.#snake.pos.y < 0) {
+            this.#snake.pos.y = this.#size.y - this.#grid;
+        } else if (this.#snake.pos.y >= this.#size.y) {
+            this.#snake.pos.y = 0;
+        }
+
+        //Keep track of where snake has been (front of the array is always the head)
+        this.#snake.cells.unshift(new Vec2(this.#snake.pos));
+
+        //Remove cells as we move away from them
+        if (this.#snake.cells.length > this.#snake.length) this.#snake.cells.pop();
+
+        //Check snake cells
+        this.#snake.cells.forEach((cell, index) => {
+            //Snake ate apple
+            if (cell.x === this.#apple.x && cell.y === this.#apple.y) {
+                this.#snake.length++;
+                this.#points++;
+                this.#apple = this.getRandomPoint();
+                
+                //UI
+                document.getElementById('snakeInfoPoints').innerText = this.#points;
+            }
+
+            // check collision with all cells after this one (modified bubble sort)
+            for (var i = index + 1; i < this.#snake.cells.length; i++) {
+                //Snake occupies same space as a body part -> reset game
+                if (cell.x != this.#snake.cells[i].x || cell.y !== this.#snake.cells[i].y) continue;
+
+                //Highscore
+                if (this.#points > this.#best) {
+                    this.#best = this.#points;
+                    DB.set('snake.best', this.#best);
+
+                    //Highscore!
+                    createSnackbar('🕹️ Highscore!', true);
+                    
+                    //UI
+                    document.getElementById('snakeInfoBest').innerText = this.#best;
+                }
+
+                //Die
+                this.#dead = true;
+                document.getElementById('snakeInfoState').innerText = loc.snake.death;
+            }
+        })
+    }
+
+    draw = () => {
+        //Dead -> Don't draw
+        if (this.#dead) return;
+        
+        //Clear canvas
+        this.#context.clearRect(0, 0, this.#size.x, this.#size.y);
+        
+        //Draw apple
+        this.drawBox(this.#apple, '#eb3734');
+
+        //Draw snake one cell at a time
+        for (const cell of this.#snake.cells) {
+            //Drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
+            this.drawBox(cell, '#34eb5b');
+        } 
+
+        //Request next frame
+        this.#animationFrame = requestAnimationFrame(this.draw);
+    }
+
+    //State
+    resume = () =>{
+        //Pause just in case
+        this.pause();
+
+        //Resume
+        this.#animationFrame = requestAnimationFrame(this.draw);
+        this.#updateInterval = setInterval(this.update, this.#delta);
+    }
+
+    pause = () =>{
+        //Pause
+        cancelAnimationFrame(this.#animationFrame);
+        clearInterval(this.#updateInterval);
+    }
+
+    stop = () =>{
+        this.#dead = true;
+        this.pause();
+    }
+
+    restart = () =>{
+        //Reset game info
+        this.#inputQueue = [];
+        this.#dead = false;
+        this.#points = 0;
+        this.#snake.pos = new Vec2(150);
+        this.#snake.dir = new Vec2(1, 0);
+        this.#snake.cells = [];
+        this.#snake.length = 4;
+        this.#apple = this.getRandomPoint();
+
+        //UI
+        this.#infoPoints.innerText = this.#points;
+        this.#infoBest.innerText = this.#best;
+        this.#infoState.innerText = '';
+
+        //Start drawing
+        this.resume()
+    }
+
+    //Helpers
+    drawBox = (pos, color) => {
+        this.#context.fillStyle = color;
+        this.#context.fillRect(pos.x, pos.y, this.#grid - 1, this.#grid - 1);
+    }
+    
+    getRandomPoint = () => {
+        return new Vec2(
+            Util.getRandomInt(0, this.#size.x / this.#grid - 1) * this.#grid, 
+            Util.getRandomInt(0, this.#size.y / this.#grid - 1) * this.#grid
+        );
+    }
+
+    keyPress = (key) => {
+        this.#inputQueue.unshift(key);
+    }
+
+}
+
+//Easteregg & menu
+class SnakeEasteregg {
+
+    //Game
+    #game = new SnakeGame(document.getElementById('snakeCanvas'));
+
+    get game() { return this.#game }
+
+    //Easteregg
+    #sidebarButton = document.getElementById('goTo-snake');
+
+    #enabled = DB.get('snake', false, DB.BOOLEAN);
+
+    enable() {
+        DB.set('snake', true);
+        this.#enabled = true;
+        this.#sidebarButton.removeAttribute('hidden');
+    }
+
+    disable() {
+        DB.set('snake', false);
+        this.#enabled = false;
+        this.#sidebarButton.setAttribute('hidden', '');
+        this.onInputAFK();
+    }
+
+    //Toggle easteregg (code)
+    #codes = [
+        ['s','n','a','k','e'],
+        ['arrowup','arrowup','arrowdown','arrowdown','arrowleft','arrowright','arrowleft','arrowright','b','a'],
+    ];
+    #codesNextIndex = 0;
+
+    onCodeKey = (key) => {
+        //Get next index
+        const index = this.#codesNextIndex;
+
+        //States of key validity
+        const INVALID = 0;
+        const VALID = 1;
+        const FINISHED = 2;
+
+        //Check if key is valid
+        let state = INVALID;
+        for (const code of this.#codes) {
+            //Code is smaller than next position
+            if (code.length <= index) continue;
+
+            //Key does not match in code
+            if (code[index] != key) continue;
+
+            //Valid key -> Check if finished code
+            if (code.length == index + 1) {
+                //Finished -> Mark as finished & stop looking
+                state = FINISHED;
+                break;
+            }
+            
+            //Not finished -> Mark as valid key
+            state = VALID;
+        }
+
+        //Check state
+        switch (state) {
+            case INVALID:
+                //Invalid -> Reset next index
+                this.#codesNextIndex = 0;
+                break;
+            case VALID:
+                //Valid -> Add key to current combination
+                this.#codesNextIndex++;
+                break;
+            case FINISHED:
+                //Finished -> Reset next index & open snake
+                this.#codesNextIndex = 0;
+                this.toggleMenu();
+                break;
+        }
+    }
+
+    //Toggle easteregg (AFK timer)
+    #messageAFK = document.getElementById('snakeAFK');
+
+    #afkTimer = undefined;
+    #afkDuration = 25000;   //25 seconds
+    
+    onAFK = () => {
+        //Already enabled or message/menu is open
+        if (this.#enabled || this.#messageAFK.hasAttribute('open') || this.#menu.open) return;
+
+        //Show popup
+        this.#messageAFK.setAttribute('open', '');
+    }
+
+    onInputAFK = () => {
+        //Clear popup timer & start counting again if easteregg not enabled
+        clearTimeout(this.#afkTimer);
+        if (!this.#enabled) this.#afkTimer = setTimeout(this.onAFK, this.#afkDuration);
+    }
+
+    //Menu
+    #menu = document.getElementById('snakeMenu');
+    #points = document.getElementById('snakeInfoPointsText');
+    #restart = document.getElementById('snakeRestart');
+    #afk = document.getElementById('snakeAFKText');
+
+    toggleMenu = () => {
+        //Toggle menu
+        if (snakeMenu.open) {
+            //Close
+            this.#menu.close();
+            Util.toggleScroll(true);
+            
+            //Stop game
+            this.#game.stop();
+        } else {
+            //Open
+            this.#menu.showModal();
+            Util.toggleScroll(false);
+
+            //Mark easteregg as enabled
+            this.enable();
+
+            //Start game
+            this.#game.restart();
+        }
+
+        //Close sidebar
+        sidebar.toggle(false);
+    }
+
+    //Easteregg
+    localize = () => {
+        this.#points.innerText = loc.snake.points;
+        this.#restart.innerText = loc.snake.restart;
+        this.#afk.innerHTML = loc.snake.afk;
+    }
+
+    constructor() {
+        //Toggle easteregg
+        window.addEventListener('blur', () => clearTimeout(this.#afkTimer));
+
+        window.addEventListener('focus', () => this.onInputAFK);
+
+        if (this.#enabled) {
+            //Enabled -> Show sidebar button
+            this.#sidebarButton.removeAttribute('hidden');
+        } else {
+            //Disabled -> Start counting for AKF message
+            this.onInputAFK();
+        }
+        
+        //Input (game & toggle easteregg)
+        window.addEventListener('keydown', event => {
+            //AFK check
+            this.onInputAFK();
+
+            //Get pressed key
+            const key = event.key.toLowerCase();
+
+            //Check if game is open
+            if (this.#menu.open) {
+                //Open -> Add key to input queue & check later on game loop
+                this.#game.keyPress(key);
+            } else {
+                //Closed -> Check input to toggle easteregg by code
+                this.onCodeKey(key);
+            }
+        })
+
+        window.addEventListener('scroll', () => this.onInputAFK);
+
+        //Close menu listener
+        Util.onDialogBackdropClick(this.#menu, this.toggleMenu);
+    }
+
+}
+
+const snake = new SnakeEasteregg();
+
+
+
+  /*$$$$$            /$$       /$$                                                                   /$$
+ /$$__  $$          | $$      |__/                                                                  | $$
+| $$  \ $$  /$$$$$$$| $$$$$$$  /$$  /$$$$$$  /$$    /$$ /$$$$$$  /$$$$$$/$$$$   /$$$$$$  /$$$$$$$  /$$$$$$   /$$$$$$$
+| $$$$$$$$ /$$_____/| $$__  $$| $$ /$$__  $$|  $$  /$$//$$__  $$| $$_  $$_  $$ /$$__  $$| $$__  $$|_  $$_/  /$$_____/
+| $$__  $$| $$      | $$  \ $$| $$| $$$$$$$$ \  $$/$$/| $$$$$$$$| $$ \ $$ \ $$| $$$$$$$$| $$  \ $$  | $$   |  $$$$$$ 
+| $$  | $$| $$      | $$  | $$| $$| $$_____/  \  $$$/ | $$_____/| $$ | $$ | $$| $$_____/| $$  | $$  | $$ /$$\____  $$
+| $$  | $$|  $$$$$$$| $$  | $$| $$|  $$$$$$$   \  $/  |  $$$$$$$| $$ | $$ | $$|  $$$$$$$| $$  | $$  |  $$$$//$$$$$$$/
+|__/  |__/ \_______/|__/  |__/|__/ \_______/    \_/    \_______/|__/ |__/ |__/ \_______/|__/  |__/   \___/ |______*/
+
+//Enum
+const Achievement = Object.freeze({
+    theme: 'theme',
+    artyom: 'artyom',
+    project: 'project',
+    contact: 'contact',
+})
+
+//System & menu
+class AchievementsSystem {
+
+    //Current achievements
+    #current = {}
+
+    //Give, reset & show achievements
+    #dot1 = document.getElementById('achievementsDot1');
+    #dot2 = document.getElementById('achievementsDot2');
+
+    #addAchievement = (key) => {
+        DB.set(`achievement-${key}`, true);
+        this.#current[key] = true;
+    }
+
+    #resetAchievement = (key) => {
+        DB.set(`achievement-${key}`, false);
+        this.#current[key] = false;
+    }
+
+    give = (key) => {
+        //Achievement does not exist
+        if (!Achievement[key]) return;
+
+        //Already has achievement
+        if (this.#current[key]) return;
+
+        //Show snackbar
+        createSnackbar(`🏆 ${loc.achievements[key].title}`, true);
+        
+        //Add achievement
+        this.#addAchievement(key);
+
+        //Show achievement indicator dots
+        this.#dot1.setAttribute('active', '');
+        this.#dot2.setAttribute('active', '');
+    }
+
+    giveAll = () => {
+        //Give all achievements
+        for (const key of Object.keys(Achievement)) achievements.give(Achievement[key]);
+    }
+
+    resetAll = () => {
+        //Reset all achievements
+        for (const key of Object.keys(this.#current)) this.#resetAchievement(key);
+    }
+
+    //Menu
+    #menu = document.getElementById('achievementsMenu');
+    #title = document.getElementById('achievementsTitle');
+    #description = document.getElementById('achievementsDescription');
+    #list = document.getElementById('achievementsList');
+
+    toggleMenu = () => {
+        //Hide achievement indicator dots
+        this.#dot1.removeAttribute('active');
+        this.#dot2.removeAttribute('active');
+
+        //Close sidebar
+        sidebar.toggle(false);
+
+        //Toggle menu
+        if (this.#menu.open) {
+            //Close
+            this.#menu.close();
+            Util.toggleScroll(true);
+        } else {
+            //Clear achievements list
+            this.#list.innerHTML = ''
+
+            //Load achievements in list
+            for (const key of Object.keys(Achievement)) {
+                //Create achievement element
+                const element = document.createElement('div');
+                element.classList.add('achievement');
+
+                //Hide element if user does not have the achievement
+                if (!this.#current[key]) element.setAttribute('hidden', '');
+                
+                //Fill element content
+                element.innerHTML = `
+                    <img src="Data/Images/Achievements/${key}.webp">
+                    <div>
+                        <div>${loc.achievements[key].title}</div>
+                        <div>${loc.achievements[key].description}</div>
+                    </div>
+                    <span>${loc.achievements.hidden}</span>
+                `;
+                
+                //Add element to list
+                this.#list.appendChild(element);
+            }
+
+            //Open
+            this.#menu.showModal();
+            Util.toggleScroll(false);
+        }
+    }
+
+    //System
+    localize = () => {
+        this.#title.innerText = loc.achievements.title
+        this.#description.innerText = loc.achievements.description
+    }
+
+    constructor() {
+        //Load achievements
+        for (const key of Object.keys(Achievement)) {
+            //Check if user has achievement
+            if (!DB.get(`achievement-${Achievement[key]}`, false, DB.BOOLEAN)) continue;
+
+            //User has achievement -> Add it
+            this.#addAchievement(key);
+        }
+
+        //Close menu listener
+        Util.onDialogBackdropClick(this.#menu, this.toggleMenu);
+    }
+
+}
+
+const achievements = new AchievementsSystem();
 
 
 
@@ -2657,37 +2711,162 @@ footer.randomQuote();
                                                       |  $$$$$$/
                                                        \_____*/
 
-//Load animation
-(() => {
-    document.body.setAttribute('noscroll', '')
+class LoadingAnimation {
 
-    const loading = document.getElementById('loading')
-    const loadingBar = document.getElementById('loadingBar')
-    const loadingProgress = document.getElementById('loadingProgress')
+    //Progress
+    #loading = document.getElementById('loading');
+    #loadingBar = document.getElementById('loadingBar');
+    #loadingProgress = document.getElementById('loadingProgress');
 
-    let progress = 0
+    #progress = 0;
 
-    const waitNext = () => {
-        setTimeout(() => { nextProgress() }, 10)
-    }
-
-    const nextProgress = () => {
+    nextProgress = () => {
         //Next percent
-        progress = Math.min(100, progress + Math.floor(Math.random() * 2) + 1)
-        loadingBar.style.setProperty('--fill', `${progress}%`)
-        loadingProgress.innerText = `${progress}%`
+        this.#progress = Math.min(100, this.#progress + Math.floor(Math.random() * 2) + 1);
+        this.#loadingBar.style.setProperty('--fill', `${this.#progress}%`);
+        this.#loadingProgress.innerText = `${this.#progress}%`;
 
         //Check if finished
-        if (progress >= 100) {
-            //Loaded -> Hide loading page, enable scroll & reset home typing animation
-            loading.setAttribute('loaded', '')
-            document.body.removeAttribute('noscroll')
-            homeText.reset()
+        if (this.#progress >= 100) {
+            //Loaded -> Hide loading page, reset home typing animation & enable scrolling
+            this.#loading.setAttribute('loaded', '');
+            home.textAnimation.reset();
+            Util.toggleScroll(true);
         } else {
             //Didn't finish -> Next progress
-            waitNext()
+            setTimeout(this.nextProgress, 10);
         }
     }
 
-    nextProgress()
-})();
+    //Loading
+    #title = document.getElementById('loadingTitle');
+    
+    localize = () => {
+        this.#title.innerText = loc.loading.title;
+    }
+
+    constructor() {
+        //Disable scrolling
+        Util.toggleScroll(false);
+
+        //Start counting progress
+        this.nextProgress();
+    }
+
+}
+
+const loading = new LoadingAnimation();
+
+
+ /*$                                     /$$ /$$                       /$$     /$$                    
+| $$                                    | $$|__/                      | $$    |__/                    
+| $$        /$$$$$$   /$$$$$$$  /$$$$$$ | $$ /$$ /$$$$$$$$  /$$$$$$  /$$$$$$   /$$  /$$$$$$  /$$$$$$$ 
+| $$       /$$__  $$ /$$_____/ |____  $$| $$| $$|____ /$$/ |____  $$|_  $$_/  | $$ /$$__  $$| $$__  $$
+| $$      | $$  \ $$| $$        /$$$$$$$| $$| $$   /$$$$/   /$$$$$$$  | $$    | $$| $$  \ $$| $$  \ $$
+| $$      | $$  | $$| $$       /$$__  $$| $$| $$  /$$__/   /$$__  $$  | $$ /$$| $$| $$  | $$| $$  | $$
+| $$$$$$$$|  $$$$$$/|  $$$$$$$|  $$$$$$$| $$| $$ /$$$$$$$$|  $$$$$$$  |  $$$$/| $$|  $$$$$$/| $$  | $$
+|________/ \______/  \_______/ \_______/|__/|__/|________/ \_______/   \___/  |__/ \______/ |__/  |_*/
+
+//Recover saved locale & load it
+switch (DB.get('locale', 'none', DB.STRING)) {
+    //Nothing saved
+    case 'none':
+        //Check device language
+        const deviceLanguage = navigator.language;
+
+        //Device is not in spanish
+        if (deviceLanguage.startsWith('es')) loc = locales.es;
+
+        //Save locale
+        DB.set('locale', loc.key);
+        break;
+
+    //English saved
+    case 'en':
+        loc = locales.en;
+        break;
+
+    //Spanish saved
+    case 'es':
+        loc = locales.es;
+        break;
+}
+
+//Localization functions
+function swapLocale() {
+    //Get new locale key
+    const newKey = loc.key == 'es' ? 'en' : 'es';
+
+    //Load new locale
+    DB.set('locale', newKey);
+    loc = locales[newKey];
+
+    //Hide sidebar & localize page
+    sidebar.toggle(false);
+    localize();
+}
+
+function localize() {
+    //General (loading animation & sidebar)
+    loading.localize();
+    sidebar.localize();
+
+    //Menus (curriculum, snake & achievements)
+    curriculum.localize();
+    snake.localize();
+    achievements.localize();
+
+    //Pages (home, about, skills, projects & footer)
+    home.localize();
+    about.localize();
+    skills.localize();
+    projects.localize();
+    footer.localize();
+}
+
+localize()
+
+
+
+ /*$$$$$$$ /$$                                        
+|__  $$__/| $$                                        
+   | $$   | $$$$$$$   /$$$$$$  /$$$$$$/$$$$   /$$$$$$ 
+   | $$   | $$__  $$ /$$__  $$| $$_  $$_  $$ /$$__  $$
+   | $$   | $$  \ $$| $$$$$$$$| $$ \ $$ \ $$| $$$$$$$$
+   | $$   | $$  | $$| $$_____/| $$ | $$ | $$| $$_____/
+   | $$   | $$  | $$|  $$$$$$$| $$ | $$ | $$|  $$$$$$$
+   |__/   |__/  |__/ \_______/|__/ |__/ |__/ \______*/
+
+const theme = {
+    dark: (DB.get('theme', 'dark', DB.STRING) == 'dark')
+}
+
+function toggleTheme() {
+    //Toggle theme
+    theme.dark = !theme.dark;
+    loadTheme();
+
+    //Close sidebar
+    sidebar.toggle();
+
+    //Give chievement
+    if (theme.dark) achievements.give(Achievement.theme);
+}
+
+function loadTheme() {
+    //Load theme
+    if (theme.dark) {
+        //Enable light
+        DB.set('theme', 'dark', DB.STRING);
+        document.documentElement.removeAttribute('light');
+    } else {
+        //Enable dark
+        DB.set('theme', 'light', DB.STRING);
+        document.documentElement.setAttribute('light', '');
+    }
+
+    //Refresh particle animation color
+    home.particlesAnimation.changeColor(`color-mix(in srgb, transparent 50%, ${window.getComputedStyle(document.body).getPropertyValue('--text')})`);
+}
+
+loadTheme()

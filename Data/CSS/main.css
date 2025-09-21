@@ -832,7 +832,7 @@ dialog:not(#snackbar)[open] {
     opacity: 0;
 }
 
-.achievement[locked] > span {
+.achievement[hidden] > span {
     /* Visuals */
     opacity: 1;
     background-color: var(--bg);
@@ -940,6 +940,12 @@ dialog:not(#snackbar)[open] {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+.snakeControlsArrows > div {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
 }
 
 .snakeControlsArrow {
