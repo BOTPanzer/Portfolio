@@ -88,7 +88,7 @@ const locales = {
                 all: '---',
                 games: 'Games',
                 apps: 'Apps',
-                design: 'Design',
+                design: 'Graphic Design',
                 other: 'Other'
             },
             tags: {
@@ -456,7 +456,7 @@ const locales = {
                 all: '---',
                 games: 'Juegos',
                 apps: 'Apps',
-                design: 'Diseño',
+                design: 'Diseño Gráfico',
                 other: 'Otros'
             },
             tags: {

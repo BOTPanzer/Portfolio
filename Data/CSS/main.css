@@ -1,8 +1,8 @@
-@font-face { font-family: geist; src: url('../Fonts/Geist.ttf'); }          /* Default Text */
-@font-face { font-family: phonk; src: url('../Fonts/Phonk.ttf'); }          /* Titles */
-@font-face { font-family: orbitron; src: url('../Fonts/Orbitron.ttf'); }    /* About Image Text */
-@font-face { font-family: roboto; src: url('../Fonts/RobotoMono.ttf'); }    /* Home Small Text */
-@font-face { font-family: lemon; src: url('../Fonts/LemonMilk.ttf'); }      /* Footer Quote */
+@font-face { font-family: main;  src: url('../Fonts/Geist.woff2'); }
+@font-face { font-family: mono;  src: url('../Fonts/RobotoMono.woff2'); }
+@font-face { font-family: title; src: url('../Fonts/Phonk.woff2'); }
+@font-face { font-family: alt; src: url('../Fonts/Orbitron.woff2'); }       /* About Image Text & Project Scope */
+@font-face { font-family: quote; src: url('../Fonts/LemonMilk.woff2'); }    /* Footer Quote */
 
 html {
     /* Size */
@@ -14,7 +14,7 @@ html {
     margin: 0;
 
     /* Text */
-    font-family: geist;
+    font-family: main;
     font-size: 16px;
     user-select: none;
 
@@ -146,14 +146,15 @@ a:not([class])[href] {
     /* Spacing */
     padding: 8px 16px;
 
-    /* Text */
-    color: var(--text);
-    font-size: 1rem;
-
-    /* Style */
+    /* Visuals */
     border: var(--border);
     border-radius: 30px;
     outline: none;
+
+    /* Text */
+    color: var(--text);
+    font-family: mono;
+    font-size: 0.9rem;
     
     /* Other */
     cursor: pointer;
@@ -161,7 +162,7 @@ a:not([class])[href] {
 }
 
 .button:hover {
-    /* Style */
+    /* Visuals */
     background-color: var(--hover);
 }
 
@@ -225,7 +226,7 @@ a:not([class])[href] {
     gap: 10px;
 
     /* Text */
-    font-family: roboto;
+    font-family: mono;
 
     /* Visuals */
     background-color: var(--bg);
@@ -263,14 +264,14 @@ a:not([class])[href] {
 }
 
 
-                                                       
-  /*$$$$$  /$$       /$$           /$$                          
- /$$__  $$|__/      | $$          | $$                          
-| $$  \__/ /$$  /$$$$$$$  /$$$$$$ | $$$$$$$   /$$$$$$   /$$$$$$ 
+
+  /*$$$$$  /$$       /$$           /$$
+ /$$__  $$|__/      | $$          | $$
+| $$  \__/ /$$  /$$$$$$$  /$$$$$$ | $$$$$$$   /$$$$$$   /$$$$$$
 |  $$$$$$ | $$ /$$__  $$ /$$__  $$| $$__  $$ |____  $$ /$$__  $$
  \____  $$| $$| $$  | $$| $$$$$$$$| $$  \ $$  /$$$$$$$| $$  \__/
- /$$  \ $$| $$| $$  | $$| $$_____/| $$  | $$ /$$__  $$| $$      
-|  $$$$$$/| $$|  $$$$$$$|  $$$$$$$| $$$$$$$/|  $$$$$$$| $$      
+ /$$  \ $$| $$| $$  | $$| $$_____/| $$  | $$ /$$__  $$| $$
+|  $$$$$$/| $$|  $$$$$$$|  $$$$$$$| $$$$$$$/|  $$$$$$$| $$
  \______/ |__/ \_______/ \_______/|_______/  \_______/|_*/
 
 /* Sidebar toggle */
@@ -448,7 +449,11 @@ a:not([class])[href] {
 
     /* Visuals */
     border-radius: 20px;
+
+    /* Text */
     color: var(--text);
+    font-family: mono;
+    font-size: 0.9rem;
     
     /* Other */
     cursor: pointer;
@@ -647,7 +652,7 @@ dialog:not(#snackbar)[open] {
 .menuTitle {
     /* Text */
     text-transform: uppercase;
-    font-family: phonk;
+    font-family: title;
     font-size: 1.4em;
     line-height: 80px;
 }
@@ -802,7 +807,7 @@ dialog:not(#snackbar)[open] {
 
 .achievement > div > div:nth-child(1) {
     /* Text */
-    font-family: phonk;
+    font-family: title;
     font-size: 16px;
     text-align: center;
 }
@@ -824,7 +829,7 @@ dialog:not(#snackbar)[open] {
 
     /* Text */
     text-transform: uppercase;
-    font-family: phonk;
+    font-family: title;
     line-height: 120px;
     font-size: 26px;
     text-align: center;
@@ -907,7 +912,7 @@ dialog:not(#snackbar)[open] {
     gap: 10px;
 
     /* Text */
-    font-family: roboto;
+    font-family: mono;
 }
 
 #snakeCanvas {
@@ -1106,7 +1111,7 @@ img.snakeControlsArrow {
     gap: 20px;
 
     /* Text */
-    font-family: phonk;
+    font-family: title;
     font-size: min(3em, 6.5vw);
 }
 
@@ -1251,14 +1256,25 @@ img.snakeControlsArrow {
     position: absolute; 
     bottom: 40px; 
     left: calc(50% - 20px);
-    rotate: -90deg;
+    rotate: 90deg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
     /* Visuals */
     filter: var(--textFilter);
+    
+    /* Text */
+    font-size: 1.2rem;
 
     /* Other */
     cursor: pointer;
     animation: nextArrowBounce 4s infinite ease-in-out;
+}
+
+.nextArrow:hover {
+    /* Other */
+    animation: none;
 }
 
 @media screen and (orientation:portrait) {
@@ -1270,25 +1286,25 @@ img.snakeControlsArrow {
 
 @keyframes nextArrowBounce {
     0% {
+        transform: translateY(0);
+    }
+    88% {
         transform: translateX(0);
     }
-    2.5% {
+    90.5% {
         transform: translateX(30px);
     }
-    5% {
+    93% {
         transform: translateX(0);
     }
-    7% {
+    95% {
         transform: translateX(15px);
     }
-    9% {
+    97% {
         transform: translateX(0);
     }
-    10.5% {
+    98.5% {
         transform: translateX(5px);
-    }
-    12% {
-        transform: translateY(0);
     }
     100% {
         transform: translateY(0);
@@ -1336,13 +1352,16 @@ img.snakeControlsArrow {
     margin-right: auto;
     
     /* Text */
-    font-family: roboto;
+    font-family: mono;
     font-size: 1em;
 }
 
 #homeText2 {
+    /* Spacing */
+    margin-bottom: 5px;
+
     /* Text */
-    font-family: phonk;
+    font-family: title;
     font-size: min(4em, 4.5vw);
     white-space: nowrap;
 }
@@ -1359,7 +1378,7 @@ img.snakeControlsArrow {
     margin-left: auto;
 
     /* Text */
-    font-family: roboto;
+    font-family: mono;
     font-size: 1em;
 }
 
@@ -1478,7 +1497,7 @@ img.snakeControlsArrow {
     /* Text */
     line-height: 2em;
     font-size: 0.8em;
-    font-family: orbitron;
+    font-family: alt;
     text-transform: uppercase;
     pointer-events: none;
 
@@ -1550,7 +1569,7 @@ img.snakeControlsArrow {
     flex-direction: column;
     
     /* Text */
-    font-family: roboto;
+    font-family: mono;
     font-size: 0.8em;
     font-weight: 600;
     color: var(--textAlt);
@@ -1558,7 +1577,7 @@ img.snakeControlsArrow {
 
 .skillsBar > span:nth-child(1) {
     /* Text */
-    font-family: phonk;
+    font-family: title;
     font-size: 1.2em;
     font-weight: 500;
     color: var(--text);
@@ -1626,7 +1645,7 @@ img.snakeControlsArrow {
     gap: 10px;
 
     /* Text */
-    font-family: roboto;
+    font-family: mono;
     font-size: 0.7rem;
 }
 
@@ -1666,7 +1685,7 @@ img.snakeControlsArrow {
 
 #projectsFilters > span {
     /* Text */
-    font-family: phonk;
+    font-family: title;
     font-size: 1.4em;
 }
 
@@ -1792,7 +1811,6 @@ img.snakeControlsArrow {
         left: 0;
 
         /* Visuals */
-        background-color: red;
         background-image: var(--glitchImg);
         background-size: cover;
         background-position: center;
@@ -1802,7 +1820,7 @@ img.snakeControlsArrow {
         z-index: 1;
         pointer-events: none;
         animation: projectGlitchColor forwards, projectGlitchClip infinite;
-        animation-duration: 0.2s;
+        animation-duration: 0.3s;
     }
 
     .projectMedia:not([video]):hover .projectMediaContent::after {
@@ -1929,7 +1947,7 @@ img.snakeControlsArrow {
     /* Text */
     line-height: 2em;
     font-size: 0.7em;
-    font-family: orbitron;
+    font-family: alt;
     text-transform: uppercase;
     pointer-events: none;
 
@@ -2024,6 +2042,10 @@ img.snakeControlsArrow {
 
     /* Visuals */
     border-radius: 30px;
+
+    /* Text */
+    font-family: mono;
+    font-size: 0.9rem;
 
     /* Other */
     cursor: pointer;
@@ -2220,7 +2242,7 @@ img.snakeControlsArrow {
     flex: 1;
 
     /* Text */
-    font-family: phonk;
+    font-family: title;
     font-size: 1.46rem;
 }
 
@@ -2229,7 +2251,7 @@ img.snakeControlsArrow {
     margin: -5px 0;
 
     /* Text */
-    font-family: roboto;
+    font-family: mono;
     font-size: .86rem;
     
     /* Visuals */
@@ -2262,13 +2284,12 @@ img.snakeControlsArrow {
     padding: 8px 12px;
 
     /* Layout */
-    box-sizing: border-box;
     position: relative;
+    box-sizing: border-box;
 
     /* Text */
-    font-family: roboto;
-    font-size: .86rem;
-    font-weight: 500;
+    font-family: mono;
+    font-size: .9rem;
 
     /* Visuals */
     background:
@@ -2435,7 +2456,7 @@ img.snakeControlsArrow {
     justify-content: center;
 
     /* Text */
-    font-family: lemon;
+    font-family: quote;
     text-align: center;
 }
 
