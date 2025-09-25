@@ -1801,12 +1801,13 @@ img.snakeControlsArrow {
         /* Other */
         z-index: 1;
         pointer-events: none;
-        animation: projectGlitchColor 0.4s forwards, projectGlitchClip 0.4s infinite;
+        animation: projectGlitchColor forwards, projectGlitchClip infinite;
+        animation-duration: 0.2s;
     }
 
     .projectMedia:not([video]):hover .projectMediaContent::after {
         /* Other */
-        animation: projectGlitchColor 0.4s forwards, projectGlitchClip 0.4s -0.2s infinite;
+        animation: projectGlitchColor forwards, projectGlitchClip -0.1s infinite;
     }
 
     @keyframes projectGlitchColor {
