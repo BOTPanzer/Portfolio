@@ -538,15 +538,18 @@
 
         <!-- Arrows & restart button -->
         <div class="snakeControls">
+            <!-- D-Pad -->
             <div class="snakeControlsArrows">
-                <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" onclick="snake.game.keyPress('a')">
+                <span class="snakeControlsArrow" onclick="snake.game.keyPress('a')">◀</span>
                 <div>
-                    <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" up onclick="snake.game.keyPress('w')">
-                    <div class="snakeControlsArrow"></div>
-                    <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" down onclick="snake.game.keyPress('s')">
+                    <span class="snakeControlsArrow" up onclick="snake.game.keyPress('w')">◀</span>
+                    <div class="snakeControlsArrowCenter"></div>
+                    <span class="snakeControlsArrow" down onclick="snake.game.keyPress('s')">◀</span>
                 </div>
-                <img class="snakeControlsArrow" src="Data/Images/Icons/arrow.webp" right onclick="snake.game.keyPress('d')">
+                <span class="snakeControlsArrow" right onclick="snake.game.keyPress('d')">◀</span>
             </div>
+
+            <!-- Restart button -->
             <div id="snakeRestart" class="button" onclick="snake.game.restart()">Restart</div>
         </div>
 
@@ -555,7 +558,7 @@
     </dialog>
 
     <!-- AFK message -->
-    <div id="snakeAFK" onclick="snake.toggleMenu(); this.removeAttribute('open')">
+    <div id="snakeAFK" onclick="snake.toggleMenu(); this.removeAttribute('show')">
         <span id="snakeAFKText">Seems a bit quiet here...<br>Wanna play a game?</span>
         <img src="Data/Images/Icons/afk.webp">
     </div>

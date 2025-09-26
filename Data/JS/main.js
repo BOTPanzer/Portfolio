@@ -2456,17 +2456,16 @@ class SnakeEasteregg {
     
     onAFK = () => {
         //Already enabled or message/menu is open
-        if (this.#enabled || this.#messageAFK.hasAttribute('open') || this.#menu.open) return;
+        if (this.#enabled || this.#messageAFK.hasAttribute('show') || this.#menu.open) return;
 
         //Show popup
-        this.#messageAFK.setAttribute('open', '');
+        this.#messageAFK.setAttribute('show', '');
     }
 
     onInputAFK = () => {
         //Clear popup timer & start counting again if easteregg not enabled
         clearTimeout(this.#afkTimer);
         if (!this.#enabled) this.#afkTimer = setTimeout(this.onAFK, this.#afkDuration);
-        console.log('a')
     }
 
     //Menu

@@ -40,22 +40,25 @@ html {
     --border: solid 1px var(--text);
     --borderSoft: solid 1px var(--hover);
     --borderSoftThick: solid 2px var(--hover);
-}
 
-html[light] {
-    /* Colors */
-    --bg: #f5f5f5;
-    --hover: rgba(0, 0, 0, 0.2);
-    --borderSoftThick: solid 2px var(--hover);
-    --backdrop: rgba(0, 0, 0, 0.4);
+    /* Light theme */
+    &[light] {
+        /* Layout */
+        --bg: #f5f5f5;
+        --backdrop: rgba(0, 0, 0, 0.4);
+        --hover: rgba(0, 0, 0, 0.2);
 
-    /* Text */
-    --text: #000000;
-    --textFilter: brightness(0);
-    --textAlt: #83868d;
-    --textAltFilter: brightness(0) saturate(100%) invert(58%) sepia(24%) saturate(506%) hue-rotate(183deg) brightness(84%) contrast(87%);
-    --link: #f32853;
-    --linkFilter: brightness(0) invert(29%) sepia(74%) saturate(2123%) hue-rotate(327deg) brightness(83%) contrast(111%);
+        /* Text */
+        --text: #000000;
+        --textFilter: brightness(0);
+        --textAlt: #83868d;
+        --textAltFilter: brightness(0) saturate(100%) invert(58%) sepia(24%) saturate(506%) hue-rotate(183deg) brightness(84%) contrast(87%);
+        --link: #f32853;
+        --linkFilter: brightness(0) invert(29%) sepia(74%) saturate(2123%) hue-rotate(327deg) brightness(83%) contrast(111%);
+
+        /* Borders */
+        --borderSoftThick: solid 2px var(--hover);
+    }
 }
 
 body {
@@ -79,11 +82,12 @@ body {
     /* Spacing */
     --sidebarSpacing: 80px;
     --pageSpacing: 20px;
-}
 
-body[noscroll] {
-    /* Other */
-    overflow: hidden;
+    /* No scroll */
+    &[noscroll] {
+        /* Other */
+        overflow: hidden;
+    }
 }
 
 @media screen and (orientation:portrait) {
@@ -99,22 +103,6 @@ body[noscroll] {
         --sidebarSpacing: 0px;
         --pageSpacing: 10px;
     }
-}
-
-/* Block image grab */
-img {
-    -webkit-user-drag: none;
-}
-
-/* Links */
-a {
-    /* Text */
-    text-decoration: none;
-}
-
-a:not([class])[href] {
-    /* Visuals */
-    color: var(--link);
 }
 
 /* Scrollbar */
@@ -135,6 +123,23 @@ a:not([class])[href] {
 ::-webkit-scrollbar-thumb:hover {
     /* Visuals */
     border: solid 3px transparent;
+}
+
+/* Block image grab */
+img {
+    -webkit-user-drag: none;
+}
+
+/* Fix links */
+a {
+    /* Text */
+    text-decoration: none;
+
+    /* Text link */
+    &:not([class])[href] {
+        /* Visuals */
+        color: var(--link);
+    }
 }
 
 /* Buttons */
@@ -159,21 +164,27 @@ a:not([class])[href] {
     /* Other */
     cursor: pointer;
     transition: border .2s, background-color .2s;
-}
 
-.button:hover {
-    /* Visuals */
-    background-color: var(--hover);
+    /* Hover animation */
+    &:hover {
+        /* Visuals */
+        background-color: var(--hover);
+    }
 }
 
 /* Appear animation */
 .appear {
+    /* Visuals */
     opacity: 0;
-}
 
-.appear[appeared] {
-    opacity: unset;
-    animation: appear ease-out .6s;
+    /* Appear animation */
+    &[appeared] {
+        /* Visuals */
+        opacity: unset;
+
+        /* Other */
+        animation: appear ease-out .6s;
+    }
 }
 
 @keyframes appear {
@@ -234,14 +245,15 @@ a:not([class])[href] {
     /* Other */
     z-index: 999;
     transition: opacity 1s;
-}
 
-.loading[loaded] {
-    /* Visuals */
-    opacity: 0;
+    /* Loaded */
+    &[loaded] {
+        /* Visuals */
+        opacity: 0;
 
-    /* Other */
-    pointer-events: none;
+        /* Other */
+        pointer-events: none;
+    }
 }
 
 .loadingBar {
@@ -411,7 +423,6 @@ a:not([class])[href] {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 5px;
 
     /* Visuals */
     background-color: var(--bg);
@@ -458,11 +469,12 @@ a:not([class])[href] {
     /* Other */
     cursor: pointer;
     transition: var(--sidebarTransition), background-color .2s;
-}
 
-.sidebarButton:hover {
-    /* Visuals */
-    background-color: var(--hover);
+    /* Hover animation */
+    &:hover {
+        /* Visuals */
+        background-color: var(--hover);
+    }
 }
 
 .sidebarButton[hidden] {
@@ -564,11 +576,12 @@ a:not([class])[href] {
     /* Other */
     z-index: 999;
     pointer-events: none;
-}
 
-#snackbar[open] {
-    /* Other */
-    animation: snackbar 3s forwards;
+    /* Open animation */
+    &[open] {
+        /* Other */
+        animation: snackbar 3s forwards;
+    }
 }
 
 @keyframes snackbar {
@@ -637,15 +650,16 @@ dialog:not(#snackbar) {
     user-select: none;
     pointer-events: none;
     transition: opacity .2s ease;
-    -moz-transition: none; /* Animation is broken in firefox, as always */
-}
+    -moz-transition: none; /* Animation is broken in firefox, like many other things */
 
-dialog:not(#snackbar)[open] {
-    /* Visuals */
-    opacity: 1;
+    /* Open animation */
+    &[open] {
+        /* Visuals */
+        opacity: 1;
 
-    /* Other */
-    pointer-events: auto;
+        /* Other */
+        pointer-events: auto;
+    }
 }
 
 /* Menu title */
@@ -686,6 +700,13 @@ dialog:not(#snackbar)[open] {
     /* Other */
     cursor: pointer;
     transition: background-color .2s, border .2s;
+
+    /* Hover animation */
+    &:hover {
+        /* Visuals */
+        background-color: color-mix(in srgb, var(--accent) 30%, transparent);
+        border: var(--border)
+    }
 }
 
 .menuClose img {
@@ -695,12 +716,6 @@ dialog:not(#snackbar)[open] {
 
     /* Visuals */
     filter: var(--textFilter);
-}
-
-.menuClose:hover {
-    /* Visuals */
-    background-color: color-mix(in srgb, var(--accent) 30%, transparent);
-    border: var(--border)
 }
 
 /* Menu list */
@@ -777,11 +792,12 @@ dialog:not(#snackbar)[open] {
 
     /* Other */
     transition: transform .2s;
-}
 
-.achievement:hover {
-    /* Other */
-    transform: rotate(-.5deg) scale(1.01);
+    /* Hover animation */
+    &:hover {
+        /* Other */
+        transform: rotate(-.5deg) scale(1.01);
+    }
 }
 
 .achievement > img {
@@ -862,26 +878,11 @@ dialog:not(#snackbar)[open] {
 
     /* Other */
     visibility: hidden;
-    /*animation: dotIndicator 1s infinite;*/
-}
-
-.dotIndicator[active] {
-    /* Other */
-    visibility: unset;
-}
-
-@keyframes dotIndicator {
-    0% {
-        opacity: 1;
-    }
-    49% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    99% {
-        opacity: 0;
+    
+    /* Active */
+    &[active] {
+        /* Other */
+        visibility: unset;
     }
 }
 
@@ -954,33 +955,53 @@ dialog:not(#snackbar)[open] {
     flex-direction: column;
 }
 
+.snakeControlsArrowCenter {
+    /* Size */
+    width: 40px;
+    height: 40px;
+    
+    /* Visuals */
+    background-color: var(--text);
+}
+
 .snakeControlsArrow {
     /* Size */
     width: 40px;
     height: 40px;
 
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     /* Visuals */
-    filter: var(--textFilter);
-}
+    background-color: var(--text);
+    border-radius: 10px 0 0 10px;
 
-.snakeControlsArrow[up] {
-    /* Other */
-    rotate: 90deg;
-}
-
-.snakeControlsArrow[down] {
-    /* Other */
-    rotate: -90deg;
-}
-
-.snakeControlsArrow[right] {
-    /* Other */
-    rotate: 180deg;
-}
-
-img.snakeControlsArrow {
+    /* Text */
+    color: var(--bg);
+    font-weight: bold;
+    
     /* Other */
     cursor: pointer;
+
+    /* Up */
+    &[up] {
+        /* Other */
+        rotate: 90deg;
+    }
+
+    /* Down */
+    &[down] {
+        /* Other */
+        rotate: -90deg;
+    }
+
+    /* Right */
+    &[right] {
+        /* Other */
+        rotate: 180deg;
+    }
 }
 
 #snakeInfoState {
@@ -1019,14 +1040,15 @@ img.snakeControlsArrow {
     z-index: 500;
     cursor: pointer;
     pointer-events: none;
-}
 
-#snakeAFK[open] {
-    /* Visuals */
-    animation: snakeAFK 1s forwards;
-    
-    /* Other */
-    pointer-events: unset;
+    /* Show animation */
+    &[show] {
+        /* Visuals */
+        animation: snakeAFK 1s forwards;
+        
+        /* Other */
+        pointer-events: unset;
+    }
 }
 
 @keyframes snakeAFK {
@@ -1113,11 +1135,12 @@ img.snakeControlsArrow {
     /* Text */
     font-family: title;
     font-size: min(3em, 6.5vw);
-}
 
-.pageTop[small] {
-    /* Other */
-    scale: 0.7;
+    /* Small top */
+    &[small] {
+        /* Other */
+        scale: 0.7;
+    }
 }
 
 @media screen and (orientation:portrait) {
@@ -1270,11 +1293,12 @@ img.snakeControlsArrow {
     /* Other */
     cursor: pointer;
     animation: nextArrowBounce 4s infinite ease-in-out;
-}
 
-.nextArrow:hover {
-    /* Other */
-    animation: none;
+    /* Hover animation */
+    &:hover {
+        /* Other */
+        animation: none;
+    }
 }
 
 @media screen and (orientation:portrait) {
@@ -1471,17 +1495,19 @@ img.snakeControlsArrow {
     filter: blur(0px);
     opacity: 1;
     transition: filter .4s, opacity .4s;
-}
 
-#aboutImg[loading] {
-    /* Other */
-    filter: blur(12px);
-    opacity: 0;
-}
+    /* Loading */
+    &[loading] {
+        /* Other */
+        filter: blur(12px);
+        opacity: 0;
+    }
 
-#aboutImg[clicked] ~ #aboutImgNext {
-    /* Other */
-    opacity: 0;
+    /* Clicked */
+    &[clicked] ~ #aboutImgNext {
+        /* Other */
+        opacity: 0;
+    }
 }
 
 #aboutImgName, 
@@ -1956,11 +1982,12 @@ img.snakeControlsArrow {
 
     /* Other */
     transition: opacity .2s;
-}
 
-.projectScope[hidden] {
-    /* Layout */
-    display: none;
+    /* Hidden */
+    &[hidden] {
+        /* Layout */
+        display: none;
+    }
 }
 
 .projectMedia[video] .projectScope {
@@ -2292,7 +2319,7 @@ img.snakeControlsArrow {
     font-size: .9rem;
 
     /* Visuals */
-    background:
+    background-image:
         linear-gradient(to bottom, transparent, transparent),
         linear-gradient(to bottom, var(--bg), var(--bg));
     color: var(--text);
@@ -2301,15 +2328,16 @@ img.snakeControlsArrow {
 
     /* Other */
     cursor: pointer;
-    transition: background .2s, border .2s;
-}
+    transition: background-image .2s, border .2s;
 
-.projectTag:hover {
-    /* Visuals */
-    background:
-        linear-gradient(to bottom, var(--hover), var(--hover)),
-        linear-gradient(to bottom, var(--bg), var(--bg));
-    border: var(--border);
+    /* Hover animation */
+    &:hover {
+        /* Visuals */
+        background-image:
+            linear-gradient(to bottom, var(--hover), var(--hover)),
+            linear-gradient(to bottom, var(--bg), var(--bg));
+        border: var(--border);
+    }
 }
 
 /* Projects none */
@@ -2357,14 +2385,15 @@ img.snakeControlsArrow {
     /* Other */
     z-index: 999;
     pointer-events: none;
-}
 
-#projectsFullscreen[show] {
-    /* Visuals */
-    opacity: 1;
+    /* Show animation */
+    &[show] {
+        /* Visuals */
+        opacity: 1;
 
-    /* Other */
-    pointer-events: unset;
+        /* Other */
+        pointer-events: unset;
+    }
 }
 
 #projectsFullscreenImage {
@@ -2489,11 +2518,12 @@ img.snakeControlsArrow {
     /* Other */
     object-fit: contain;
     cursor: pointer;
-}
 
-.footerArrow[mirror] {
-    /* Visuals */
-    scale: -1 1;
+    /* Mirror */
+    &[mirror] {
+        /* Visuals */
+        scale: -1 1;
+    }
 }
 
 #footerCredits {
