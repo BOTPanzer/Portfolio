@@ -163,7 +163,7 @@ const locales = {
                     tit: "Spyw4re",
                     con: `Second place out of 25 in the 5º edition of the <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">GameScholars gamejam</a>.
                         <br><br>
-                        In Spyw4re, you are a CCTV operator in an asylum. The building is falling down and a pacient is still inside, so you'll need to help him get out.
+                        In Spyw4re, you are a CCTV operator in an asylum. The building is falling down and a patient is still inside, so you'll need to help him get out.
                         <br><br>
                         In order to leave, you'll need to solve some puzzles and defeat some enemies, but don't think it will be that easy, someone doesn't want you to help him...`,
                     b1: "Download&nbsp<i>Spyw4re</i>",
@@ -180,7 +180,7 @@ const locales = {
                     tit: "High on Time",
                     con: `Developed for the 4º edition of the <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">GameScholars gamejam</a>.
                         <br><br>
-                        High on Time is a frenetic shooter in which, thanks to a drug, you are capable of controling time at the cost of your life.
+                        High on Time is a frenetic shooter in which, thanks to a drug, you are capable of controlling time at the cost of your life.
                         <br><br>
                         You will have to survive 3 waves of enemies with different weapons to complete the game, sliding and slowing time at your will in a building in construction.
                         <br><br>
@@ -412,7 +412,7 @@ const locales = {
         //About
         about: {
             title: 'Sobre Mi',
-            desc1: "¡Hey! Me llamo Alejandro, pero me puedes llamar Alex. Soy un desarrollador español de ### años al que le gusta pasar el tiempo jugando y desarrollando juegos.",
+            desc1: "¡Hey! Me llamo Alejandro, pero me puedes llamar Alex. Soy un desarrollador español de ### años al que le gusta pasar el tiempo jugando y creando juegos.",
             desc2: "Comencé a hacer juegos en 2015, con 11 años, y tomé un descanso para aprender desarrollo de apps & webs en 2019. He estado haciendo todo ello desde 2022, pero hacer juegos es lo que más me entretiene.",
             desc3: "Soy una persona organizada, independiente y muy perfeccionista a la que le encanta dar su propio toque. Algunos de mis intereses son jugar, programar, el diseño gráfico y la fotografia.",
             contact: '¡Ponte en contacto!',
@@ -1444,7 +1444,7 @@ const Project = Object.freeze({
     },
     memory_shift: {
         key: 'memory_shift',
-        dateStart: 2023,
+        dateStart: 2022,
         dateEnd: 2023,
         favPoints: 80,
         scope: [Scope.solo, Scope.personal],
@@ -1463,16 +1463,6 @@ const Project = Object.freeze({
         button: ['https://botpa.itch.io/twin-spirits'],
         vid: 'SdIGAw2ABeU'
     },
-    vaporcade: {
-        key: 'vaporcade',
-        dateStart: 2023,
-        dateEnd: 2023,
-        favPoints: 80,
-        scope: [Scope.solo, Scope.personal],
-        category: Category.games,
-        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.illustrator, Tag.photoshop],
-        button: ['https://botpa.itch.io/vaporcade']
-    },
     papa: {
         key: 'papa',
         dateStart: 2023,
@@ -1482,6 +1472,16 @@ const Project = Object.freeze({
         category: Category.games,
         tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.illustrator, Tag.photoshop],
         button: ['https://botpa.itch.io/cooking-papa']
+    },
+    vaporcade: {
+        key: 'vaporcade',
+        dateStart: 2022,
+        dateEnd: 2022,
+        favPoints: 80,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.games,
+        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.illustrator, Tag.photoshop],
+        button: ['https://botpa.itch.io/vaporcade']
     },
     otters: {
         key: 'otters',
