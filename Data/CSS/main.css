@@ -1004,6 +1004,29 @@ dialog:not(#snackbar) {
     }
 }
 
+.snakeButton {
+    /* Size */
+    width: fit-content;
+    height: fit-content;
+
+    /* Spacing */
+    padding: 8px 16px;
+
+    /* Visuals */
+    background-color: var(--text);
+    border-radius: 30px;
+    outline: none;
+
+    /* Text */
+    color: var(--bg);
+    font-family: mono;
+    font-size: 0.9rem;
+    
+    /* Other */
+    cursor: pointer;
+    transition: border .2s, background-color .2s;
+}
+
 #snakeInfoState {
     /* Size */
     width: 100%;
