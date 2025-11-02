@@ -118,6 +118,14 @@ const locales = {
                 jam: 'Jam Game',
             },
             projects: {
+                tochimochi: {
+                    tit: 'Tochimochi',
+                    con: `Developed for the international edition of the <a target="_blank" href="https://itch.io/jam/game-jam-internacional-cutn-buenos-aires">GameScholars gamejam</a>.
+                        <br><br>
+                        In Tochimochi you will help your new virtual friend, Mochi, complete the mission of seeing his granny. To do that, you will have to merge both the real and virtual world to complete puzzles using your computer and your phone.`,
+                    b1: 'Download&nbsp<i>Tochimochi</i>',
+                    vid: 'Gameplay Video'
+                },
                 akira_posters: {
                     tit: "Akira Posters",
                     con: `Some posters I made after watching Akira, one of the most influential pieces of art in the cyberpunk genre. Left poster is of Kaneda, right one is of Kei.`,
@@ -486,6 +494,14 @@ const locales = {
                 jam: 'Juego de Jam',
             },
             projects: {
+                tochimochi: {
+                    tit: 'Tochimochi',
+                    con: `Desarrollado para la edicion international de la <a href="https://itch.io/jam/game-jam-internacional-cutn-buenos-aires" target="_blank">gamejam de GameScholars</a>.
+                        <br><br>
+                        En Tochimochi ayudarás a tu nuevo amigo virtual, Mochi, a completar la misión de ver a su abuela. Para ello, tendrás que combinar el mundo real con el virtual para resolver puzles usando tu ordenador y tu móvil.`,
+                    b1: 'Descargar&nbsp<i>Tochimochi</i>',
+                    vid: 'Gameplay Video'
+                },
                 akira_posters: {
                     tit: "Posters de Akira",
                     con: `Algunos posters que hice despues de ver Akira, una de las piezas de arte más influyentes en el genero cyberpunk. El poster izquierdo es de Kaneda, el derecho de Kei.`,
@@ -546,7 +562,7 @@ const locales = {
                 },
                 hightime: {
                     tit: "High on Time",
-                    con: `Des para la 4º edicion de la <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">gamejam de GameScholars</a>.
+                    con: `Desarrollado para la 4º edicion de la <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">gamejam de GameScholars</a>.
                         <br><br>
                         High on Time es un shooter frenetico en el que, debido a una droga, eres capaz de controlar el tiempo a costo de tu vida.
                         <br><br>
@@ -1315,35 +1331,52 @@ const Scope = Object.freeze({
     jam: 'jam'
 });
 
+const FavPoints = Object.freeze({
+    cool: 100,
+    fine: 75,
+    mid: 50,
+    meh: 0
+});
+
 const Project = Object.freeze({
+    tochimochi: {
+        key: 'tochimochi',
+        dateStart: 2025,
+        dateEnd: 2025,
+        favPoints: FavPoints.cool,
+        scope: [Scope.team, Scope.jam],
+        category: Category.games,
+        tags: [Tag.cs, Tag.unity, Tag.blender, Tag.photoshop],
+        button: ['https://botpa.itch.io/tochimochi']
+    },
     akira_posters: {
         key: 'akira_posters',
         dateStart: 2025,
         dateEnd: 2025,
-        favPoints: 50,
+        favPoints: FavPoints.fine,
         scope: [Scope.solo, Scope.personal],
         category: Category.design,
         tags: [Tag.photoshop],
-        button: ["https://www.artstation.com/artwork/lGQ84V"]
+        button: ['https://www.artstation.com/artwork/lGQ84V']
     },
     map_pinner: {
         key: 'map_pinner',
         dateStart: 2025,
         dateEnd: 2025,
-        favPoints: 50,
+        favPoints: FavPoints.mid,
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
-        tags: [Tag.html, Tag.css, Tag.js/*, Tag.vscode*/],
+        tags: [Tag.html, Tag.css, Tag.js],
         button: ['http://botpanzer.github.io/Map-Pinner']
     },
     hardcore_kitty: {
         key: 'hardcore_kitty',
         dateStart: 2025,
         dateEnd: 2025,
-        favPoints: 100,
+        favPoints: FavPoints.cool,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.blender, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity, Tag.blender, Tag.photoshop],
         button: ['https://botpa.itch.io/hardcore-kitty'],
         vid: 'S0YSZCOFGlg'
     },
@@ -1351,20 +1384,20 @@ const Project = Object.freeze({
         key: 'stealer',
         dateStart: 2024,
         dateEnd: 2024,
-        favPoints: 50,
+        favPoints: FavPoints.mid,
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
-        tags: [Tag.python/*, Tag.vscode*/],
+        tags: [Tag.python],
         button: ['https://github.com/BOTPanzer/Turbo-Stealer']
     },
     spyw4re: {
         key: 'spyw4re',
         dateStart: 2024,
         dateEnd: 2024,
-        favPoints: 100,
+        favPoints: FavPoints.cool,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.js, Tag.nodejs, Tag.unity/*, Tag.vscode*/, Tag.blender, Tag.photoshop],
+        tags: [Tag.cs, Tag.js, Tag.nodejs, Tag.unity, Tag.blender, Tag.photoshop],
         button: ['https://botpa.itch.io/spyw4re'],
         vid: 'Qc3aWfPAxg0'
     },
@@ -1372,7 +1405,7 @@ const Project = Object.freeze({
         key: 'artist_posters',
         dateStart: 2024,
         dateEnd: 2024,
-        favPoints: 50,
+        favPoints: FavPoints.fine,
         scope: [Scope.solo, Scope.personal],
         category: Category.design,
         tags: [Tag.photoshop],
@@ -1382,30 +1415,30 @@ const Project = Object.freeze({
         key: 'stardew_pets',
         dateStart: 2024,
         dateEnd: 2025,
-        favPoints: 100,
+        favPoints: FavPoints.cool,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
-        tags: [Tag.ts, Tag.html, Tag.css/*, Tag.vscode*/, Tag.photoshop],
+        tags: [Tag.ts, Tag.html, Tag.css, Tag.photoshop],
         button: ['https://marketplace.visualstudio.com/items?itemName=botpa.stardew-pets']
     },
     hackoon: {
         key: 'hackoon',
         dateStart: 2024,
         dateEnd: Infinity,
-        favPoints: 0,
+        favPoints: FavPoints.cool,
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.blender, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity, Tag.blender, Tag.photoshop],
         button: ['https://www.tiktok.com/@botpanzer']
     },
     hightime: {
         key: 'hightime',
         dateStart: 2024,
         dateEnd: 2024,
-        favPoints: 90,
+        favPoints: FavPoints.cool,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity, Tag.photoshop],
         button: ['https://botpa.itch.io/high-on-time'],
         vid: 'UGMQDJxov1M',
     },
@@ -1413,10 +1446,10 @@ const Project = Object.freeze({
         key: 'fresquita',
         dateStart: 2024,
         dateEnd: 2024,
-        favPoints: 80,
+        favPoints: FavPoints.cool,
         scope: [Scope.solo, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.blender, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity, Tag.blender, Tag.photoshop],
         button: ['https://botpa.itch.io/the-lost-fresquita'],
         vid: 'SC_3TWWP46k'
     },
@@ -1424,10 +1457,10 @@ const Project = Object.freeze({
         key: 'raccoon',
         dateStart: 2023,
         dateEnd: 2023,
-        favPoints: 80,
+        favPoints: FavPoints.cool,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.blender, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity, Tag.blender, Tag.photoshop],
         button: ['https://botpa.itch.io/esto-aun-no-es-un-juego'],
         vid: 'UGH5wQYlAt4'
     },
@@ -1435,10 +1468,10 @@ const Project = Object.freeze({
         key: 'lmdshow',
         dateStart: 2023,
         dateEnd: 2023,
-        favPoints: 80,
+        favPoints: FavPoints.cool,
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.blender, Tag.photoshop, Tag.substance],
+        tags: [Tag.cs, Tag.unity, Tag.blender, Tag.photoshop, Tag.substance],
         button: ['https://botpa.itch.io/escape-from-lmdshow'],
         vid: 'z0Qv5HZyZgU'
     },
@@ -1446,20 +1479,20 @@ const Project = Object.freeze({
         key: 'memory_shift',
         dateStart: 2022,
         dateEnd: 2023,
-        favPoints: 80,
+        favPoints: FavPoints.cool,
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.photoshop, Tag.illustrator],
+        tags: [Tag.cs, Tag.unity, Tag.photoshop, Tag.illustrator],
         button: ['https://botpa.itch.io/memory-shift']
     },
     spirits: {
         key: 'spirits',
         dateStart: 2023,
         dateEnd: 2023,
-        favPoints: 80,
+        favPoints: FavPoints.cool,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.illustrator, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity, Tag.illustrator, Tag.photoshop],
         button: ['https://botpa.itch.io/twin-spirits'],
         vid: 'SdIGAw2ABeU'
     },
@@ -1467,47 +1500,47 @@ const Project = Object.freeze({
         key: 'papa',
         dateStart: 2023,
         dateEnd: 2023,
-        favPoints: 50,
+        favPoints: FavPoints.mid,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.illustrator, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity, Tag.illustrator, Tag.photoshop],
         button: ['https://botpa.itch.io/cooking-papa']
     },
     vaporcade: {
         key: 'vaporcade',
         dateStart: 2022,
         dateEnd: 2022,
-        favPoints: 80,
+        favPoints: FavPoints.fine,
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.illustrator, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity, Tag.illustrator, Tag.photoshop],
         button: ['https://botpa.itch.io/vaporcade']
     },
     otters: {
         key: 'otters',
         dateStart: 2022,
         dateEnd: 2022,
-        favPoints: 20,
+        favPoints: FavPoints.meh,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity/*, Tag.vscode*/, Tag.max3ds, Tag.substance, Tag.illustrator, Tag.photoshop],
+        tags: [Tag.cs, Tag.unity, Tag.max3ds, Tag.substance, Tag.illustrator, Tag.photoshop],
         button: ['https://botpa.itch.io/otters-odyssey']
     },
     assistant_pc: {
         key: 'assistant_pc',
         dateStart: 2021,
         dateEnd: 2025,
-        favPoints: 50,
+        favPoints: FavPoints.mid,
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
-        tags: [Tag.html, Tag.css, Tag.js, Tag.nodejs, Tag.electronjs/*, Tag.vscode*/, Tag.uiux],
+        tags: [Tag.html, Tag.css, Tag.js, Tag.nodejs, Tag.electronjs, Tag.uiux],
         button: ['https://github.com/BOTPanzer/Orion-Assistant', 'https://github.com/BOTPanzer/USB-Launcher']
     },
     assistant_android: {
         key: 'assistant_android',
         dateStart: 2021,
         dateEnd: 2025,
-        favPoints: 50,
+        favPoints: FavPoints.mid,
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
         tags: [Tag.java, Tag.android, Tag.uiux],
@@ -1517,10 +1550,10 @@ const Project = Object.freeze({
         key: 'framework',
         dateStart: 2022,
         dateEnd: 2024,
-        favPoints: 50,
+        favPoints: FavPoints.mid,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
-        tags: [Tag.html, Tag.css, Tag.js/*, Tag.vscode*/, Tag.uiux],
+        tags: [Tag.html, Tag.css, Tag.js, Tag.uiux],
         button: ['https://botpanzer.github.io/Orion-Framework']
     },
     //Usually hidden from here
@@ -1528,17 +1561,17 @@ const Project = Object.freeze({
         key: 'discord_bots',
         dateStart: 2018,
         dateEnd: 2020,
-        favPoints: 0,
+        favPoints: FavPoints.meh,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
-        tags: [Tag.js/*, Tag.vscode*/, Tag.discordapi],
+        tags: [Tag.js, Tag.discordapi],
         button: ["https://github.com/BOTPanzer/Syrup"]
     },
     modding: {
         key: 'modding',
         dateStart: 2021,
         dateEnd: 2021,
-        favPoints: 0,
+        favPoints: FavPoints.meh,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
         tags: [Tag.model3d, Tag.print3d, Tag.illustrator, Tag.sketching, Tag.diy]
@@ -1547,7 +1580,7 @@ const Project = Object.freeze({
         key: 't45',
         dateStart: 2018,
         dateEnd: 2018,
-        favPoints: 0,
+        favPoints: FavPoints.meh,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
         tags: [Tag.print3d, Tag.diy]
@@ -1556,7 +1589,7 @@ const Project = Object.freeze({
         key: 'usb',
         dateStart: 2018,
         dateEnd: 2018,
-        favPoints: 0,
+        favPoints: FavPoints.meh,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
         tags: [Tag.model3d, Tag.print3d, Tag.electronics, Tag.diy]
@@ -1565,7 +1598,7 @@ const Project = Object.freeze({
         key: 'hoodie',
         dateStart: 2021,
         dateEnd: 2021,
-        favPoints: 0,
+        favPoints: FavPoints.meh,
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
         tags: [Tag.illustrator, Tag.photoshop, Tag.sketching]
@@ -1593,6 +1626,7 @@ class ProjectsPage {
 
         //List (sorted by preferences)
         unfilteredList: [
+            Project.tochimochi,
             Project.akira_posters,
             Project.map_pinner,
             Project.hardcore_kitty,
