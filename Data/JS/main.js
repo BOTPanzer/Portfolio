@@ -1171,7 +1171,7 @@ const Skill = Object.freeze({
     app: {
         id: 'skillsApp',
         locale: 'app',
-        experience: 5,
+        experience: 4,
     },
     web: {
         id: 'skillsWeb',
@@ -2786,6 +2786,7 @@ class LoadingAnimation {
 }
 
 const loading = new LoadingAnimation();
+
 
 
  /*$                                     /$$ /$$                       /$$     /$$                    
