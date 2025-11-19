@@ -162,7 +162,7 @@ const locales = {
                 },
                 stardew_pets: {
                     tit: "Stardew Pets",
-                    con: `Stardew Pets is a VS Code extension with +11K downloads that lets you have Stardew Valley pets accompanying you while you code.
+                    con: `Stardew Pets is a VS Code extension with +16K downloads that lets you have Stardew Valley pets accompanying you while you code.
                         <br><br>
                         Aditionaly, you can decorate your pets place with money obtained by protecting them from enemies that may appear.`,
                     b1: "Install&nbsp<i>Stardew Pets</i>",
@@ -538,7 +538,7 @@ const locales = {
                 },
                 stardew_pets: {
                     tit: "Stardew Pets",
-                    con: `Stardew Pets es una extensión para VS Code con +11K descargas que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
+                    con: `Stardew Pets es una extensión para VS Code con +16K descargas que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
                         <br><br>
                         Además, podrás decorar el lugar de tus mascotas con dinero obtenido al protegerlas de enemigos que aparezcan.`,
                     b1: "Instalar&nbsp<i>Stardew Pets</i>"
