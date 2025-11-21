@@ -120,7 +120,7 @@ const locales = {
             projects: {
                 tochimochi: {
                     tit: 'Tochimochi',
-                    con: `Developed for the international edition of the <a target="_blank" href="https://itch.io/jam/game-jam-internacional-cutn-buenos-aires">GameScholars gamejam</a>.
+                    con: `Second place in the international edition of the <a href="https://itch.io/jam/game-jam-internacional-cutn-buenos-aires" target="_blank">GameScholars gamejam</a>
                         <br><br>
                         In Tochimochi you will help your new virtual friend, Mochi, complete the mission of seeing his granny. To do that, you will have to merge both the real and virtual world to complete puzzles using your computer and your phone.`,
                     b1: 'Download&nbsp<i>Tochimochi</i>',
@@ -496,7 +496,7 @@ const locales = {
             projects: {
                 tochimochi: {
                     tit: 'Tochimochi',
-                    con: `Desarrollado para la edicion international de la <a href="https://itch.io/jam/game-jam-internacional-cutn-buenos-aires" target="_blank">gamejam de GameScholars</a>.
+                    con: `Segundo puesto en la edicion international de la <a href="https://itch.io/jam/game-jam-internacional-cutn-buenos-aires" target="_blank">gamejam de GameScholars</a>.
                         <br><br>
                         En Tochimochi ayudarás a tu nuevo amigo virtual, Mochi, a completar la misión de ver a su abuela. Para ello, tendrás que combinar el mundo real con el virtual para resolver puzles usando tu ordenador y tu móvil.`,
                     b1: 'Descargar&nbsp<i>Tochimochi</i>',
