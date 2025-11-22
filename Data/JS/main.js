@@ -1346,7 +1346,7 @@ const Project = Object.freeze({
         favPoints: FavPoints.cool,
         scope: [Scope.team, Scope.jam],
         category: Category.games,
-        tags: [Tag.cs, Tag.unity, Tag.blender, Tag.photoshop],
+        tags: [Tag.cs, Tag.html, Tag.css, Tag.js, Tag.unity, Tag.blender, Tag.photoshop],
         button: ['https://botpa.itch.io/tochimochi']
     },
     akira_posters: {
