@@ -1347,7 +1347,8 @@ const Project = Object.freeze({
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.html, Tag.css, Tag.js, Tag.unity, Tag.blender, Tag.photoshop],
-        button: ['https://botpa.itch.io/tochimochi']
+        button: ['https://botpa.itch.io/tochimochi'],
+        vid: 'DEsmoGcLBzs'
     },
     akira_posters: {
         key: 'akira_posters',
