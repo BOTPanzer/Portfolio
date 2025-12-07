@@ -1,6 +1,6 @@
- /*$      /$$           /$$          
-| $$$    /$$$          |__/          
-| $$$$  /$$$$  /$$$$$$  /$$ /$$$$$$$ 
+ /*$      /$$           /$$
+| $$$    /$$$          |__/
+| $$$$  /$$$$  /$$$$$$  /$$ /$$$$$$$
 | $$ $$/$$ $$ |____  $$| $$| $$__  $$
 | $$  $$$| $$  /$$$$$$$| $$| $$  \ $$
 | $$\  $ | $$ /$$__  $$| $$| $$  | $$
@@ -120,9 +120,11 @@ const locales = {
             projects: {
                 tochimochi: {
                     tit: 'Tochimochi',
-                    con: `Second place in the international edition of the <a href="https://itch.io/jam/game-jam-internacional-cutn-buenos-aires" target="_blank">GameScholars gamejam</a>
+                    con: `
+                        Second place in the international edition of the <a href="https://itch.io/jam/game-jam-internacional-cutn-buenos-aires" target="_blank">GameScholars gamejam</a>
                         <br><br>
-                        In Tochimochi you will help your new virtual friend, Mochi, complete the mission of seeing his granny. To do that, you will have to merge both the real and virtual world to complete puzzles using your computer and your phone.`,
+                        In Tochimochi you will help your new virtual friend, Mochi, complete the mission of seeing his granny. To do that, you will have to merge both the real and virtual world to complete puzzles using your computer and your phone.
+                    `,
                     b1: 'Download&nbsp<i>Tochimochi</i>',
                     vid: 'Gameplay Video'
                 },
@@ -138,206 +140,252 @@ const locales = {
                 },
                 map_pinner: {
                     tit: "Map Pinner",
-                    con: `Map Pinner is a free web tool designed to help you plan and organize your trips.
+                    con: `
+                        Map Pinner is a free web tool designed to help you plan and organize your trips.
                         <br><br>
-                        With Map Pinner you can easily select a map image, place pins on your map & customize each one with custom colors, categories, names, links, and descriptions.`,
+                        With Map Pinner you can easily select a map image, place pins on your map & customize each one with custom colors, categories, names, links, and descriptions.
+                    `,
                     b1: "Try&nbsp<i>Map Pinner</i>",
                 },
                 hardcore_kitty: {
                     tit: "Hardcore Kitty",
-                    con: `Third place in the 6º edition of the <a href="https://itch.io/jam/6-edicin-game-jam-game-scholars" target="_blank">GameScholars gamejam</a>.
+                    con: `
+                        Third place in the 6º edition of the <a href="https://itch.io/jam/6-edicin-game-jam-game-scholars" target="_blank">GameScholars gamejam</a>.
                         <br><br>
                         In Hardcore Kitty, you play as a cat working for a delivery company.
                         <br><br>
-                        Your goal is to find pickup points, collect food, and deliver it to the drop-off points, performing tricks and flips on your skateboard along the way.`,
+                        Your goal is to find pickup points, collect food, and deliver it to the drop-off points, performing tricks and flips on your skateboard along the way.
+                    `,
                     b1: "Download&nbsp<i>Hardcore Kitty</i>",
                     vid: 'Gameplay Video'
                 },
                 stealer: {
                     tit: "Turbo Stealer",
-                    con: `For educational purposes only, Turbo Stealer is a command line application programmed in python that is able to steal information from the computer running it.
+                    con: `
+                        For educational purposes only, Turbo Stealer is a command line application programmed in python that is able to steal information from the computer running it.
                         <br><br>
-                        Currently, it is capable of stealing emails, usernames and passwords from saved credentials in browsers.`,
+                        Currently, it is capable of stealing emails, usernames and passwords from saved credentials in browsers.
+                    `,
                     b1: "Download&nbsp<i>Turbo Stealer</i>",
                 },
                 stardew_pets: {
                     tit: "Stardew Pets",
-                    con: `Stardew Pets is a VS Code extension with +16K downloads that lets you have Stardew Valley pets accompanying you while you code.
+                    con: `
+                        Stardew Pets is a VS Code extension with +16K downloads that lets you have Stardew Valley pets accompanying you while you code.
                         <br><br>
-                        Aditionaly, you can decorate your pets place with money obtained by protecting them from enemies that may appear.`,
+                        Aditionaly, you can decorate your pets place with money obtained by protecting them from enemies that may appear.
+                    `,
                     b1: "Install&nbsp<i>Stardew Pets</i>",
                 },
                 spyw4re: {
                     tit: "Spyw4re",
-                    con: `Second place out of 25 in the 5º edition of the <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">GameScholars gamejam</a>.
+                    con: `
+                        Second place out of 25 in the 5º edition of the <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">GameScholars gamejam</a>.
                         <br><br>
                         In Spyw4re, you are a CCTV operator in an asylum. The building is falling down and a patient is still inside, so you'll need to help him get out.
                         <br><br>
-                        In order to leave, you'll need to solve some puzzles and defeat some enemies, but don't think it will be that easy, someone doesn't want you to help him...`,
+                        In order to leave, you'll need to solve some puzzles and defeat some enemies, but don't think it will be that easy, someone doesn't want you to help him...
+                    `,
                     b1: "Download&nbsp<i>Spyw4re</i>",
                     vid: 'Gameplay Video'
                 },
                 hackoon: {
                     tit: "Hackoon",
-                    con: `Hackoon is an in development puzzle game about a game developer raccoon that needs to fix his game before release.
+                    con: `
+                        Hackoon is an in development puzzle game about a game developer raccoon that needs to fix his game before release.
                         <br><br>
-                        In order to achieve this, he will go inside of his own game. There, with the help of a little robot, you will be able to modify the code that controls the objects of each level to complete ingenious puzzles.`,
+                        In order to achieve this, he will go inside of his own game. There, with the help of a little robot, you will be able to modify the code that controls the objects of each level to complete ingenious puzzles.
+                    `,
                     b1: "Follow the development!"
                 },
                 hightime: {
                     tit: "High on Time",
-                    con: `Developed for the 4º edition of the <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">GameScholars gamejam</a>.
+                    con: `
+                        Developed for the 4º edition of the <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">GameScholars gamejam</a>.
                         <br><br>
                         High on Time is a frenetic shooter in which, thanks to a drug, you are capable of controlling time at the cost of your life.
                         <br><br>
                         You will have to survive 3 waves of enemies with different weapons to complete the game, sliding and slowing time at your will in a building in construction.
                         <br><br>
-                        Optionaly, an endless mode with infinite waves is also available.`,
+                        Optionaly, an endless mode with infinite waves is also available.
+                    `,
                     b1: "Download&nbsp<i>High on Time</i>",
                     vid: 'Gameplay Video'
                 },
                 fresquita: {
                     tit: "The lost Fresquita",
-                    con: `One of the awarded games of the <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, a gamejam organized for <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
+                    con: `
+                        One of the awarded games of the <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, a gamejam organized for <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
                         <br><br>
                         In The lost Fresquita you will play the role of Juan in a day at night. 
                         You celebrated a party in the forest the previous day and forgot some beers there but, since that's irresponsible, you came back for them. 
                         <br><br>
                         Your mission will be to find the 3 forgotten beers and take them back home safe and sound. 
                         What do I mean by safe? 
-                        Lets say some of your friends wont make it easy...`,
+                        Lets say some of your friends wont make it easy...
+                    `,
                     b1: "Download&nbsp<i>The lost Fresquita</i>",
                     vid: 'IlloJuan Playing on Stream'
                 },
                 raccoon: {
                     tit: "Esto AÚN no es un Juego",
-                    con: `Winner of the 3º edition of the <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">GameScholars gamejam</a>.
+                    con: `
+                        Winner of the 3º edition of the <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">GameScholars gamejam</a>.
                         <br><br>
                         In Esto AÚN no es un juego you will help a programer raccoon finish his game before his gamejam ends.
                         <br><br>
                         Due to the little time he has left, to achieve this you will have to go inside the game and fix bugs from there.
                         <br><br>
-                        Your mission will be to change how things work, so that you are able to get to each level's ending and continue to the next.`,
+                        Your mission will be to change how things work, so that you are able to get to each level's ending and continue to the next.
+                    `,
                     b1: "Download&nbsp<i>Esto AÚN no es un Juego</i>",
                     vid: 'Gameplay Video'
                 },
                 lmdshow: {
                     tit: "Escape From LMDShow",
-                    con: `Thank you <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a> for playing!
+                    con: `
+                        Thank you <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a> for playing!
                         <br><br>
                         Escape from LMDShow is a escape room like game in which Juan Alberto, a really cool guy, is kidnapped by LMDShow and attempts to escape the house he was locked in.
                         <br><br>
-                        To escape you will have to solve different puzzles with objects and codes that you will find exploring the rooms.`,
+                        To escape you will have to solve different puzzles with objects and codes that you will find exploring the rooms.
+                    `,
                     b1: "Download&nbsp<i>Escape From LMDShow</i>",
                     vid: 'IlloJuan Playing on Stream'
                 },
                 memory_shift: {
                     tit: "Memory Shift",
-                    con: `Memory Shift is a 2D action-platformer featuring fast-paced gameplay and a hacking system.
+                    con: `
+                        Memory Shift is a 2D action-platformer featuring fast-paced gameplay and a hacking system.
                         <br><br>
                         Inspired by games like Katana ZERO and Cyberpunk 2077, run, kill, hack, slide and discover what happened to you before losing your memories.
                         <br><br>
-                        Enjoy a story driven adventure with handcrafted levels and mechanics such as throwing items or exploding enemies from afar.`,
+                        Enjoy a story driven adventure with handcrafted levels and mechanics such as throwing items or exploding enemies from afar.
+                    `,
                     b1: "Download&nbsp<i>Memory Shift</i>"
                 },
                 spirits: {
                     tit: "Twin Spirits",
-                    con: `Finalist in the 2º edition of the <a href="https://itch.io/jam/gamescholars-2nd-edition" target="_blank">GameScholars gamejam</a>.
+                    con: `
+                        Finalist in the 2º edition of the <a href="https://itch.io/jam/gamescholars-2nd-edition" target="_blank">GameScholars gamejam</a>.
                         <br><br>
                         Twin Spirits is an indie local coop game in which two spirits go on an adventure in search of a scepter capable of bringing them back to life.  
                         <br><br>
-                        On the way you will find puzzles in which you will have to cooperate in order to continue.`,
+                        On the way you will find puzzles in which you will have to cooperate in order to continue.
+                    `,
                     b1: "Download&nbsp<i>Twin Spirits</i>",
                     vid: 'Trailer Video'
                 },
                 papa: {
                     tit: "Cooking Papa",
-                    con: `Cooking Papa is an indie game where you will have to prepare recipes with ingredients you don't have.
+                    con: `
+                        Cooking Papa is an indie game where you will have to prepare recipes with ingredients you don't have.
                         <br><br>
-                        The game goes against the clock and you will have to check the cooking book to replace the ingredients that are missing.`,
+                        The game goes against the clock and you will have to check the cooking book to replace the ingredients that are missing.
+                    `,
                     b1: "Download&nbsp<i>Cooking Papa</i>"
                 },
                 vaporcade: {
                     tit: "Vaporcade",
-                    con: `Vaporcade is a vaporwave themed arcade indie game in which you control a spaceship and score points by shooting. 
+                    con: `
+                        Vaporcade is a vaporwave themed arcade indie game in which you control a spaceship and score points by shooting. 
                         <br><br>
-                        Vaporcade is divided by waves. In each wave you'll find new enemies and, every two waves, a boss you will have to defeat.`,
+                        Vaporcade is divided by waves. In each wave you'll find new enemies and, every two waves, a boss you will have to defeat.
+                    `,
                     b1: "Download&nbsp<i>Vaporcade</i>"
                 },
                 otters: {
                     tit: "Otter's Odyssey",
-                    con: `Otter's Odyssey was presented to the 2022 URJC GameJam with a medieval theme and received an honorific mention to the best 3D esthetic.
+                    con: `
+                        Otter's Odyssey was presented to the 2022 URJC GameJam with a medieval theme and received an honorific mention to the best 3D esthetic.
                         <br><br>
-                        It is an isometric role playing game in which you control an otter that goes into an adventure to save its brother.`,
+                        It is an isometric role playing game in which you control an otter that goes into an adventure to save its brother.
+                    `,
                     b1: "Download&nbsp<i>Otter's Odyssey</i>"
                 },
                 assistant_pc: {
                     tit: 'Oriøn Assistant (Windows)',
-                    con: `Oriøn Assistant for Windows is an app launcher with support for custom themes and HTML/JS apps called modules.
+                    con: `
+                        Oriøn Assistant for Windows is an app launcher with support for custom themes and HTML/JS apps called modules.
                         <br><br>
                         I like to carry my apps on a USB but plugging drives in different computers changes their letter and shortcuts break, so I had to come up with a solution.
                         The first iteration of the assistant was a command line app that replaced path letters with "?:\\", which would use the drive it was installed on.
                         <br><br>
                         After that I wanted to go further with a UI, so I started a new version called Oriøn Launcher using Electron.js. 
-                        Some updates later I renamed it to Oriøn Assistant to match the Android app and added compatibility between them.`,
+                        Some updates later I renamed it to Oriøn Assistant to match the Android app and added compatibility between them.
+                    `,
                     b1: 'Oriøn Assistant',
                     b2: 'Batch Launcher'
                 },
                 assistant_android: {
                     tit: 'Oriøn Assistant (Android)',
-                    con: `Oriøn Assistant for Android is an app full of useful smaller apps such as a music player or a QR scanner.
+                    con: `
+                        Oriøn Assistant for Android is an app full of useful smaller apps such as a music player or a QR scanner.
                         <br><br>
                         At first, the idea started as a simple web browser that detected commands and helped with gaming tasks.
                         After forgetting it for some time, I decided to rename it and give it a modern design with Android Studio. 
-                        At the moment it has music and video players, a photo vault, notes, a QR scanner and an app to send data to the Windows version of the app.`,
+                        At the moment it has music and video players, a photo vault, notes, a QR scanner and an app to send data to the Windows version of the app.
+                    `,
                     b1: 'Download APK'
                 },
                 framework: {
                     tit: 'Oriøn Framework',
-                    con: `Oriøn Framework is an HTML, CSS & JS based framework made with personalization in mind. 
+                    con: `
+                        Oriøn Framework is an HTML, CSS & JS based framework made with personalization in mind. 
                         This project got separated from the PC version of Oriøn Assistant in an attempt to make it available for everyone.
                         <br><br>
-                        Here you can find new simple and easy to use HTML elements like buttons, inputs, switches, checkboxes, radio buttons and various loading animations and effects.`,
+                        Here you can find new simple and easy to use HTML elements like buttons, inputs, switches, checkboxes, radio buttons and various loading animations and effects.
+                    `,
                     b1: 'See documentation'
                 },
                 discord_bots: {
                     tit: 'Discord Bots',
-                    con: `I've created two discord bots. The first one, Syrup, is a simple bot capable of moderating a server and providing simple games for people to enjoy.
+                    con: `
+                        I've created two discord bots. The first one, Syrup, is a simple bot capable of moderating a server and providing simple games for people to enjoy.
                         <br><br>
-                        After Syrup came Coscu, a more advanced bot capable of the same and more. This new version could jump into a call with people and play custom sounds and music.`,
+                        After Syrup came Coscu, a more advanced bot capable of the same and more. This new version could jump into a call with people and play custom sounds and music.
+                    `,
                     b1: 'Syrup Repository'
                 },
                 modding: {
                     tit: 'PC Modding',
-                    con: `Ever since I got into the PC world I started to get interested in modding, so I decided to make my own modded PC.
+                    con: `
+                        Ever since I got into the PC world I started to get interested in modding, so I decided to make my own modded PC.
                         <br><br>
                         I began by extracting 3D models from some of my favorite games since I couldn't find them online.
                         I printed a deathclaw figure and made a large rock model to place inside the case.
                         Then I continued sketching the exterior pieces, which are Cyberpunk 2077 inspired, to later 3D model and print them.
                         <br><br>
-                        After printing them, I painted and placed them on my PC.`
+                        After printing them, I painted and placed them on my PC.
+                    `
                 },
                 t45: {
                     tit: 'T45 Helmet',
-                    con: `Fallout is one of my favorite videogame series and, in its universe, people use technologically advanced full-body suits called power armors.
+                    con: `
+                        Fallout is one of my favorite videogame series and, in its universe, people use technologically advanced full-body suits called power armors.
                         <br><br>
                         As I found a helmet 3D model I decided to print it in small pieces to make my own. 
-                        After gluing all the parts, I painted it and added a vacuum cleaner tube in order to make it look a bit more realistic.`
+                        After gluing all the parts, I painted it and added a vacuum cleaner tube in order to make it look a bit more realistic.
+                    `
                 },
                 usb: {
                     tit: 'GTX USB',
-                    con: `Carrying apps and games on a USB isn't a bad idea, but the memory's speed can cause problems.
+                    con: `
+                        Carrying apps and games on a USB isn't a bad idea, but the memory's speed can cause problems.
                         To fix this I had the idea of adding a cooler, so I started designing a case which ended up having the shape of an Nvidia GTX graphics card.
                         <br><br>
                         After adding the holes for the ventilation, I printed the case and placed a small fan that gets powered from a little connector on the side.
-                        Finally, I put a thermal pad and an aluminium plate, which was later painted, to dissipate heat from the memory.`
+                        Finally, I put a thermal pad and an aluminium plate, which was later painted, to dissipate heat from the memory.
+                    `
                 },
                 hoodie: {
                     tit: 'Futuristic Hoodie',
-                    con: `One day I came across a streetwear hoodie, a new style of clothing I had never seen, and I got inspired to create my own.
+                    con: `
+                        One day I came across a streetwear hoodie, a new style of clothing I had never seen, and I got inspired to create my own.
                         It isn't exactly streetwear but it's indeed a futuristic hoodie design.
                         I started by sketching some designs in my notebook which were then digitalized using Adobe Illustrator.
-                        Then I made a preview in Photoshop of how the hoodie would look like if it was real.`
+                        Then I made a preview in Photoshop of how the hoodie would look like if it was real.
+                    `
                 },
             },
             none: 'No projects where found...<br>Try changing the selected filters.',
@@ -383,7 +431,7 @@ const locales = {
                 title: 'Interested Fellow',
                 description: 'Open one of my contact links'
             },
-        },
+        }
     }, 
     es: {
         //Locale
@@ -496,9 +544,11 @@ const locales = {
             projects: {
                 tochimochi: {
                     tit: 'Tochimochi',
-                    con: `Segundo puesto en la edicion international de la <a href="https://itch.io/jam/game-jam-internacional-cutn-buenos-aires" target="_blank">gamejam de GameScholars</a>.
+                    con: `
+                        Segundo puesto en la edicion international de la <a href="https://itch.io/jam/game-jam-internacional-cutn-buenos-aires" target="_blank">gamejam de GameScholars</a>.
                         <br><br>
-                        En Tochimochi ayudarás a tu nuevo amigo virtual, Mochi, a completar la misión de ver a su abuela. Para ello, tendrás que combinar el mundo real con el virtual para resolver puzles usando tu ordenador y tu móvil.`,
+                        En Tochimochi ayudarás a tu nuevo amigo virtual, Mochi, a completar la misión de ver a su abuela. Para ello, tendrás que combinar el mundo real con el virtual para resolver puzles usando tu ordenador y tu móvil.
+                    `,
                     b1: 'Descargar&nbsp<i>Tochimochi</i>',
                     vid: 'Gameplay Video'
                 },
@@ -514,206 +564,252 @@ const locales = {
                 },
                 map_pinner: {
                     tit: "Map Pinner",
-                    con: `Map Pinner es una herramienta web gratuita diseñada para ayudarte a planificar y organizar tus viajes.
+                    con: `
+                        Map Pinner es una herramienta web gratuita diseñada para ayudarte a planificar y organizar tus viajes.
                         <br><br>
-                        Con Map Pinner puedes seleccionar una imagen como mapa, colocar pins y personalizar cada una con colores, categorías, nombres, links y descripciones personalizadas.`,
+                        Con Map Pinner puedes seleccionar una imagen como mapa, colocar pins y personalizar cada una con colores, categorías, nombres, links y descripciones personalizadas.
+                    `,
                     b1: "Probar&nbsp<i>Map Pinner</i>"
                 },
                 hardcore_kitty: {
                     tit: "Hardcore Kitty",
-                    con: `Tercer puesto en la 6º edicion de la <a href="https://itch.io/jam/6-edicin-game-jam-game-scholars" target="_blank">gamejam de GameScholars</a>.
+                    con: `
+                        Tercer puesto en la 6º edicion de la <a href="https://itch.io/jam/6-edicin-game-jam-game-scholars" target="_blank">gamejam de GameScholars</a>.
                         <br><br>
                         En Hardcore Kitty tomarás el rol de un gato que trabaja en una empresa de reparto.
                         <br><br>
-                        Tu objetivo es encontrar puntos de recogida, coger la comida y llevarla hasta los puntos de entrega haciendo trucos y piruetas con el skate por el camino.`,
+                        Tu objetivo es encontrar puntos de recogida, coger la comida y llevarla hasta los puntos de entrega haciendo trucos y piruetas con el skate por el camino.
+                    `,
                     b1: "Descargar&nbsp<i>Hardcore Kitty</i>",
                     vid: 'Ver Gameplay'
                 },
                 stealer: {
                     tit: "Turbo Stealer",
-                    con: `Solo por motivos educacionales, Turbo Stealer es una aplicación de línea de comandos programada en Python capaz de robar información del ordenador en que se ejecuta.
+                    con: `
+                        Solo por motivos educacionales, Turbo Stealer es una aplicación de línea de comandos programada en Python capaz de robar información del ordenador en que se ejecuta.
                         <br><br>
-                        Actualmente, es capaz de robar correos electrónicos, nombres de usuario y contraseñas de credenciales guardadas en los navegadores.`,
+                        Actualmente, es capaz de robar correos electrónicos, nombres de usuario y contraseñas de credenciales guardadas en los navegadores.
+                    `,
                     b1: "Descargar&nbsp<i>Turbo Stealer</i>"
                 },
                 stardew_pets: {
                     tit: "Stardew Pets",
-                    con: `Stardew Pets es una extensión para VS Code con +16K descargas que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
+                    con: `
+                        Stardew Pets es una extensión para VS Code con +16K descargas que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
                         <br><br>
-                        Además, podrás decorar el lugar de tus mascotas con dinero obtenido al protegerlas de enemigos que aparezcan.`,
+                        Además, podrás decorar el lugar de tus mascotas con dinero obtenido al protegerlas de enemigos que aparezcan.
+                    `,
                     b1: "Instalar&nbsp<i>Stardew Pets</i>"
                 },
                 spyw4re: {
                     tit: "Spyw4re",
-                    con: `Segundo puesto de 25 en la 5º edicion de la <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">gamejam de GameScholars</a>.
+                    con: `
+                        Segundo puesto de 25 en la 5º edicion de la <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">gamejam de GameScholars</a>.
                         <br><br>
                         En Spyw4re, eres un operador de CCTV en un asilo. El edificio se está derrumbando y un paciente todavía está dentro, por lo que tendrás que ayudarlo a salir.
                         <br><br>
-                        Para lograrlo, tendrás que resolver algunos acertijos y derrotar a algunos enemigos, pero no creas que será tan fácil, alguien no quiere que lo ayudes...`,
+                        Para lograrlo, tendrás que resolver algunos acertijos y derrotar a algunos enemigos, pero no creas que será tan fácil, alguien no quiere que lo ayudes...
+                    `,
                     b1: "Descargar&nbsp<i>Spyw4re</i>",
                     vid: 'Ver Gameplay'
                 },
                 hackoon: {
                     tit: "Hackoon",
-                    con: `Hackoon es un juego de puzles en desarrollo sobre un mapache desarrollador de videojuegos que necesita arreglar su juego antes de publicarlo.
+                    con: `
+                        Hackoon es un juego de puzles en desarrollo sobre un mapache desarrollador de videojuegos que necesita arreglar su juego antes de publicarlo.
                         <br><br>
-                        Para conseguirlo, tendrá que meterse dentro de su propio juego. Ahí, con la ayuda de un pequeño robot, podrás modificar el codigo que controla los objetos de cada nivel para completar ingeniosos puzles.`,
+                        Para conseguirlo, tendrá que meterse dentro de su propio juego. Ahí, con la ayuda de un pequeño robot, podrás modificar el codigo que controla los objetos de cada nivel para completar ingeniosos puzles.
+                    `,
                     b1: "¡Sigue el desarrollo!"
                 },
                 hightime: {
                     tit: "High on Time",
-                    con: `Desarrollado para la 4º edicion de la <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">gamejam de GameScholars</a>.
+                    con: `
+                        Desarrollado para la 4º edicion de la <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">gamejam de GameScholars</a>.
                         <br><br>
                         High on Time es un shooter frenetico en el que, debido a una droga, eres capaz de controlar el tiempo a costo de tu vida.
                         <br><br>
                         Tendras que sobrevivir a 3 oleadas de enemigos con armas diferentes para completar el juego, deslizandote y realentizando el tiempo a tu antojo en un edificio en construcción.
                         <br><br>
-                        Opcionalmente, un modo endless con oleadas infinitas tambien está disponible.`,
+                        Opcionalmente, un modo endless con oleadas infinitas tambien está disponible.
+                    `,
                     b1: "Descargar&nbsp<i>High on Time</i>",
                     vid: 'Ver Gameplay'
                 },
                 fresquita: {
                     tit: "The lost Fresquita",
-                    con: `Uno de los juegos premiados de la <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, una gamejam organizada para <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
+                    con: `
+                        Uno de los juegos premiados de la <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, una gamejam organizada para <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
                         <br><br>
                         En The lost Fresquita encarnaras el rol de Juan en un día por la noche. 
                         El día anterior celebrasteis una fiesta en el bosque y se te olvidó recoger unas cervezas pero, como eso es irresponsable, has vuelto a por ellas. 
                         <br><br>
                         Tu misión será encontrar las 3 cervezas olvidadas y volver a casa a salvo. 
                         ¿Que a qué me refiero con a salvo? 
-                        Digamos que algunos de tus amigos no te harán la vida facil...`,
+                        Digamos que algunos de tus amigos no te harán la vida facil...
+                    `,
                     b1: "Descargar&nbsp<i>The lost Fresquita</i>",
                     vid: 'IlloJuan Jugando en Stream'
                 },
                 raccoon: {
                     tit: "Esto AÚN no es un Juego",
-                    con: `Ganador de la 3º edicion de la <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">gamejam de GameScholars</a>.
+                    con: `
+                        Ganador de la 3º edicion de la <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">gamejam de GameScholars</a>.
                         <br><br>
                         En Esto AÚN no es un juego ayudarás a un mapache programador a terminar su juego antes de que acabe su gamejam.
                         <br><br>
                         Debido al poco tiempo que le queda, para conseguirlo tendrás que meterte dentro de este y arreglar los bugs desde su interior.
                         <br><br>
-                        Desde allí tu misión será cambiar cómo funcionan las cosas, de manera que se pueda llegar hasta el final de cada nivel y así continuar hasta el siguiente.`,
+                        Desde allí tu misión será cambiar cómo funcionan las cosas, de manera que se pueda llegar hasta el final de cada nivel y así continuar hasta el siguiente.
+                    `,
                     b1: "Descargar&nbsp<i>Esto AÚN no es un Juego</i>",
                     vid: 'Ver Gameplay'
                 },
                 lmdshow: {
                     tit: "Escape From LMDShow",
-                    con: `¡Gracias por jugar <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>!
+                    con: `
+                        ¡Gracias por jugar <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>!
                         <br><br>
                         Escape from LMDShow es un juego tipo escape room en el que Juan Alberto, un malagueño mu salao, es secuestrado por LMDShow y trata de escapar de la casa donde ha sido encerrado. 
                         <br><br>
-                        Para escapar tendrás que resolver diferentes puzles con objetos y códigos que encontrarás tras explorar las habitaciones.`,
+                        Para escapar tendrás que resolver diferentes puzles con objetos y códigos que encontrarás tras explorar las habitaciones.
+                    `,
                     b1: "Descargar&nbsp<i>Escape From LMDShow</i>",
                     vid: 'IlloJuan Jugando en Stream'
                 },
                 memory_shift: {
                     tit: "Memory Shift",
-                    con: `Memory Shift es un plataformas de acción 2D con un gameplay rápido y un sistema de hackeo.
+                    con: `
+                        Memory Shift es un plataformas de acción 2D con un gameplay rápido y un sistema de hackeo.
                         <br><br>
                         Inspirado por juegos como Katana ZERO y Cyberpunk 2077, corre, mata, hackea, deslízate y descubre qué te ocurrió antes de perder tus recuerdos.
                         <br><br>
-                        Disfruta de una aventura con narrativa, niveles hechos a mano y mecánicas como lanzar objetos o explotar enemigos desde la lejanía.`,
+                        Disfruta de una aventura con narrativa, niveles hechos a mano y mecánicas como lanzar objetos o explotar enemigos desde la lejanía.
+                    `,
                     b1: "Descargar&nbsp<i>Memory Shift</i>"
                 },
                 spirits: {
                     tit: "Twin Spirits",
-                    con: `Finalista en la 2º edicion de la <a href="https://itch.io/jam/gamescholars-2nd-edition" target="_blank">gamejam de GameScholars</a>.
+                    con: `
+                        Finalista en la 2º edicion de la <a href="https://itch.io/jam/gamescholars-2nd-edition" target="_blank">gamejam de GameScholars</a>.
                         <br><br>
                         Twin Spirits es un juego indie cooperativo local en el que dos espíritus se aventuran en busca de un cetro capaz de hacerles revivir.  
                         <br><br>
-                        Por el camino os encontrareis una serie de puzzles en los que tendréis que cooperar para poder continuar.`,
+                        Por el camino os encontrareis una serie de puzzles en los que tendréis que cooperar para poder continuar.
+                    `,
                     b1: "Descargar&nbsp<i>Twin Spirits</i>",
                     vid: 'Ver Trailer'
                 },
                 papa: {
                     tit: "Cooking Papa",
-                    con: `Cooking Papa es un juego indie en el que tendras que preparar recetas con ingredientes que no tienes.  
+                    con: `
+                        Cooking Papa es un juego indie en el que tendras que preparar recetas con ingredientes que no tienes.  
                         <br><br>
-                        Las partidas van a contra reloj y tendrás que consultar el libro de recetas para remplazar los ingredientes que faltan.`,
+                        Las partidas van a contra reloj y tendrás que consultar el libro de recetas para remplazar los ingredientes que faltan.
+                    `,
                     b1: "Descargar&nbsp<i>Cooking Papa</i>"
                 },
                 vaporcade: {
                     tit: "Vaporcade",
-                    con: `Vaporcade es un juego de arcade indie con temática de vaporwave en el que controlas una nave y ganas puntos disparando.  
+                    con: `
+                        Vaporcade es un juego de arcade indie con temática de vaporwave en el que controlas una nave y ganas puntos disparando.  
                         <br><br>
-                        Vaporcade esta dividido por oleadas. En cada oleada encontraras nuevos enemigos y, por cada dos oleadas, un jefe al que derrotar.`,
+                        Vaporcade esta dividido por oleadas. En cada oleada encontraras nuevos enemigos y, por cada dos oleadas, un jefe al que derrotar.
+                    `,
                     b1: "Descargar&nbsp<i>Vaporcade</i>"
                 },
                 otters: {
                     tit: "Otter's Odyssey",
-                    con: `Otter's Odyssey fue presentado como juego para la GameJam de 2022 de la URJC con temática medieval y recibió una mención honorífica a la mejor estética 3D. 
+                    con: `
+                        Otter's Odyssey fue presentado como juego para la GameJam de 2022 de la URJC con temática medieval y recibió una mención honorífica a la mejor estética 3D. 
                         <br><br>
-                        Es un juego isométrico de rol en el que controlas a una nutria que se adentra en una aventura para rescatar a su hermano.`,
+                        Es un juego isométrico de rol en el que controlas a una nutria que se adentra en una aventura para rescatar a su hermano.
+                    `,
                     b1: "Descargar&nbsp<i>Otter's Odyssey</i>"
                 },
                 assistant_pc: {
                     tit: 'Oriøn Assistant (Windows)',
-                    con: `Oriøn Assistant para Windows es un launcher de apps con soporte para temas y apps HTML/JS custom llamadas módulos.
+                    con: `
+                        Oriøn Assistant para Windows es un launcher de apps con soporte para temas y apps HTML/JS custom llamadas módulos.
                         <br><br>
                         Suelo llevar mis apps en un USB pero al conectarlo a diferentes ordenadores la letra cambia y los accesos directos se rompen, por lo que tuve que llegar a una solución.
                         La primera iteración del asistente era una app de comandos que reemplaza la letra de las rutas con "?:\\", lo que usaría el disco donde estaba instalado.
                         <br><br>
                         Tras esto quise ir más allá con una UI, por lo que comencé una nueva versión llamada Oriøn Launcher con Electron.js.
-                        Algunas actualizaciones después lo renombré a Oriøn Assistant para que coincidiera con la app de Android y añadí compatibilidad entre ellas.`,
+                        Algunas actualizaciones después lo renombré a Oriøn Assistant para que coincidiera con la app de Android y añadí compatibilidad entre ellas.
+                    `,
                     b1: 'Asistente Oriøn',
                     b2: 'Launcher Batch'
                 },
                 assistant_android: {
                     tit: 'Oriøn Assistant (Android)',
-                    con: `Oriøn Assistant para Android es una app llena de apps más pequeñas como un reproductor de música o un lector de QR.
+                    con: `
+                        Oriøn Assistant para Android es una app llena de apps más pequeñas como un reproductor de música o un lector de QR.
                         <br><br>
                         Al principio, la idea comenzó como un buscador web simple que detectába comandos y ayudaba con tareas de juegos.
                         Tras olvidarla por un tiempo, decidí renombrarla y darle un diseño moderno con Android Studio.
-                        Actualmente la app tiene reproductores de música y video, un bunquer de fotos, notas, un lector de QR y una app para pasar datos a la versión de Windows de la app.`,
+                        Actualmente la app tiene reproductores de música y video, un bunquer de fotos, notas, un lector de QR y una app para pasar datos a la versión de Windows de la app.
+                    `,
                     b1: 'Descargar APK'
                 },
                 framework: {
                     tit: 'Framework Oriøn',
-                    con: `El framework Oriøn es un framework basado en HTML, CSS & JS hecho con personalización en mente.
+                    con: `
+                        El framework Oriøn es un framework basado en HTML, CSS & JS hecho con personalización en mente.
                         Este proyecto fue separado de la versión de PC del Asistente Oriøn en un intento de hacerlo disponible para todos.
                         <br><br>
-                        Aquí puedes encontrar nuevos elementos HTML simples y fáciles de usar como botones, inputs, interruptores, casillas de verificación, botones de radio y varias animaciones y efectos de carga.`,
+                        Aquí puedes encontrar nuevos elementos HTML simples y fáciles de usar como botones, inputs, interruptores, casillas de verificación, botones de radio y varias animaciones y efectos de carga.
+                    `,
                     b1: 'Ver documentación'
                 },
                 discord_bots: {
                     tit: 'Bots de Discord',
-                    con: `He creado dos bots de discord. El primero, Syrup, es un bot simple capaz de moderar un servidor y proveer juegos simples para que la gente se divierta.
+                    con: `
+                        He creado dos bots de discord. El primero, Syrup, es un bot simple capaz de moderar un servidor y proveer juegos simples para que la gente se divierta.
                         <br><br>
-                        Después de Syrup llegó Coscu, un bot más avanzado capaz de lo mismo y más. Esta nueva versión podría entrar en llamadas con gente y reproducir sonidos personalizados y música.`,
+                        Después de Syrup llegó Coscu, un bot más avanzado capaz de lo mismo y más. Esta nueva versión podría entrar en llamadas con gente y reproducir sonidos personalizados y música.
+                    `,
                     b1: 'Repositorio de Syrup'
                 },
                 modding: {
                     tit: 'PC Modding',
-                    con: `Desde que entré en el mundo del PC comencé a interesarme por el modding, así que decidí hacer mi propio PC modificado.
+                    con: `
+                        Desde que entré en el mundo del PC comencé a interesarme por el modding, así que decidí hacer mi propio PC modificado.
                         <br><br>
                         Empecé extrayendo modelos 3D de algunos de mis juegos favoritos ya que no los podía encontrar online.
                         Imprimí una figura de deathclaw e hice un modelo de roca larga para colocar dentro del PC.
                         Después continúe diseñando las piezas exteriores, basadas en Cyberpunk 2077, para más tarde modelarlas e imprimirlas.
                         <br><br>
-                        Tras imprimirlas las pinté y coloqué en el PC.`
+                        Tras imprimirlas las pinté y coloqué en el PC.
+                    `
                 },
                 t45: {
                     tit: 'Casco T45',
-                    con: `Fallout es una de mis series de videojuegos favoritas y, en su universo, se usan trajes tecnológicamente avanzados de cuerpo entero llamados armaduras de poder.
+                    con: `
+                        Fallout es una de mis series de videojuegos favoritas y, en su universo, se usan trajes tecnológicamente avanzados de cuerpo entero llamados armaduras de poder.
                         <br><br>
                         Cómo encontré el modelo 3D de un casco decidí imprimirlo en pequeñas partes para hacerme uno propio. 
-                        Tras pegar todas las partes, lo pinté y le añadí un tubo de aspiradora para hacerlo parecer un poco más realista.`
+                        Tras pegar todas las partes, lo pinté y le añadí un tubo de aspiradora para hacerlo parecer un poco más realista.
+                    `
                 },
                 usb: {
                     tit: 'USB GTX ',
-                    con: `Llevar apps y juegos en un USB no es una mala idea, pero la velocidad de la memoria puede causar problemas.
+                    con: `
+                        Llevar apps y juegos en un USB no es una mala idea, pero la velocidad de la memoria puede causar problemas.
                         Para arreglar esto tuve la idea de añadirle un disipador, así que empecé a diseñar una carcasa que acabó teniendo forma de una tarjeta gráfica Nvidia GTX.
                         <br><br>
                         Después de hacer agujeros para la ventilación, imprimí la carcasa y coloqué un ventilador pequeño alimentado por un conector en el lado.
-                        Finalmente, le añadí una almohadilla térmica y una placa de aluminio, la cual pinté más tarde, para disipar el calor de la memoria.`
+                        Finalmente, le añadí una almohadilla térmica y una placa de aluminio, la cual pinté más tarde, para disipar el calor de la memoria.
+                    `
                 },
                 hoodie: {
                     tit: 'Sudadera Futurística',
-                    con: `Un día me encontré con una sudadera streetwear, un estilo que no había visto antes, y me inspiró para crear la mía.
+                    con: `
+                        Un día me encontré con una sudadera streetwear, un estilo que no había visto antes, y me inspiró para crear la mía.
                         No es exactamente streetwear, pero sí es una sudadera futuristica.
                         Comencé dibujando unos diseños en mi cuaderno que fueron digitalizados más tarde usando Adobe Illustrator.
-                        Tras eso, hice una simulación en Photoshop de como se vería la sudadera si fuese real.`
+                        Tras eso, hice una simulación en Photoshop de como se vería la sudadera si fuese real.
+                    `
                 },
             },
             none: 'No se han encontrado proyectos...<br>Prueba a cambiar los filtros seleccionados.',
@@ -759,7 +855,7 @@ const locales = {
                 title: 'Chavalin Interesado',
                 description: 'Abre uno de mis links de contacto'
             },
-        },
+        }
     }
 }
 
@@ -838,9 +934,9 @@ changeTitle();
 
 
 
- /*$   /$$                                  
-| $$  | $$                                  
-| $$  | $$  /$$$$$$  /$$$$$$/$$$$   /$$$$$$ 
+ /*$   /$$
+| $$  | $$
+| $$  | $$  /$$$$$$  /$$$$$$/$$$$   /$$$$$$
 | $$$$$$$$ /$$__  $$| $$_  $$_  $$ /$$__  $$
 | $$__  $$| $$  \ $$| $$ \ $$ \ $$| $$$$$$$$
 | $$  | $$| $$  | $$| $$ | $$ | $$| $$_____/
@@ -1036,14 +1132,14 @@ const home = new HomePage();
 
 
 
-  /*$$$$$  /$$                             /$$    
- /$$__  $$| $$                            | $$    
-| $$  \ $$| $$$$$$$   /$$$$$$  /$$   /$$ /$$$$$$  
-| $$$$$$$$| $$__  $$ /$$__  $$| $$  | $$|_  $$_/  
-| $$__  $$| $$  \ $$| $$  \ $$| $$  | $$  | $$    
+  /*$$$$$  /$$                             /$$
+ /$$__  $$| $$                            | $$
+| $$  \ $$| $$$$$$$   /$$$$$$  /$$   /$$ /$$$$$$
+| $$$$$$$$| $$__  $$ /$$__  $$| $$  | $$|_  $$_/
+| $$__  $$| $$  \ $$| $$  \ $$| $$  | $$  | $$
 | $$  | $$| $$  | $$| $$  | $$| $$  | $$  | $$ /$$
 | $$  | $$| $$$$$$$/|  $$$$$$/|  $$$$$$/  |  $$$$/
-|__/  |__/|_______/  \______/  \______/    \__*/  
+|__/  |__/|_______/  \______/  \______/    \__*/
 
 //Page
 class AboutPage {
@@ -1152,14 +1248,14 @@ const about = new AboutPage();
 
 
 
-  /*$$$$$  /$$       /$$ /$$ /$$          
- /$$__  $$| $$      |__/| $$| $$          
+  /*$$$$$  /$$       /$$ /$$ /$$
+ /$$__  $$| $$      |__/| $$| $$
 | $$  \__/| $$   /$$ /$$| $$| $$  /$$$$$$$
 |  $$$$$$ | $$  /$$/| $$| $$| $$ /$$_____/
- \____  $$| $$$$$$/ | $$| $$| $$|  $$$$$$ 
+ \____  $$| $$$$$$/ | $$| $$| $$|  $$$$$$
  /$$  \ $$| $$_  $$ | $$| $$| $$ \____  $$
 |  $$$$$$/| $$ \  $$| $$| $$| $$ /$$$$$$$/
- \______/ |__/  \__/|__/|__/|__/|______*/ 
+ \______/ |__/  \__/|__/|__/|__/|______*/
 
 //Enum
 const Skill = Object.freeze({
@@ -1747,7 +1843,7 @@ class ProjectsPage {
         //Get basic info
         const id = `project${this.#info.created}`;
         const project = this.#info.list[this.#info.created];
-        const locales = loc.projects.projects[project.key];
+        const locales = loc.projects.list[project.key];
 
         //Get scope
         let scope = '';
@@ -2014,14 +2110,14 @@ const projects = new ProjectsPage();
 
 
 
- /*$$$$$$$                    /$$                        
-| $$_____/                   | $$                        
-| $$     /$$$$$$   /$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$ 
+ /*$$$$$$$                    /$$
+| $$_____/                   | $$
+| $$     /$$$$$$   /$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$
 | $$$$$ /$$__  $$ /$$__  $$|_  $$_/   /$$__  $$ /$$__  $$
 | $$__/| $$  \ $$| $$  \ $$  | $$    | $$$$$$$$| $$  \__/
-| $$   | $$  | $$| $$  | $$  | $$ /$$| $$_____/| $$      
-| $$   |  $$$$$$/|  $$$$$$/  |  $$$$/|  $$$$$$$| $$      
-|__/    \______/  \______/    \___/   \_______/|_*/      
+| $$   | $$  | $$| $$  | $$  | $$ /$$| $$_____/| $$
+| $$   |  $$$$$$/|  $$$$$$/  |  $$$$/|  $$$$$$$| $$
+|__/    \______/  \______/    \___/   \_______/|_*/
 
 //Page
 class FooterPage {
@@ -2167,9 +2263,9 @@ const curriculum = new CurriculumMenu();
 
 
 
-  /*$$$$$                      /$$                
- /$$__  $$                    | $$                
-| $$  \__/ /$$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$ 
+  /*$$$$$                      /$$
+ /$$__  $$                    | $$
+| $$  \__/ /$$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$
 |  $$$$$$ | $$__  $$ |____  $$| $$  /$$/ /$$__  $$
  \____  $$| $$  \ $$  /$$$$$$$| $$$$$$/ | $$$$$$$$
  /$$  \ $$| $$  | $$ /$$__  $$| $$_  $$ | $$_____/
@@ -2591,7 +2687,7 @@ const snake = new SnakeEasteregg();
  /$$__  $$          | $$      |__/                                                                  | $$
 | $$  \ $$  /$$$$$$$| $$$$$$$  /$$  /$$$$$$  /$$    /$$ /$$$$$$  /$$$$$$/$$$$   /$$$$$$  /$$$$$$$  /$$$$$$   /$$$$$$$
 | $$$$$$$$ /$$_____/| $$__  $$| $$ /$$__  $$|  $$  /$$//$$__  $$| $$_  $$_  $$ /$$__  $$| $$__  $$|_  $$_/  /$$_____/
-| $$__  $$| $$      | $$  \ $$| $$| $$$$$$$$ \  $$/$$/| $$$$$$$$| $$ \ $$ \ $$| $$$$$$$$| $$  \ $$  | $$   |  $$$$$$ 
+| $$__  $$| $$      | $$  \ $$| $$| $$$$$$$$ \  $$/$$/| $$$$$$$$| $$ \ $$ \ $$| $$$$$$$$| $$  \ $$  | $$   |  $$$$$$
 | $$  | $$| $$      | $$  | $$| $$| $$_____/  \  $$$/ | $$_____/| $$ | $$ | $$| $$_____/| $$  | $$  | $$ /$$\____  $$
 | $$  | $$|  $$$$$$$| $$  | $$| $$|  $$$$$$$   \  $/  |  $$$$$$$| $$ | $$ | $$|  $$$$$$$| $$  | $$  |  $$$$//$$$$$$$/
 |__/  |__/ \_______/|__/  |__/|__/ \_______/    \_/    \_______/|__/ |__/ |__/ \_______/|__/  |__/   \___/ |______*/
@@ -2790,9 +2886,9 @@ const loading = new LoadingAnimation();
 
 
 
- /*$                                     /$$ /$$                       /$$     /$$                    
-| $$                                    | $$|__/                      | $$    |__/                    
-| $$        /$$$$$$   /$$$$$$$  /$$$$$$ | $$ /$$ /$$$$$$$$  /$$$$$$  /$$$$$$   /$$  /$$$$$$  /$$$$$$$ 
+ /*$                                     /$$ /$$                       /$$     /$$
+| $$                                    | $$|__/                      | $$    |__/
+| $$        /$$$$$$   /$$$$$$$  /$$$$$$ | $$ /$$ /$$$$$$$$  /$$$$$$  /$$$$$$   /$$  /$$$$$$  /$$$$$$$
 | $$       /$$__  $$ /$$_____/ |____  $$| $$| $$|____ /$$/ |____  $$|_  $$_/  | $$ /$$__  $$| $$__  $$
 | $$      | $$  \ $$| $$        /$$$$$$$| $$| $$   /$$$$/   /$$$$$$$  | $$    | $$| $$  \ $$| $$  \ $$
 | $$      | $$  | $$| $$       /$$__  $$| $$| $$  /$$__/   /$$__  $$  | $$ /$$| $$| $$  | $$| $$  | $$
@@ -2860,9 +2956,9 @@ localize()
 
 
 
- /*$$$$$$$ /$$                                        
-|__  $$__/| $$                                        
-   | $$   | $$$$$$$   /$$$$$$  /$$$$$$/$$$$   /$$$$$$ 
+ /*$$$$$$$ /$$
+|__  $$__/| $$
+   | $$   | $$$$$$$   /$$$$$$  /$$$$$$/$$$$   /$$$$$$
    | $$   | $$__  $$ /$$__  $$| $$_  $$_  $$ /$$__  $$
    | $$   | $$  \ $$| $$$$$$$$| $$ \ $$ \ $$| $$$$$$$$
    | $$   | $$  | $$| $$_____/| $$ | $$ | $$| $$_____/
