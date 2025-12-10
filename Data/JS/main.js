@@ -117,7 +117,7 @@ const locales = {
                 personal: 'Personal Project',
                 jam: 'Jam Game',
             },
-            projects: {
+            list: {
                 tochimochi: {
                     tit: 'Tochimochi',
                     con: `
@@ -541,7 +541,7 @@ const locales = {
                 personal: 'Proyecto Personal',
                 jam: 'Juego de Jam',
             },
-            projects: {
+            list: {
                 tochimochi: {
                     tit: 'Tochimochi',
                     con: `
