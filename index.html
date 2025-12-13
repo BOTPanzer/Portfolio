@@ -15,6 +15,13 @@
 
 <body>
 
+    <div class="blobBackground">
+        <div class="blob"></div>
+        <div class="blob" alt></div>
+        <div class="blobBlur"></div>
+    </div>
+    
+
      <!--                                /$$ /$$
     | $$                                | $$|__/
     | $$        /$$$$$$   /$$$$$$   /$$$$$$$ /$$ /$$$$$$$   /$$$$$$
@@ -47,7 +54,7 @@
      \______/ |__/ \_______/ \_______/|_______/  \_______/|-->      
 
     <!-- Toggle (for mobile) -->
-    <div class="sidebarToggle" onclick="sidebar.toggle()">
+    <div class="glass sidebarToggle" onclick="sidebar.toggle()">
         <img src="Data/Images/Icons/menu.webp">
 
         <!-- Achievements indicator -->
@@ -56,7 +63,7 @@
 
     <!-- Sidebar -->
     <div id="sidebar" class="sidebar" onclick="sidebar.toggle()">
-        <div class="sidebarLayout" onclick="event.stopPropagation()">
+        <div class="glass sidebarMenu" onclick="event.stopPropagation()">
             <!-- Pages -->
             <a id="goTo-home" class="sidebarButton" onclick="goTo('home')" selected>
                 <img src="Data/Images/Icons/home.webp">
@@ -137,9 +144,6 @@
         |__/  |__/ \______/ |__/ |__/ |__/ \_____-->
 
         <div id="home" class="page">
-            <!-- Background particles -->
-            <canvas id="homeCanvas" width="959" height="814"></canvas>
-            
             <!-- Text -->
             <div class="homeText">
                 <span id="homeText1">Howdy, i'm</span>
@@ -147,8 +151,10 @@
                 <span id="homeText3">A spanish indie game developer</span>
             </div>
 
-            <!-- Go next arrow -->
-            <span class="nextArrow" onclick="goTo('about')">⟫</span>
+            <!-- Navigation arrow -->
+            <div class="glass navigationArrow" onclick="goTo('about')">
+                <img src="Data/Images/Icons/play.webp">
+            </div>
         </div>
 
 
@@ -200,8 +206,10 @@
                 <div id="aboutImgNext">Click for next image</div>
             </div>
             
-            <!-- Go next arrow -->
-            <span class="nextArrow" onclick="goTo('skills')">⟫</span>
+            <!-- Navigation arrow -->
+            <div class="glass navigationArrow" onclick="goTo('skills')">
+                <img src="Data/Images/Icons/play.webp">
+            </div>
         </div>
 
 
@@ -300,8 +308,10 @@
                 <span id="skillsNoteText">Years of experience are an abstract way of quantifying experience as 2+ skills can be learnt at the same time.</span>
             </div>
 
-            <!-- Go next arrow -->
-            <span class="nextArrow" onclick="goTo('projects')">⟫</span>
+            <!-- Navigation arrow -->
+            <div class="glass navigationArrow" onclick="goTo('projects')">
+                <img src="Data/Images/Icons/play.webp">
+            </div>
         </div>
 
 
@@ -340,15 +350,15 @@
                 <div>
                     <span>
                         <span id="projectsCategory">Category:</span>
-                        <span id="projectsCategoryBy" class="projectTag" onclick="projects.toggleFilterMenu('category')">Category</span>
+                        <span id="projectsCategoryBy" class="glassHover projectTag" onclick="projects.toggleFilterMenu('category')">Category</span>
                     </span>
                     <span>
                         <span id="projectsTags">Tags:</span>
-                        <span id="projectsTagsBy" class="projectTag" onclick="projects.toggleFilterMenu()">Tags</span>
+                        <span id="projectsTagsBy" class="glassHover projectTag" onclick="projects.toggleFilterMenu()">Tags</span>
                     </span>
                     <span>
                         <span id="projectsSort">Sort by:</span>
-                        <span id="projectsSortBy" class="projectTag" onclick="projects.toggleFilterMenu('sort')">Sort</span>
+                        <span id="projectsSortBy" class="glassHover projectTag" onclick="projects.toggleFilterMenu('sort')">Sort</span>
                     </span>
                 </div>
             </div>
@@ -385,8 +395,8 @@
         | $$   |  $$$$$$/|  $$$$$$/  |  $$$$/|  $$$$$$$| $$
         |__/    \______/  \______/    \___/   \_______/|-->
 
-        <!-- Contact -->
-        <div id="contact" class="footer">
+        <!-- Contact, Quote & Credits -->
+        <div id="contact" class="glass footer">
             <!-- Top -->
             <div class="pageTop" small>
                 <span class="pageTitleShapes">
@@ -425,24 +435,24 @@
                     <img src="Data/Images/Icons/tiktok.webp">
                 </a>
             </div>
-        </div>
 
-        <!-- Quote & Credits -->
-        <div class="footer">
+            <!-- Spacer -->
+            <div class="footerSpacer"></div>
+
             <!-- Quotes from games/shows I like (✿◡‿◡) -->
             <div class="footerQuote">
                 <span id="footerQuoteText">There's a monster inside all of us</span>
                 <span id="footerQuoteAuthor">Silco - Arcane</span>
                 
                 <div class="footerArrows">
-                    <img id="footerArrowPrev" class="footerArrow" src="Data/Images/Icons/arrow_long.webp" onclick="footer.prevQuote()" mirror>
-                    <img id="footerArrowNext" class="footerArrow" src="Data/Images/Icons/arrow_long.webp" onclick="footer.nextQuote()">
+                    <img id="footerArrowPrev" class="footerArrow" src="Data/Images/Icons/play.webp" onclick="footer.prevQuote()" mirror>
+                    <img id="footerArrowNext" class="footerArrow" src="Data/Images/Icons/play.webp" onclick="footer.nextQuote()">
                 </div>
             </div>
 
             <!-- Credits -->
             <div id="footerCredits">
-                This page was handmade with love by Alex (✿◡‿◡)
+                This page was made with love by Alex (✿◡‿◡)
                 <br>
                 No AI was involved in the creation (︶^︶)
             </div>

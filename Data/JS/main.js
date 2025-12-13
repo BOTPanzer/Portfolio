@@ -397,7 +397,7 @@ const locales = {
                 title: 'Contact',
                 mail: 'Email copied to clipboard',
             },
-            credits: `This page was handmade with love by a human (✿◡‿◡)<br>AI must help, not replace (︶^︶)`,
+            credits: `This page was made with love by a human (✿◡‿◡)<br>AI must help, not replace (︶^︶)`,
         },
         //Curriculum
         curriculum: {
@@ -821,7 +821,7 @@ const locales = {
                 title: 'Contacto',
                 mail: 'Email copiado al portapapeles',
             },
-            credits: 'Esta pagina fue hecha a mano con cariño por un humano (✿◡‿◡)<br>La IA debe ayudar, no remplazar (︶^︶)',
+            credits: 'Esta pagina fue hecha con cariño por un humano (✿◡‿◡)<br>La IA debe ayudar, no remplazar (︶^︶)',
         },
         //Curriculum
         curriculum: {
@@ -1108,10 +1108,8 @@ class HomePage {
     #text2 = document.getElementById('homeText2');
 
     //Animations
-    #particlesAnimation = new ParticlesAnimation('homeCanvas');
     #textAnimation = new HomeText();
 
-    get particlesAnimation() { return this.#particlesAnimation }
     get textAnimation() { return this.#textAnimation }
 
     //Page
@@ -1119,11 +1117,6 @@ class HomePage {
         this.#text1.innerText = loc.home.text1;
         this.#text2.innerText = loc.home.text2;
         this.textAnimation.reset();
-    }
-
-    constructor() {
-        //Update particles color
-        this.particlesAnimation.changeColor(`color-mix(in srgb, transparent 50%, ${window.getComputedStyle(document.body).getPropertyValue('--text')})`);
     }
 
 }
@@ -1858,7 +1851,7 @@ class ProjectsPage {
         let tags = '';
         if (Array.isArray(project.tags)) {
             for (const tag of project.tags) {
-                tags += `<span class="projectTag" onclick="projects.addProjects(null, '${tag}', null)">${this.getTagName(tag)}</span>`;
+                tags += `<span class="glassHover projectTag" onclick="projects.addProjects(null, '${tag}', null)">${this.getTagName(tag)}</span>`;
             }
         }
 
@@ -1900,7 +1893,7 @@ class ProjectsPage {
                     <iframe id="${id}-video" allow="fullscreen"></iframe>
                 </div>
                 <!-- Scope -->
-                <span class="projectScope glass" ${scope != '' ? '' : 'hidden'}>${scope}</span>
+                <span class="glass projectScope" ${scope != '' ? '' : 'hidden'}>${scope}</span>
                 <!-- Actions -->
                 <div class="projectActions">
                     <!-- Video button -->
@@ -2032,7 +2025,7 @@ class ProjectsPage {
                 for (const key of Object.keys(Category)) tags.push(Category[key]);
 
                 //Add categories
-                for (const tag of tags) this.#filterMenuList.innerHTML += `<span class="projectTag" onclick="projects.addProjects('${tag}', null, null); projects.toggleFilterMenu();">${this.getCategoryName(tag)}</span>`;
+                for (const tag of tags) this.#filterMenuList.innerHTML += `<span class="glassHover projectTag" onclick="projects.addProjects('${tag}', null, null); projects.toggleFilterMenu();">${this.getCategoryName(tag)}</span>`;
                 break;
             }
 
@@ -2046,7 +2039,7 @@ class ProjectsPage {
                 for (const key of Object.keys(Sort)) tags.push(Sort[key]);
                 
                 //Add categories
-                for (const tag of tags) this.#filterMenuList.innerHTML += `<span class="projectTag" onclick="projects.addProjects(null, null, '${tag}'); projects.toggleFilterMenu();">${this.getSortName(tag)}</span>`;
+                for (const tag of tags) this.#filterMenuList.innerHTML += `<span class="glassHover projectTag" onclick="projects.addProjects(null, null, '${tag}'); projects.toggleFilterMenu();">${this.getSortName(tag)}</span>`;
                 break;
             }
 
@@ -2073,7 +2066,7 @@ class ProjectsPage {
                 }
                 
                 //Add tags
-                for (const tag of tags) this.#filterMenuList.innerHTML += `<span class="projectTag" onclick="projects.addProjects(null, '${tag}', null); projects.toggleFilterMenu();">${this.getTagName(tag)}</span>`;
+                for (const tag of tags) this.#filterMenuList.innerHTML += `<span class="glassHover projectTag" onclick="projects.addProjects(null, '${tag}', null); projects.toggleFilterMenu();">${this.getTagName(tag)}</span>`;
                 break;
             }
         }
@@ -2992,9 +2985,6 @@ function loadTheme() {
         DB.set('theme', 'light', DB.STRING);
         document.documentElement.setAttribute('light', '');
     }
-
-    //Refresh particle animation color
-    home.particlesAnimation.changeColor(`color-mix(in srgb, transparent 50%, ${window.getComputedStyle(document.body).getPropertyValue('--text')})`);
 }
 
 loadTheme()
