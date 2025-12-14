@@ -199,27 +199,27 @@ a {
 }
 
 /* Glass */
-.glass {
-    /* Layout */
-    box-sizing: border-box;
-
-    /* Visuals */
-    background-color: color-mix(in srgb, var(--bg) 55%, transparent);
-    backdrop-filter: blur(10px);
-    border: var(--borderSoft);
-}
-
+.glass,
 .glassHover {
     /* Layout */
     box-sizing: border-box;
 
     /* Visuals */
-    --tagBg: color-mix(in srgb, var(--bg) 55%, transparent);
-    background-image:
-        linear-gradient(to bottom, transparent, transparent),
-        linear-gradient(to bottom, var(--tagBg), var(--tagBg));
+    --transparentBG: color-mix(in srgb, var(--bg) 55%, transparent);
     backdrop-filter: blur(10px);
     border: var(--borderSoft);
+}
+
+.glass {
+    /* Visuals */
+    background-color: var(--transparentBG);
+}
+
+.glassHover {
+    /* Visuals */
+    background-image:
+        linear-gradient(to bottom, transparent, transparent),
+        linear-gradient(to bottom, var(--transparentBG), var(--transparentBG));
 }
 
 /* Background Blob */
@@ -266,7 +266,7 @@ a {
 
     /* Visuals */
     background-color: #01c1be;
-    opacity: 8%;
+    opacity: 12%;
 
     /* Other */
     animation: blob ease-in-out 30s infinite;
@@ -280,7 +280,7 @@ html[light] .blob {
 .blob[alt] {
     /* Visuals */
     background-color: #8c1de7;
-    opacity: 4%;
+    opacity: 6%;
 
     /* Other */
     animation-delay: -10s;
@@ -2642,7 +2642,7 @@ dialog:not(#snackbar) {
 
     /* Layout */
     position: absolute;
-    bottom: -20px;
+    bottom: -31px;
     display: flex; 
     align-items: center;
     justify-content: space-between;

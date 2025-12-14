@@ -22,6 +22,6 @@ Thanks for coming to my page!
 Everything here was made by me, Alejandro Paniagua!
 
 ✦. Links .✦
-https://botpa.itch.io/
-https://github.com/BOTPanzer/
+https://botpa.itch.io
+https://github.com/BOTPanzer
 https://linkedin.com/in/alejandro-paniagua-moreno

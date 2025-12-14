@@ -117,13 +117,14 @@ const locales = {
                 personal: 'Personal Project',
                 jam: 'Jam Game',
             },
-            list: {
+            games: {
                 tochimochi: {
                     tit: 'Tochimochi',
                     con: `
                         Second place in the international edition of the <a href="https://itch.io/jam/game-jam-internacional-cutn-buenos-aires" target="_blank">GameScholars gamejam</a>.
                         <br><br>
-                        In Tochimochi you will help your new virtual friend, Mochi, complete the mission of seeing his granny. To do that, you will have to merge both the real and virtual world to complete puzzles using your computer and your phone.
+                        In Tochimochi, you will help your new virtual friend, Mochi, complete the mission of seeing his granny. 
+                        To do that, you will have to merge both the real and virtual world to complete puzzles using your computer and your phone.
                     `,
                     b1: 'Download&nbsp<i>Tochimochi</i>',
                     vid: 'Gameplay Video'
@@ -152,9 +153,8 @@ const locales = {
                     con: `
                         Third place in the 6º edition of the <a href="https://itch.io/jam/6-edicin-game-jam-game-scholars" target="_blank">GameScholars gamejam</a>.
                         <br><br>
-                        In Hardcore Kitty, you play as a cat working for a delivery company.
-                        <br><br>
-                        Your goal is to find pickup points, collect food, and deliver it to the drop-off points, performing tricks and flips on your skateboard along the way.
+                        In Hardcore Kitty, you play as a cat working for a delivery company. 
+                        Your goal will be to find pickup points, collect food, and deliver it to the drop-off points, performing tricks and flips on your skateboard along the way.
                     `,
                     b1: "Download&nbsp<i>Hardcore Kitty</i>",
                     vid: 'Gameplay Video'
@@ -171,7 +171,7 @@ const locales = {
                 stardew_pets: {
                     tit: "Stardew Pets",
                     con: `
-                        Stardew Pets is a VS Code extension with +16K downloads that lets you have Stardew Valley pets accompanying you while you code.
+                        Stardew Pets is a VS Code extension with +18K downloads that lets you have Stardew Valley pets accompanying you while you code.
                         <br><br>
                         Aditionaly, you can decorate your pets place with money obtained by protecting them from enemies that may appear.
                     `,
@@ -182,9 +182,8 @@ const locales = {
                     con: `
                         Second place out of 25 in the 5º edition of the <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">GameScholars gamejam</a>.
                         <br><br>
-                        In Spyw4re, you are a CCTV operator in an asylum. The building is falling down and a patient is still inside, so you'll need to help him get out.
-                        <br><br>
-                        In order to leave, you'll need to solve some puzzles and defeat some enemies, but don't think it will be that easy, someone doesn't want you to help him...
+                        In Spyw4re, you'll take on the role of a CCTV operator in a collapsing asylum with a trapped patient inside. 
+                        You'll have to help him escape by solving puzzles and defeating enemies but, don't think it will be easy, someone doesn't want you to help...
                     `,
                     b1: "Download&nbsp<i>Spyw4re</i>",
                     vid: 'Gameplay Video'
@@ -204,10 +203,7 @@ const locales = {
                         Developed for the 4º edition of the <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">GameScholars gamejam</a>.
                         <br><br>
                         High on Time is a frenetic shooter in which, thanks to a drug, you are capable of controlling time at the cost of your life.
-                        <br><br>
-                        You will have to survive 3 waves of enemies with different weapons to complete the game, sliding and slowing time at your will in a building in construction.
-                        <br><br>
-                        Optionaly, an endless mode with infinite waves is also available.
+                        Survive waves of enemies with different weapons, sliding and slowing time at your will in a building in construction.
                     `,
                     b1: "Download&nbsp<i>High on Time</i>",
                     vid: 'Gameplay Video'
@@ -217,12 +213,9 @@ const locales = {
                     con: `
                         One of the awarded games of the <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, a gamejam organized for <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
                         <br><br>
-                        In The lost Fresquita you will play the role of Juan in a day at night. 
-                        You celebrated a party in the forest the previous day and forgot some beers there but, since that's irresponsible, you came back for them. 
-                        <br><br>
-                        Your mission will be to find the 3 forgotten beers and take them back home safe and sound. 
-                        What do I mean by safe? 
-                        Lets say some of your friends wont make it easy...
+                        In The lost Fresquita you will play the role of Juan, a scatterbrain who has forgotten several beers in the forest and whose mission is to find them and return home safely.
+                        What do I mean by safely?
+                        Let's just say some of his friends won't make life easy for you...
                     `,
                     b1: "Download&nbsp<i>The lost Fresquita</i>",
                     vid: 'IlloJuan Playing on Stream'
@@ -232,11 +225,8 @@ const locales = {
                     con: `
                         Winner of the 3º edition of the <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">GameScholars gamejam</a>.
                         <br><br>
-                        In Esto AÚN no es un juego you will help a programer raccoon finish his game before his gamejam ends.
-                        <br><br>
-                        Due to the little time he has left, to achieve this you will have to go inside the game and fix bugs from there.
-                        <br><br>
-                        Your mission will be to change how things work, so that you are able to get to each level's ending and continue to the next.
+                        In Esto AÚN no es un juego, you will help a programmer raccoon finish his game before his gamejam ends.
+                        To achieve this, you will have to dive inside the game and fix the bugs from the inside, changing how things work so that each level can be completed.
                     `,
                     b1: "Download&nbsp<i>Esto AÚN no es un Juego</i>",
                     vid: 'Gameplay Video'
@@ -246,9 +236,7 @@ const locales = {
                     con: `
                         Thank you <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a> for playing!
                         <br><br>
-                        Escape from LMDShow is a escape room like game in which Juan Alberto, a really cool guy, is kidnapped by LMDShow and attempts to escape the house he was locked in.
-                        <br><br>
-                        To escape you will have to solve different puzzles with objects and codes that you will find exploring the rooms.
+                        Escape from LMDShow is a escape room like game in which Juan Alberto, a really cool guy, is kidnapped by LMDShow and, by solving puzzles with objects and codes, attempts to escape the house he was locked in.
                     `,
                     b1: "Download&nbsp<i>Escape From LMDShow</i>",
                     vid: 'IlloJuan Playing on Stream'
@@ -256,11 +244,9 @@ const locales = {
                 memory_shift: {
                     tit: "Memory Shift",
                     con: `
-                        Memory Shift is a 2D action-platformer featuring fast-paced gameplay and a hacking system.
+                        Memory Shift is a 2D action-platformer featuring fast-paced gameplay and a hacking system inspired by games like Katana ZERO and Cyberpunk 2077.
                         <br><br>
-                        Inspired by games like Katana ZERO and Cyberpunk 2077, run, kill, hack, slide and discover what happened to you before losing your memories.
-                        <br><br>
-                        Enjoy a story driven adventure with handcrafted levels and mechanics such as throwing items or exploding enemies from afar.
+                        Run, kill, hack, slide and discover what happened to you before losing your memories in this story driven adventure with handcrafted levels and innovative mechanics.
                     `,
                     b1: "Download&nbsp<i>Memory Shift</i>"
                 },
@@ -269,9 +255,7 @@ const locales = {
                     con: `
                         Finalist in the 2º edition of the <a href="https://itch.io/jam/gamescholars-2nd-edition" target="_blank">GameScholars gamejam</a>.
                         <br><br>
-                        Twin Spirits is an indie local coop game in which two spirits go on an adventure in search of a scepter capable of bringing them back to life.  
-                        <br><br>
-                        On the way you will find puzzles in which you will have to cooperate in order to continue.
+                        Twin Spirits is a local co-op puzzle adventure game where two spirits must work together to reclaim a scepter capable of bringing them back to life.
                     `,
                     b1: "Download&nbsp<i>Twin Spirits</i>",
                     vid: 'Trailer Video'
@@ -279,18 +263,16 @@ const locales = {
                 papa: {
                     tit: "Cooking Papa",
                     con: `
-                        Cooking Papa is an indie game where you will have to prepare recipes with ingredients you don't have.
-                        <br><br>
-                        The game goes against the clock and you will have to check the cooking book to replace the ingredients that are missing.
+                        Cooking Papa is an cooking game where you will have to prepare recipes with ingredients you don't have.
+                        Cook against the clock and check the cooking book of the bad chef to replace the ingredients that are missing.
                     `,
                     b1: "Download&nbsp<i>Cooking Papa</i>"
                 },
                 vaporcade: {
                     tit: "Vaporcade",
                     con: `
-                        Vaporcade is a vaporwave themed arcade indie game in which you control a spaceship and score points by shooting. 
-                        <br><br>
-                        Vaporcade is divided by waves. In each wave you'll find new enemies and, every two waves, a boss you will have to defeat.
+                        Vaporcade is a vaporwave themed arcade game in which you control a spaceship and score points by shooting enemies and completing waves. 
+                        In each wave, you'll find new enemies and, every other wave, a boss you'll have to defeat.
                     `,
                     b1: "Download&nbsp<i>Vaporcade</i>"
                 },
@@ -541,16 +523,16 @@ const locales = {
                 personal: 'Proyecto Personal',
                 jam: 'Juego de Jam',
             },
-            list: {
+            games: {
                 tochimochi: {
                     tit: 'Tochimochi',
                     con: `
                         Segundo puesto en la edicion international de la <a href="https://itch.io/jam/game-jam-internacional-cutn-buenos-aires" target="_blank">gamejam de GameScholars</a>.
                         <br><br>
-                        En Tochimochi ayudarás a tu nuevo amigo virtual, Mochi, a completar la misión de ver a su abuela. Para ello, tendrás que combinar el mundo real con el virtual para resolver puzles usando tu ordenador y tu móvil.
+                        En Tochimochi, ayudarás a tu nuevo amigo virtual, Mochi, a completar la misión de ver a su abuela. Para ello, tendrás que combinar el mundo real con el virtual para resolver puzles usando tu ordenador y tu móvil.
                     `,
                     b1: 'Descargar&nbsp<i>Tochimochi</i>',
-                    vid: 'Gameplay Video'
+                    vid: 'Ver Gameplay'
                 },
                 akira_posters: {
                     tit: "Posters de Akira",
@@ -576,9 +558,8 @@ const locales = {
                     con: `
                         Tercer puesto en la 6º edicion de la <a href="https://itch.io/jam/6-edicin-game-jam-game-scholars" target="_blank">gamejam de GameScholars</a>.
                         <br><br>
-                        En Hardcore Kitty tomarás el rol de un gato que trabaja en una empresa de reparto.
-                        <br><br>
-                        Tu objetivo es encontrar puntos de recogida, coger la comida y llevarla hasta los puntos de entrega haciendo trucos y piruetas con el skate por el camino.
+                        En Hardcore Kitty, tomarás el rol de un gato que trabaja en una empresa de reparto. 
+                        Tu objetivo será encontrar puntos de recogida, coger la comida y llevarla hasta los puntos de entrega, haciendo trucos y piruetas con el skate por el camino.
                     `,
                     b1: "Descargar&nbsp<i>Hardcore Kitty</i>",
                     vid: 'Ver Gameplay'
@@ -595,7 +576,7 @@ const locales = {
                 stardew_pets: {
                     tit: "Stardew Pets",
                     con: `
-                        Stardew Pets es una extensión para VS Code con +16K descargas que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
+                        Stardew Pets es una extensión para VS Code con +18K descargas que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
                         <br><br>
                         Además, podrás decorar el lugar de tus mascotas con dinero obtenido al protegerlas de enemigos que aparezcan.
                     `,
@@ -606,9 +587,8 @@ const locales = {
                     con: `
                         Segundo puesto de 25 en la 5º edicion de la <a href="https://itch.io/jam/5-edicin-game-jam-game-scholars" target="_blank">gamejam de GameScholars</a>.
                         <br><br>
-                        En Spyw4re, eres un operador de CCTV en un asilo. El edificio se está derrumbando y un paciente todavía está dentro, por lo que tendrás que ayudarlo a salir.
-                        <br><br>
-                        Para lograrlo, tendrás que resolver algunos acertijos y derrotar a algunos enemigos, pero no creas que será tan fácil, alguien no quiere que lo ayudes...
+                        En Spyw4re, tomarás el rol de operador de CCTV en un asilo que se está derrumbando con un paciente dentro, por lo que tendrás que ayudarlo a salir. 
+                        Para lograrlo, tendrás que resolver puzles y derrotar enemigos pero, no creas que será tan fácil, alguien no quiere que lo ayudes...
                     `,
                     b1: "Descargar&nbsp<i>Spyw4re</i>",
                     vid: 'Ver Gameplay'
@@ -627,11 +607,8 @@ const locales = {
                     con: `
                         Desarrollado para la 4º edicion de la <a href="https://itch.io/jam/gamescholars-4-edition" target="_blank">gamejam de GameScholars</a>.
                         <br><br>
-                        High on Time es un shooter frenetico en el que, debido a una droga, eres capaz de controlar el tiempo a costo de tu vida.
-                        <br><br>
-                        Tendras que sobrevivir a 3 oleadas de enemigos con armas diferentes para completar el juego, deslizandote y realentizando el tiempo a tu antojo en un edificio en construcción.
-                        <br><br>
-                        Opcionalmente, un modo endless con oleadas infinitas tambien está disponible.
+                        High on Time es un shooter frenetico en el que, debido a una droga, eres capaz de controlar el tiempo a costo de tu vida. 
+                        Sobrevive a oleadas de enemigos con armas diferentes, deslizandote y realentizando el tiempo a tu antojo en un edificio en construcción.
                     `,
                     b1: "Descargar&nbsp<i>High on Time</i>",
                     vid: 'Ver Gameplay'
@@ -641,12 +618,9 @@ const locales = {
                     con: `
                         Uno de los juegos premiados de la <a href="https://itch.io/jam/la-illojam" target="_blank">IlloJam</a>, una gamejam organizada para <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>.
                         <br><br>
-                        En The lost Fresquita encarnaras el rol de Juan en un día por la noche. 
-                        El día anterior celebrasteis una fiesta en el bosque y se te olvidó recoger unas cervezas pero, como eso es irresponsable, has vuelto a por ellas. 
-                        <br><br>
-                        Tu misión será encontrar las 3 cervezas olvidadas y volver a casa a salvo. 
+                        En The lost Fresquita encarnaras el rol de Juan, un despistado que se ha olvidado varias cervezas en el bosque y tiene como misión encontrarlas y volver a casa a salvo. 
                         ¿Que a qué me refiero con a salvo? 
-                        Digamos que algunos de tus amigos no te harán la vida facil...
+                        Digamos que algunos de sus amigos no te harán la vida fácil...
                     `,
                     b1: "Descargar&nbsp<i>The lost Fresquita</i>",
                     vid: 'IlloJuan Jugando en Stream'
@@ -656,11 +630,8 @@ const locales = {
                     con: `
                         Ganador de la 3º edicion de la <a href="https://itch.io/jam/gamescholars-3rd-edition" target="_blank">gamejam de GameScholars</a>.
                         <br><br>
-                        En Esto AÚN no es un juego ayudarás a un mapache programador a terminar su juego antes de que acabe su gamejam.
-                        <br><br>
-                        Debido al poco tiempo que le queda, para conseguirlo tendrás que meterte dentro de este y arreglar los bugs desde su interior.
-                        <br><br>
-                        Desde allí tu misión será cambiar cómo funcionan las cosas, de manera que se pueda llegar hasta el final de cada nivel y así continuar hasta el siguiente.
+                        En Esto AÚN no es un juego, ayudarás a un mapache programador a terminar su juego antes de que acabe su gamejam. 
+                        Para conseguirlo, tendrás que meterte dentro de este y arreglar los bugs desde su interior, cambiando cómo funcionan las cosas de manera que se pueda completar cada nivel.
                     `,
                     b1: "Descargar&nbsp<i>Esto AÚN no es un Juego</i>",
                     vid: 'Ver Gameplay'
@@ -670,9 +641,7 @@ const locales = {
                     con: `
                         ¡Gracias por jugar <a href="https://www.twitch.tv/illojuan" target="_blank">IlloJuan</a>!
                         <br><br>
-                        Escape from LMDShow es un juego tipo escape room en el que Juan Alberto, un malagueño mu salao, es secuestrado por LMDShow y trata de escapar de la casa donde ha sido encerrado. 
-                        <br><br>
-                        Para escapar tendrás que resolver diferentes puzles con objetos y códigos que encontrarás tras explorar las habitaciones.
+                        Escape from LMDShow es un juego tipo escape room en el que Juan Alberto, un malagueño mu salao, es secuestrado por LMDShow y, resolviendo puzles con objetos y códigos, trata de escapar de la casa donde ha sido encerrado.
                     `,
                     b1: "Descargar&nbsp<i>Escape From LMDShow</i>",
                     vid: 'IlloJuan Jugando en Stream'
@@ -680,11 +649,9 @@ const locales = {
                 memory_shift: {
                     tit: "Memory Shift",
                     con: `
-                        Memory Shift es un plataformas de acción 2D con un gameplay rápido y un sistema de hackeo.
+                        Memory Shift es un plataformas de acción 2D con un gameplay rápido y un sistema de hackeo inspirado por juegos como Katana ZERO y Cyberpunk 2077.
                         <br><br>
-                        Inspirado por juegos como Katana ZERO y Cyberpunk 2077, corre, mata, hackea, deslízate y descubre qué te ocurrió antes de perder tus recuerdos.
-                        <br><br>
-                        Disfruta de una aventura con narrativa, niveles hechos a mano y mecánicas como lanzar objetos o explotar enemigos desde la lejanía.
+                        Corre, mata, hackea, deslízate y descubre qué te ocurrió antes de perder tus recuerdos en esta aventura narrativa con niveles hechos a mano y mecánicas innovadoras.
                     `,
                     b1: "Descargar&nbsp<i>Memory Shift</i>"
                 },
@@ -693,9 +660,7 @@ const locales = {
                     con: `
                         Finalista en la 2º edicion de la <a href="https://itch.io/jam/gamescholars-2nd-edition" target="_blank">gamejam de GameScholars</a>.
                         <br><br>
-                        Twin Spirits es un juego indie cooperativo local en el que dos espíritus se aventuran en busca de un cetro capaz de hacerles revivir.  
-                        <br><br>
-                        Por el camino os encontrareis una serie de puzzles en los que tendréis que cooperar para poder continuar.
+                        Twin Spirits es un juego cooperativo local de puzles y aventuras en el que dos espíritus deben trabajar juntos para recuperar un cetro capaz de devolverles la vida.
                     `,
                     b1: "Descargar&nbsp<i>Twin Spirits</i>",
                     vid: 'Ver Trailer'
@@ -703,18 +668,16 @@ const locales = {
                 papa: {
                     tit: "Cooking Papa",
                     con: `
-                        Cooking Papa es un juego indie en el que tendras que preparar recetas con ingredientes que no tienes.  
-                        <br><br>
-                        Las partidas van a contra reloj y tendrás que consultar el libro de recetas para remplazar los ingredientes que faltan.
+                        Cooking Papa es un juego de cocina en el que tendrás que preparar recetas con ingredientes que no tienes.  
+                        Cocina a contra reloj y consulta el libro de recetas del mal cocinero para remplazar los ingredientes que faltan.
                     `,
                     b1: "Descargar&nbsp<i>Cooking Papa</i>"
                 },
                 vaporcade: {
                     tit: "Vaporcade",
                     con: `
-                        Vaporcade es un juego de arcade indie con temática de vaporwave en el que controlas una nave y ganas puntos disparando.  
-                        <br><br>
-                        Vaporcade esta dividido por oleadas. En cada oleada encontraras nuevos enemigos y, por cada dos oleadas, un jefe al que derrotar.
+                        Vaporcade es un juego arcade con temática vaporwave en el que controlas una nave y ganas puntos disparando a enemigos y completando oleadas.  
+                        En cada oleada, encontraras nuevos enemigos y, por cada dos oleadas, un jefe al que derrotar.
                     `,
                     b1: "Descargar&nbsp<i>Vaporcade</i>"
                 },
@@ -1714,13 +1677,13 @@ class ProjectsPage {
         tag: Tag.all,
         sort: Sort.favs,
 
-        //List (sorted by preferences)
+        //List (sorted by preference)
         unfilteredList: [
+            Project.spyw4re,
             Project.tochimochi,
             Project.akira_posters,
             Project.map_pinner,
             Project.hardcore_kitty,
-            Project.spyw4re,
             Project.artist_posters,
             Project.stardew_pets,
             Project.hightime,
@@ -1732,12 +1695,12 @@ class ProjectsPage {
             Project.memory_shift,
             Project.spirits,
             Project.vaporcade,
-            Project.papa,
-            Project.otters,
+            //Project.papa,
+            //Project.otters,
             Project.assistant_pc,
             Project.assistant_android,
-            Project.framework,
             /*
+            Project.framework,
             Projects.discord_bots,
             Projects.modding,
             Projects.t45,
@@ -1836,7 +1799,7 @@ class ProjectsPage {
         //Get basic info
         const id = `project${this.#info.created}`;
         const project = this.#info.list[this.#info.created];
-        const locales = loc.projects.list[project.key];
+        const locales = loc.projects.games[project.key];
 
         //Get scope
         let scope = '';
