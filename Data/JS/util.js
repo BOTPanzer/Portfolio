@@ -45,7 +45,7 @@ class CurrentPageIndicator {
             for (const entry of entries) visiblePages[entry.target.id] = entry.isIntersecting;
             updateCurrentPage();
         }, {
-            threshold: 0.2
+            threshold: 0.01
         });
         for (const id of pages) observer.observe(document.getElementById(id));
     }
