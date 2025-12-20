@@ -45,7 +45,7 @@ const locales = {
         about: {
             title: 'About Me',
             desc1: "Howdy! My name is Alejandro, but you call me Alex. I'm a ###-year-old Spanish developer who likes spending time playing and creating games.",
-            desc2: "I started making games in 2015, at the age of 11, and took a break to learn app & web development in 2019. I've been doing all of them since 2022, but making games is what I enjoy the most.",
+            desc2: "I started making games in 2015, at the age of 11, then took a break to learn app & web development in 2019. I've been doing all of them since 2022, but making games is what I enjoy the most.",
             desc3: "I'm a well-organized, independent and perfectionist person who loves giving things his own touch. Some of my interests are playing, programming, graphic design and photography.",
             contact: 'Get in touch!',
             next: 'Click me to see my photos!',
@@ -451,8 +451,8 @@ const locales = {
         about: {
             title: 'Sobre Mi',
             desc1: "¡Hey! Me llamo Alejandro, pero me puedes llamar Alex. Soy un desarrollador español de ### años al que le gusta pasar el tiempo jugando y creando juegos.",
-            desc2: "Comencé a hacer juegos en 2015, con 11 años, y tomé un descanso para aprender desarrollo de apps & webs en 2019. He estado haciendo todo ello desde 2022, pero hacer juegos es lo que más me entretiene.",
-            desc3: "Soy una persona organizada, independiente y perfeccionista a la que le encanta dar su propio toque. Algunos de mis intereses son jugar, programar, el diseño gráfico y la fotografia.",
+            desc2: "Comencé a hacer juegos en 2015, con 11 años, y luego tomé un descanso para aprender desarrollo de apps & webs en 2019. He estado haciendo todo ello desde 2022, pero hacer juegos es lo que más me entretiene.",
+            desc3: "Soy una persona organizada, independiente y perfeccionista a la que le encanta dar su propio toque. Algunos de mis intereses son jugar, programar, el diseño gráfico y la fotografía.",
             contact: '¡Ponte en contacto!',
             next: '¡Hazme click para ver mis fotos!',
             names: [
