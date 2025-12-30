@@ -118,6 +118,18 @@ const locales = {
                 jam: 'Jam Game',
             },
             games: {
+                demo_reel: {
+                    tit: 'Demo Reel',
+                    con: `
+                        A demo reel of some of my top projects, featuring mechanics from 
+                        <a href="https://botpa.itch.io/tochimochi" target="_blank">Tochimohi</a>,
+                        Hackoon (in development),
+                        <a href="https://botpa.itch.io/spyw4re" target="_blank">Spyw4re</a>,
+                        <a href="https://botpa.itch.io/hardcore-kitty" target="_blank">Hardcore Kitty</a> and 
+                        <a href="https://botpa.itch.io/the-lost-fresquita" target="_blank">The Lost Fresquita</a>.
+                    `,
+                    vid: 'Watch Demo Reel'
+                },
                 tochimochi: {
                     tit: 'Tochimochi',
                     con: `
@@ -524,6 +536,18 @@ const locales = {
                 jam: 'Juego de Jam',
             },
             games: {
+                demo_reel: {
+                    tit: 'Demo Reel',
+                    con: `
+                        Un demo reel de algunos de mis mejores proyectos, mostrando mecanicas de 
+                        <a href="https://botpa.itch.io/tochimochi" target="_blank">Tochimohi</a>,
+                        Hackoon (en desarrollo),
+                        <a href="https://botpa.itch.io/spyw4re" target="_blank">Spyw4re</a>,
+                        <a href="https://botpa.itch.io/hardcore-kitty" target="_blank">Hardcore Kitty</a> y 
+                        <a href="https://botpa.itch.io/the-lost-fresquita" target="_blank">The Lost Fresquita</a>.
+                    `,
+                    vid: 'Ver Demo Reel'
+                },
                 tochimochi: {
                     tit: 'Tochimochi',
                     con: `
@@ -1384,6 +1408,7 @@ const Scope = Object.freeze({
 });
 
 const FavPoints = Object.freeze({
+    top: 125,
     cool: 100,
     fine: 75,
     mid: 50,
@@ -1391,6 +1416,15 @@ const FavPoints = Object.freeze({
 });
 
 const Project = Object.freeze({
+    demo_reel: {
+        key: 'demo_reel',
+        dateStart: 2023,
+        dateEnd: 2025,
+        favPoints: FavPoints.top,
+        category: Category.games,
+        tags: [Tag.cs, Tag.unity],
+        vid: '6CoRTMQBFt4'
+    },
     tochimochi: {
         key: 'tochimochi',
         dateStart: 2025,
@@ -1470,7 +1504,7 @@ const Project = Object.freeze({
         dateEnd: 2025,
         favPoints: FavPoints.cool,
         scope: [Scope.solo, Scope.personal],
-        category: Category.other,
+        category: Category.games,
         tags: [Tag.ts, Tag.html, Tag.css, Tag.photoshop],
         button: ['https://marketplace.visualstudio.com/items?itemName=botpa.stardew-pets']
     },
@@ -1599,6 +1633,7 @@ const Project = Object.freeze({
         tags: [Tag.java, Tag.android, Tag.uiux],
         button: ['Data/Orion Assistant 1.10.4.apk']
     },
+    //Usually hidden from here
     framework: {
         key: 'framework',
         dateStart: 2022,
@@ -1609,7 +1644,6 @@ const Project = Object.freeze({
         tags: [Tag.html, Tag.css, Tag.js, Tag.uiux],
         button: ['https://botpanzer.github.io/Orion-Framework']
     },
-    //Usually hidden from here
     discord_bots: {
         key: 'discord_bots',
         dateStart: 2018,
@@ -1679,6 +1713,7 @@ class ProjectsPage {
 
         //List (sorted by preference)
         unfilteredList: [
+            Project.demo_reel,
             Project.spyw4re,
             Project.tochimochi,
             Project.akira_posters,
