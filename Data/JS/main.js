@@ -117,7 +117,19 @@ const locales = {
                 personal: 'Personal Project',
                 jam: 'Jam Game',
             },
-            games: {
+            items: {
+                coon_gallery: {
+                    tit: 'Coon Gallery',
+                    con: `
+                    Coon Gallery is a privacy-focused Android gallery and PC manager that brings smart search to your phone without using the cloud.
+                    <br><br>
+                    By pairing the Android gallery with the PC manager, you can create local backups of your albums and enable smart search by generating descriptions, labels and detecting text in your images.
+                    <br><br>
+                    Is there a cat in your images? Just search "cat" and you'll find it!
+                    `,
+                    b1: '<i>Android</i> app',
+                    b2: '<i>PC</i> app'
+                },
                 demo_reel: {
                     tit: 'Demo Reel',
                     con: `
@@ -183,7 +195,7 @@ const locales = {
                 stardew_pets: {
                     tit: "Stardew Pets",
                     con: `
-                        Stardew Pets is a VS Code extension with +18K downloads that lets you have Stardew Valley pets accompanying you while you code.
+                        Stardew Pets is a VS Code extension with +19K downloads that lets you have Stardew Valley pets accompanying you while you code.
                         <br><br>
                         Aditionaly, you can decorate your pets place with money obtained by protecting them from enemies that may appear.
                     `,
@@ -535,7 +547,19 @@ const locales = {
                 personal: 'Proyecto Personal',
                 jam: 'Juego de Jam',
             },
-            games: {
+            items: {
+                coon_gallery: {
+                    tit: 'Coon Gallery',
+                    con: `
+                        Coon Gallery es una galería para Android y manager para PC enfocado en la privacidad que lleva la búsqueda inteligente a tu móvil sin depender de la nube.
+                        <br><br>
+                        Al vincular la galería de Android con el manager de PC, puedes crear copias de seguridad locales de tus álbumes y habilitar la búsqueda inteligente mediante la generación de descripciones, etiquetas y detección de texto en tus imágenes.
+                        <br><br>
+                        ¿Hay un gato en tu fotos? ¡Solo busca "cat" y lo encontrarás!
+                    `,
+                    b1: 'App para <i>Android</i>',
+                    b2: 'App para <i>PC</i>'
+                },
                 demo_reel: {
                     tit: 'Demo Reel',
                     con: `
@@ -600,7 +624,7 @@ const locales = {
                 stardew_pets: {
                     tit: "Stardew Pets",
                     con: `
-                        Stardew Pets es una extensión para VS Code con +18K descargas que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
+                        Stardew Pets es una extensión para VS Code con +19K descargas que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
                         <br><br>
                         Además, podrás decorar el lugar de tus mascotas con dinero obtenido al protegerlas de enemigos que aparezcan.
                     `,
@@ -1364,7 +1388,8 @@ const Tag = Object.freeze({
 
     //Languages
     cs: 'C#',
-    java: 'JAVA',
+    java: 'Java',
+    kotlin: 'Kotlin',
     cpp: 'C++',
     python: 'Python',
     html: 'HTML',
@@ -1373,7 +1398,6 @@ const Tag = Object.freeze({
     ts: 'TypeScript',
     nodejs: 'NodeJS',
     electronjs: 'ElectronJS',
-    cmd: 'CMD',
 
     //Apps
     unity: 'Unity',
@@ -1383,7 +1407,7 @@ const Tag = Object.freeze({
     illustrator: 'Illustrator',
     max3ds: '3ds Max',
     substance: 'Substance Painter',
-    android: 'Android Studio',
+    androidstudio: 'Android Studio',
 
     //Other
     discordapi: 'discordapi',
@@ -1416,6 +1440,15 @@ const FavPoints = Object.freeze({
 });
 
 const Project = Object.freeze({
+    coon_gallery: {
+        key: 'coon_gallery',
+        dateStart: 2025,
+        dateEnd: 2026,
+        favPoints: FavPoints.cool,
+        category: Category.apps,
+        tags: [Tag.java, Tag.kotlin, Tag.python, Tag.androidstudio, Tag.uiux],
+        buttons: ['https://github.com/BOTPanzer/Coon-Gallery', 'https://github.com/BOTPanzer/Coon-Gallery-PC'],
+    },
     demo_reel: {
         key: 'demo_reel',
         dateStart: 2023,
@@ -1433,7 +1466,7 @@ const Project = Object.freeze({
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.html, Tag.css, Tag.js, Tag.unity, Tag.blender, Tag.photoshop],
-        button: ['https://botpa.itch.io/tochimochi'],
+        buttons: ['https://botpa.itch.io/tochimochi'],
         vid: 'DEsmoGcLBzs'
     },
     akira_posters: {
@@ -1444,7 +1477,7 @@ const Project = Object.freeze({
         scope: [Scope.solo, Scope.personal],
         category: Category.design,
         tags: [Tag.photoshop],
-        button: ['https://www.artstation.com/artwork/lGQ84V']
+        buttons: ['https://www.artstation.com/artwork/lGQ84V']
     },
     map_pinner: {
         key: 'map_pinner',
@@ -1454,7 +1487,7 @@ const Project = Object.freeze({
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
         tags: [Tag.html, Tag.css, Tag.js],
-        button: ['http://botpanzer.github.io/Map-Pinner']
+        buttons: ['http://botpanzer.github.io/Map-Pinner']
     },
     hardcore_kitty: {
         key: 'hardcore_kitty',
@@ -1464,7 +1497,7 @@ const Project = Object.freeze({
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.blender, Tag.photoshop],
-        button: ['https://botpa.itch.io/hardcore-kitty'],
+        buttons: ['https://botpa.itch.io/hardcore-kitty'],
         vid: 'S0YSZCOFGlg'
     },
     stealer: {
@@ -1475,7 +1508,7 @@ const Project = Object.freeze({
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
         tags: [Tag.python],
-        button: ['https://github.com/BOTPanzer/Turbo-Stealer']
+        buttons: ['https://github.com/BOTPanzer/Turbo-Stealer']
     },
     spyw4re: {
         key: 'spyw4re',
@@ -1485,7 +1518,7 @@ const Project = Object.freeze({
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.js, Tag.nodejs, Tag.unity, Tag.blender, Tag.photoshop],
-        button: ['https://botpa.itch.io/spyw4re'],
+        buttons: ['https://botpa.itch.io/spyw4re'],
         vid: 'Qc3aWfPAxg0'
     },
     artist_posters: {
@@ -1496,7 +1529,7 @@ const Project = Object.freeze({
         scope: [Scope.solo, Scope.personal],
         category: Category.design,
         tags: [Tag.photoshop],
-        button: ["https://www.artstation.com/bot_panzer/albums/14597252"]
+        buttons: ["https://www.artstation.com/bot_panzer/albums/14597252"]
     },
     stardew_pets: {
         key: 'stardew_pets',
@@ -1506,7 +1539,7 @@ const Project = Object.freeze({
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
         tags: [Tag.ts, Tag.html, Tag.css, Tag.photoshop],
-        button: ['https://marketplace.visualstudio.com/items?itemName=botpa.stardew-pets']
+        buttons: ['https://marketplace.visualstudio.com/items?itemName=botpa.stardew-pets']
     },
     hackoon: {
         key: 'hackoon',
@@ -1516,7 +1549,7 @@ const Project = Object.freeze({
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.blender, Tag.photoshop],
-        button: ['https://www.tiktok.com/@botpanzer']
+        buttons: ['https://www.tiktok.com/@botpanzer']
     },
     hightime: {
         key: 'hightime',
@@ -1526,7 +1559,7 @@ const Project = Object.freeze({
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.photoshop],
-        button: ['https://botpa.itch.io/high-on-time'],
+        buttons: ['https://botpa.itch.io/high-on-time'],
         vid: 'UGMQDJxov1M',
     },
     fresquita: {
@@ -1537,7 +1570,7 @@ const Project = Object.freeze({
         scope: [Scope.solo, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.blender, Tag.photoshop],
-        button: ['https://botpa.itch.io/the-lost-fresquita'],
+        buttons: ['https://botpa.itch.io/the-lost-fresquita'],
         vid: 'SC_3TWWP46k'
     },
     raccoon: {
@@ -1548,7 +1581,7 @@ const Project = Object.freeze({
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.blender, Tag.photoshop],
-        button: ['https://botpa.itch.io/esto-aun-no-es-un-juego'],
+        buttons: ['https://botpa.itch.io/esto-aun-no-es-un-juego'],
         vid: 'UGH5wQYlAt4'
     },
     lmdshow: {
@@ -1559,7 +1592,7 @@ const Project = Object.freeze({
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.blender, Tag.photoshop, Tag.substance],
-        button: ['https://botpa.itch.io/escape-from-lmdshow'],
+        buttons: ['https://botpa.itch.io/escape-from-lmdshow'],
         vid: 'z0Qv5HZyZgU'
     },
     memory_shift: {
@@ -1570,7 +1603,7 @@ const Project = Object.freeze({
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.photoshop, Tag.illustrator],
-        button: ['https://botpa.itch.io/memory-shift']
+        buttons: ['https://botpa.itch.io/memory-shift']
     },
     spirits: {
         key: 'spirits',
@@ -1580,7 +1613,7 @@ const Project = Object.freeze({
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.illustrator, Tag.photoshop],
-        button: ['https://botpa.itch.io/twin-spirits'],
+        buttons: ['https://botpa.itch.io/twin-spirits'],
         vid: 'SdIGAw2ABeU'
     },
     papa: {
@@ -1591,7 +1624,7 @@ const Project = Object.freeze({
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.illustrator, Tag.photoshop],
-        button: ['https://botpa.itch.io/cooking-papa']
+        buttons: ['https://botpa.itch.io/cooking-papa']
     },
     vaporcade: {
         key: 'vaporcade',
@@ -1601,7 +1634,7 @@ const Project = Object.freeze({
         scope: [Scope.solo, Scope.personal],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.illustrator, Tag.photoshop],
-        button: ['https://botpa.itch.io/vaporcade']
+        buttons: ['https://botpa.itch.io/vaporcade']
     },
     otters: {
         key: 'otters',
@@ -1611,7 +1644,7 @@ const Project = Object.freeze({
         scope: [Scope.team, Scope.jam],
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.max3ds, Tag.substance, Tag.illustrator, Tag.photoshop],
-        button: ['https://botpa.itch.io/otters-odyssey']
+        buttons: ['https://botpa.itch.io/otters-odyssey']
     },
     assistant_pc: {
         key: 'assistant_pc',
@@ -1621,7 +1654,7 @@ const Project = Object.freeze({
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
         tags: [Tag.html, Tag.css, Tag.js, Tag.nodejs, Tag.electronjs, Tag.uiux],
-        button: ['https://github.com/BOTPanzer/Orion-Assistant', 'https://github.com/BOTPanzer/USB-Launcher']
+        buttons: ['https://github.com/BOTPanzer/Orion-Assistant', 'https://github.com/BOTPanzer/USB-Launcher']
     },
     assistant_android: {
         key: 'assistant_android',
@@ -1630,8 +1663,8 @@ const Project = Object.freeze({
         favPoints: FavPoints.mid,
         scope: [Scope.solo, Scope.personal],
         category: Category.apps,
-        tags: [Tag.java, Tag.android, Tag.uiux],
-        button: ['Data/Orion Assistant 1.10.4.apk']
+        tags: [Tag.java, Tag.androidstudio, Tag.uiux],
+        buttons: ['Data/Orion Assistant 1.10.4.apk']
     },
     //Usually hidden from here
     framework: {
@@ -1642,7 +1675,7 @@ const Project = Object.freeze({
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
         tags: [Tag.html, Tag.css, Tag.js, Tag.uiux],
-        button: ['https://botpanzer.github.io/Orion-Framework']
+        buttons: ['https://botpanzer.github.io/Orion-Framework']
     },
     discord_bots: {
         key: 'discord_bots',
@@ -1652,7 +1685,7 @@ const Project = Object.freeze({
         scope: [Scope.solo, Scope.personal],
         category: Category.other,
         tags: [Tag.js, Tag.discordapi],
-        button: ["https://github.com/BOTPanzer/Syrup"]
+        buttons: ["https://github.com/BOTPanzer/Syrup"]
     },
     modding: {
         key: 'modding',
@@ -1716,11 +1749,12 @@ class ProjectsPage {
             Project.demo_reel,
             Project.spyw4re,
             Project.tochimochi,
-            Project.akira_posters,
-            Project.map_pinner,
-            Project.hardcore_kitty,
-            Project.artist_posters,
             Project.stardew_pets,
+            Project.coon_gallery,
+            Project.hardcore_kitty,
+            Project.akira_posters,
+            Project.artist_posters,
+            Project.map_pinner,
             Project.hightime,
             Project.stealer,
             //Projects.hackoon,
@@ -1834,7 +1868,7 @@ class ProjectsPage {
         //Get basic info
         const id = `project${this.#info.created}`;
         const project = this.#info.list[this.#info.created];
-        const locales = loc.projects.games[project.key];
+        const locales = loc.projects.items[project.key];
 
         //Get scope
         let scope = '';
@@ -1858,12 +1892,12 @@ class ProjectsPage {
         const dateEnd = project.dateEnd == Infinity ? loc.projects.date.present : project.dateEnd;
 
         //Get buttons
-        let buttons = '';
-        const button = project.button;
-        if (Array.isArray(button)) {
-            for (let i = 0; i < button.length; i++) {
+        let buttonsHTML = '';
+        const buttons = project.buttons;
+        if (Array.isArray(buttons)) {
+            for (let i = 0; i < buttons.length; i++) {
                 const buttonText = locales['b' + (i + 1)];
-                buttons += `<a id="${id}B${i}" class="button" small target="_blank" href="${button[i]}" onmousedown="projects.onProjectOpened()">${buttonText ? buttonText : locales.tit}</a>`;
+                buttonsHTML += `<a id="${id}B${i}" class="button" small target="_blank" href="${buttons[i]}" onmousedown="projects.onProjectOpened()">${buttonText ? buttonText : locales.tit}</a>`;
             }
         }
 
@@ -1918,7 +1952,7 @@ class ProjectsPage {
                     <span>${locales.con}</span>
                 </div>
                 <!-- Buttons -->
-                <div class="projectButtons">${buttons}</div>
+                <div class="projectButtons">${buttonsHTML}</div>
             </div>
         `;
         this.#list.appendChild(element);
