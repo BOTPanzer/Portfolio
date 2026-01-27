@@ -25,7 +25,7 @@ html {
     /* Text */
     --text: #f5f5f5;
     --textFilter: brightness(0) invert(1);
-    --textAlt: #63666d;
+    --textAlt: #7b7f80;
     --textAltFilter: brightness(0) saturate(100%) invert(35%) sepia(24%) saturate(606%) hue-rotate(181deg) brightness(92%) contrast(86%);
     --link: #4ff3bc;
     --linkFilter: brightness(0) invert(29%) sepia(74%) saturate(2123%) hue-rotate(327deg) brightness(83%) contrast(111%);
@@ -271,7 +271,7 @@ a {
     opacity: calc(var(--brightness) * 14%);
 
     /* Other */
-    animation: blob ease-in-out 30s infinite;
+    animation: blob ease-in-out 20s infinite;
 }
 
 .blob[alt] {
@@ -289,19 +289,19 @@ html[light] .blob {
 
 @keyframes blob {
     0% {
-        clip-path: polygon(29% 12%, 26% 30%, 50% 87%, 86% 68%, 63% 87%, 40% 41%, 36% 58%, 68% 54%, 12% 84%, 12% 13%, 34% 30%);
+        clip-path: polygon(29% 12%, 26% 30%, 50% 87%, 86% 68%, 63% 87%, 40% 41%, 36% 58%, 68% 54%, 12% 84%, 12% 13%);
     }
     25% {
-        clip-path: polygon(14% 6%,  15% 71%, 84% 16%, 86% 68%, 63% 87%, 40% 41%, 66% 89%, 29% 44%, 59% 92%, 12% 13%, 62% 46%);
+        clip-path: polygon(14% 6%,  15% 71%, 84% 16%, 86% 68%, 63% 87%, 40% 41%, 66% 89%, 29% 44%, 59% 92%, 12% 13%);
     }
     50% {
-        clip-path: polygon(76% 75%, 7% 4%,   84% 16%, 41% 20%, 56% 60%, 18% 7%,  80% 11%, 33% 24%, 59% 92%, 45% 14%, 62% 46%);
+        clip-path: polygon(76% 75%, 7% 4%,   84% 16%, 41% 20%, 56% 60%, 18% 7%,  80% 11%, 33% 24%, 59% 92%, 45% 14%);
     }
     75% {
-        clip-path: polygon(52% 15%, 7% 4%,    0% 45%, 41% 20%, 66% 70%, 94% 7%,  40% 56%, 33% 24%, 59% 92%, 45% 14%, 60% 83%)
+        clip-path: polygon(52% 15%, 7% 4%,    0% 45%, 41% 20%, 66% 70%, 94% 7%,  40% 56%, 33% 24%, 59% 92%, 45% 14%)
     }
     100% {
-        clip-path: polygon(29% 12%, 26% 30%, 50% 87%, 86% 68%, 63% 87%, 40% 41%, 36% 58%, 68% 54%, 12% 84%, 12% 13%, 34% 30%);
+        clip-path: polygon(29% 12%, 26% 30%, 50% 87%, 86% 68%, 63% 87%, 40% 41%, 36% 58%, 68% 54%, 12% 84%, 12% 13%);
     }
 }
 
@@ -1677,6 +1677,72 @@ dialog:not(#snackbar) {
     bottom: auto;
 }
 
+/* Career */
+#aboutCareer {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+}
+
+.careerItem {
+    /* Layout */
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.careerItem:not(:nth-child(1)) {
+    /* Spacing */
+    margin-top: 10px;
+}
+
+.careerItemLeft {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.careerItemLeft > img {
+    /* Size */
+    width: 20px;
+    height: 20px;
+}
+
+.careerItemLeft > line {
+    /* Size */
+    width: 2px;
+
+    /* Layout */
+    flex: 1;
+
+    /* Visuals */
+    background-color: var(--text);
+}
+
+.careerItemRight {
+    /* Spacing */
+    margin-bottom: 30px;
+
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.careerItemRight > div:nth-child(1) {
+    /* Text */
+    font-family: title;
+}
+
+.careerItemRight > div:nth-child(3) {
+    /* Text */
+    font-family: mono;
+    font-size: 0.8rem;
+    color: var(--textAlt);
+}
+
 
 
   /*$$$$$  /$$       /$$ /$$ /$$          
@@ -1729,7 +1795,7 @@ dialog:not(#snackbar) {
     
     /* Text */
     font-family: mono;
-    font-size: 0.8em;
+    font-size: 0.8rem;
     font-weight: 600;
     color: var(--textAlt);
 }
@@ -1737,7 +1803,7 @@ dialog:not(#snackbar) {
 .skillsBar > span:nth-child(1) {
     /* Text */
     font-family: title;
-    font-size: 1.2em;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--text);
 }

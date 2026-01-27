@@ -14,40 +14,40 @@ class CurrentPageIndicator {
 
     constructor(pages) {
         //Reverse pages to give priority to the ones after
-        pages.reverse();
+        pages.reverse()
 
         //Default to home
-        const visiblePages = { 'home': true };
-        let currentPage = 'home';
+        const visiblePages = { 'home': true }
+        let currentPage = 'home'
 
         //Update current
         function updateCurrentPage() {
             //Get new current
-            let newCurrentPage = null;
+            let newCurrentPage = null
 
             for (const id of pages) {
-                if (!visiblePages[id]) continue;
-                newCurrentPage = id;
-                break;
+                if (!visiblePages[id]) continue
+                newCurrentPage = id
+                break
             }
 
             //Check new current
-            if (newCurrentPage == currentPage) return;
-            
+            if (newCurrentPage == currentPage) return
+
             //Update current page
-            if (currentPage != null) document.getElementById('goTo-' + currentPage).removeAttribute('selected');
-            currentPage = newCurrentPage;
-            if (currentPage != null) document.getElementById('goTo-' + currentPage).setAttribute('selected', '');
+            if (currentPage != null) document.getElementById(`goTo-${currentPage}`).removeAttribute('selected')
+            currentPage = newCurrentPage
+            if (currentPage != null) document.getElementById(`goTo-${currentPage}`).setAttribute('selected', '')
         }
 
         //Add observer to update current pages
         const observer = new IntersectionObserver((entries) => {
-            for (const entry of entries) visiblePages[entry.target.id] = entry.isIntersecting;
-            updateCurrentPage();
+            for (const entry of entries) visiblePages[entry.target.id] = entry.isIntersecting
+            updateCurrentPage()
         }, {
             threshold: 0.01
-        });
-        for (const id of pages) observer.observe(document.getElementById(id));
+        })
+        for (const id of pages) observer.observe(document.getElementById(id))
     }
 
 }
@@ -64,37 +64,37 @@ class CurrentPageIndicator {
 |________/|__/|_______/    \___/   \_______/|__/  |__/ \_______/|__/      |______*/ 
 
 //On page resize
-const onResize = [];
+const onResize = []
 
-window.onresize = () => onResize.forEach(f => f());
+window.onresize = () => onResize.forEach(fun => fun())
 
 function addResizeListener(f) {
     //Not a function
-    if (typeof f != 'function') return;
+    if (typeof f != 'function') return
 
     //Add to list
-    onResize.push(f);
+    onResize.push(f)
 }
 
 //On page focus
-const onFocus = [];
+const onFocus = []
 
 window.onfocus = () => {
     for (let i = onFocus.length - 1; i >= 0; i--) {
         //Run function
-        const result = onFocus[i]();
+        const result = onFocus[i]()
 
         //Remove function if result is true
-        if (typeof result === 'boolean' && result) onFocus.splice(i, 1); 
+        if (typeof result === 'boolean' && result) onFocus.splice(i, 1)
     }
 }
 
 function addFocusListener(f) {
     //Not a function
-    if (typeof f != 'function') return;
+    if (typeof f != 'function') return
 
     //Add to list
-    onFocus.push(f);
+    onFocus.push(f)
 }
 
 
@@ -172,7 +172,7 @@ function createConfetti() {
 
 class AppearAnimation {
 
-    observer
+    #observer = undefined
 
     constructor() {
         const observer = new IntersectionObserver((entries) => {
@@ -183,14 +183,14 @@ class AppearAnimation {
             }
         }, {
             threshold: 0.1
-        });
-        this.observer = observer
+        })
+        this.#observer = observer
     }
 
     animate(element) {
         if (!element) return
         if (!element.classList.contains('appear')) element.classList.add('appear')
-        this.observer.observe(element)
+        this.#observer.observe(element)
     }
 
 }
@@ -198,9 +198,9 @@ class AppearAnimation {
 class ParticlesAnimation {
 
     //Variables
-    animationFrameId
-    particles
-    
+    #animationFrameId
+    #particles
+
     //Constructor
     constructor(canvasID) {
         //Get elements & canvas context
@@ -252,8 +252,8 @@ class ParticlesAnimation {
             }
         }
 
-        this.particles = []
-        for (let i = 0; i < 50; i++) this.particles.push(new Particle())
+        this.#particles = []
+        for (let i = 0; i < 50; i++) this.#particles.push(new Particle())
 
         //Animate
         let isDrawing = true
@@ -264,13 +264,13 @@ class ParticlesAnimation {
             if (isDrawing) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-                for (const particle of this.particles) {
+                for (const particle of this.#particles) {
                     particle.update()
                     particle.draw()
                 }
             }
 
-            this.animationFrameId = requestAnimationFrame(animate)
+            this.#animationFrameId = requestAnimationFrame(animate)
         }
 
         animate()
@@ -294,7 +294,7 @@ class ParticlesAnimation {
                 } else {
                     //Pause drawing
                     isDrawing = false
-                    cancelAnimationFrame(this.animationFrameId)
+                    cancelAnimationFrame(this.#animationFrameId)
                 }
             }
         }, {
@@ -304,7 +304,7 @@ class ParticlesAnimation {
     }
 
     changeColor(color) {
-        for (let i = 0; i < this.particles.length; i++) this.particles[i].color = color
+        for (const particle of this.#particles) particle.color = color
     }
 
 }
@@ -390,7 +390,7 @@ class Vec2 {
     }
 
     toString() {
-        return `(${this.x}, ${this.y})`;
+        return `(${this.x}, ${this.y})`
     }
     
 }
@@ -492,25 +492,25 @@ class Util {
 
     static shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
-            const randomIndex = Math.floor(Math.random() * (i + 1));
-            [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
+            const randomIndex = Math.floor(Math.random() * (i + 1))
+            ;[array[i], array[randomIndex]] = [array[randomIndex], array[i]] //Don't remove ; or it bugs out
         }
     }
 
     static randomArray(array, remove) {
         //Fix remove
-        if (typeof remove != 'boolean') remove = false;
+        if (typeof remove != 'boolean') remove = false
 
         //Get index
-        const idx = Math.floor(Math.random() * array.length);
-        const value = array[idx];
-        if (remove) array.splice(idx, 1);
-        return value;
+        const idx = Math.floor(Math.random() * array.length)
+        const value = array[idx]
+        if (remove) array.splice(idx, 1)
+        return value
     }
 
     static setCharAt(str, index, chr) {
-        if (index > str.length - 1) return str;
-        return str.substring(0, index) + chr + str.substring(index + 1);
+        if (index > str.length - 1) return str
+        return str.substring(0, index) + chr + str.substring(index + 1)
     }
 
     static onDialogBackdropClick(dialog, onClick) {
@@ -524,13 +524,13 @@ class Util {
 
     static toggleScroll(scroll) {
         //Fix args
-        if (typeof scroll !== 'boolean') !document.body.hasAttribute('noscroll');
+        if (typeof scroll !== 'boolean') !document.body.hasAttribute('noscroll')
 
         //Toggle scroll
         if (scroll)
-            document.body.removeAttribute('noscroll');
+            document.body.removeAttribute('noscroll')
         else
-            document.body.setAttribute('noscroll', '');
+            document.body.setAttribute('noscroll', '')
     }
 
 }
