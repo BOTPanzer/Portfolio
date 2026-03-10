@@ -321,19 +321,6 @@ class AboutPage {
     #isLoading = false
     #currentIndex = -1
     #imageOrder = []
-    #images = [
-        'me1.webp',
-        'me2.webp',
-        'me3.webp',
-        'almuñécar.webp',
-        'amsterdam.webp',
-        'canary.webp',
-        'cat.webp',
-        'flower.webp',
-        'mallorca.webp',
-        'otivar.webp',
-        'artyom.webp'
-    ]
 
     next = () => {
         //Is loading
@@ -345,14 +332,14 @@ class AboutPage {
 
         //Get next image index
         let nextIndex = this.#currentIndex + 1
-        if (nextIndex >= this.#images.length) nextIndex = 0
+        if (nextIndex >= Photos.length) nextIndex = 0
 
         //Load animation
         this.#elements.image.setAttribute('loading', '')
         setTimeout(() => {
             //Update
             this.#currentIndex = nextIndex
-            this.#elements.image.src = `Data/Images/About/${this.#images[this.#imageOrder[this.#currentIndex]]}`
+            this.#elements.image.src = `Data/Images/About/${Photos[this.#imageOrder[this.#currentIndex]]}`
         }, 400)
     }
 
@@ -433,20 +420,20 @@ class AboutPage {
                 this.#elements.image.removeAttribute('loading')
 
                 //Artyom (last image) -> Give achievement
-                if (this.#currentIndex == this.#images.length - 1) achievements.give(Achievement.artyom)
+                if (this.#currentIndex == Photos.length - 1) achievements.give(Achievement.artyom)
 
                 //Finish
                 setTimeout(() => { this.#isLoading = false }, 400)
             }
         }
 
-        //Add images (excluding 'me1' and 'artyom') % shuffle them
-        for (let i = 1; i < this.#images.length - 1; i++) this.#imageOrder.push(i)
+        //Add images (excluding myself and artyom) & shuffle them
+        for (let i = 1; i < Photos.length - 1; i++) this.#imageOrder.push(i)
         Util.shuffleArray(this.#imageOrder)
 
-        //Add 'me1' first & 'artyom' last
-        this.#imageOrder.splice(0, 0, 0)                //Add 'me1' first
-        this.#imageOrder.push(this.#images.length - 1)  //Add 'artyom' last
+        //Add myself first & artyom last
+        this.#imageOrder.splice(0, 0, 0)            //Add myself first
+        this.#imageOrder.push(Photos.length - 1)    //Add artyom last
 
         //Select first image (index starts at -1)
         this.next()
