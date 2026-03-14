@@ -5,15 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="icon" href="Data/Images/favicon.png">
+    <link rel="icon" href="/src/assets/images/favicon.png">
 
     <!-- Style & Scripts -->
-    <link rel="stylesheet" href="Data/CSS/main.css">
-    <script src="Data/JS/util.js"></script>
-    <script src="Data/JS/data.js"></script>
-    <script src="Data/JS/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="/src/style.scss">
+    <script type="module" src="/src/main.ts"></script>
+    <script src="/scripts/confetti.browser.min.js"></script>
 </head>
-
 <body>
 
       <!--$$$                           /$$ /$$                       /$$
@@ -25,10 +23,10 @@
     |  $$$$$$/| $$     |  $$$$$$$|  $$$$$$$| $$|  $$$$$$$| $$  | $$  |  $$$$/
      \______/ |__/      \_______/ \_______/|__/ \_______/|__/  |__/   \_-->
 
-    <div class="blobBackground">
+    <div class="blob-background">
         <div class="blob"></div>
         <div class="blob" alt></div>
-        <div class="blobBlur"></div>
+        <div class="blob-blur"></div>
     </div>
 
 
@@ -46,91 +44,213 @@
                                                            \____-->
 
     <div id="loading" class="loading">
-        <span id="loadingTitle">LOADING_PORTFOLIO</span>
-        <div id="loadingBar" class="loadingBar">
+        <!-- Text -->
+        <span localize-text="loading.title">LOADING_PORTFOLIO</span>
+
+        <!-- Progress bar -->
+        <div id="loading-bar" class="loading-bar">
             <div></div>
         </div>
-        <span id="loadingProgress">00%</span>
+
+        <!-- Progress percent -->
+        <span id="loading-progress">00%</span>
     </div>
 
 
 
-      <!--$$$  /$$       /$$           /$$                          
-     /$$__  $$|__/      | $$          | $$                          
-    | $$  \__/ /$$  /$$$$$$$  /$$$$$$ | $$$$$$$   /$$$$$$   /$$$$$$ 
+      <!--$$$  /$$       /$$           /$$
+     /$$__  $$|__/      | $$          | $$
+    | $$  \__/ /$$  /$$$$$$$  /$$$$$$ | $$$$$$$   /$$$$$$   /$$$$$$
     |  $$$$$$ | $$ /$$__  $$ /$$__  $$| $$__  $$ |____  $$ /$$__  $$
      \____  $$| $$| $$  | $$| $$$$$$$$| $$  \ $$  /$$$$$$$| $$  \__/
-     /$$  \ $$| $$| $$  | $$| $$_____/| $$  | $$ /$$__  $$| $$      
-    |  $$$$$$/| $$|  $$$$$$$|  $$$$$$$| $$$$$$$/|  $$$$$$$| $$      
-     \______/ |__/ \_______/ \_______/|_______/  \_______/|-->      
+     /$$  \ $$| $$| $$  | $$| $$_____/| $$  | $$ /$$__  $$| $$
+    |  $$$$$$/| $$|  $$$$$$$|  $$$$$$$| $$$$$$$/|  $$$$$$$| $$
+     \______/ |__/ \_______/ \_______/|_______/  \_______/|-->
 
-    <!-- Toggle (for mobile) -->
-    <div class="glass sidebarToggle" onclick="sidebar.toggle()">
-        <img src="Data/Images/Icons/menu.webp">
+    <!-- Sidebar (mobile toggle) -->
+    <div id="sidebar-mobile" class="glass sidebar-toggle">
+        <img src="/assets/images/icons/menu.webp">
 
         <!-- Achievements indicator -->
-        <div id="achievementsDot1" class="dotIndicator"></div>
+        <div id="achievements-dot1" class="dot-indicator"></div>
     </div>
 
     <!-- Sidebar -->
-    <div id="sidebar" class="sidebar" onclick="sidebar.toggle()">
-        <div class="glass sidebarMenu" onclick="event.stopPropagation()">
+    <div id="sidebar" class="sidebar">
+        <div class="glass sidebar-menu" onclick="event.stopPropagation()">
             <!-- Pages -->
-            <a id="goTo-home" class="sidebarButton" onclick="goTo('home')" selected>
-                <img src="Data/Images/Icons/home.webp">
-                <span id="sidebar-home">Home</span>
-                <indicator class="sidebarButtonIndicator"></indicator>
+            <a id="sidebar-home" class="sidebar-button" selected>
+                <img src="/assets/images/icons/home.webp">
+                <span localize-text="sidebar.home">Home</span>
+                <indicator></indicator>
             </a>
-            <a id="goTo-about" class="sidebarButton" onclick="goTo('about')">
-                <img src="Data/Images/Icons/about.webp">
-                <span id="sidebar-about">About</span>
-                <indicator class="sidebarButtonIndicator"></indicator>
+            <a id="sidebar-about" class="sidebar-button">
+                <img src="/assets/images/icons/about.webp">
+                <span localize-text="sidebar.about">About</span>
+                <indicator></indicator>
             </a>
-            <a id="goTo-skills" class="sidebarButton" onclick="goTo('skills')">
-                <img src="Data/Images/Icons/skills.webp">
-                <span id="sidebar-skills">Skills</span>
-                <indicator class="sidebarButtonIndicator"></indicator>
+            <a id="sidebar-skills" class="sidebar-button">
+                <img src="/assets/images/icons/skills.webp">
+                <span localize-text="sidebar.skills">Skills</span>
+                <indicator></indicator>
             </a>
-            <a id="goTo-projects" class="sidebarButton" onclick="goTo('projects')">
-                <img src="Data/Images/Icons/projects.webp">
-                <span id="sidebar-projects">Projects</span>
-                <indicator class="sidebarButtonIndicator"></indicator>
+            <a id="sidebar-projects" class="sidebar-button">
+                <img src="/assets/images/icons/projects.webp">
+                <span localize-text="sidebar.projects">Projects</span>
+                <indicator></indicator>
             </a>
-            <a id="goTo-contact" class="sidebarButton" onclick="goTo('contact')">
-                <img src="Data/Images/Icons/email.webp">
-                <span id="sidebar-contact">Contact</span>
-                <indicator class="sidebarButtonIndicator"></indicator>
+            <a id="sidebar-contact" class="sidebar-button">
+                <img src="/assets/images/icons/email.webp">
+                <span localize-text="sidebar.contact">Contact</span>
+                <indicator></indicator>
             </a>
-            <a id="goTo-curriculum" class="sidebarButton" onclick="curriculum.toggleMenu()">
-                <img src="Data/Images/Icons/curriculum.webp">
-                <span id="sidebar-curriculum">Resume</span>
+            <a id="sidebar-curriculum" class="sidebar-button">
+                <img src="/assets/images/icons/curriculum.webp">
+                <span localize-text="sidebar.curriculum">Resume</span>
             </a>
 
             <!-- Space -->
             <div style="height: 10px; margin: auto 0px;"></div>
-            
+
             <!-- Options -->
-            <a class="sidebarButton" onclick="swapLocale()">
-                <img src="Data/Images/Icons/language.webp">
-                <span id="sidebar-localization">Language</span>
+            <a id="sidebar-localization" class="sidebar-button">
+                <img src="/assets/images/icons/language.webp">
+                <span localize-text="sidebar.localization">Language</span>
             </a>
-            <a class="sidebarButton" onclick="toggleTheme()">
-                <img src="Data/Images/Icons/theme.webp">
-                <span id="sidebar-theme">Theme</span>
+            <a id="sidebar-theme" class="sidebar-button">
+                <img src="/assets/images/icons/theme.webp">
+                <span localize-text="sidebar.theme">Theme</span>
             </a>
-            <a id="goTo-snake" class="sidebarButton" onclick="snake.toggleMenu()" hidden>
-                <img src="Data/Images/Icons/game.webp">
-                <span id="sidebar-snake">Snake</span>
+            <a id="sidebar-snake" class="sidebar-button" hidden>
+                <img src="/assets/images/icons/game.webp">
+                <span>Snake</span>
             </a>
-            <a class="sidebarButton" onclick="achievements.toggleMenu()">
-                <img src="Data/Images/Icons/achievements.webp">
-                <span id="sidebar-achievements">Achievements</span>
+            <a id="sidebar-achievements" class="sidebar-button">
+                <img src="/assets/images/icons/achievements.webp">
+                <span localize-text="sidebar.achievements">Achievements</span>
 
                 <!-- Achievements indicator -->
-                <div id="achievementsDot2" class="dotIndicator"></div>
+                <div id="achievements-dot2" class="dot-indicator"></div>
             </a>
         </div>
     </div>
+
+
+
+      <!--$$$                                /$$                     /$$
+     /$$__  $$                              |__/                    | $$
+    | $$  \__/ /$$   /$$  /$$$$$$   /$$$$$$  /$$  /$$$$$$$ /$$   /$$| $$ /$$   /$$ /$$$$$$/$$$$
+    | $$      | $$  | $$ /$$__  $$ /$$__  $$| $$ /$$_____/| $$  | $$| $$| $$  | $$| $$_  $$_  $$
+    | $$      | $$  | $$| $$  \__/| $$  \__/| $$| $$      | $$  | $$| $$| $$  | $$| $$ \ $$ \ $$
+    | $$    $$| $$  | $$| $$      | $$      | $$| $$      | $$  | $$| $$| $$  | $$| $$ | $$ | $$
+    |  $$$$$$/|  $$$$$$/| $$      | $$      | $$|  $$$$$$$|  $$$$$$/| $$|  $$$$$$/| $$ | $$ | $$
+     \______/  \______/ |__/      |__/      |__/ \_______/ \______/ |__/ \______/ |__/ |__/ |-->
+
+    <dialog id="curriculum-menu">
+        <!-- Title -->
+        <span class="menu-title" localize-text="curriculum.title">Curriculum</span>
+
+        <!-- Close -->
+        <div id="curriculum-close" class="menu-close">
+            <img src="/assets/images/icons/close.webp">
+        </div>
+
+        <!-- Language selector -->
+        <div class="menu-list">
+            <a id="curriculum-english" class="button" target="_blank" href="/assets/documents/CV (english).pdf">English</a>
+            <a id="curriculum-spanish" class="button" target="_blank" href="/assets/documents/CV (español).pdf">Español</a>
+        </div>
+    </dialog>
+
+
+
+      <!--$$$                      /$$
+     /$$__  $$                    | $$
+    | $$  \__/ /$$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$
+    |  $$$$$$ | $$__  $$ |____  $$| $$  /$$/ /$$__  $$
+     \____  $$| $$  \ $$  /$$$$$$$| $$$$$$/ | $$$$$$$$
+     /$$  \ $$| $$  | $$ /$$__  $$| $$_  $$ | $$_____/
+    |  $$$$$$/| $$  | $$|  $$$$$$$| $$ \  $$|  $$$$$$$
+     \______/ |__/  |__/ \_______/|__/  \__/ \_____-->
+
+    <!-- Game -->
+    <dialog id="snake-menu">
+        <!-- Title -->
+        <span class="menu-title">Snake</span>
+
+        <!-- Close -->
+        <div id="snake-close" class="menu-close">
+            <img src="/assets/images/icons/close.webp">
+        </div>
+
+        <!-- Points info -->
+        <div class="snake-info">
+            <span>
+                <span localize-text="snake.points">Points: </span>
+                <span id="snake-info-points">0</span>
+            </span>
+            <span>
+                <span localize-text="snake.highscore">Highscore: </span>
+                <span id="snake-info-best">0</span>
+            </span>
+        </div>
+
+        <!-- Game canvas -->
+        <canvas id="snake-canvas" width="360" height="360"></canvas>
+
+        <!-- Arrows & restart button -->
+        <div class="snake-controls">
+            <!-- D-Pad -->
+            <div class="snake-controls-arrows">
+                <span id="snake-arrow-left" class="snake-controls-arrow">◀</span>
+                <div>
+                    <span id="snake-arrow-up" class="snake-controls-arrow" up>◀</span>
+                    <div class="snake-controls-arrow-center"></div>
+                    <span id="snake-arrow-down" class="snake-controls-arrow" down>◀</span>
+                </div>
+                <span id="snake-arrow-right" class="snake-controls-arrow" right>◀</span>
+            </div>
+
+            <!-- Restart button -->
+            <div id="snake-restart" class="snake-button" localize-text="snake.restart">Restart</div>
+        </div>
+
+        <!-- Death info -->
+        <span id="snake-info-death" localize-text="snake.death">You died</span>
+    </dialog>
+
+    <!-- AFK message -->
+    <div id="snake-afk">
+        <span localize-html="snake.afk">Seems a bit quiet here...<br>Wanna play a game?</span>
+        <img src="/assets/images/icons/afk.webp">
+    </div>
+
+
+
+      <!--$$$            /$$       /$$                                                                   /$$
+     /$$__  $$          | $$      |__/                                                                  | $$
+    | $$  \ $$  /$$$$$$$| $$$$$$$  /$$  /$$$$$$  /$$    /$$ /$$$$$$  /$$$$$$/$$$$   /$$$$$$  /$$$$$$$  /$$$$$$   /$$$$$$$
+    | $$$$$$$$ /$$_____/| $$__  $$| $$ /$$__  $$|  $$  /$$//$$__  $$| $$_  $$_  $$ /$$__  $$| $$__  $$|_  $$_/  /$$_____/
+    | $$__  $$| $$      | $$  \ $$| $$| $$$$$$$$ \  $$/$$/| $$$$$$$$| $$ \ $$ \ $$| $$$$$$$$| $$  \ $$  | $$   |  $$$$$$
+    | $$  | $$| $$      | $$  | $$| $$| $$_____/  \  $$$/ | $$_____/| $$ | $$ | $$| $$_____/| $$  | $$  | $$ /$$\____  $$
+    | $$  | $$|  $$$$$$$| $$  | $$| $$|  $$$$$$$   \  $/  |  $$$$$$$| $$ | $$ | $$|  $$$$$$$| $$  | $$  |  $$$$//$$$$$$$/
+    |__/  |__/ \_______/|__/  |__/|__/ \_______/    \_/    \_______/|__/ |__/ |__/ \_______/|__/  |__/   \___/ |_____-->
+
+    <dialog id="achievements-menu">
+        <!-- Title -->
+        <span class="menu-title" localize-text="achievements.title">Achievements</span>
+
+        <!-- Close -->
+        <div id="achievements-close" class="menu-close">
+            <img src="/assets/images/icons/close.webp">
+        </div>
+
+        <!-- Description -->
+        <span class="achievements-description" localize-text="achievements.description">Find new achievements by interacting with the page</span>
+
+        <!-- Achievements list -->
+        <div id="achievements-list"></div>
+    </dialog>
 
 
 
@@ -156,15 +276,15 @@
 
         <div id="home" class="page">
             <!-- Text -->
-            <div class="homeText">
-                <span id="homeText1">Howdy, i'm</span>
-                <span id="homeText2">Alejandro Paniagua</span>
-                <span id="homeText3">A spanish indie game developer</span>
+            <div class="home-text">
+                <span id="home-text1" localize-text="home.text1">Howdy, i'm</span>
+                <span id="home-text2" localize-text="home.text2">Alejandro Paniagua</span>
+                <span id="home-text3">A spanish indie game developer</span>
             </div>
 
             <!-- Navigation arrow -->
-            <div class="glass navigationArrow" onclick="goTo('about')">
-                <img src="Data/Images/Icons/play.webp">
+            <div id="home-arrow" class="component navigation-arrow">
+                <img src="/assets/images/icons/play.webp">
             </div>
         </div>
 
@@ -181,221 +301,242 @@
 
         <div id="about" class="page">
             <!-- Text -->
-            <div class="aboutTextBox">
+            <div class="about-text-box">
                 <!-- Top -->
-                <div class="pageTop">
-                    <span class="pageTitleShapes">
-                        <img src="Data/Images/Shapes/shape1.svg">
-                        <img src="Data/Images/Shapes/shape2.svg">
-                        <img src="Data/Images/Shapes/shape3.svg">
-                        <img src="Data/Images/Shapes/shape4.svg">
-                        <img src="Data/Images/Shapes/shape5.svg">
-                        <img src="Data/Images/Shapes/shape6.svg">
+                <div class="page-top">
+                    <span class="page-title-shapes">
+                        <img src="/src/assets/images/shapes/shape1.svg">
+                        <img src="/src/assets/images/shapes/shape2.svg">
+                        <img src="/src/assets/images/shapes/shape3.svg">
+                        <img src="/src/assets/images/shapes/shape4.svg">
+                        <img src="/src/assets/images/shapes/shape5.svg">
+                        <img src="/src/assets/images/shapes/shape6.svg">
                     </span>
-                    <div class="pageTitleSlash"></div>
-                    <span id="aboutTitle">About Me</span>
-                    <div class="pageTitleLine"></div>
+                    <div class="page-title-slash"></div>
+                    <span localize-text="about.info.title">About Me</span>
+                    <div class="page-title-line"></div>
                 </div>
 
                 <!-- Description -->
                 <span>
-                    <span id="aboutDescription1">Howdy! My name is Alejandro, but you call me Alex. I'm a ###-year-old Spanish developer who likes spending time playing and developing games.</span>
+                    <span id="about-description1">Howdy! My name is Alejandro, but you call me Alex. I'm a ###-year-old Spanish developer who likes spending time playing and developing games.</span>
                     <br><br>
-                    <span id="aboutDescription2">I started making games in 2015, at the age of 11, and took a break to learn app & web development in 2019. I've been doing all of them since 2022, but making games is what I enjoy the most.</span>
+                    <span localize-text="about.info.desc2">I started making games in 2015, at the age of 11, and took a break to learn app & web development in 2019. I've been doing all of them since 2022, but making games is what I enjoy the most.</span>
                     <br><br>
-                    <span id="aboutDescription3">I'm a well-organized, independent and really perfectionist person who loves giving things his own touch. Some of my interests are playing, programming, graphic design and photography.</span>
+                    <span localize-text="about.info.desc3">I'm a well-organized, independent and really perfectionist person who loves giving things his own touch. Some of my interests are playing, programming, graphic design and photography.</span>
                 </span>
 
                 <!-- Career timeline -->
-                <div id="aboutCareer"></div>
+                <div id="about-career"></div>
 
                 <!-- Contact button -->
-                <span id="aboutContact" class="button" onclick="goTo('contact')">Contact Me!</span>
+                <span id="about-contact" class="button" localize-text="about.info.contact">Contact Me!</span>
             </div>
 
             <!-- Image -->
-            <div class="aboutImgBox" onclick="about.next()">
-                <img id="aboutImg">
-                <div id="aboutImgName">Image Name</div>
-                <div id="aboutImgNext">Click for next image</div>
+            <div id="about-img-box">
+                <img id="about-img">
+                <div id="about-img-name">Image Name</div>
+                <div id="about-img-next" localize-text="about.carousel.next">Click for next image</div>
             </div>
 
             <!-- Navigation arrow -->
-            <div class="glass navigationArrow" onclick="goTo('skills')">
-                <img src="Data/Images/Icons/play.webp">
+            <div id="about-arrow" class="component navigation-arrow">
+                <img src="/assets/images/icons/play.webp">
             </div>
         </div>
 
 
 
-          <!--$$$  /$$       /$$ /$$ /$$          
-         /$$__  $$| $$      |__/| $$| $$          
+          <!--$$$  /$$       /$$ /$$ /$$
+         /$$__  $$| $$      |__/| $$| $$
         | $$  \__/| $$   /$$ /$$| $$| $$  /$$$$$$$
         |  $$$$$$ | $$  /$$/| $$| $$| $$ /$$_____/
-         \____  $$| $$$$$$/ | $$| $$| $$|  $$$$$$ 
+         \____  $$| $$$$$$/ | $$| $$| $$|  $$$$$$
          /$$  \ $$| $$_  $$ | $$| $$| $$ \____  $$
         |  $$$$$$/| $$ \  $$| $$| $$| $$ /$$$$$$$/
          \______/ |__/  \__/|__/|__/|__/|_____-->
 
         <div id="skills" class="page">
             <!-- Text -->
-            <div class="skillsTextBox">
+            <div class="skills-text-box">
                 <!-- Top -->
-                <div class="pageTop">
-                    <span class="pageTitleShapes">
-                        <img src="Data/Images/Shapes/shape1.svg">
-                        <img src="Data/Images/Shapes/shape2.svg">
-                        <img src="Data/Images/Shapes/shape3.svg">
-                        <img src="Data/Images/Shapes/shape4.svg">
-                        <img src="Data/Images/Shapes/shape5.svg">
-                        <img src="Data/Images/Shapes/shape6.svg">
+                <div class="page-top">
+                    <span class="page-title-shapes">
+                        <img src="/src/assets/images/shapes/shape1.svg">
+                        <img src="/src/assets/images/shapes/shape2.svg">
+                        <img src="/src/assets/images/shapes/shape3.svg">
+                        <img src="/src/assets/images/shapes/shape4.svg">
+                        <img src="/src/assets/images/shapes/shape5.svg">
+                        <img src="/src/assets/images/shapes/shape6.svg">
                     </span>
-                    <div class="pageTitleSlash"></div>
-                    <span id="skillsTitle">My Skills</span>
-                    <div class="pageTitleLine"></div>
+                    <div class="page-title-slash"></div>
+                    <span localize-text="skills.title">My Skills</span>
+                    <div class="page-title-line"></div>
                 </div>
 
                 <!-- Description -->
-                <span id="skillsDescription">I've been interested in the world of technology since I was little and, thanks to that, I've learnt a large number of skills related to different topics.</span>
+                <span id="skills-description" localize-text="skills.desc">I've been interested in the world of technology since I was little and, thanks to that, I've learnt a large number of skills related to different topics.</span>
             </div>
 
             <!-- Skill bars -->
-            <div class="skillsBars">
-                <div class="skillsBar">
-                    <span id="skillsGameTitle">Videogames Development</span>
+            <div class="skills-bars">
+                <div class="skills-bar">
+                    <span localize-text="skills.names.game">Videogames Development</span>
                     <div>
-                        <span id="skillsGamePro">Advanced</span>
-                        <div id="skillsGame"></div>
+                        <span>
+                            <span id="skills-game-years">gazillion</span>
+                            <span localize-text="skills.years">years</span>
+                        </span>
+                        <div id="skills-game-bar"></div>
                     </div>
                     <span>Unity · Unreal Engine · Custom Engine / C# · Blueprints · C++</span>
                 </div>
 
-                <div class="skillsBar">
-                    <span id="skillsAppTitle">App Development</span>
+                <div class="skills-bar">
+                    <span localize-text="skills.names.app">App Development</span>
                     <div>
-                        <span id="skillsAppPro">High</span>
-                        <div id="skillsApp"></div>
+                        <span>
+                            <span id="skills-app-years">gazillion</span>
+                            <span localize-text="skills.years">years</span>
+                        </span>
+                        <div id="skills-app-bar"></div>
                     </div>
                     <span>Android Studio · NodeJS / Java · JavaScript</span>
                 </div>
 
-                <div class="skillsBar">
-                    <span id="skillsWebTitle">Web Development</span>
+                <div class="skills-bar">
+                    <span localize-text="skills.names.web">Web Development</span>
                     <div>
-                        <span id="skillsWebPro">High</span>
-                        <div id="skillsWeb"></div>
+                        <span>
+                            <span id="skills-web-years">gazillion</span>
+                            <span localize-text="skills.years">years</span>
+                        </span>
+                        <div id="skills-web-bar"></div>
                     </div>
-                    <span>HTML · CSS · JS</span>
+                    <span>HTML · CSS · TypeScript</span>
                 </div>
 
-                <div class="skillsBar">
-                    <span id="skillsDesignTitle">Graphic Design</span>
+                <div class="skills-bar">
+                    <span localize-text="skills.names.design">Graphic Design</span>
                     <div>
-                        <span id="skillsDesignPro">High</span>
-                        <div id="skillsDesign"></div>
+                        <span>
+                            <span id="skills-design-years">gazillion</span>
+                            <span localize-text="skills.years">years</span>
+                        </span>
+                        <div id="skills-design-bar"></div>
                     </div>
                     <span>Affinity · Photoshop · Illustrator</span>
                 </div>
 
-                <div class="skillsBar">
-                    <span id="skillsUITitle">UI/UX Design</span>
+                <div class="skills-bar">
+                    <span localize-text="skills.names.ui">UI/UX Design</span>
                     <div>
-                        <span id="skillsUIPro">High</span>
-                        <div id="skillsUI"></div>
+                        <span>
+                            <span id="skills-ui-years">gazillion</span>
+                            <span localize-text="skills.years">years</span>
+                        </span>
+                        <div id="skills-ui-bar"></div>
                     </div>
                     <span>Figma · Photoshop · Illustrator</span>
                 </div>
 
-                <div class="skillsBar">
-                    <span id="skills3DTitle">3D Modeling/Printing & CAD</span>
+                <div class="skills-bar">
+                    <span localize-text="skills.names.3d">3D Modeling/Printing & CAD</span>
                     <div>
-                        <span id="skills3DPro">Basics</span>
-                        <div id="skills3D"></div>
+                        <span>
+                            <span id="skills-3d-years">gazillion</span>
+                            <span localize-text="skills.years">years</span>
+                        </span>
+                        <div id="skills-3d-bar"></div>
                     </div>
                     <span>Blender · Fusion 360 · Cura</span>
                 </div>
             </div>
-            
+
             <!-- Note -->
-            <div class="skillsNote">
-                <b><span id="skillsNoteTitle">Note:</span></b>
-                <span id="skillsNoteText">Years of experience are an abstract way of quantifying experience as 2+ skills can be learnt at the same time.</span>
+            <div class="skills-note">
+                <b><span localize-text="skills.note.title">Note:</span></b>
+                <span localize-text="skills.note.text">Years of experience are an abstract way of quantifying experience as 2+ skills can be learnt at the same time.</span>
             </div>
 
             <!-- Navigation arrow -->
-            <div class="glass navigationArrow" onclick="goTo('projects')">
-                <img src="Data/Images/Icons/play.webp">
+            <div id="skills-arrow" class="component navigation-arrow">
+                <img src="/assets/images/icons/play.webp">
             </div>
         </div>
 
 
 
-         <!--$$$$                                               /$$             
-        | $$__  $$                                             | $$             
+         <!--$$$$                                               /$$
+        | $$__  $$                                             | $$
         | $$  \ $$ /$$$$$$   /$$$$$$  /$$  /$$$$$$   /$$$$$$$ /$$$$$$   /$$$$$$$
         | $$$$$$$//$$__  $$ /$$__  $$|__/ /$$__  $$ /$$_____/|_  $$_/  /$$_____/
-        | $$____/| $$  \__/| $$  \ $$ /$$| $$$$$$$$| $$        | $$   |  $$$$$$ 
+        | $$____/| $$  \__/| $$  \ $$ /$$| $$$$$$$$| $$        | $$   |  $$$$$$
         | $$     | $$      | $$  | $$| $$| $$_____/| $$        | $$ /$$\____  $$
         | $$     | $$      |  $$$$$$/| $$|  $$$$$$$|  $$$$$$$  |  $$$$//$$$$$$$/
-        |__/     |__/       \______/ | $$ \_______/ \_______/   \___/ |_______/ 
-                                /$$  | $$                                       
-                               |  $$$$$$/                                       
+        |__/     |__/       \______/ | $$ \_______/ \_______/   \___/ |_______/
+                                /$$  | $$
+                               |  $$$$$$/
                                 \____-->
 
         <div id="projects" class="page">
             <!-- Top -->
-            <div class="pageTop">
-                <span class="pageTitleShapes">
-                    <img src="Data/Images/Shapes/shape1.svg">
-                    <img src="Data/Images/Shapes/shape2.svg">
-                    <img src="Data/Images/Shapes/shape3.svg">
-                    <img src="Data/Images/Shapes/shape4.svg">
-                    <img src="Data/Images/Shapes/shape5.svg">
-                    <img src="Data/Images/Shapes/shape6.svg">
+            <div class="page-top">
+                <span class="page-title-shapes">
+                    <img src="/src/assets/images/shapes/shape1.svg">
+                    <img src="/src/assets/images/shapes/shape2.svg">
+                    <img src="/src/assets/images/shapes/shape3.svg">
+                    <img src="/src/assets/images/shapes/shape4.svg">
+                    <img src="/src/assets/images/shapes/shape5.svg">
+                    <img src="/src/assets/images/shapes/shape6.svg">
                 </span>
-                <div class="pageTitleSlash"></div>
-                <span id="projectsTitle">My Projects</span>
-                <div class="pageTitleLine"></div>
+                <div class="page-title-slash"></div>
+                <span localize-text="projects.title">My Projects</span>
+                <div class="page-title-line"></div>
             </div>
 
-            <!-- Category, sort & filter -->
-            <div id="projectsFilters">
-                <span id="projectsFiltersTitle">Filtros</span>
+            <!-- Filter options -->
+            <div id="projects-filters">
+                <!-- Title -->
+                <span localize-text="projects.filtersTitle">Filters</span>
+
+                <!-- Options -->
                 <div>
                     <span>
-                        <span id="projectsCategory">Category:</span>
-                        <span id="projectsCategoryBy" class="glassHover projectTag" onclick="projects.toggleFilterMenu('category')">Category</span>
+                        <span><span localize-text="projects.category.title">Category</span>:</span>
+                        <span id="projects-category-by" class="component-hover project-tag">Category</span>
                     </span>
                     <span>
-                        <span id="projectsTags">Tags:</span>
-                        <span id="projectsTagsBy" class="glassHover projectTag" onclick="projects.toggleFilterMenu()">Tags</span>
+                        <span><span localize-text="projects.tags.title">Tags</span>:</span>
+                        <span id="projects-tags-by" class="component-hover project-tag">Tags</span>
                     </span>
                     <span>
-                        <span id="projectsSort">Sort by:</span>
-                        <span id="projectsSortBy" class="glassHover projectTag" onclick="projects.toggleFilterMenu('sort')">Sort</span>
+                        <span><span localize-text="projects.sort.title">Sort by</span>:</span>
+                        <span id="projects-sort-by" class="component-hover project-tag">Sort</span>
                     </span>
                 </div>
             </div>
 
             <!-- Filters menu -->
-            <dialog id="filterMenu">
+            <dialog id="filter-menu">
                 <!-- Title -->
-                <span id="filterMenuTitle" class="menuTitle">Filter By</span>
+                <span id="filter-menu-title" class="menu-title">Filter By</span>
 
-                <!-- Close button -->
-                <div class="menuClose" onclick="projects.toggleFilterMenu()">
-                    <img src="Data/Images/Icons/close.webp">
+                <!-- Close -->
+                <div id="filter-menu-close" class="menu-close">
+                    <img src="/assets/images/icons/close.webp">
                 </div>
-                
-                <!-- Tags list -->
-                <div id="filterMenuTags" class="menuList"></div>
+
+                <!-- List -->
+                <div id="filter-menu-list" class="menu-list"></div>
             </dialog>
 
             <!-- List -->
-            <div id="projectsList"></div>
+            <div id="projects-list"></div>
 
             <!-- Show more -->
-            <div id="projectsMore" class="button" onclick="projects.addProject(); projects.addProject();">Show more</div>
+            <div id="projects-more" class="button" localize-text="projects.more">Show more</div>
         </div>
 
 
@@ -409,66 +550,65 @@
         | $$   |  $$$$$$/|  $$$$$$/  |  $$$$/|  $$$$$$$| $$
         |__/    \______/  \______/    \___/   \_______/|-->
 
-        <!-- Contact, Quote & Credits -->
-        <div id="contact" class="glass footer">
+        <div id="contact" class="component footer">
             <!-- Top -->
-            <div class="pageTop" small>
-                <span class="pageTitleShapes">
-                    <img src="Data/Images/Shapes/shape1.svg">
-                    <img src="Data/Images/Shapes/shape2.svg">
-                    <img src="Data/Images/Shapes/shape3.svg">
-                    <img src="Data/Images/Shapes/shape4.svg">
-                    <img src="Data/Images/Shapes/shape5.svg">
-                    <img src="Data/Images/Shapes/shape6.svg">
+            <div class="page-top" small>
+                <span class="page-title-shapes">
+                    <img src="/src/assets/images/shapes/shape1.svg">
+                    <img src="/src/assets/images/shapes/shape2.svg">
+                    <img src="/src/assets/images/shapes/shape3.svg">
+                    <img src="/src/assets/images/shapes/shape4.svg">
+                    <img src="/src/assets/images/shapes/shape5.svg">
+                    <img src="/src/assets/images/shapes/shape6.svg">
                 </span>
-                <div class="pageTitleSlash"></div>
-                <span id="footerContactTitle">Contact</span>
+                <div class="page-title-slash"></div>
+                <span localize-text="footer.contact.title">Contact</span>
             </div>
 
-            <!-- Contact buttons -->
-            <div class="footerContacts">
-                <a class="footerContact" onclick="footer.copyMail()">
-                    <img src="Data/Images/Icons/email.webp">
+            <!-- Contact -->
+            <div class="footer-contacts">
+                <a id="footer-contact-email" class="footer-contact">
+                    <img src="/assets/images/icons/email.webp">
                 </a>
-                <a class="footerContact" onmousedown="footer.onContactOpened()" target="_blank" href="https://www.linkedin.com/in/alejandro-paniagua-moreno">
-                    <img src="Data/Images/Icons/linkedin.webp">
+                <a id="footer-contact-linkedin" class="footer-contact" target="_blank" href="https://www.linkedin.com/in/alejandro-paniagua-moreno">
+                    <img src="/assets/images/icons/linkedin.webp">
                 </a>
-                <a class="footerContact" onmousedown="footer.onContactOpened()" target="_blank" href="https://botpa.itch.io/">
-                    <img src="Data/Images/Icons/itchio.webp">
+                <a id="footer-contact-itchio" class="footer-contact" target="_blank" href="https://botpa.itch.io/">
+                    <img src="/assets/images/icons/itchio.webp">
                 </a>
-                <a class="footerContact" onmousedown="footer.onContactOpened()" target="_blank" href="https://github.com/BOTPanzer/">
-                    <img src="Data/Images/Icons/github.webp">
+                <a id="footer-contact-github" class="footer-contact" target="_blank" href="https://github.com/BOTPanzer/">
+                    <img src="/assets/images/icons/github.webp">
                 </a>
-                <a class="footerContact" onmousedown="footer.onContactOpened()" target="_blank" href="https://www.reddit.com/user/Botpa69">
-                    <img src="Data/Images/Icons/reddit.webp">
+                <a id="footer-contact-reddit" class="footer-contact" target="_blank" href="https://www.reddit.com/user/Botpa69">
+                    <img src="/assets/images/icons/reddit.webp">
                 </a>
-                <a class="footerContact" onmousedown="footer.onContactOpened()" target="_blank" href="https://www.youtube.com/@botpa">
-                    <img src="Data/Images/Icons/youtube.webp">
+                <a id="footer-contact-youtube" class="footer-contact" target="_blank" href="https://www.youtube.com/@botpa">
+                    <img src="/assets/images/icons/youtube.webp">
                 </a>
-                <a class="footerContact" onmousedown="footer.onContactOpened()" target="_blank" href="https://www.tiktok.com/@botpanzer">
-                    <img src="Data/Images/Icons/tiktok.webp">
+                <a id="footer-contact-tiktok" class="footer-contact" target="_blank" href="https://www.tiktok.com/@botpanzer">
+                    <img src="/assets/images/icons/tiktok.webp">
                 </a>
             </div>
 
             <!-- Spacer -->
-            <div class="footerSpacer"></div>
+            <div class="footer-spacer"></div>
 
             <!-- Quotes from games/shows I like (✿◡‿◡) -->
-            <div class="footerQuote">
-                <span id="footerQuoteText">There's a monster inside all of us</span>
-                <span id="footerQuoteAuthor">Silco - Arcane</span>
-                
-                <div class="footerArrows">
-                    <img id="footerArrowPrev" class="footerArrow" src="Data/Images/Icons/play.webp" onclick="footer.prevQuote()" mirror>
-                    <img id="footerArrowNext" class="footerArrow" src="Data/Images/Icons/play.webp" onclick="footer.nextQuote()">
+            <div class="footer-quote">
+                <span id="footer-quote-text">There's a monster inside all of us</span>
+                <span id="footer-quote-author">Silco - Arcane</span>
+
+                <div class="footer-arrows">
+                    <img id="footer-arrow-prev" class="footer-arrow" src="/assets/images/icons/play.webp" mirror>
+                    <img id="footer-arrow-next" class="footer-arrow" src="/assets/images/icons/play.webp">
                 </div>
             </div>
 
             <!-- Spacer -->
-            <div class="footerSpacer"></div>
+            <div class="footer-spacer"></div>
 
             <!-- Credits -->
-            <div id="footerCredits">
+            <div id="footer-credits" localize-html="footer.credits">
                 This page was made with love by Alex (✿◡‿◡)
                 <br>
                 No AI was involved in the creation (︶^︶)
@@ -490,132 +630,15 @@
                            |  $$$$$$/                                       
                             \____-->
 
-    <div id="projectsFullscreen">
+    <div id="project-fullscreen">
         <!-- Close button -->
-        <div class="menuClose" onclick="projects.fullscreenImage()">
-            <img src="Data/Images/Icons/close.webp">
+        <div id="project-fullscreen-close" class="menu-close">
+            <img src="/assets/images/icons/close.webp">
         </div>
 
         <!-- Image -->
-        <img id="projectsFullscreenImage">
+        <img id="project-fullscreen-image">
     </div>
-
-
-
-      <!--$$$                                /$$                     /$$
-     /$$__  $$                              |__/                    | $$
-    | $$  \__/ /$$   /$$  /$$$$$$   /$$$$$$  /$$  /$$$$$$$ /$$   /$$| $$ /$$   /$$ /$$$$$$/$$$$
-    | $$      | $$  | $$ /$$__  $$ /$$__  $$| $$ /$$_____/| $$  | $$| $$| $$  | $$| $$_  $$_  $$
-    | $$      | $$  | $$| $$  \__/| $$  \__/| $$| $$      | $$  | $$| $$| $$  | $$| $$ \ $$ \ $$
-    | $$    $$| $$  | $$| $$      | $$      | $$| $$      | $$  | $$| $$| $$  | $$| $$ | $$ | $$
-    |  $$$$$$/|  $$$$$$/| $$      | $$      | $$|  $$$$$$$|  $$$$$$/| $$|  $$$$$$/| $$ | $$ | $$
-     \______/  \______/ |__/      |__/      |__/ \_______/ \______/ |__/ \______/ |__/ |__/ |-->
-
-    <dialog id="curriculumMenu">
-        <!-- Title -->
-        <span id="curriculumMenuTitle" class="menuTitle">Curriculum</span>
-
-        <!-- Close button -->
-        <div class="menuClose" onclick="curriculum.toggleMenu()">
-            <img src="Data/Images/Icons/close.webp">
-        </div>
-        
-        <!-- Language selector -->
-        <div class="menuList">
-            <a class="button" target="_blank" href="Data/Documents/CV (english).pdf" onclick="curriculum.toggleMenu()">English</a>
-            <a class="button" target="_blank" href="Data/Documents/CV (español).pdf" onclick="curriculum.toggleMenu()">Español</a>
-        </div>
-    </dialog>
-
-
-
-      <!--$$$                      /$$                
-     /$$__  $$                    | $$                
-    | $$  \__/ /$$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$ 
-    |  $$$$$$ | $$__  $$ |____  $$| $$  /$$/ /$$__  $$
-     \____  $$| $$  \ $$  /$$$$$$$| $$$$$$/ | $$$$$$$$
-     /$$  \ $$| $$  | $$ /$$__  $$| $$_  $$ | $$_____/
-    |  $$$$$$/| $$  | $$|  $$$$$$$| $$ \  $$|  $$$$$$$
-     \______/ |__/  |__/ \_______/|__/  \__/ \_____-->
-
-    <!-- Game -->
-    <dialog id="snakeMenu">
-        <!-- Title -->
-        <span class="menuTitle">Snake</span>
-
-        <!-- Close button -->
-        <div class="menuClose" onclick="snake.toggleMenu()">
-            <img src="Data/Images/Icons/close.webp">
-        </div>
-
-        <!-- Points info -->
-        <div class="snakeInfo">
-            <span>
-                <span id="snakeInfoPointsText">Points: </span>
-                <span id="snakeInfoPoints">0</span>
-            </span>
-            <span>
-                <span id="snakeInfoBestText">Highscore: </span>
-                <span id="snakeInfoBest">0</span>
-            </span>
-        </div>
-
-        <!-- Game canvas -->
-        <canvas id="snakeCanvas" width="360" height="360"></canvas>
-
-        <!-- Arrows & restart button -->
-        <div class="snakeControls">
-            <!-- D-Pad -->
-            <div class="snakeControlsArrows">
-                <span class="snakeControlsArrow" onclick="snake.game.keyPress('a')">◀</span>
-                <div>
-                    <span class="snakeControlsArrow" up onclick="snake.game.keyPress('w')">◀</span>
-                    <div class="snakeControlsArrowCenter"></div>
-                    <span class="snakeControlsArrow" down onclick="snake.game.keyPress('s')">◀</span>
-                </div>
-                <span class="snakeControlsArrow" right onclick="snake.game.keyPress('d')">◀</span>
-            </div>
-
-            <!-- Restart button -->
-            <div id="snakeRestart" class="snakeButton" onclick="snake.game.restart()">Restart</div>
-        </div>
-
-        <!-- State info -->
-        <span id="snakeInfoState"></span>
-    </dialog>
-
-    <!-- AFK message -->
-    <div id="snakeAFK" onclick="snake.toggleMenu(); this.removeAttribute('show')">
-        <span id="snakeAFKText">Seems a bit quiet here...<br>Wanna play a game?</span>
-        <img src="Data/Images/Icons/afk.webp">
-    </div>
-
-
-
-      <!--$$$            /$$       /$$                                                                   /$$             
-     /$$__  $$          | $$      |__/                                                                  | $$             
-    | $$  \ $$  /$$$$$$$| $$$$$$$  /$$  /$$$$$$  /$$    /$$ /$$$$$$  /$$$$$$/$$$$   /$$$$$$  /$$$$$$$  /$$$$$$   /$$$$$$$
-    | $$$$$$$$ /$$_____/| $$__  $$| $$ /$$__  $$|  $$  /$$//$$__  $$| $$_  $$_  $$ /$$__  $$| $$__  $$|_  $$_/  /$$_____/
-    | $$__  $$| $$      | $$  \ $$| $$| $$$$$$$$ \  $$/$$/| $$$$$$$$| $$ \ $$ \ $$| $$$$$$$$| $$  \ $$  | $$   |  $$$$$$ 
-    | $$  | $$| $$      | $$  | $$| $$| $$_____/  \  $$$/ | $$_____/| $$ | $$ | $$| $$_____/| $$  | $$  | $$ /$$\____  $$
-    | $$  | $$|  $$$$$$$| $$  | $$| $$|  $$$$$$$   \  $/  |  $$$$$$$| $$ | $$ | $$|  $$$$$$$| $$  | $$  |  $$$$//$$$$$$$/
-    |__/  |__/ \_______/|__/  |__/|__/ \_______/    \_/    \_______/|__/ |__/ |__/ \_______/|__/  |__/   \___/ |_____--> 
-
-    <dialog id="achievementsMenu">
-        <!-- Title -->
-        <span id="achievementsTitle" class="menuTitle">Achievements</span>
-
-        <!-- Close button -->
-        <div class="menuClose" onclick="achievements.toggleMenu()">
-            <img src="Data/Images/Icons/close.webp">
-        </div>
-
-        <!-- Description -->
-        <span id="achievementsDescription">Find new achievements by interacting with the page</span>
-
-        <!-- Achievements list -->
-        <div id="achievementsList"></div>
-    </dialog>
 
 
 
@@ -630,7 +653,4 @@
 
     <dialog id="snackbar"></dialog>
 </body>
-
-<!-- Script -->
-<script src="Data/JS/main.js"></script>
 </html>
