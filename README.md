@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://panco.vercel.app/">
+  <a href="https://botpa.vercel.app/">
     <img src="https://github.com/BOTPanzer/Pancoverse/blob/main/src/assets/images/favicon.png" width="130">
   </a>
 </p>
