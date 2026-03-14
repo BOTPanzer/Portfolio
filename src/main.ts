@@ -143,7 +143,7 @@ class SnakeGame {
 
     //Technical
     #animationFrame: number = -1
-    #updateInterval: number = -1
+    #updateInterval: NodeJS.Timeout | undefined = undefined
     #context: CanvasRenderingContext2D
     #inputQueue: string[] = []
     #delta: number = 1000 / 9 //9 fps
@@ -465,7 +465,7 @@ class SnakeEasteregg {
 
     //Toggle easteregg (AFK timer)
     #afkDuration: number = 25000 //25 seconds
-    #afkTimer: number = -1
+    #afkTimer: NodeJS.Timeout | undefined = undefined
     
     onAFK = () => {
         //Already enabled or message/menu is open
@@ -793,7 +793,7 @@ class HomeText {
     }
 
     //Variables
-    #timer: number | undefined = undefined
+    #timer: NodeJS.Timeout | undefined = undefined
     #baseL: string = ''
     #baseR: string = ''
     #role: string = ''
