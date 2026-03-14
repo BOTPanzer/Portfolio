@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-    base: process.env.GITHUB_ACTIONS ? '/your-repo-name/' : '/'
+    base: process.env.GITHUB_ACTIONS ? '/Portfolio/' : '/'
 })
