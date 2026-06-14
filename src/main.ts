@@ -1390,7 +1390,14 @@ class ProjectsPage {
         const elementMedia = document.createElement('div')
         elementMedia.id = `${id}-media`
         elementMedia.classList.add('project-media')
-        if (typeof project.vid === 'string') elementMedia.setAttribute('hasvideo', '')
+        if (typeof project.vid === 'string') {
+            elementMedia.setAttribute('hasvideo', '')
+        }
+        if (Array.isArray(project.mediaAttributes)) {
+            for (const attribute of project.mediaAttributes) {
+                elementMedia.setAttribute(attribute, '')
+            }
+        }
         element.appendChild(elementMedia)
     
         //Media > Content

@@ -1170,7 +1170,8 @@ export const Project: any = Object.freeze({
         category: Category.games,
         tags: [Tag.cs, Tag.js, Tag.nodejs, Tag.unity, Tag.blender, Tag.photoshop],
         buttons: ['https://botpa.itch.io/spyw4re'],
-        vid: 'Qc3aWfPAxg0'
+        vid: 'Qc3aWfPAxg0',
+        mediaAttributes: ['glitch']
     },
     artist_posters: {
         key: 'artist_posters',
@@ -1222,7 +1223,8 @@ export const Project: any = Object.freeze({
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.blender, Tag.photoshop],
         buttons: ['https://botpa.itch.io/the-lost-fresquita'],
-        vid: 'SC_3TWWP46k'
+        vid: 'SC_3TWWP46k',
+        mediaAttributes: ['glitch']
     },
     raccoon: {
         key: 'raccoon',
@@ -1244,7 +1246,8 @@ export const Project: any = Object.freeze({
         category: Category.games,
         tags: [Tag.cs, Tag.unity, Tag.blender, Tag.photoshop, Tag.substance],
         buttons: ['https://botpa.itch.io/escape-from-lmdshow'],
-        vid: 'z0Qv5HZyZgU'
+        vid: 'z0Qv5HZyZgU',
+        mediaAttributes: ['glitch']
     },
     memory_shift: {
         key: 'memory_shift',

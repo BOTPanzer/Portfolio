@@ -2072,7 +2072,7 @@ dialog:not(#snackbar) {
     }
 }
 
-/* Projects -> Media -> Content (Glitch/Image/Video) */
+/* Projects -> Media -> Content (Image/Video/Glitch) */
 .project-media-content {
     --glitchImg: url('');
 
@@ -2097,8 +2097,9 @@ dialog:not(#snackbar) {
         scale: 1.1;
     }
 
-    .project-media:not([video]):hover .project-media-content::before,
-    .project-media:not([video]):hover .project-media-content::after {
+    /* Glitch */
+    .project-media[glitch]:not([video]):hover .project-media-content::before,
+    .project-media[glitch]:not([video]):hover .project-media-content::after {
         content: '';
         --appearAnimation: projectGlitchAppear 0s;
 
@@ -2124,7 +2125,7 @@ dialog:not(#snackbar) {
         animation-duration: 0.3s;
     }
 
-    .project-media:not([video]):hover .project-media-content::after {
+    .project-media[glitch]:not([video]):hover .project-media-content::after {
         /* Other */
         animation: projectGlitchColor forwards, projectGlitchClip -0.1s infinite;
     }
