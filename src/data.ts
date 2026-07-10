@@ -965,8 +965,8 @@ export const Career: any = Object.freeze({
         icon: 'university.webp',
         startMonth: 9,
         startYear: 2022,
-        endMonth: 0,
-        endYear: 0,
+        endMonth: 7,
+        endYear: 2026,
     }
 })
 
