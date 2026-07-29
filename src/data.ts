@@ -148,6 +148,11 @@ export const Locales: any = Object.freeze({
                 jam: 'Jam Game',
             },
             items: {
+                artist_posters_2: {
+                    tit: "Artist Posters 2",
+                    con: "Some posters I made from artists I listen to. There is a total of 7 posters.",
+                    b1: "See posters"
+                },
                 coon_gallery: {
                     tit: 'Coon Gallery',
                     con: `
@@ -609,6 +614,11 @@ export const Locales: any = Object.freeze({
                 jam: 'Juego de Jam',
             },
             items: {
+                artist_posters_2: {
+                    tit: "Posters de Artistas",
+                    con: "Algunos posters que hice de artistas que escucho. Hay un total de 7 posters.",
+                    b1: "Ver posters"
+                },
                 coon_gallery: {
                     tit: 'Coon Gallery',
                     con: `
@@ -1053,6 +1063,7 @@ export const Tag: any = Object.freeze({
     vscode: 'VSCode',
     blender: 'Blender',
     photoshop: 'Photoshop',
+    affinity: 'Affinity',
     illustrator: 'Illustrator',
     max3ds: '3ds Max',
     substance: 'Substance Painter',
@@ -1090,6 +1101,16 @@ export const FavPoints: any = Object.freeze({
 
 //Projects
 export const Project: any = Object.freeze({
+    artist_posters_2: {
+        key: 'artist_posters_2',
+        dateStart: 2026,
+        dateEnd: 2026,
+        favPoints: FavPoints.fine,
+        scope: [Scope.solo, Scope.personal],
+        category: Category.design,
+        tags: [Tag.affinity],
+        buttons: ["https://www.artstation.com/bot_panzer/albums/15143394"]
+    },
     coon_gallery: {
         key: 'coon_gallery',
         dateStart: 2025,
@@ -1385,6 +1406,7 @@ export const SelectedProjects: any = Object.freeze([
     Project.stardew_pets,
     Project.coon_gallery,
     Project.hardcore_kitty,
+    Project.artist_posters_2,
     Project.akira_posters,
     Project.artist_posters,
     Project.map_pinner,
