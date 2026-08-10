@@ -113,7 +113,7 @@ body {
     display: flex;
     flex-direction: row;
 
-    /* Visuals */
+    /* Appearence */
     background: var(--bg);
     color: var(--text);
     fill: var(--text);
@@ -152,7 +152,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    /* Visuals */
+    /* Appearence */
     background-color: var(--text);
     border-radius: 7px;
     border: solid 4px transparent;
@@ -160,7 +160,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    /* Visuals */
+    /* Appearence */
     border: solid 3px transparent;
 }
 
@@ -176,19 +176,19 @@ a {
 
     /* Text link */
     &:not([class])[href] {
-        /* Visuals */
+        /* Appearence */
         color: var(--link);
     }
 }
 
 /* Appear animation */
 .appear {
-    /* Visuals */
+    /* Appearence */
     opacity: 0;
 
     /* Appear animation */
     &[appeared] {
-        /* Visuals */
+        /* Appearence */
         opacity: unset;
 
         /* Other */
@@ -215,8 +215,7 @@ a {
 
     /* Layout */
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
 
     /* Other */
     z-index: -1;
@@ -229,11 +228,10 @@ a {
 
     /* Layout */
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
 
-    /* Visuals */
-    backdrop-filter: blur(80px);
+    /* Appearence */
+    backdrop-filter: blur(70px);
 }
 
 .blob {
@@ -248,45 +246,41 @@ a {
 
     /* Layout */
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
 
-    /* Visuals */
+    /* Appearence */
     background-color: #01c1be;
     opacity: calc(var(--brightness) * 14%);
 
     /* Other */
-    animation: blob ease-in-out 20s infinite;
+    animation: blobAnimation cubic-bezier(0.37, 0, 0.63, 1) 20s infinite;
 }
 
 .blob[alt] {
-    /* Visuals */
+    /* Appearence */
     background-color: #8c1de7;
     opacity: calc(var(--brightness) * 8%);
+    scale: 1.2;
 
     /* Other */
     animation-delay: -10s;
 }
 
-html[light] .blob {
-    --brightness: 1.2;
-}
-
-@keyframes blob {
+@keyframes blobAnimation {
     0% {
-        clip-path: polygon(29% 12%, 26% 30%, 50% 87%, 86% 68%, 63% 87%, 40% 41%, 36% 58%, 68% 54%, 12% 84%, 12% 13%);
+        clip-path: polygon(25% 28%, 72% 26%, 88% 38%, 85% 58%, 70% 72%, 50% 74%, 32% 70%, 12% 62%, 15% 45%);
     }
     25% {
-        clip-path: polygon(14% 6%,  15% 71%, 84% 16%, 86% 68%, 63% 87%, 40% 41%, 66% 89%, 29% 44%, 59% 92%, 12% 13%);
+        clip-path: polygon(15% 25%, 85% 30%, 88% 46%, 84% 60%, 66% 72%, 58% 74%, 38% 68%, 16% 64%, 28% 48%);
     }
     50% {
-        clip-path: polygon(76% 75%, 7% 4%,   84% 16%, 41% 20%, 56% 60%, 18% 7%,  80% 11%, 33% 24%, 59% 92%, 45% 14%);
+        clip-path: polygon(40% 25%, 82% 28%, 85% 32%, 78% 52%, 75% 68%, 58% 74%, 54% 58%, 32% 46%, 20% 38%);
     }
     75% {
-        clip-path: polygon(52% 15%, 7% 4%,    0% 45%, 41% 20%, 66% 70%, 94% 7%,  40% 56%, 33% 24%, 59% 92%, 45% 14%)
+        clip-path: polygon(55% 25%, 92% 27%, 75% 34%, 66% 62%, 58% 73%, 40% 65%, 32% 53%, 5% 48%,  15% 38%);
     }
     100% {
-        clip-path: polygon(29% 12%, 26% 30%, 50% 87%, 86% 68%, 63% 87%, 40% 41%, 36% 58%, 68% 54%, 12% 84%, 12% 13%);
+        clip-path: polygon(25% 28%, 72% 26%, 88% 38%, 85% 58%, 70% 72%, 50% 74%, 32% 70%, 12% 62%, 15% 45%);
     }
 }
 
@@ -308,7 +302,7 @@ html[light] .blob {
     /* Layout */
     box-sizing: border-box;
 
-    /* Visuals */
+    /* Appearence */
     --transparentBG: color-mix(in srgb, var(--bg) 55%, transparent);
     border: var(--borderSoft);
 }
@@ -316,14 +310,14 @@ html[light] .blob {
 .component {
     @extend .component-base;
 
-    /* Visuals */
+    /* Appearence */
     background-color: var(--transparentBG);
 }
 
 .component-hover {
     @extend .component-base;
 
-    /* Visuals */
+    /* Appearence */
     background-image:
         linear-gradient(to bottom, transparent, transparent),
         linear-gradient(to bottom, var(--transparentBG), var(--transparentBG));
@@ -333,14 +327,14 @@ html[light] .blob {
 .glass {
     @extend .component;
 
-    /* Visuals */
+    /* Appearence */
     backdrop-filter: blur(5px);
 }
 
 .glass-hover {
     @extend .component-hover;
 
-    /* Visuals */
+    /* Appearence */
     backdrop-filter: blur(5px);
 }
 
@@ -353,7 +347,7 @@ html[light] .blob {
     /* Spacing */
     padding: 8px 16px;
 
-    /* Visuals */
+    /* Appearence */
     border: var(--border);
     border-radius: 30px;
     outline: none;
@@ -369,7 +363,7 @@ html[light] .blob {
 
     /* Hover animation */
     &:hover {
-        /* Visuals */
+        /* Appearence */
         background-color: var(--hover);
     }
 }
@@ -395,8 +389,7 @@ html[light] .blob {
 
     /* Layouts */
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -406,7 +399,7 @@ html[light] .blob {
     /* Text */
     font-family: mono;
 
-    /* Visuals */
+    /* Appearence */
     background-color: var(--bg);
 
     /* Other */
@@ -415,7 +408,7 @@ html[light] .blob {
 
     /* Loaded */
     &[loaded] {
-        /* Visuals */
+        /* Appearence */
         opacity: 0;
 
         /* Other */
@@ -428,7 +421,7 @@ html[light] .blob {
     width: 250px;
     height: 4px;
 
-    /* Visuals */
+    /* Appearence */
     background-color: var(--hover);
     --fill: 0%;
 }
@@ -438,7 +431,7 @@ html[light] .blob {
     width: var(--fill);
     height: 100%;
     
-    /* Visuals */
+    /* Appearence */
     background-color: var(--text);
 }
 
@@ -467,13 +460,14 @@ html[light] .blob {
     align-items: center;
     justify-content: center;
 
-    /* Visuals */
-    border-radius: 15px;
+    /* Appearence */
+    border-radius: 20px;
     opacity: 0;
 
     /* Other */
     z-index: 90;
     pointer-events: none;
+    transition: opacity .2s, left .2s;
 }
 
 .sidebar-toggle::after {
@@ -485,10 +479,9 @@ html[light] .blob {
 
     /* Layout */
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
 
-    /* Visuals */
+    /* Appearence */
     background-color: var(--hover);
     border-radius: inherit;
     opacity: 0;
@@ -498,7 +491,7 @@ html[light] .blob {
 }
 
 .sidebar-toggle:hover::after {
-    /* Visuals */
+    /* Appearence */
     opacity: 1;
 }
 
@@ -507,17 +500,25 @@ html[light] .blob {
     width: 20px;
     height: 20px;
 
-    /* Visuals */
+    /* Appearence */
     filter: var(--textFilter);
 }
 
 @media screen and (orientation:portrait) {
     .sidebar-toggle {
-        /* Visuals */
+        /* Appearence */
         opacity: 1;
 
         /* Other */
         pointer-events: unset;
+    }
+
+    .sidebar-toggle[open] {
+        /* Layout */
+        left: -50px;
+
+        /* Appearence */
+        opacity: 0;
     }
 }
 
@@ -529,10 +530,9 @@ html[light] .blob {
     
     /* Layout */
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
 
-    /* Visuals */
+    /* Appearence */
     background-color: transparent;
 
     /* Other */
@@ -556,7 +556,7 @@ html[light] .blob {
     }
 
     .sidebar[open] {
-        /* Visuals */
+        /* Appearence */
         background-color: var(--backdrop);
 
         /* Other */
@@ -578,14 +578,13 @@ html[light] .blob {
 
     /* Layout */
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     bottom: 0;
     display: flex;
     flex-direction: column;
 
-    /* Visuals */
-    border-radius: 20px;
+    /* Appearence */
+    border-radius: calc(var(--sidebarWidthClosed) * 0.5);
 
     /* Other */
     overflow-x: hidden;
@@ -629,7 +628,7 @@ html[light] .blob {
     align-items: center;
     gap: 10px;
 
-    /* Visuals */
+    /* Appearence */
     border-radius: 20px;
 
     /* Text */
@@ -643,7 +642,7 @@ html[light] .blob {
 
     /* Hover animation */
     &:hover {
-        /* Visuals */
+        /* Appearence */
         background-color: var(--hover);
     }
 }
@@ -658,7 +657,7 @@ html[light] .blob {
     width: 20px;
     height: 20px;
     
-    /* Visuals */
+    /* Appearence */
     filter: var(--textFilter);
 }
 
@@ -666,7 +665,7 @@ html[light] .blob {
     /* Text */
     white-space: nowrap;
 
-    /* Visuals */
+    /* Appearence */
     opacity: 0;
 
     /* Other */
@@ -674,13 +673,13 @@ html[light] .blob {
 }
 
 .sidebar-menu:hover > .sidebar-button > span {
-    /* Visuals */
+    /* Appearence */
     opacity: 1;
 }
 
 @media screen and (orientation:portrait) {
     .sidebar[open] .sidebar-button > span {
-        /* Visuals */
+        /* Appearence */
         opacity: 1;
     }
 }
@@ -691,11 +690,10 @@ html[light] .blob {
 
     /* Layout */
     position: absolute;
-    top: 0;
-    bottom: 0;
+    inset: 0;
     right: -10px;
 
-    /* Visuals */
+    /* Appearence */
     background-color: var(--text);
     border-radius: 2px;
     opacity: 0;
@@ -706,7 +704,7 @@ html[light] .blob {
 }
 
 .sidebar-button[selected] > indicator {
-    /* Visuals */
+    /* Appearence */
     opacity: 1;
 }
 
@@ -736,7 +734,7 @@ html[light] .blob {
     /* Text */
     text-align: center;
 
-    /* Visuals */
+    /* Appearence */
     border-radius: 30px;
     background-color: var(--bg);
     border: var(--borderSoftThick);
@@ -787,7 +785,7 @@ html[light] .blob {
 
 /* Menu backdrop (click to close) */
 dialog:not(#snackbar)::backdrop {
-    /* Visuals */
+    /* Appearence */
     background-color: var(--backdrop);
 }
 
@@ -808,7 +806,7 @@ dialog:not(#snackbar) {
     flex-direction: column;
     align-items: center;
 
-    /* Visuals */
+    /* Appearence */
     border-radius: 25px;
     background-color: var(--bg);
     border: var(--borderSoftThick);
@@ -825,7 +823,7 @@ dialog:not(#snackbar) {
 
     /* Open animation */
     &[open] {
-        /* Visuals */
+        /* Appearence */
         opacity: 1;
 
         /* Other */
@@ -864,7 +862,7 @@ dialog:not(#snackbar) {
     align-items: center;
     justify-content: center;
 
-    /* Visuals */
+    /* Appearence */
     border: var(--borderTransparent);
     border-radius: 40px;
 
@@ -874,7 +872,7 @@ dialog:not(#snackbar) {
 
     /* Hover animation */
     &:hover {
-        /* Visuals */
+        /* Appearence */
         background-color: color-mix(in srgb, var(--accent) 30%, transparent);
         border: var(--border)
     }
@@ -885,7 +883,7 @@ dialog:not(#snackbar) {
     height: 14px;
     width: 14px;
 
-    /* Visuals */
+    /* Appearence */
     filter: var(--textFilter);
 }
 
@@ -945,7 +943,7 @@ dialog:not(#snackbar) {
     position: relative;
     box-sizing: border-box;
 
-    /* Visuals */
+    /* Appearence */
     border: var(--borderSoftThick);
 }
 
@@ -981,7 +979,7 @@ dialog:not(#snackbar) {
     width: 40px;
     height: 40px;
     
-    /* Visuals */
+    /* Appearence */
     background-color: var(--text);
 }
 
@@ -995,7 +993,7 @@ dialog:not(#snackbar) {
     align-items: center;
     justify-content: center;
 
-    /* Visuals */
+    /* Appearence */
     background-color: var(--text);
     border-radius: 10px 0 0 10px;
 
@@ -1033,7 +1031,7 @@ dialog:not(#snackbar) {
     /* Spacing */
     padding: 8px 16px;
 
-    /* Visuals */
+    /* Appearence */
     background-color: var(--text);
     border-radius: 30px;
     outline: none;
@@ -1077,7 +1075,7 @@ dialog:not(#snackbar) {
     flex-direction: row;
     align-items: center;
 
-    /* Visuals */
+    /* Appearence */
     background-color: var(--bg);
     border: var(--borderSoftThick);
     border-radius: 20px;
@@ -1090,7 +1088,7 @@ dialog:not(#snackbar) {
 
     /* Show animation */
     &[show] {
-        /* Visuals */
+        /* Appearence */
         animation: snake-afk 1s forwards;
         
         /* Other */
@@ -1119,7 +1117,7 @@ dialog:not(#snackbar) {
     bottom: 10px;
     right: 10px;
 
-    /* Visuals */
+    /* Appearence */
     border-radius: 10px;
 }
 
@@ -1172,7 +1170,7 @@ dialog:not(#snackbar) {
     display: flex;
     gap: 15px;
 
-    /* Visuals */
+    /* Appearence */
     border: var(--border);
     border-radius: 25px;
     background: var(--bg);
@@ -1192,7 +1190,7 @@ dialog:not(#snackbar) {
     height: 100%;
     aspect-ratio: 1;
 
-    /* Visuals */
+    /* Appearence */
     border-radius: 15px;
 }
 
@@ -1227,8 +1225,7 @@ dialog:not(#snackbar) {
 
     /* Layout */
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
 
     /* Text */
     text-transform: uppercase;
@@ -1237,12 +1234,12 @@ dialog:not(#snackbar) {
     font-size: 26px;
     text-align: center;
 
-    /* Visuals */
+    /* Appearence */
     opacity: 0;
 }
 
 .achievement[hidden] > span {
-    /* Visuals */
+    /* Appearence */
     opacity: 1;
     background-color: var(--bg);
     border-radius: inherit;
@@ -1256,10 +1253,9 @@ dialog:not(#snackbar) {
 
     /* Layout */
     position: absolute;
-    top: 0;
-    right: 0;
+    inset: 0;
 
-    /* Visuals */
+    /* Appearence */
     background-color: #f32853;
     border-radius: 50%;
 
@@ -1368,8 +1364,7 @@ dialog:not(#snackbar) {
 
     /* Layout */
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
 
     /* Filter */
     filter: var(--textFilter);
@@ -1479,7 +1474,7 @@ dialog:not(#snackbar) {
     align-items: center;
     justify-content: center;
     
-    /* Visuals */
+    /* Appearence */
     /*filter: var(--textFilter);*/
     border-radius: 100%;
     
@@ -1502,7 +1497,7 @@ dialog:not(#snackbar) {
     width: 24px;
     aspect-ratio: 1;
 
-    /* Visuals */
+    /* Appearence */
     filter: var(--textFilter);
 }
 
@@ -1732,7 +1727,7 @@ dialog:not(#snackbar) {
     text-transform: uppercase;
     pointer-events: none;
 
-    /* Visuals */
+    /* Appearence */
     background: var(--text);
     color: var(--bg);
     border-radius: 20px 0;
@@ -1780,6 +1775,9 @@ dialog:not(#snackbar) {
     /* Size */
     width: 20px;
     height: 20px;
+
+    /* Appearence */
+    filter: var(--textFilter);
 }
 
 .career-item-left > line {
@@ -1789,7 +1787,7 @@ dialog:not(#snackbar) {
     /* Layout */
     flex: 1;
 
-    /* Visuals */
+    /* Appearence */
     background-color: var(--text);
 }
 
@@ -1902,7 +1900,7 @@ dialog:not(#snackbar) {
     position: absolute;
     left: -10px;
 
-    /* Visuals */
+    /* Appearence */
     background-color: var(--bg);
     border: var(--borderSoft);
 
@@ -2083,7 +2081,7 @@ dialog:not(#snackbar) {
     /* Layout */
     position: relative;
 
-    /* Visuals */
+    /* Appearence */
     border-radius: 30px;
 
     /* Other */
@@ -2109,10 +2107,9 @@ dialog:not(#snackbar) {
 
         /* Layout */
         position: absolute;
-        top: 0;
-        left: 0;
+        inset: 0;
 
-        /* Visuals */
+        /* Appearence */
         background-image: var(--glitchImg);
         background-size: cover;
         background-position: center;
@@ -2198,8 +2195,7 @@ dialog:not(#snackbar) {
 
     /* Layout */
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
 
     /* Other */
     object-fit: cover;
@@ -2219,7 +2215,7 @@ dialog:not(#snackbar) {
     top: -1px;
     left: -1px;
 
-    /* Visuals */
+    /* Appearence */
     border: unset;
 
     /* Other */
@@ -2249,7 +2245,7 @@ dialog:not(#snackbar) {
     text-transform: uppercase;
     pointer-events: none;
 
-    /* Visuals */
+    /* Appearence */
     border-radius: 20px;
 
     /* Other */
@@ -2263,7 +2259,7 @@ dialog:not(#snackbar) {
 }
 
 .project-media[video] .project-scope {
-    /* Visuals */
+    /* Appearence */
     opacity: 0;
 
     /* Other */
@@ -2281,7 +2277,7 @@ dialog:not(#snackbar) {
     }
 
     .project-media:hover:not([video]) .project-scope {
-        /* Visuals */
+        /* Appearence */
         opacity: .6;
 
         /* Other */
@@ -2339,7 +2335,7 @@ dialog:not(#snackbar) {
     justify-content: center;
     gap: 10px;
 
-    /* Visuals */
+    /* Appearence */
     border-radius: 30px;
 
     /* Text */
@@ -2354,13 +2350,13 @@ dialog:not(#snackbar) {
 
 @media screen and (orientation:landscape) {
     .project-media[video] .project-action-button {
-        /* Visuals */
+        /* Appearence */
         background: unset;
         border: var(--border);
     }
 
     .project-media[video] .project-action-button:hover {
-        /* Visuals */
+        /* Appearence */
         background-color: var(--hover);
     }
 }
@@ -2369,7 +2365,7 @@ dialog:not(#snackbar) {
     /* Spacing */
     margin-left: -55px;
     
-    /* Visuals */
+    /* Appearence */
     opacity: 0;
 
     /* Other */
@@ -2381,7 +2377,7 @@ dialog:not(#snackbar) {
     width: 1lh;
     height: 1lh;
     
-    /* Visuals */
+    /* Appearence */
     filter: var(--textFilter);
 }
 
@@ -2430,7 +2426,7 @@ dialog:not(#snackbar) {
 
     .project-media:hover + .project-info,
     .project-media[video] + .project-info {
-        /* Visuals */
+        /* Appearence */
         opacity: .6;
 
         /* Other */
@@ -2491,7 +2487,7 @@ dialog:not(#snackbar) {
     flex-direction: column;
     gap: 20px;
 
-    /* Visuals */
+    /* Appearence */
     border-radius: 20px;
 
     /* Other */
@@ -2503,7 +2499,7 @@ dialog:not(#snackbar) {
         /* Spacing */
         padding: 0;
 
-        /* Visuals */
+        /* Appearence */
         background: unset;
         border: unset;
         border-radius: unset;
@@ -2546,7 +2542,7 @@ dialog:not(#snackbar) {
     font-family: mono;
     font-size: .86rem;
     
-    /* Visuals */
+    /* Appearence */
     opacity: 0.5;
 }
 
@@ -2588,7 +2584,7 @@ dialog:not(#snackbar) {
     font-family: mono;
     font-size: .9rem;
 
-    /* Visuals */
+    /* Appearence */
     color: var(--text);
     border-radius: 50px;
 
@@ -2598,7 +2594,7 @@ dialog:not(#snackbar) {
 
     /* Hover animation */
     &:hover {
-        /* Visuals */
+        /* Appearence */
         background-image:
             linear-gradient(to bottom, var(--hover), var(--hover)),
             linear-gradient(to bottom, var(--bg), var(--bg));
@@ -2641,21 +2637,23 @@ dialog:not(#snackbar) {
 
     /* Layout */
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
 
-    /* Visuals */
+    /* Appearence */
     background-color: var(--bg);
     opacity: 0;
+    scale: 0.5;
 
     /* Other */
     z-index: 999;
     pointer-events: none;
+    transition: opacity .2s, scale .2s;
 
     /* Show animation */
     &[show] {
-        /* Visuals */
+        /* Appearence */
         opacity: 1;
+        scale: 1;
 
         /* Other */
         pointer-events: unset;
@@ -2745,7 +2743,7 @@ dialog:not(#snackbar) {
     width: 90%;
     height: 2px;
 
-    /* Visuals */
+    /* Appearence */
     background-color: var(--hover);
 }
 
@@ -2814,7 +2812,7 @@ dialog:not(#snackbar) {
 
     /* Mirror */
     &[mirror] {
-        /* Visuals */
+        /* Appearence */
         scale: -1 1;
     }
 }

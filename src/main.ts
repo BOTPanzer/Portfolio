@@ -736,9 +736,11 @@ class Sidebar {
         //Toggle sidebar
         if (toggle) {
             this.#elements.sidebar.setAttribute('open', '')
+            this.#elements.sidebarMobile.setAttribute('open', '')
             document.body.setAttribute('sidebar', '')
         } else {
             this.#elements.sidebar.removeAttribute('open')
+            this.#elements.sidebarMobile.removeAttribute('open')
             document.body.removeAttribute('sidebar')
         }
     }
