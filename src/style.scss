@@ -818,8 +818,6 @@ dialog:not(#snackbar) {
     z-index: 500;
     user-select: none;
     pointer-events: none;
-    transition: opacity .2s ease;
-    -moz-transition: none; /* Animation is broken in firefox, like many other things */
 
     /* Open animation */
     &[open] {
