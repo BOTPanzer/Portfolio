@@ -94,7 +94,7 @@ export const Locales: any = Object.freeze({
         //Skills
         skills: {
             title: 'My Skills',
-            desc: "I've been interested in the world of technology since I was little and, thanks to that, I've learnt a large number of skills related to different topics.",
+            desc: "I've been interested in the world of tech since I was little and, thanks to that, I've learnt a large number of skills related to different topics.",
             years: '+ years',
             names: {
                 game: 'Game Development',
@@ -106,7 +106,7 @@ export const Locales: any = Object.freeze({
             },
             note: {
                 title: 'Note:',
-                text: '2+ skills can be learnt at the same time.',
+                text: 'Tho it may sound obvious, 2+ skills can be learnt at the same time.',
             }
         },
         //Projects
@@ -230,7 +230,7 @@ export const Locales: any = Object.freeze({
                 stardew_pets: {
                     tit: "Stardew Pets",
                     con: `
-                        Stardew Pets is a VS Code extension with +33K downloads that lets you have Stardew Valley pets accompanying you while you code.
+                        Stardew Pets is a VS Code extension with +37K downloads that lets you have Stardew Valley pets accompanying you while you code.
                         <br><br>
                         Aditionaly, you can decorate your pets place with money obtained by protecting them from enemies that may appear.
                     `,
@@ -572,7 +572,7 @@ export const Locales: any = Object.freeze({
             },
             note: {
                 title: 'Nota:',
-                text: '2+ habilidades se pueden aprender a la vez.',
+                text: 'Aunque suene obvio, 2+ habilidades se pueden aprender a la vez.',
             }
         },
         //Projects
@@ -695,7 +695,7 @@ export const Locales: any = Object.freeze({
                 stardew_pets: {
                     tit: "Stardew Pets",
                     con: `
-                        Stardew Pets es una extensión para VS Code con +33K descargas que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
+                        Stardew Pets es una extensión para VS Code con +37K descargas que te permite tener mascotas de Stardew Valley acompañandote mientras programas.
                         <br><br>
                         Además, podrás decorar el lugar de tus mascotas con dinero obtenido al protegerlas de enemigos que aparezcan.
                     `,
