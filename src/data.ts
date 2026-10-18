@@ -80,13 +80,17 @@ export const Locales: any = Object.freeze({
                     "Dec."
                 ],
                 items: {
-                    reckless: {
-                        title: 'Reckless Monster Studio',
-                        content: 'Internship making Unreal Engine 5 games.'
+                    master: {
+                        title: 'Computer Graphics Master\'s Degree',
+                        content: 'Rey Juan Carlos University'
                     },
-                    university: {
-                        title: 'Rey Juan Carlos University',
-                        content: 'Studied a game design and development degree.'
+                    reckless: {
+                        title: 'Development Internship with Unreal Engine 5',
+                        content: 'Reckless Monster Studio'
+                    },
+                    degree: {
+                        title: 'Game Development Bachelor\'s Degree',
+                        content: 'Rey Juan Carlos University'
                     }
                 }
             }
@@ -546,13 +550,17 @@ export const Locales: any = Object.freeze({
                     "Dic."
                 ],
                 items: {
-                    reckless: {
-                        title: 'Reckless Monster Studio',
-                        content: 'Practicas realizando juegos en Unreal Engine 5.'
+                    master: {
+                        title: 'Master en Informática Gráfica',
+                        content: 'Universidad Rey Juan Carlos'
                     },
-                    university: {
-                        title: 'Universidad Rey Juan Carlos',
-                        content: 'Estudiado un grado de diseño y desarrollo de videojuegos.'
+                    reckless: {
+                        title: 'Practicas de Desarrollo en Unreal Engine 5',
+                        content: 'Reckless Monster Studio'
+                    },
+                    degree: {
+                        title: 'Grado en Desarrollo de Videojuegos',
+                        content: 'Universidad Rey Juan Carlos'
                     }
                 }
             }
@@ -964,6 +972,11 @@ export const Photos: any = Object.freeze([
 ])
 
 export const Career: any = Object.freeze({
+    master: {
+        icon: 'university.webp',
+        startMonth: 9,
+        startYear: 2026,
+    },
     reckless: {
         icon: 'game.webp',
         startMonth: 12,
@@ -971,7 +984,7 @@ export const Career: any = Object.freeze({
         endMonth: 6,
         endYear: 2026,
     },
-    university: {
+    degree: {
         icon: 'university.webp',
         startMonth: 9,
         startYear: 2022,
